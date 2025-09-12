@@ -43,7 +43,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 
 ---
 
-## Milestone 4 — Consolidation + Benchmarks
+## Milestone 4 — Consolidation + Benchmarks ✅ (done)
 - Fold into **micro_llm package**.  
 - ARC + DeFi **benchmark suites** (latent ARC, toy DeFi scenarios).  
 - **Test harness** for hallucination/abstain metrics.  
@@ -60,4 +60,5 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 | 1 — Hybrid Mapper + Prior Injection | ✅ Done  |
 | 2 — Stage-11 Warp + Detect | ✅ Done |
 | 3 — Stage-11 Denoise + Safety Guards |  ✅ Done |
-| 4 — Consolidation + Benchmarks | ⬜ Pending |
+| 4 — Consolidation + Benchmarks | ✅ Done |
+| 4 — Consolidation + Benchmarks | ✅ Done |
