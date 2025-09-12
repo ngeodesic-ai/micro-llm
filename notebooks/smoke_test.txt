@@ -1,5 +1,8 @@
 git branch -D defi_poc_v2
+git push origin --delete defi_poc_v2
 git reset --hard HEAD~5 
+
+jq . .artifacts/defi_milestone1_summary.json
 
 python3 -m pip uninstall -y micro-llm micro_llm   
 python3 -m pip install -e . 
@@ -32,3 +35,19 @@ from micro_llm.adapters import get_adapter_for_domain
 print(type(get_adapter_for_domain("arc")).__name__)
 print(type(get_adapter_for_domain("defi")).__name__)
 PY
+
+python3 - <<'PY'
+from micro_llm.pipelines.runner import run_micro
+res = run_micro(
+  domain="defi",
+  prompt="borrow 500 USDC",
+  context={"positions":{"collateral_value":1000.0,"debt_value":900.0}},
+  policy={"ltv_max":0.75,"liq_threshold":0.85},
+  rails="stage11", T=180
+)
+import json; print(json.dumps(res["verify"], indent=2))
+PY
+{
+  "ok": false,
+  "reason": "hf_too_low_for_borrow"
+}

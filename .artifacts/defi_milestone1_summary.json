@@ -1,0 +1,91 @@
+{
+  "milestone": "defi_milestone1",
+  "status": "pass",
+  "rails": "stage11",
+  "T": 180,
+  "scenarios": [
+    {
+      "name": "deposit_eth",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "deposit 10 ETH into aave",
+        "context_hash": "c2e20684",
+        "policy": {
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          },
+          "ltv_max": 0.75
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": "deposit_asset",
+        "flags": {
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": true,
+          "reason": ""
+        },
+        "aux": {
+          "prior": null,
+          "mapper_confidence": null,
+          "features": [
+            "deposit",
+            "withdraw",
+            "borrow",
+            "repay",
+            "swap",
+            "addcol",
+            "remcol"
+          ],
+          "stage10": {
+            "note": "fallback ranking"
+          }
+        }
+      }
+    },
+    {
+      "name": "nonexec_abstain",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "check balance",
+        "context_hash": "b9627dd2",
+        "policy": {
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          },
+          "ltv_max": 0.75
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": null,
+        "flags": {
+          "abstain_non_exec": true,
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": false,
+          "reason": "abstain_non_exec"
+        },
+        "aux": {
+          "prior": null,
+          "mapper_confidence": null,
+          "features": [
+            "deposit",
+            "withdraw",
+            "borrow",
+            "repay",
+            "swap",
+            "addcol",
+            "remcol"
+          ],
+          "stage10": null
+        }
+      }
+    }
+  ]
+}
