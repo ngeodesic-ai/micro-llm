@@ -12,7 +12,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 - **Stage-10 rails** (matched filter + dual thresholds).  
 - **Basic verifiers** (ARC grid ops, DeFi invariants).  
 - **End-to-end CLI runs working**.  
-✔️ This is where we already are.
+➡️ Baseline ARC prompts working
 
 ---
 
