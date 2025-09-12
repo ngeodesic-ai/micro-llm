@@ -16,7 +16,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 
 ---
 
-## Milestone 1 — Hybrid Mapper + Prior Injection
+## Milestone 1 — Hybrid Mapper + Prior Injection ✅ (done)
 - Integrate **trained mapper** (scikit-learn joblib stub).  
 - **Confidence scoring** + abstain wiring.  
 - Adapter residuals boosted with **priors**.  
@@ -25,7 +25,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 
 ---
 
-## Milestone 2 — Stage-11 Warp + Detect
+## Milestone 2 — Stage-11 Warp + Detect ✅ (done)
 - **Warp**: funnel fit, PCA(3), curvature metrics.  
 - **Detect**: matched filtering with calibrated nulls (permutation / circular shifts).  
 - **Output**: stable well identification + ordered primitives.  

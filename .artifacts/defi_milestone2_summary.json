@@ -3,7 +3,7 @@
   "status": "pass",
   "rails": "stage11",
   "T": 180,
-  "runs": 5,
+  "runs": 2,
   "scenarios": [
     {
       "name": "deposit_eth",
@@ -26,9 +26,6 @@
         "T": 180,
         "stable_top1": true,
         "top1_list": [
-          "deposit_asset",
-          "deposit_asset",
-          "deposit_asset",
           "deposit_asset",
           "deposit_asset"
         ],
@@ -88,90 +85,6 @@
               },
               "stage11": null
             }
-          },
-          {
-            "iteration": 2,
-            "top1": "deposit_asset",
-            "flags": {
-              "oracle_stale": false
-            },
-            "verify": {
-              "ok": true,
-              "reason": ""
-            },
-            "aux": {
-              "prior": null,
-              "mapper_confidence": null,
-              "features": [
-                "deposit",
-                "withdraw",
-                "borrow",
-                "repay",
-                "swap",
-                "addcol",
-                "remcol"
-              ],
-              "stage10": {
-                "note": "fallback ranking"
-              },
-              "stage11": null
-            }
-          },
-          {
-            "iteration": 3,
-            "top1": "deposit_asset",
-            "flags": {
-              "oracle_stale": false
-            },
-            "verify": {
-              "ok": true,
-              "reason": ""
-            },
-            "aux": {
-              "prior": null,
-              "mapper_confidence": null,
-              "features": [
-                "deposit",
-                "withdraw",
-                "borrow",
-                "repay",
-                "swap",
-                "addcol",
-                "remcol"
-              ],
-              "stage10": {
-                "note": "fallback ranking"
-              },
-              "stage11": null
-            }
-          },
-          {
-            "iteration": 4,
-            "top1": "deposit_asset",
-            "flags": {
-              "oracle_stale": false
-            },
-            "verify": {
-              "ok": true,
-              "reason": ""
-            },
-            "aux": {
-              "prior": null,
-              "mapper_confidence": null,
-              "features": [
-                "deposit",
-                "withdraw",
-                "borrow",
-                "repay",
-                "swap",
-                "addcol",
-                "remcol"
-              ],
-              "stage10": {
-                "note": "fallback ranking"
-              },
-              "stage11": null
-            }
           }
         ]
       }
@@ -197,9 +110,6 @@
         "T": 180,
         "stable_top1": true,
         "top1_list": [
-          "swap_asset",
-          "swap_asset",
-          "swap_asset",
           "swap_asset",
           "swap_asset"
         ],
@@ -234,90 +144,6 @@
           },
           {
             "iteration": 1,
-            "top1": "swap_asset",
-            "flags": {
-              "oracle_stale": false
-            },
-            "verify": {
-              "ok": true,
-              "reason": ""
-            },
-            "aux": {
-              "prior": null,
-              "mapper_confidence": null,
-              "features": [
-                "deposit",
-                "withdraw",
-                "borrow",
-                "repay",
-                "swap",
-                "addcol",
-                "remcol"
-              ],
-              "stage10": {
-                "note": "fallback ranking"
-              },
-              "stage11": null
-            }
-          },
-          {
-            "iteration": 2,
-            "top1": "swap_asset",
-            "flags": {
-              "oracle_stale": false
-            },
-            "verify": {
-              "ok": true,
-              "reason": ""
-            },
-            "aux": {
-              "prior": null,
-              "mapper_confidence": null,
-              "features": [
-                "deposit",
-                "withdraw",
-                "borrow",
-                "repay",
-                "swap",
-                "addcol",
-                "remcol"
-              ],
-              "stage10": {
-                "note": "fallback ranking"
-              },
-              "stage11": null
-            }
-          },
-          {
-            "iteration": 3,
-            "top1": "swap_asset",
-            "flags": {
-              "oracle_stale": false
-            },
-            "verify": {
-              "ok": true,
-              "reason": ""
-            },
-            "aux": {
-              "prior": null,
-              "mapper_confidence": null,
-              "features": [
-                "deposit",
-                "withdraw",
-                "borrow",
-                "repay",
-                "swap",
-                "addcol",
-                "remcol"
-              ],
-              "stage10": {
-                "note": "fallback ranking"
-              },
-              "stage11": null
-            }
-          },
-          {
-            "iteration": 4,
             "top1": "swap_asset",
             "flags": {
               "oracle_stale": false

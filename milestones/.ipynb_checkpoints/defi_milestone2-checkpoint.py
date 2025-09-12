@@ -40,6 +40,8 @@ runs:      5
   stable_top1: True
   top1(first): swap_asset
 
+pytest -k m2_stability_smoke -v
+
 """
 
 from __future__ import annotations
