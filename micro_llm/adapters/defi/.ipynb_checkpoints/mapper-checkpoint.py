@@ -13,6 +13,10 @@ AMOUNT = r"(?P<amount>\d+(?:\.\d+)?)"
 ASSET  = r"(?P<asset>[A-Z]{3,6})"
 PAIR   = r"(?P<base>[A-Z]{3,6})\/(?P<quote>[A-Z]{3,6})"
 
+_ASSET = r"[A-Za-z0-9_\-.:/]+"
+_AMT   = r"\d+(?:\.\d+)?"
+_VENUE = r"[A-Za-z0-9_\-]+"
+
 NON_EXEC_PATTERNS = [
     r"(check|show|what('| i)?s)\s+(my\s+)?(balance|health\s*factor|hf)\b",
     r"(how\s+much)\s+(can\s+i\s+borrow|ltv)\b",
@@ -28,22 +32,82 @@ PATTERNS = [
     (rf"(swap)\s+{PAIR}", "swap_asset_pair"),
 ]
 
+RULES = [
+    # --- deposit/supply/add collateral ---
+    ("deposit_asset", [
+        rf"\b(?:deposit|supply|add)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})(?:\s+(?:into|to)\s+(?P<venue>{_VENUE}))?\b",
+        rf"\b(?:deposit|supply|add)\s+(?P<asset>{_ASSET})\s+(?P<amount>{_AMT})(?:\s+(?:into|to)\s+(?P<venue>{_VENUE}))?\b",
+    ]),
+    # --- withdraw/remove collateral ---
+    ("withdraw_asset", [
+        rf"\b(?:withdraw|remove)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})\b",
+        rf"\b(?:withdraw|remove)\s+(?P<asset>{_ASSET})\s+(?P<amount>{_AMT})\b",
+    ]),
+    # --- borrow/take loan ---
+    ("borrow_asset", [
+        rf"\b(?:borrow|take(?:\s+out)?)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})\b",
+    ]),
+    # --- repay/pay back ---
+    ("repay_loan", [
+        rf"\b(?:repay|pay\s*back)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})?\b",
+    ]),
+    # --- swap/trade ---
+    ("swap_asset", [
+        rf"\b(?:swap|trade)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})\s+(?:for|to)\s+(?P<dst_asset>{_ASSET})\b",
+        rf"\b(?:swap|trade)\s+(?P<asset>{_ASSET})\s+(?P<amount>{_AMT})\s+(?:for|to)\s+(?P<dst_asset>{_ASSET})\b",
+    ]),
+    # --- add/remove collateral (explicit verbs) ---
+    ("add_collateral", [
+        rf"\b(?:add\s+collateral)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})\b",
+    ]),
+    ("remove_collateral", [
+        rf"\b(?:remove\s+collateral)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})\b",
+    ]),
+]
+
 INTENTS = [
     "deposit_asset","withdraw_asset","borrow_asset","repay_loan","swap_asset","swap_asset_pair","non_exec","unknown"
 ]
 
+# # Old code - pytest -v
+# def _rule_map(prompt: str) -> Tuple[Dict[str, Any], float]:
+#     p = prompt.strip()
+#     for pat in NON_EXEC_PATTERNS:
+#         if re.search(pat, p, flags=re.I):
+#             return ({"primitive": "non_exec", "query": p}, 1.0)
+#     for pat, prim in PATTERNS:
+#         m = re.search(pat, p, flags=re.I)
+#         if m:
+#             d = {k: (v.upper() if isinstance(v, str) else v)
+#                  for k, v in m.groupdict(default="").items()}
+#             return ({"primitive": prim, **d}, 0.85)
+#     return ({"primitive": "unknown"}, 0.0)
+
+
 def _rule_map(prompt: str) -> Tuple[Dict[str, Any], float]:
     p = prompt.strip()
+    # 1) Non-exec first: map to explicit "non_exec" so rails/runner abstain cleanly
     for pat in NON_EXEC_PATTERNS:
         if re.search(pat, p, flags=re.I):
-            return ({"primitive": "non_exec", "query": p}, 1.0)
-    for pat, prim in PATTERNS:
-        m = re.search(pat, p, flags=re.I)
-        if m:
-            d = {k: (v.upper() if isinstance(v, str) else v)
-                 for k, v in m.groupdict(default="").items()}
-            return ({"primitive": prim, **d}, 0.85)
-    return ({"primitive": "unknown"}, 0.0)
+            return {"primitive": "non_exec", "query": p}, 1.0
+
+    # 2) Executable primitives via simple patterns (no duplicate group names)
+    for prim, pats in RULES:
+        for pat in pats:
+            m = re.search(pat, p, flags=re.I)
+            if m:
+                slots = {"primitive": prim}
+                g = m.groupdict()
+                if g.get("amount"):     slots["amount"]     = g["amount"]
+                if g.get("asset"):      slots["asset"]      = g["asset"].upper()
+                if g.get("dst_asset"):  slots["dst_asset"]  = g["dst_asset"].upper()
+                if g.get("venue"):      slots["venue"]      = g["venue"].lower()
+                return slots, 0.92  # rule-based confidence
+
+    # 3) Unknown → let mapper blend or rails abstain later
+    return {"primitive": "unknown"}, 0.0
+
+
 
 # --- Hybrid mapper ---
 class HybridMapper:
