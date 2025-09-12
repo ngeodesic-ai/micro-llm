@@ -1,0 +1,7 @@
+mapper:
+  type: rule  # for now; later: hybrid|neural
+  confidence_threshold: 0.8
+stage10:
+  prior_alpha: 3.5   # fallback weight
+  prior_gamma: 0.50  # additive bias
+  clamp_top1_conf: 0.8

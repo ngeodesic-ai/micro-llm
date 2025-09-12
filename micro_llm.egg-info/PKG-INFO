@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: micro-llm
+Version: 0.0.1
+Summary: Domain-agnostic micro reasoning adapters on top of ngeodesic Stage-10/11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.24
+Requires-Dist: ngeodesic>=0.1.0a1
+Dynamic: license-file
+
+# micro-llm
+
+NGF-powered micro-LLMs: lightweight, domain-specific reasoning sidecars.  
+This repo is a research testbed: first for **ARC** (visual reasoning), then for a **DeFi** PoC — both built on top of the `ngeodesic` Python package.
+
+---
+
+## Why this repo?
+
+- **ARC micro-LLM (today):** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
+- **DeFi micro-LLM (next):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
+
+> NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
+
+---
+
+## Foundation: `ngeodesic` (NGF Stage-10/11)
+
+- **Stage-10 (Parser):** matched-filter parsing with dual thresholds (absolute vs null; relative vs best channel), then ordering by peak time.
+- **Stage-11 (Denoise):** stabilization via hybrid EMA+median smoothing, confidence gates, seed-jitter averaging — the Warp→Detect→Denoise doctrine to suppress phantoms.
+
+These are provided by the `ngeodesic` package and reused here without modification.
+
+---
+
+## What’s included
+
+- **ARC sandbox**: synthetic adapters that produce per-primitive traces; evaluation scripts that compute accuracy, precision/recall/F1, and NGF-native rates (hallucination/omission).
+- **DeFi stubs (WIP)**: adapters for market features → latent traces; same parser/denoiser stack; same metrics.
+
+---
+
+## Install
+
+```bash
+# 1) Install the NGF core
+python3 -m pip install -U ngeodesic
+
+# 2) (optional) install this repo in editable mode
+git clone https://github.com/ngeodesic-ai/micro-llm.git
+cd micro-llm
+python3 -m pip install -e .
+```

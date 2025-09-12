@@ -14,6 +14,9 @@ micro-arc = "micro_llm.cli.run_arc:main"
 micro-defi = "micro_llm.cli.run_defi:main"
 micro-eval = "micro_llm.cli.run_eval:main"
 
+[tool.setuptools.packages.find]
+include = ["micro_llm*"]
+
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
