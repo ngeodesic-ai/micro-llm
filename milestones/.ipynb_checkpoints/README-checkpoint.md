@@ -12,7 +12,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 - **Stage-10 rails** (matched filter + dual thresholds).  
 - **Basic verifiers** (ARC grid ops, DeFi invariants).  
 - **End-to-end CLI runs working**.  
-➡️ Baseline ARC prompts working
+➡️ Baseline ARC prompts working, components folded into pkg
 
 ---
 
@@ -33,7 +33,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 
 ---
 
-## Milestone 3 — Stage-11 Denoise + Safety Guards
+## Milestone 3 — Stage-11 Denoise + Safety Guards ✅ (done)
 - **Hybrid EMA+median** smoothing.  
 - **Confidence gates** + noise floor rejection.  
 - **Phantom-guard probes**.  
@@ -59,5 +59,5 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 | 0 — Baseline | ✅ Done |
 | 1 — Hybrid Mapper + Prior Injection | ✅ Done  |
 | 2 — Stage-11 Warp + Detect | ✅ Done |
-| 3 — Stage-11 Denoise + Safety Guards | ⬜ Pending |
+| 3 — Stage-11 Denoise + Safety Guards |  ✅ Done |
 | 4 — Consolidation + Benchmarks | ⬜ Pending |
