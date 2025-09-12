@@ -3,15 +3,16 @@ import numpy as np
 from typing import Dict, Any
 from ..base import AdapterInput, DomainAdapter
 from .state import normalize_defi_context
-from .prompt_map import parse_prompt
+from .mapper import map_prompt, rule_only
 
+# keep this mapping LOCAL here
 PRIM_MAP = {
     "deposit_asset": "deposit",
     "withdraw_asset": "withdraw",
-    "borrow_asset": "borrow",
-    "repay_loan": "repay",
-    "swap_asset": "swap",
-    "swap_asset_pair": "swap",
+    "borrow_asset":   "borrow",
+    "repay_loan":     "repay",
+    "swap_asset":     "swap",
+    "swap_asset_pair":"swap",
 }
 
 
@@ -31,13 +32,18 @@ class DeFiAdapter(DomainAdapter):
     def build_state(self, inp: AdapterInput) -> Dict[str, Any]:
         s = normalize_defi_context(inp.context)
         s["policy"] = inp.policy
-        slots = parse_prompt(inp.prompt)
+        mapper_cfg = (inp.policy or {}).get("mapper", {})  # read from policy/config
+        slots, conf = map_prompt(inp.prompt, inp.context, mapper_cfg)
+        rule_slots, rule_conf = rule_only(inp.prompt)
+        if rule_slots.get("primitive") == slots.get("primitive") and rule_conf > conf:
+            conf = rule_conf  # prefer stronger rule prior when they agree
+        s["prior_strength"] = float(conf)
         s["slots"] = slots
         if slots.get("primitive") == "non_exec":
             s["prior_strength"] = 0.0
             s["non_exec"] = True
         else:
-            s["prior_strength"] = 0.85 if slots.get("primitive") in PRIM_MAP else 0.0
+            s["prior_strength"] = float(conf)  # use model confidence (or rule default)
         return s
 
     def early_safety_flags(self, state, feats):

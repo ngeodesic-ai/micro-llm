@@ -11,10 +11,11 @@ micro_llm.egg-info/top_level.txt
 micro_llm/adapters/base.py
 micro_llm/adapters/arc/__init__.py
 micro_llm/adapters/arc/make_traces.py
+micro_llm/adapters/arc/mapper.py
 micro_llm/adapters/arc/state.py
 micro_llm/adapters/defi/__init__.py
 micro_llm/adapters/defi/make_traces.py
-micro_llm/adapters/defi/prompt.py
+micro_llm/adapters/defi/mapper.py
 micro_llm/adapters/defi/prompt_map.py
 micro_llm/adapters/defi/state.py
 micro_llm/cli/run_arc.py
@@ -34,6 +35,7 @@ micro_llm/verify/arc_verify.py
 micro_llm/verify/defi_verify.py
 tests/test_adapters_arc.py
 tests/test_adapters_defi.py
+tests/test_arc_mapper_prior.py
 tests/test_nonexec_abstain.py
 tests/test_rails_stage10.py
 tests/test_rails_stage11.py

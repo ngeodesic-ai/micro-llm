@@ -1,7 +1,10 @@
 mapper:
-  type: rule  # for now; later: hybrid|neural
-  confidence_threshold: 0.8
+  model_path: ".artifacts/defi_mapper.joblib"
+  confidence_threshold: 0.7
 stage10:
-  prior_alpha: 3.5   # fallback weight
-  prior_gamma: 0.50  # additive bias
-  clamp_top1_conf: 0.8
+  prior_alpha: 3.5
+  prior_gamma: 0.5
+  clamp_top1_conf: 0.7
+verify:
+  liq_threshold: 0.85
+  ltv_max: 0.75

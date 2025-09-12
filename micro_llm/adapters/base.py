@@ -44,11 +44,11 @@ def make_residuals(adapter: DomainAdapter, inp: AdapterInput) -> ResidualBundle:
     base   = {k: np.maximum(0.0, np.asarray(v, float)[:inp.T]) for k, v in base.items()}
     traces = _exclusive(base)
     flags  = adapter.early_safety_flags(state, feats) or {}
-
     aux = {"features": list(feats.keys()), "prims": list(traces.keys())}
     prior = getattr(adapter, "_last_prior", None)  # <-- add this block
     if isinstance(prior, dict):
         aux["prior"] = prior
-
+    aux["mapper_confidence"] = float(getattr(adapter, "_prior_strength", 0.0))
+    
     return ResidualBundle(traces=traces, aux=aux, flags=flags)
     

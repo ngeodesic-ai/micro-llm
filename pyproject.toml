@@ -9,6 +9,9 @@ dependencies = [
   "ngeodesic>=0.1.0a1",   # or use an editable dep in your monorepo
 ]
 
+[project.optional-dependencies]
+mapper = ["scikit-learn>=1.1", "joblib>=1.2"]
+
 [project.scripts]
 micro-arc = "micro_llm.cli.run_arc:main"
 micro-defi = "micro_llm.cli.run_defi:main"

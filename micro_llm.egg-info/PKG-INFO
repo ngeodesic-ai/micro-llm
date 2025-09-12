@@ -7,6 +7,9 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: numpy>=1.24
 Requires-Dist: ngeodesic>=0.1.0a1
+Provides-Extra: mapper
+Requires-Dist: scikit-learn>=1.1; extra == "mapper"
+Requires-Dist: joblib>=1.2; extra == "mapper"
 Dynamic: license-file
 
 # micro-llm
