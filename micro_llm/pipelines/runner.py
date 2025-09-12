@@ -3,7 +3,8 @@ from micro_llm.adapters.base import AdapterInput, make_residuals
 from micro_llm.adapters.arc import ARCAdapter
 from micro_llm.adapters.defi import DeFiAdapter
 from micro_llm.rails import run_stage10, run_stage11
-from micro_llm.verify import arc_verify, defi_verify
+from micro_llm.verify import arc_verify
+from micro_llm.verify.defi_verify import defi_verify
 
 def _get_adapter(domain: str):
     return {"arc": ARCAdapter, "defi": DeFiAdapter}[domain.lower()]()
@@ -39,8 +40,12 @@ def run_micro(domain: str, prompt: str, context: Dict[str, Any], policy: Dict[st
     
     plan = {"sequence": sequence}
 
-    verifier = _get_verifier(domain)
-    vres = verifier(plan, context)
+    if domain.lower() == "defi":
+        vres = defi_verify(plan, {"policy": policy, **context})
+    else:
+        # existing ARC or other-domain verifier
+        from micro_llm.verify.arc_verify import arc_verify  # if you have one, else simple OK
+        vres = arc_verify(plan, {"policy": policy, **context}) if 'arc' in domain.lower() else {"ok": True, "reason": ""}
 
     return {
         "domain": domain,
