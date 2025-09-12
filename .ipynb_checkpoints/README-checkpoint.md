@@ -30,10 +30,10 @@ These are provided by the `ngeodesic` package and reused here without modificati
 
 ---
 
-# ARC micro PoC — run a reasoning primitive
+## ARC micro PoC — run a reasoning primitive
 micro-arc --prompt "flip the grid horizontally" --rails stage11
 
-# Example output:
+### Example output:
 {
   "domain": "arc",
   "rails": "stage11",
