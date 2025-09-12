@@ -30,21 +30,29 @@ class DeFiAdapter(DomainAdapter):
         self._last_prior = {}
 
     def build_state(self, inp: AdapterInput) -> Dict[str, Any]:
-        s = normalize_defi_context(inp.context)
-        s["policy"] = inp.policy
+        state = normalize_defi_context(inp.context)
+        state["policy"] = inp.policy
         mapper_cfg = (inp.policy or {}).get("mapper", {})  # read from policy/config
         slots, conf = map_prompt(inp.prompt, inp.context, mapper_cfg)
+        
         rule_slots, rule_conf = rule_only(inp.prompt)
         if rule_slots.get("primitive") == slots.get("primitive") and rule_conf > conf:
             conf = rule_conf  # prefer stronger rule prior when they agree
-        s["prior_strength"] = float(conf)
-        s["slots"] = slots
+            
+        state["prior_strength"] = float(conf)
+        state["slots"] = slots
         if slots.get("primitive") == "non_exec":
-            s["prior_strength"] = 0.0
-            s["non_exec"] = True
+            state["prior_strength"] = 0.0
+            state["non_exec"] = True
         else:
-            s["prior_strength"] = float(conf)  # use model confidence (or rule default)
-        return s
+            state["prior_strength"] = float(conf)  # use model confidence (or rule default)
+
+        state['context'] = inp.context
+        state['policy'] = inp.policy
+        state['aux'] = {"mapper_confidence": conf}
+        
+        return state
+
 
     def early_safety_flags(self, state, feats):
         flags = {}
@@ -126,4 +134,5 @@ class DeFiAdapter(DomainAdapter):
             "add_collateral":    0.0,
             "remove_collateral": 0.0,
         }
+      
         return traces
