@@ -1,0 +1,51 @@
+git branch -D defi_poc_v2
+git push origin --delete defi_poc_v2
+git reset --hard HEAD~5 
+
+python3 -m pip uninstall -y micro-llm micro_llm   
+python3 -m pip install -e . 
+
+pytest -v
+pytest -q  
+
+micro-arc --prompt "flip the grid horizontally" --rails stage11
+micro-defi --prompt "deposit 10 ETH into aave" --rails stage11 
+
+python3 - <<'PY'                                               
+import micro_llm, inspect, os
+print("micro_llm:", micro_llm.__file__)
+PY
+
+python3 - <<'PY'                                               
+from micro_llm.adapters.arc import ARCAdapter
+from micro_llm.adapters.defi import DeFiAdapter
+print("ARC ok:", ARCAdapter)
+print("DeFi ok:", DeFiAdapter)
+PY
+
+python3 - <<'PY'                                               
+from micro_llm.pipelines.runner import run_micro
+print("runner import OK")                      
+PY  
+
+python3 - <<'PY'                                               
+from micro_llm.adapters import get_adapter_for_domain
+print(type(get_adapter_for_domain("arc")).__name__)
+print(type(get_adapter_for_domain("defi")).__name__)
+PY
+
+python3 - <<'PY'
+from micro_llm.pipelines.runner import run_micro
+res = run_micro(
+  domain="defi",
+  prompt="borrow 500 USDC",
+  context={"positions":{"collateral_value":1000.0,"debt_value":900.0}},
+  policy={"ltv_max":0.75,"liq_threshold":0.85},
+  rails="stage11", T=180
+)
+import json; print(json.dumps(res["verify"], indent=2))
+PY
+{
+  "ok": false,
+  "reason": "hf_too_low_for_borrow"
+}
