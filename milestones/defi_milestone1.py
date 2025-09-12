@@ -21,7 +21,7 @@ python3 milestones/defi_milestone1.py \
   --rails stage11 \
   --policy '{"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7},"ltv_max":0.75}'
 
-
+pytest -v tests/test_m1_stability_smoke.py
 
 """
 

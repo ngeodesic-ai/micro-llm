@@ -57,7 +57,7 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 | Milestone | Status |
 |-----------|--------|
 | 0 — Baseline | ✅ Done |
-| 1 — Hybrid Mapper + Prior Injection | ⬜ Pending |
-| 2 — Stage-11 Warp + Detect | ⬜ Pending |
+| 1 — Hybrid Mapper + Prior Injection | ✅ Done  |
+| 2 — Stage-11 Warp + Detect | ✅ Done |
 | 3 — Stage-11 Denoise + Safety Guards | ⬜ Pending |
 | 4 — Consolidation + Benchmarks | ⬜ Pending |
