@@ -28,6 +28,8 @@ Rails:     stage11
 T:         180
 runs:      5
 
+python3 milestones/inspect_summary.py .artifacts/defi_milestone2_summary.json
+
 - deposit_eth: ok=True
   prompt: deposit 10 ETH into aave
   top1_list: ['deposit_asset', 'deposit_asset', 'deposit_asset', 'deposit_asset', 'deposit_asset']

@@ -1,0 +1,6 @@
+{
+  "rails": { "use_wdd": false, "denoise": false },
+  "ltv_max": 0.75,
+  "mapper": { "model_path": ".artifacts/defi_mapper.joblib", "confidence_threshold": 0.7 },
+  "oracle": { "age_sec": 5, "max_age_sec": 30 }
+}

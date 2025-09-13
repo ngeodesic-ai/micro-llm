@@ -60,14 +60,24 @@ def run_micro(
     s10 = run_stage10(bundle.traces, config={"prior": prior})
     sequence = s10.get("ordered", [])
 
+    # --- Shim: rails policy switches for Tier-1 sandbox ---
+    rails_cfg = policy.get("rails", {}) if isinstance(policy, dict) else {}
+    use_wdd = bool(rails_cfg.get("use_wdd", True))       # default True = Tier-2 preserves old behavior
+    use_denoise = bool(rails_cfg.get("denoise", True))   # may be used by downstream rails
+    
+    # Stage-11 reporting only when requested AND WDD enabled
+    if rails == "stage11" and use_wdd:
+        s11 = run_stage11(bundle.traces)
+    else:
+        s11 = {"report": {}} 
+    # --- Shim: rails policy switches for Tier-1 sandbox ---
+    
+
     # If the adapter prior is decisive, clamp to top-1 for determinism
     if prior and max(prior.values()) >= 0.8:
         sequence = sequence[:1]
 
     plan = {"sequence": sequence}
-
-    # Stage-11 reporting only when requested
-    s11 = run_stage11(bundle.traces) if rails == "stage11" else {"report": {}}
 
     # Domain-specific verify
     if domain.lower() == "defi":
@@ -84,10 +94,11 @@ def run_micro(
         "plan": plan,
         "verify": vres,
         "aux": {
-            "features": bundle.aux.get("features", []),
-            "prior": bundle.aux.get("prior"),
-            "mapper_confidence": bundle.aux.get("mapper_confidence"),
-            "stage10": s10.get("report"),
-        },
-        "report": s11.get("report", {}),
-    }
+             "features": bundle.aux.get("features", []),
+             "prior": bundle.aux.get("prior"),
+             "mapper_confidence": bundle.aux.get("mapper_confidence"),
+             "stage10": s10.get("report"),
+         },
+         "report": s11.get("report", {}),
+     }
+    
