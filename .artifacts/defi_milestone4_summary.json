@@ -45,8 +45,16 @@
               "reason": ""
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 1.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
               "features": [
                 "deposit",
                 "withdraw",
@@ -73,8 +81,16 @@
               "reason": ""
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 1.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
               "features": [
                 "deposit",
                 "withdraw",
@@ -133,8 +149,16 @@
               "reason": ""
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 1.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
               "features": [
                 "deposit",
                 "withdraw",
@@ -161,8 +185,16 @@
               "reason": ""
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 1.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
               "features": [
                 "deposit",
                 "withdraw",
@@ -222,8 +254,16 @@
               "reason": "abstain_non_exec"
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0,
               "features": [
                 "deposit",
                 "withdraw",
@@ -249,8 +289,16 @@
               "reason": "abstain_non_exec"
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0,
               "features": [
                 "deposit",
                 "withdraw",
@@ -308,8 +356,16 @@
               "reason": "abstain_non_exec"
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0,
               "features": [
                 "deposit",
                 "withdraw",
@@ -335,8 +391,16 @@
               "reason": "abstain_non_exec"
             },
             "aux": {
-              "prior": null,
-              "mapper_confidence": null,
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0,
               "features": [
                 "deposit",
                 "withdraw",

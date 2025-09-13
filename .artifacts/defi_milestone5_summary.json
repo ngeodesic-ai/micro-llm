@@ -1,0 +1,344 @@
+{
+  "milestone": "defi_milestone5",
+  "status": "fail",
+  "rails": "stage11",
+  "T": 180,
+  "runs": 5,
+  "scenarios": [
+    {
+      "name": "deposit_eth",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "deposit 10 ETH into aave",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": "deposit_asset",
+        "flags": {
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": true,
+          "reason": ""
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 1.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 0.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.92
+        }
+      },
+      "stability": {
+        "top1_list": [
+          "deposit_asset",
+          "deposit_asset",
+          "deposit_asset",
+          "deposit_asset",
+          "deposit_asset"
+        ],
+        "stable_top1": true,
+        "top1_first": "deposit_asset"
+      }
+    },
+    {
+      "name": "swap_eth_usdc",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "swap 2 ETH for USDC",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": "swap_asset",
+        "flags": {
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": true,
+          "reason": ""
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 0.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 1.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.92
+        }
+      },
+      "stability": {
+        "top1_list": [
+          "swap_asset",
+          "swap_asset",
+          "swap_asset",
+          "swap_asset",
+          "swap_asset"
+        ],
+        "stable_top1": true,
+        "top1_first": "swap_asset"
+      }
+    },
+    {
+      "name": "withdraw_high_ltv",
+      "ok": false,
+      "reason": "withdraw_high_ltv: expected verify.reason to contain 'ltv', got='abstain_non_exec'",
+      "output": {
+        "prompt": "withdraw 5 ETH",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": null,
+        "flags": {
+          "abstain_non_exec": true,
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": false,
+          "reason": "abstain_non_exec"
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 0.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 0.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.0
+        }
+      },
+      "stability": {
+        "top1_list": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "stable_top1": true,
+        "top1_first": null
+      }
+    },
+    {
+      "name": "borrow_low_hf",
+      "ok": false,
+      "reason": "borrow_low_hf: expected verify.reason to contain 'hf', got='abstain_non_exec'",
+      "output": {
+        "prompt": "borrow 1000 USDC",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": null,
+        "flags": {
+          "abstain_non_exec": true,
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": false,
+          "reason": "abstain_non_exec"
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 0.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 0.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.0
+        }
+      },
+      "stability": {
+        "top1_list": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "stable_top1": true,
+        "top1_first": null
+      }
+    },
+    {
+      "name": "nonexec_abstain",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "check balance",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": null,
+        "flags": {
+          "abstain_non_exec": true,
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": false,
+          "reason": "abstain_non_exec"
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 0.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 0.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.0
+        }
+      },
+      "stability": {
+        "top1_list": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "stable_top1": true,
+        "top1_first": null
+      }
+    },
+    {
+      "name": "deposit_eth_denoised",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "deposit 10 ETH into aave",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          },
+          "rails": {
+            "denoise": true
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": "deposit_asset",
+        "flags": {
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": true,
+          "reason": ""
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 1.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 0.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.92
+        }
+      }
+    },
+    {
+      "name": "swap_eth_usdc_denoised",
+      "ok": true,
+      "reason": "",
+      "output": {
+        "prompt": "swap 2 ETH for USDC",
+        "context_hash": "66f32756",
+        "policy": {
+          "ltv_max": 0.75,
+          "mapper": {
+            "model_path": ".artifacts/defi_mapper.joblib",
+            "confidence_threshold": 0.7
+          },
+          "rails": {
+            "denoise": true
+          }
+        },
+        "rails": "stage11",
+        "T": 180,
+        "top1": "swap_asset",
+        "flags": {
+          "oracle_stale": false
+        },
+        "verify": {
+          "ok": true,
+          "reason": ""
+        },
+        "aux": {
+          "prior": {
+            "deposit_asset": 0.0,
+            "withdraw_asset": 0.0,
+            "borrow_asset": 0.0,
+            "repay_loan": 0.0,
+            "swap_asset": 1.0,
+            "add_collateral": 0.0,
+            "remove_collateral": 0.0
+          },
+          "mapper_confidence": 0.92
+        }
+      }
+    }
+  ],
+  "failures": [
+    "withdraw_high_ltv: expected verify.reason to contain 'ltv', got='abstain_non_exec'",
+    "borrow_low_hf: expected verify.reason to contain 'hf', got='abstain_non_exec'"
+  ],
+  "elapsed_sec": 1.453
+}

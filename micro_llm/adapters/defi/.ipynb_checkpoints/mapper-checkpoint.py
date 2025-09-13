@@ -23,6 +23,17 @@ NON_EXEC_PATTERNS = [
     r"(price|oracle)\s+(age|status)\b",
 ]
 
+ # NON_EXEC_PATTERNS = [
+ #     r"(check|show|what('| i)?s)\s+(my\s+)?(balance|health\s*factor|hf)\b",
+ #     r"\b(check|show|what(?:'s| is))\s+(my\s+)?(balance|positions?)\b",
+ #     r"(how\s+much)\s+(can\s+i\s+borrow|ltv)\b",
+ #     r"(price|oracle)\s+(age|status)\b",
+ # ]
+
+# NON_EXEC_PATTERNS = [
+#     r"\b(check|show|what(?:'s| is))\s+(my\s+)?(balance|positions?)\b",
+# ]
+
 PATTERNS = [
     (rf"(deposit|supply)\s+{AMOUNT}\s+{ASSET}", "deposit_asset"),
     (rf"(withdraw|redeem)\s+{AMOUNT}\s+{ASSET}", "withdraw_asset"),
@@ -63,7 +74,30 @@ RULES = [
     ("remove_collateral", [
         rf"\b(?:remove\s+collateral)\s+(?P<amount>{_AMT})\s*(?P<asset>{_ASSET})\b",
     ]),
+    # borrow
+    ("borrow_asset", [
+        r"\bborrow\s+(?P<amount>\d+(?:\.\d+)?)\s*(?P<asset>[A-Za-z]{2,10})\b"
+    ]),
 ]
+
+# RULES = [
+#     # deposit
+#     ("deposit_asset", [
+#         r"\bdeposit\s+(?P<amount>\d+(?:\.\d+)?)\s*(?P<asset>[A-Za-z]{2,10})\b(?:\s+into\s+(?P<venue>[a-z0-9_-]+))?"
+#     ]),
+#     # swap
+#     ("swap_asset", [
+#         r"\bswap\s+(?P<amount>\d+(?:\.\d+)?)\s*(?P<asset>[A-Za-z]{2,10})\s+(?:for|to)\s+(?P<dst_asset>[A-Za-z]{2,10})\b"
+#     ]),
+#     # withdraw
+#     ("withdraw_asset", [
+#         r"\b(withdraw|remove)\s+(?P<amount>\d+(?:\.\d+)?)\s*(?P<asset>[A-Za-z]{2,10})\b"
+#     ]),
+#     # borrow
+#     ("borrow_asset", [
+#         r"\bborrow\s+(?P<amount>\d+(?:\.\d+)?)\s*(?P<asset>[A-Za-z]{2,10})\b"
+#     ]),
+# ]
 
 INTENTS = [
     "deposit_asset","withdraw_asset","borrow_asset","repay_loan","swap_asset","swap_asset_pair","non_exec","unknown"
@@ -84,29 +118,49 @@ INTENTS = [
 #     return ({"primitive": "unknown"}, 0.0)
 
 
-def _rule_map(prompt: str) -> Tuple[Dict[str, Any], float]:
-    p = prompt.strip()
-    # 1) Non-exec first: map to explicit "non_exec" so rails/runner abstain cleanly
-    for pat in NON_EXEC_PATTERNS:
-        if re.search(pat, p, flags=re.I):
-            return {"primitive": "non_exec", "query": p}, 1.0
+# def _rule_map(prompt: str) -> Tuple[Dict[str, Any], float]:
+#     p = prompt.strip()
+#     # 1) Non-exec first: map to explicit "non_exec" so rails/runner abstain cleanly
+#     for pat in NON_EXEC_PATTERNS:
+#         if re.search(pat, p, flags=re.I):
+#             return {"primitive": "non_exec", "query": p}, 1.0
 
-    # 2) Executable primitives via simple patterns (no duplicate group names)
+#     # 2) Executable primitives via simple patterns (no duplicate group names)
+#     for prim, pats in RULES:
+#         for pat in pats:
+#             m = re.search(pat, p, flags=re.I)
+#             if m:
+#                 slots = {"primitive": prim}
+#                 g = m.groupdict()
+#                 if g.get("amount"):     slots["amount"]     = g["amount"]
+#                 if g.get("asset"):      slots["asset"]      = g["asset"].upper()
+#                 if g.get("dst_asset"):  slots["dst_asset"]  = g["dst_asset"].upper()
+#                 if g.get("venue"):      slots["venue"]      = g["venue"].lower()
+#                 return slots, 0.92  # rule-based confidence
+
+#     # 3) Unknown → let mapper blend or rails abstain later
+#     return {"primitive": "unknown"}, 0.0
+
+def _rule_map(prompt: str):
+    p = prompt.strip()
+    # 1) executable rules first
     for prim, pats in RULES:
         for pat in pats:
             m = re.search(pat, p, flags=re.I)
             if m:
                 slots = {"primitive": prim}
-                g = m.groupdict()
+                g = m.groupdict(default="")
                 if g.get("amount"):     slots["amount"]     = g["amount"]
                 if g.get("asset"):      slots["asset"]      = g["asset"].upper()
                 if g.get("dst_asset"):  slots["dst_asset"]  = g["dst_asset"].upper()
                 if g.get("venue"):      slots["venue"]      = g["venue"].lower()
                 return slots, 0.92  # rule-based confidence
-
-    # 3) Unknown → let mapper blend or rails abstain later
+    # 2) non-exec after exec
+    for pat in NON_EXEC_PATTERNS:
+        if re.search(pat, p, flags=re.I):
+            return {"primitive": "non_exec", "query": p}, 1.0
+    # 3) otherwise unknown
     return {"primitive": "unknown"}, 0.0
-
 
 
 # --- Hybrid mapper ---

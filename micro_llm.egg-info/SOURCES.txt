@@ -36,11 +36,14 @@ micro_llm/verify/defi_verify.py
 tests/test_adapters_arc.py
 tests/test_adapters_defi.py
 tests/test_arc_mapper_prior.py
+tests/test_cli_defi_examples.py
 tests/test_defi_verify.py
 tests/test_m1_stability_smoke.py
 tests/test_m2_stability_smoke.py
 tests/test_m3_denoise_smoke.py
+tests/test_m4_safety_smoke.py
 tests/test_m4_stability_smoke.py
+tests/test_m5_regression.py
 tests/test_nonexec_abstain.py
 tests/test_rails_stage10.py
 tests/test_rails_stage11.py
