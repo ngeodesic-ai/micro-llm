@@ -66,7 +66,7 @@ This project follows a three-tier strategy aligned with the NGF Stage-10/11 doct
 - Benchmarked successfully on ARC-like synthetic latents (deterministic reasoning).  
 - Micro-LLM exists: parser + denoiser operating on synthetic wells.  
 
-**Status:** ✅ Proven — benchmarks confirm deterministic reasoning on synthetic latents.
+**Status:** ✅ Proven — LLM benchmarks confirm deterministic reasoning on synthetic latents.
 
 ---
 
