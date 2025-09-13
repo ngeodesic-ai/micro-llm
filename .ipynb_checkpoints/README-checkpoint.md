@@ -30,6 +30,47 @@ These are provided by the `ngeodesic` package and reused here without modificati
 
 ---
 
+## DeFi Micro-LLM: Tiered Plan of Attack
+
+This project follows a three-tier strategy aligned with the NGF Stage-10/11 doctrine  
+(**Warp → Detect → Denoise → Verify**). Each tier represents an increasing level of capability and integration.
+
+---
+
+### Tier 0 — Baseline Deterministic Rails (✔ Secured)
+- Stage-10 rails with matched filter + dual thresholds.  
+- Simple rule-based mapper produces residual traces.  
+- Basic verifiers (ARC grid ops, DeFi invariants).  
+- End-to-end CLI runs and benchmark harness are working.  
+
+**Status:** ✅ Complete — foundation secured.
+
+---
+
+### Tier 1 — Micro-LLM on Synthetic Latents (Operational)
+- Hybrid mapper + prior injection for prompt→feature mapping.  
+- Stage-11 warp + detect + denoise rails applied to synthetic latent traces.  
+- Benchmarked successfully on ARC-like synthetic latents (deterministic reasoning).  
+- Micro-LLM exists: parser + denoiser operating on synthetic wells.  
+
+**Status:** ✅ Proven — benchmarks confirm deterministic reasoning on synthetic latents.
+
+---
+
+### Tier 2 — Sidecar Integration with Real Latents (Aspirational)
+- Integrate with an external LLM (e.g. GPT-2) to extract **pooled latents** from DeFi prompts.  
+- Replace synthetic latent generator with live embeddings.  
+- Run rails (warp → detect → denoise) on real latents to classify/sequence primitives.  
+- Bragging-point tier — showcases novel architecture but currently high-risk and unproven.  
+
+**Status:** 🚧 Dream stage — future work, not required for MVP.
+
+---
+
+**Roadmap Summary:**  
+- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LLM reasoning on synthetic latents.  
+- Tier 2 remains a stretch goal: sidecar integration for real latents, to be explored later.
+
 ## ARC micro PoC — run a reasoning primitive
 micro-arc --prompt "flip the grid horizontally" --rails stage11
 
