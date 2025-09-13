@@ -11,7 +11,6 @@ python3 milestones/defi_milestone5.py \
   --runs 5 \
   --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
   --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
-
 python3 milestones/inspect_summary.py .artifacts/defi_milestone5_summary.json
 
 """
@@ -37,11 +36,20 @@ SUITE = [
      "expect_top1": None, "expect_verify_ok": False, "expect_reason_contains": "abstain_non_exec"},
 ]
 
+
 def ctx_hash(ctx: Dict[str, Any]) -> str:
     return hashlib.sha256(json.dumps(ctx, sort_keys=True).encode()).hexdigest()[:8]
 
 def run_once(prompt: str, context: Dict[str, Any], policy: Dict[str, Any], rails: str, T: int) -> Dict[str, Any]:
     res = run_micro("defi", prompt, context=context, policy=policy, rails=rails, T=T)
+
+    import os, sys, json as _json
+    if os.getenv("MICROLLM_DEBUG"):
+        print("[M5] res.verify:", _json.dumps(res.get("verify"), indent=2), file=sys.stderr)
+        print("[M5] res.flags :", _json.dumps(res.get("flags"), indent=2), file=sys.stderr)
+        print("[M5] res.plan  :", _json.dumps((res.get("plan") or {}).get("sequence"), indent=2), file=sys.stderr)
+
+    
     seq = (res.get("plan") or {}).get("sequence") or []
     top1 = seq[0] if seq else None
     out = {

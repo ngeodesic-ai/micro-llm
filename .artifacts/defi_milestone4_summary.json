@@ -246,12 +246,11 @@
             "iteration": 0,
             "top1": null,
             "flags": {
-              "abstain_non_exec": true,
               "oracle_stale": false
             },
             "verify": {
               "ok": false,
-              "reason": "abstain_non_exec"
+              "reason": "ltv"
             },
             "aux": {
               "prior": {
@@ -281,12 +280,11 @@
             "iteration": 1,
             "top1": null,
             "flags": {
-              "abstain_non_exec": true,
               "oracle_stale": false
             },
             "verify": {
               "ok": false,
-              "reason": "abstain_non_exec"
+              "reason": "ltv"
             },
             "aux": {
               "prior": {
@@ -348,12 +346,11 @@
             "iteration": 0,
             "top1": null,
             "flags": {
-              "abstain_non_exec": true,
               "oracle_stale": false
             },
             "verify": {
               "ok": false,
-              "reason": "abstain_non_exec"
+              "reason": "hf"
             },
             "aux": {
               "prior": {
@@ -383,12 +380,11 @@
             "iteration": 1,
             "top1": null,
             "flags": {
-              "abstain_non_exec": true,
               "oracle_stale": false
             },
             "verify": {
               "ok": false,
-              "reason": "abstain_non_exec"
+              "reason": "hf"
             },
             "aux": {
               "prior": {

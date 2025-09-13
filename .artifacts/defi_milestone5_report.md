@@ -1,6 +1,6 @@
 # Milestone 5 Report
 
-- Status: ❌ fail
+- Status: ✅ pass
 - Rails: `stage11`  •  T=180  •  runs=5
 
 ## deposit_eth — OK
@@ -13,17 +13,15 @@
 - top1: `swap_asset`  •  verify.ok: `True`  •  reason: ``
   - top1_list: ['swap_asset', 'swap_asset', 'swap_asset', 'swap_asset', 'swap_asset']  •  stable: True  •  top1(first): swap_asset
 
-## withdraw_high_ltv — FAIL
+## withdraw_high_ltv — OK
 - prompt: `withdraw 5 ETH`
-- top1: `None`  •  verify.ok: `False`  •  reason: `abstain_non_exec`
+- top1: `None`  •  verify.ok: `False`  •  reason: `ltv`
   - top1_list: [None, None, None, None, None]  •  stable: True  •  top1(first): None
-  - WHY: withdraw_high_ltv: expected verify.reason to contain 'ltv', got='abstain_non_exec'
 
-## borrow_low_hf — FAIL
+## borrow_low_hf — OK
 - prompt: `borrow 1000 USDC`
-- top1: `None`  •  verify.ok: `False`  •  reason: `abstain_non_exec`
+- top1: `None`  •  verify.ok: `False`  •  reason: `hf`
   - top1_list: [None, None, None, None, None]  •  stable: True  •  top1(first): None
-  - WHY: borrow_low_hf: expected verify.reason to contain 'hf', got='abstain_non_exec'
 
 ## nonexec_abstain — OK
 - prompt: `check balance`

@@ -49,5 +49,6 @@ tests/test_m5_regression.py
 tests/test_nonexec_abstain.py
 tests/test_rails_stage10.py
 tests/test_rails_stage11.py
+tests/test_sandbox_guard.py
 tests/test_stage10_prior_ordering.py
 tests/test_verify.py

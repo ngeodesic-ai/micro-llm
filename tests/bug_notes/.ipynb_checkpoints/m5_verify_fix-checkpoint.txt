@@ -1,0 +1,54 @@
+python3 milestones/defi_milestone5.py \
+  --rails stage11 \
+  --runs 5 \
+  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
+  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
+python3 milestones/inspect_summary.py .artifacts/defi_milestone5_summary.json
+
+
+# usecase 1
+micro-defi --prompt "withdraw 5 ETH" --rails stage11 --T 180 \
+  --context '{"risk":{"hf":1.20,"ltv":0.72},"oracle":{"age_sec":5,"max_age_sec":30}}' \
+  --policy  '{"ltv_max":0.60,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}'
+
+micro-defi --prompt "withdraw 5 ETH from Aave" --rails stage11 --T 180 \
+  --context '{"risk":{"hf":1.18,"ltv":0.75},"oracle":{"age_sec":5,"max_age_sec":30}}' \
+  --policy  '{"ltv_max":0.65,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}'
+
+# usecase 2
+micro-defi --prompt "borrow 1000 USDC" --rails stage11 --T 180 \
+  --context '{"risk":{"hf":1.05},"oracle":{"age_sec":5,"max_age_sec":30}}' \
+  --policy  '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}'
+
+micro-defi --prompt "take a 1000 USDC loan" --rails stage11 --T 180 \
+  --context '{"risk":{"hf":1.07},"oracle":{"age_sec":5,"max_age_sec":30}}' \
+  --policy  '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}'
+
+
+(1) Issue:
+for these, were getting:
+
+"verify": {"ok": false, "reason": "abstain_non_exec"}
+
+but should see:
+
+"verify": { "ok": false, "reason": "ltv" ... }
+
+(2) Example:
+"withdraw 5 ETH"
+
+We're expecting a failure on “withdraw 5 ETH” under the M5 scenario (it’s a policy-blocked case), and that part is correct: M5 expects verify.ok == False for withdraw_high_ltv. That much is happening.
+
+What’s missing is the reason token: the test requires the reason string to include "ltv" (substring match). Your current output says "abstain_non_exec", which is only valid for true non-exec prompts. That’s why M5 fails.
+
+(3) Where is the Bug
+
+- Early-abstain path (sets the generic reason)
+    In micro_llm/pipelines/runner.py, the non-exec fast-exit returns
+    verify: {"ok": False, "reason": "abstain_non_exec"}. That’s here: L41–L49.
+
+- Domain verifier (where ltv / hf should be tagged)
+    The end-to-end runner then calls the domain verifier:
+    defi_verify(plan, {"policy": policy, **context}). That’s the hook you own for LTV/HF/oracle
+    checks: L82–L86.
+

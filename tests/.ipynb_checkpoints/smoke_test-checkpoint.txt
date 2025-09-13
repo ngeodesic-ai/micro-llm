@@ -8,6 +8,9 @@ python3 -m pip install -e .
 pytest -v
 pytest -q  
 
+export MICROLLM_DEBUG=1
+unset MICROLLM_DEBUG
+
 micro-arc --prompt "flip the grid horizontally" --rails stage11
 micro-defi --prompt "deposit 10 ETH into aave" --rails stage11 
 
@@ -56,3 +59,24 @@ PY
   "ok": false,
   "reason": "hf_too_low_for_borrow"
 }
+
+
+
+python3 milestones/defi_milestone1.py --rails stage11 \
+  --policy '{"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7},"ltv_max":0.75}'
+python3 milestones/defi_milestone2.py --rails stage11 --runs 10 \
+  --policy '{"rails":{"denoise": false},"ltv_max":0.75}' \
+  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
+python3 milestones/defi_milestone3.py --rails stage11 --runs 10 \
+  --policy '{"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7},"ltv_max":0.75}'
+python3 milestones/defi_milestone4.py --rails stage11 --runs 10 \
+  --policy '{"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7},"ltv_max":0.75}'
+python3 milestones/defi_milestone5.py --rails stage11 --runs 10 \
+  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
+  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
+
+python3 milestones/inspect_summary.py .artifacts/defi_milestone1_summary.json
+python3 milestones/inspect_summary.py .artifacts/defi_milestone2_summary.json
+python3 milestones/inspect_summary.py .artifacts/defi_milestone3_summary.json
+python3 milestones/inspect_summary.py .artifacts/defi_milestone4_summary.json
+python3 milestones/inspect_summary.py .artifacts/defi_milestone5_summary.json

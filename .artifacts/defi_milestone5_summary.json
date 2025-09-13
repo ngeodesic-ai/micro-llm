@@ -1,6 +1,6 @@
 {
   "milestone": "defi_milestone5",
-  "status": "fail",
+  "status": "pass",
   "rails": "stage11",
   "T": 180,
   "runs": 5,
@@ -13,18 +13,10 @@
         "prompt": "deposit 10 ETH into aave",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": false
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
-          },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
           }
         },
         "rails": "stage11",
@@ -70,18 +62,10 @@
         "prompt": "swap 2 ETH for USDC",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": false
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
-          },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
           }
         },
         "rails": "stage11",
@@ -121,36 +105,27 @@
     },
     {
       "name": "withdraw_high_ltv",
-      "ok": false,
-      "reason": "withdraw_high_ltv: expected verify.reason to contain 'ltv', got='abstain_non_exec'",
+      "ok": true,
+      "reason": "",
       "output": {
         "prompt": "withdraw 5 ETH",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": false
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
-          },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
           }
         },
         "rails": "stage11",
         "T": 180,
         "top1": null,
         "flags": {
-          "abstain_non_exec": true,
           "oracle_stale": false
         },
         "verify": {
           "ok": false,
-          "reason": "abstain_non_exec"
+          "reason": "ltv"
         },
         "aux": {
           "prior": {
@@ -179,36 +154,27 @@
     },
     {
       "name": "borrow_low_hf",
-      "ok": false,
-      "reason": "borrow_low_hf: expected verify.reason to contain 'hf', got='abstain_non_exec'",
+      "ok": true,
+      "reason": "",
       "output": {
         "prompt": "borrow 1000 USDC",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": false
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
-          },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
           }
         },
         "rails": "stage11",
         "T": 180,
         "top1": null,
         "flags": {
-          "abstain_non_exec": true,
           "oracle_stale": false
         },
         "verify": {
           "ok": false,
-          "reason": "abstain_non_exec"
+          "reason": "hf"
         },
         "aux": {
           "prior": {
@@ -243,18 +209,10 @@
         "prompt": "check balance",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": false
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
-          },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
           }
         },
         "rails": "stage11",
@@ -301,18 +259,13 @@
         "prompt": "deposit 10 ETH into aave",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": true
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
           },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
+          "rails": {
+            "denoise": true
           }
         },
         "rails": "stage11",
@@ -347,18 +300,13 @@
         "prompt": "swap 2 ETH for USDC",
         "context_hash": "66f32756",
         "policy": {
-          "rails": {
-            "use_wdd": false,
-            "denoise": true
-          },
           "ltv_max": 0.75,
           "mapper": {
             "model_path": ".artifacts/defi_mapper.joblib",
             "confidence_threshold": 0.7
           },
-          "oracle": {
-            "age_sec": 5,
-            "max_age_sec": 30
+          "rails": {
+            "denoise": true
           }
         },
         "rails": "stage11",
@@ -386,9 +334,6 @@
       }
     }
   ],
-  "failures": [
-    "withdraw_high_ltv: expected verify.reason to contain 'ltv', got='abstain_non_exec'",
-    "borrow_low_hf: expected verify.reason to contain 'hf', got='abstain_non_exec'"
-  ],
-  "elapsed_sec": 1.211
+  "failures": [],
+  "elapsed_sec": 1.389
 }
