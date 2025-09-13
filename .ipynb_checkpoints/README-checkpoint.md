@@ -28,6 +28,19 @@ These are provided by the `ngeodesic` package and reused here without modificati
 - **ARC sandbox**: synthetic adapters that produce per-primitive traces; evaluation scripts that compute accuracy, precision/recall/F1, and NGF-native rates (hallucination/omission).
 - **DeFi stubs (WIP)**: adapters for market features → latent traces; same parser/denoiser stack; same metrics.
 
+### ARC micro PoC — run a reasoning primitive
+micro-arc --prompt "flip the grid horizontally" --rails stage11
+
+#### Example output:
+{
+  "domain": "arc",
+  "rails": "stage11",
+  "plan": {
+    "sequence": ["flip_h"]
+  },
+  "verify": {"ok": true, "reason": ""}
+}
+
 ---
 
 ## DeFi Micro-LLM: Tiered Plan of Attack
@@ -71,18 +84,7 @@ This project follows a three-tier strategy aligned with the NGF Stage-10/11 doct
 - Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LLM reasoning on synthetic latents.  
 - Tier 2 remains a stretch goal: sidecar integration for real latents, to be explored later.
 
-## ARC micro PoC — run a reasoning primitive
-micro-arc --prompt "flip the grid horizontally" --rails stage11
 
-### Example output:
-{
-  "domain": "arc",
-  "rails": "stage11",
-  "plan": {
-    "sequence": ["flip_h"]
-  },
-  "verify": {"ok": true, "reason": ""}
-}
 
 
 ## Install
