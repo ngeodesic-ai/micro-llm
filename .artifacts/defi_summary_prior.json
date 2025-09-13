@@ -1,0 +1,26 @@
+{
+  "samples": 200,
+  "geodesic": {
+    "accuracy_exact": 0.0,
+    "precision": 0.3790654761904764,
+    "recall": 1.0,
+    "f1": 0.5293196248196251,
+    "jaccard": 0.3790654761904764,
+    "hallucination_rate": 0.6209345238095237,
+    "omission_rate": 0.0
+  },
+  "stock": {
+    "accuracy_exact": 0.315,
+    "precision": 0.6983333333333333,
+    "recall": 0.8733333333333334,
+    "f1": 0.7429880952380951,
+    "jaccard": 0.6447499999999999,
+    "hallucination_rate": 0.3016666666666667,
+    "omission_rate": 0.12666666666666665
+  },
+  "phantom_index": 0.022392907552430844,
+  "margin": 0.023445644517997133,
+  "plot_raw": "manifold_pca3_mesh_warped.png",
+  "plot_fitted": "manifold_pca3_mesh_warped_fit.png",
+  "csv": ".artifacts/defi_metrics_prior.csv"
+}

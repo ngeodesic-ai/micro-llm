@@ -340,5 +340,5 @@
     "withdraw_high_ltv: expected verify.reason to contain 'ltv', got='abstain_non_exec'",
     "borrow_low_hf: expected verify.reason to contain 'hf', got='abstain_non_exec'"
   ],
-  "elapsed_sec": 1.453
+  "elapsed_sec": 1.064
 }

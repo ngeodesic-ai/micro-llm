@@ -21,6 +21,8 @@ micro_llm/adapters/defi/state.py
 micro_llm/cli/run_arc.py
 micro_llm/cli/run_defi.py
 micro_llm/cli/run_eval.py
+micro_llm/mappers/defi_mapper.py
+micro_llm/mappers/defi_rules.py
 micro_llm/pipelines/__init__.py
 micro_llm/pipelines/runner.py
 micro_llm/pipelines/scenarios.py

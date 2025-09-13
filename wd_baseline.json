@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "samples": 200,
+  "metrics": {
+    "accuracy_exact": 0.0,
+    "precision_micro": 0.250625,
+    "recall_micro": 1.0,
+    "f1_micro": 0.4007996001999001,
+    "precision_macro": 0.250625,
+    "recall_macro": 1.0,
+    "f1_macro": 0.39006060606060605,
+    "hallucination_rate": 1.0,
+    "omission_rate": 0.0,
+    "abstain_rate": 0.0
+  }
+}

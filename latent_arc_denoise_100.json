@@ -1,0 +1,82 @@
+{
+  "samples": 100,
+  "geodesic": {
+    "accuracy_exact": 0.0,
+    "precision": 0.362702380952381,
+    "recall": 1.0,
+    "f1": 0.5145440115440114,
+    "jaccard": 0.362702380952381,
+    "hallucination_rate": 0.6372976190476188,
+    "omission_rate": 0.0
+  },
+  "stock": {
+    "accuracy_exact": 0.09,
+    "precision": 0.5278333333333333,
+    "recall": 0.7916666666666665,
+    "f1": 0.58097619047619,
+    "jaccard": 0.4508333333333331,
+    "hallucination_rate": 0.47216666666666673,
+    "omission_rate": 0.20833333333333331
+  },
+  "phantom_index": 0.16621636515558927,
+  "margin": 0.1963456681017819,
+  "plot_raw": "manifold_pca3_mesh_warped.png",
+  "plot_fitted": "manifold_pca3_mesh_warped_fit.png",
+  "csv": "latent_arc_denoise_100.csv",
+  "denoise": {
+    "accuracy_exact": 1.0,
+    "precision": 0.997741803446694,
+    "recall": 0.9988709017233471,
+    "f1": 0.9983060299308104,
+    "jaccard": 0.996617839904815,
+    "hallucination_rate": 0.004516393106611428,
+    "omission_rate": 0.002258196553305714,
+    "latent_arc_breakdown": {
+      "axis_pull": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9977338342586404,
+        "recall": 0.9988669171293202,
+        "f1": 0.9983000504442927,
+        "jaccard": 0.996605927408733,
+        "hallucination_rate": 0.004532331482719309,
+        "omission_rate": 0.0022661657413596543
+      },
+      "quad_NE": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9978068715589918,
+        "recall": 0.9989034357794957,
+        "f1": 0.998354848129528,
+        "jaccard": 0.9967151695477247,
+        "hallucination_rate": 0.004386256882016477,
+        "omission_rate": 0.0021931284410082385
+      },
+      "ring_SW": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9977442870863615,
+        "recall": 0.9988721435431808,
+        "f1": 0.9983078929990267,
+        "jaccard": 0.9966215599449681,
+        "hallucination_rate": 0.0045114258272769495,
+        "omission_rate": 0.0022557129136384748
+      },
+      "shallow_origin": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9977453106360843,
+        "recall": 0.9988726553180424,
+        "f1": 0.998308662536156,
+        "jaccard": 0.9966230655457975,
+        "hallucination_rate": 0.004509378727831032,
+        "omission_rate": 0.002254689363915516
+      },
+      "deep_edge": {
+        "accuracy_exact": 1.0,
+        "precision": 0.9976787136933934,
+        "recall": 0.9988393568466967,
+        "f1": 0.9982586955450488,
+        "jaccard": 0.9965234770768511,
+        "hallucination_rate": 0.004642572613213375,
+        "omission_rate": 0.0023212863066066876
+      }
+    }
+  }
+}

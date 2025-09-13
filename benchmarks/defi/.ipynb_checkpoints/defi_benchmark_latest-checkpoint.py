@@ -8,6 +8,15 @@ DeFi Stage-11 style benchmark to validate well mapping (no hallucinations) and F
 - Emits a summary JSON and a human-readable report
 
 Example:
+
+python3 benchmarks/defi/defi_benchmark_latest.py \
+  --rails stage11 --runs 200 --seed 42 \
+  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
+  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}' \
+  --out_csv .artifacts/defi_bench.csv \
+  --out_json .artifacts/defi_bench.json \
+  --out_report .artifacts/defi_bench_report.md
+
   python3 defi_benchmark_latest.py \
     --rails stage11 \
     --runs 5 \

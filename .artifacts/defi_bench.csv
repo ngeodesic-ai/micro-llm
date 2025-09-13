@@ -1,0 +1,23 @@
+name,prompt,label,top1_first,stable_top1,top1_list,prior_argmax,mapper_confidence
+deposit_eth_10,deposit 10 ETH into aave,deposit_asset,deposit_asset,True,deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset|deposit_asset,deposit_asset,0.92
+deposit_usdc_1500,supply 1500 usdc to aave,deposit_asset,,True,|||||||||||||||||||,deposit_asset,0.0
+swap_eth_usdc_2,swap 2 ETH for USDC,swap_asset,swap_asset,True,swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset,swap_asset,0.92
+swap_convert_eth_usdc_1_5,convert 1.5 eth to usdc,swap_asset,swap_asset,True,swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset|swap_asset,swap_asset,0.2994573922283681
+withdraw_eth_1,withdraw 1 ETH from aave,withdraw_asset,,True,|||||||||||||||||||,deposit_asset,0.0
+withdraw_usdc_200,redeem 200 usdc from aave,withdraw_asset,,True,|||||||||||||||||||,deposit_asset,0.0
+borrow_usdc_500,borrow 500 USDC,borrow_asset,borrow_asset,True,borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset|borrow_asset,borrow_asset,0.92
+borrow_eth_0_5,draw 0.5 eth,borrow_asset,,True,|||||||||||||||||||,deposit_asset,0.0
+repay_usdc_100,repay 100 usdc,repay_loan,,True,|||||||||||||||||||,deposit_asset,0.0
+repay_eth_0_3,pay back 0.3 eth,repay_loan,,True,|||||||||||||||||||,deposit_asset,0.0
+add_collateral_eth_2,add 2 eth as collateral,add_collateral,,True,|||||||||||||||||||,deposit_asset,0.0
+add_collateral_usdc_300,increase collateral by 300 usdc,add_collateral,,True,|||||||||||||||||||,deposit_asset,0.0
+remove_collateral_eth_1,remove 1 eth collateral,remove_collateral,,True,|||||||||||||||||||,deposit_asset,0.0
+remove_collateral_usdc_100,decrease collateral by 100 usdc,remove_collateral,,True,|||||||||||||||||||,deposit_asset,0.0
+transfer_usdc_50,transfer 50 usdc to 0xABCD...1234,transfer_asset,,True,|||||||||||||||||||,deposit_asset,0.0
+send_eth_0_2,send 0.2 eth to my cold wallet,transfer_asset,,True,|||||||||||||||||||,deposit_asset,0.0
+check_balance,check balance,,,True,|||||||||||||||||||,deposit_asset,0.0
+show_positions,show my positions,,,True,|||||||||||||||||||,deposit_asset,0.0
+portfolio_value,what is my portfolio value?,,,True,|||||||||||||||||||,deposit_asset,0.0
+fees_question,what are current aave fees,,,True,|||||||||||||||||||,deposit_asset,0.0
+market_rates,show current borrow and supply rates,,,True,|||||||||||||||||||,deposit_asset,0.0
+health_factor,what's my health factor,,,True,|||||||||||||||||||,deposit_asset,0.0
