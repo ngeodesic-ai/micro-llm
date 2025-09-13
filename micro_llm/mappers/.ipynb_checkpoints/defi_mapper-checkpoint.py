@@ -1,3 +1,26 @@
+# -------------------- DEBUG BLOCK -------------------- #
+# at top of defi_mapper.py
+import os, sys
+def _mdbg(): return os.getenv("MICROLLM_DEBUG", "") not in ("", "0", "false", "False")
+def _mp(*a): 
+    if _mdbg(): print(*a, file=sys.stderr)
+
+# …inside map_prompt(…):
+norm = prompt.strip().lower()
+_mp("[defi_mapper] ▶ norm:", norm)
+
+# after each regex check (example):
+m = ADD_COLLATERAL_RE.search(norm)
+_mp("[defi_mapper] rule:add_collateral match:", bool(m), ("span", m.span()) if m else "")
+
+# after model inference:
+_mp("[defi_mapper] model topk:", [(names[i], float(scores[i])) for i in topk_idx])
+
+# before returning:
+_mp("[defi_mapper] decision:", {"top1": top1, "conf": float(conf), "thresh": thresh, "forced_by_rule": forced})
+_mp("[defi_mapper] prior:", prior)
+# -------------------- DEBUG BLOCK -------------------- #
+
 from micro_llm.mappers.defi_rules import rule_prior, PRIMS
 
 def map_intent(text, model, threshold=0.7, rule_boost=1.0):
