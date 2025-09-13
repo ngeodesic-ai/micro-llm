@@ -17,9 +17,31 @@ cp .artifacts/defi_bench_dist.json defi_bench_dist.json
 
 python3 benchmarks/defi/bench_driver.py \
   --suite benchmarks/suites/defi_dist_v1.jsonl \
-  --rails stage11 --runs 3 \
+  --rails stage11 --runs 5 \
   --context '{"oracle":{"age_sec":5,"max_age_sec":30}}' \
-  --policy  '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}'
+  --policy  '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
+  --out .artifacts/defi_dist_v1_r5.json
+
+for s in defi_edges_{ltv,hf,oracle}.jsonl; do
+  python3 benchmarks/defi/bench_driver.py --suite benchmarks/suites/$s \
+    --rails stage11 --runs 3 \
+    --context '{"oracle":{"age_sec":5,"max_age_sec":30}}' \
+    --policy  '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
+    --out .artifacts/${s%.jsonl}_r3.json
+done
+
+
+for thr in 0.6 0.7 0.8; do
+  for m in 0.85 0.90 0.95; do
+    python3 benchmarks/defi/bench_driver.py \
+      --suite benchmarks/suites/defi_dist_v2.jsonl \
+      --rails stage11 --runs 3 \
+      --context '{"oracle":{"age_sec":5,"max_age_sec":30}}' \
+      --policy "{\"ltv_max\":0.75, \"near_margin\":$m, \"mapper\":{\"model_path\":\".artifacts/defi_mapper.joblib\",\"confidence_threshold\":$thr}}" \
+      --out .artifacts/dist_v2_thr${thr}_m${m}.json
+  done
+done
+
 
 """
 
@@ -66,6 +88,9 @@ def main():
     ap.add_argument("--runs", type=int, default=1, help="repetitions per item (default 1)")
     ap.add_argument("--context", default=None, help='base context JSON or file')
     ap.add_argument("--policy",  default=None, help='base policy JSON or file')
+    ap.add_argument("--out", default=None,
+    help="Optional path for JSON summary output (default: .artifacts/defi_bench_dist.json)")
+
     args = ap.parse_args()
 
     def _load(x):
@@ -86,6 +111,14 @@ def main():
         top1_list = [o["top1"] for o in outs]
         stable = len(set(top1_list)) == 1
         row = outs[0]
+        # infer kind when missing
+        if not row.get("kind"):
+            if row["reason"] == "abstain_non_exec":
+                row["kind"] = "nonexec"
+            elif not row["verify_ok"]:
+                row["kind"] = "blocked"
+            else:
+                row["kind"] = "exec"
         row["top1_list"] = top1_list
         row["stable_top1"] = stable
         rows.append(row)
@@ -138,9 +171,9 @@ def main():
     }
 
     # Write artifacts
-    out_json = ARTIF / "defi_bench_dist.json"
-    out_csv  = ARTIF / "defi_bench_dist.csv"
-    out_md   = ARTIF / "defi_bench_dist_report.md"
+    out_json = pathlib.Path(args.out) if args.out else ARTIF / "defi_bench_dist.json"
+    out_csv  = out_json.with_suffix(".csv")
+    out_md   = out_json.with_suffix(".md")
 
     out_json.write_text(json.dumps({"summary": summary, "rows": rows}, indent=2))
 

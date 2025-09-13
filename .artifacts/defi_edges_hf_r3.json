@@ -1,0 +1,200 @@
+{
+  "summary": {
+    "suite": "benchmarks/suites/defi_edges_hf.jsonl",
+    "rails": "stage11",
+    "T": 180,
+    "runs": 3,
+    "counts": {
+      "exec": 2,
+      "blocked": 3,
+      "nonexec": 1
+    },
+    "metrics": {
+      "exec_top1_acc": 0.0,
+      "exec_verify_pass_rate": 100.0,
+      "nonexec_abstain_rate": 100.0,
+      "nonexec_hallucination_rate": 0.0,
+      "blocked_verify_block_rate": 100.0,
+      "blocked_reason_hf_presence": 66.67,
+      "blocked_reason_ltv_presence": 33.33,
+      "stability_rate_on_exec": 100.0
+    }
+  },
+  "rows": [
+    {
+      "prompt": "deposit 10 ETH into aave",
+      "kind": "exec",
+      "label": null,
+      "top1": "deposit_asset",
+      "verify_ok": true,
+      "reason": "",
+      "flags": {
+        "oracle_stale": false
+      },
+      "aux": {
+        "prior": {
+          "deposit_asset": 1.0,
+          "withdraw_asset": 0.0,
+          "borrow_asset": 0.0,
+          "repay_loan": 0.0,
+          "swap_asset": 0.0,
+          "add_collateral": 0.0,
+          "remove_collateral": 0.0
+        },
+        "mapper_confidence": 0.92
+      },
+      "top1_list": [
+        "deposit_asset",
+        "deposit_asset",
+        "deposit_asset"
+      ],
+      "stable_top1": true
+    },
+    {
+      "prompt": "swap 2 ETH for USDC",
+      "kind": "exec",
+      "label": null,
+      "top1": "swap_asset",
+      "verify_ok": true,
+      "reason": "",
+      "flags": {
+        "oracle_stale": false
+      },
+      "aux": {
+        "prior": {
+          "deposit_asset": 0.0,
+          "withdraw_asset": 0.0,
+          "borrow_asset": 0.0,
+          "repay_loan": 0.0,
+          "swap_asset": 1.0,
+          "add_collateral": 0.0,
+          "remove_collateral": 0.0
+        },
+        "mapper_confidence": 0.92
+      },
+      "top1_list": [
+        "swap_asset",
+        "swap_asset",
+        "swap_asset"
+      ],
+      "stable_top1": true
+    },
+    {
+      "prompt": "borrow 1000 USDC",
+      "kind": "blocked",
+      "label": null,
+      "top1": null,
+      "verify_ok": false,
+      "reason": "hf",
+      "flags": {
+        "oracle_stale": false
+      },
+      "aux": {
+        "prior": {
+          "deposit_asset": 0.0,
+          "withdraw_asset": 0.0,
+          "borrow_asset": 0.0,
+          "repay_loan": 0.0,
+          "swap_asset": 0.0,
+          "add_collateral": 0.0,
+          "remove_collateral": 0.0
+        },
+        "mapper_confidence": 0.0
+      },
+      "top1_list": [
+        null,
+        null,
+        null
+      ],
+      "stable_top1": true
+    },
+    {
+      "prompt": "borrow 100 USDC",
+      "kind": "blocked",
+      "label": null,
+      "top1": null,
+      "verify_ok": false,
+      "reason": "hf",
+      "flags": {
+        "oracle_stale": false
+      },
+      "aux": {
+        "prior": {
+          "deposit_asset": 0.0,
+          "withdraw_asset": 0.0,
+          "borrow_asset": 0.0,
+          "repay_loan": 0.0,
+          "swap_asset": 0.0,
+          "add_collateral": 0.0,
+          "remove_collateral": 0.0
+        },
+        "mapper_confidence": 0.0
+      },
+      "top1_list": [
+        null,
+        null,
+        null
+      ],
+      "stable_top1": true
+    },
+    {
+      "prompt": "withdraw 5 ETH",
+      "kind": "blocked",
+      "label": null,
+      "top1": null,
+      "verify_ok": false,
+      "reason": "ltv",
+      "flags": {
+        "oracle_stale": false
+      },
+      "aux": {
+        "prior": {
+          "deposit_asset": 0.0,
+          "withdraw_asset": 0.0,
+          "borrow_asset": 0.0,
+          "repay_loan": 0.0,
+          "swap_asset": 0.0,
+          "add_collateral": 0.0,
+          "remove_collateral": 0.0
+        },
+        "mapper_confidence": 0.0
+      },
+      "top1_list": [
+        null,
+        null,
+        null
+      ],
+      "stable_top1": true
+    },
+    {
+      "prompt": "check balance",
+      "kind": "nonexec",
+      "label": null,
+      "top1": null,
+      "verify_ok": false,
+      "reason": "abstain_non_exec",
+      "flags": {
+        "abstain_non_exec": true,
+        "oracle_stale": false
+      },
+      "aux": {
+        "prior": {
+          "deposit_asset": 0.0,
+          "withdraw_asset": 0.0,
+          "borrow_asset": 0.0,
+          "repay_loan": 0.0,
+          "swap_asset": 0.0,
+          "add_collateral": 0.0,
+          "remove_collateral": 0.0
+        },
+        "mapper_confidence": 0.0
+      },
+      "top1_list": [
+        null,
+        null,
+        null
+      ],
+      "stable_top1": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{"prompt":"deposit 10 ETH into aave","kind":"exec","expect":{"top1":"deposit_asset"}}
+{"prompt":"deposit 2500 USDC into aave","kind":"exec","expect":{"top1":"deposit_asset"}}
+{"prompt":"swap 2 ETH for USDC","kind":"exec","expect":{"top1":"swap_asset"}}
+{"prompt":"swap 1000 USDC to ETH","kind":"exec","expect":{"top1":"swap_asset"}}
+{"prompt":"repay 200 USDC loan","kind":"exec","expect":{"top1":"repay_loan"}}
+{"prompt":"repay 0.1 ETH debt","kind":"exec","expect":{"top1":"repay_loan"}}
+{"prompt":"add 1 ETH as collateral","kind":"exec","expect":{"top1":"add_collateral"}}
+{"prompt":"add 500 USDC as collateral","kind":"exec","expect":{"top1":"add_collateral"}}
+{"prompt":"remove 0.05 ETH of collateral","kind":"exec","expect":{"top1":"remove_collateral"}}
+{"prompt":"remove 100 USDC collateral","kind":"exec","expect":{"top1":"remove_collateral"}}
+
+{"prompt":"withdraw 5 ETH","kind":"blocked","expect":{"reason":"ltv"}}
+{"prompt":"withdraw 3 ETH","kind":"blocked","expect":{"reason":"ltv"}}
+{"prompt":"borrow 1000 USDC","kind":"blocked","expect":{"reason":"hf"}}
+{"prompt":"borrow 2500 USDC","kind":"blocked","expect":{"reason":"hf"}}
+{"prompt":"borrow 2 ETH","kind":"blocked","expect":{"reason":"hf"}}
+{"prompt":"withdraw 1500 USDC","kind":"blocked","expect":{"reason":"ltv"}}
+
+{"prompt":"withdraw 1 ETH","kind":"blocked","expect":{"reason":"ltv"}}
+{"prompt":"borrow 500 USDC","kind":"blocked","expect":{"reason":"hf"}}
+
+{"prompt":"withdraw 0.5 ETH","kind":"blocked","expect":{"reason":"oracle"},"context":{"oracle":{"age_sec":45,"max_age_sec":30}}}
+{"prompt":"borrow 300 USDC","kind":"blocked","expect":{"reason":"oracle"},"context":{"oracle":{"age_sec":120,"max_age_sec":30}}}
+
+{"prompt":"check balance","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
+{"prompt":"show my open positions","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
+{"prompt":"list my loans","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
+{"prompt":"what is my health factor","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
+{"prompt":"explain LTV","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
+{"prompt":"help","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
+

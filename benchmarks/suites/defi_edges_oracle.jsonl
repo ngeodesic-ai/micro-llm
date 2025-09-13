@@ -1,0 +1,3 @@
+{"prompt":"deposit 10 ETH into aave","kind":"exec","expect":{"top1":"deposit_asset"}}
+{"prompt":"borrow 1000 USDC","kind":"blocked","expect":{"reason":"hf"}}
+{"prompt":"check balance","kind":"nonexec","expect":{"reason":"abstain_non_exec"}}
