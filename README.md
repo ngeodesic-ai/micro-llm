@@ -45,13 +45,7 @@ micro-arc --prompt "flip the grid horizontally" --rails stage11
 
 ## DeFi Micro-LLM: Tiered Plan of Attack
 
-This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**.  
-Our current focus is the DeFi domain, but the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
-
-
-[![Tests](https://img.shields.io/github/actions/workflow/status/ngeodesic-ai/micro-llm/ci.yml?branch=main)](../../actions)  
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)  
-[![Benchmarks](https://img.shields.io/badge/benchmarks-stage11-green)](./benchmarks)  
+This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**. Our current focus is the DeFi domain, but the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
 
 ---
 
