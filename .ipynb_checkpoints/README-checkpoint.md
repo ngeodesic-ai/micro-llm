@@ -63,7 +63,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 **Status:** 👷 In progress — LLM benchmarks confirm deterministic reasoning on synthetic latents
 
-### **Tier-2: Incorporate WDD (Operational)**  
+### **Tier-2: Incorporate WDD with Synthetic Latents (Operational)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.  
 - Stress test signal separation + denoising with synthetic latents.
 
