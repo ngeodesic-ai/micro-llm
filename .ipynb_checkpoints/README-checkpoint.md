@@ -51,21 +51,21 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 ### 🔑 Status  
 
-✅ **Tier-0: Operational**  
+✅ **Tier-0: Baseline Deterministic Rails (✔ Secured)**  
 - **Stock matched filter + parser** pipeline.  
 - Supports core DeFi primitives with deterministic abstain paths.  
 - Sandbox verified and benchmarked with stable execution.
 
 **Status:** ✅ Complete — foundation secured.
 
-🚧 **Tier-1: In Progress**  
+🚧 **Tier-1: Micro-LLM on Synthetic Latents (In Progress)**  
 - Replace hashmap lookups with a **trained micro-LLM encoder**.  
 - Train against **2–5k synthetic latent prompts**.  
 - Benchmark with full Stage-11 runner on DeFi suites.
 
 **Status:** ✅ Proven — LLM benchmarks confirm deterministic reasoning on synthetic latents
 
-🔮 **Tier-2: Synthetic Latents + WDD (Operational)**  
+🔮 **Tier-2: Incorporate WDD (Operational)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.  
 - Stress test signal separation + denoising with synthetic latents.
 
