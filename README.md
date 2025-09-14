@@ -45,46 +45,50 @@ micro-arc --prompt "flip the grid horizontally" --rails stage11
 
 ## DeFi Micro-LLM: Tiered Plan of Attack
 
-This project follows a three-tier strategy aligned with the NGF Stage-10/11 doctrine  
-(**Warp → Detect → Denoise → Verify**). Each tier represents an increasing level of capability and integration.
+This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**.  
+Our current focus is the DeFi domain, but the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
+
+
+[![Tests](https://img.shields.io/github/actions/workflow/status/ngeodesic-ai/micro-llm/ci.yml?branch=main)](../../actions)  
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)  
+[![Benchmarks](https://img.shields.io/badge/benchmarks-stage11-green)](./benchmarks)  
 
 ---
 
-### Tier 0 — Baseline Deterministic Rails (✔ Secured)
-- Stage-10 rails with matched filter + dual thresholds.  
-- Simple rule-based mapper produces residual traces.  
-- Basic verifiers (ARC grid ops, DeFi invariants).  
-- End-to-end CLI runs and benchmark harness are working.  
+### 🔑 Status  
+
+✅ **Tier-0: Operational**  
+- **Stock matched filter + parser** pipeline.  
+- Supports core DeFi primitives with deterministic abstain paths.  
+- Sandbox verified and benchmarked with stable execution.
 
 **Status:** ✅ Complete — foundation secured.
 
----
+🚧 **Tier-1: In Progress**  
+- Replace hashmap lookups with a **trained micro-LLM encoder**.  
+- Train against **2–5k synthetic latent prompts**.  
+- Benchmark with full Stage-11 runner on DeFi suites.
 
-### Tier 1 — Micro-LLM on Synthetic Latents (Operational)
-- Hybrid mapper + prior injection for prompt→feature mapping.  
-- Stage-11 warp + detect + denoise rails applied to synthetic latent traces.  
-- Benchmarked successfully on ARC-like synthetic latents (deterministic reasoning).  
-- Micro-LLM exists: parser + denoiser operating on synthetic wells.  
+**Status:** ✅ Proven — LLM benchmarks confirm deterministic reasoning on synthetic latents
 
-**Status:** ✅ Proven — LLM benchmarks confirm deterministic reasoning on synthetic latents.
+🔮 **Tier-2: Synthetic Latents + WDD (Operational)**  
+- Add **Warp → Detect → Denoise (WDD)** pipeline.  
+- Stress test signal separation + denoising with synthetic latents.
 
----
+**Status:** ✅ Proven — WDD LLM benchmarks confirm deterministic reasoning on synthetic latents.
 
-### Tier 2 — Sidecar Integration with Real Latents (Aspirational)
-- Integrate with an external LLM (e.g. GPT-2) to extract **pooled latents** from DeFi prompts.  
-- Replace synthetic latent generator with live embeddings.  
-- Run rails (warp → detect → denoise) on real latents to classify/sequence primitives.  
-- Bragging-point tier — showcases novel architecture but currently high-risk and unproven.  
+🚀 **Tier-3: Real Latents (End Goal)**  
+- Swap synthetic latents for **true model latents**.  
+- Validate WDD under real-world latent distributions.
 
-**Status:** 🚧 Dream stage — future work, not required for MVP.
+**Status:** 🚧 Planning stage — future work, not required for MVP.
 
 ---
 
 **Roadmap Summary:**  
-- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LLM reasoning on synthetic latents.  
-- Tier 2 remains a stretch goal: sidecar integration for real latents, to be explored later.
-
-
+- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LLM reasoning on synthetic latents.
+- Tier 2 expands the scope of what micro-LLM can do
+- Tier 3 remains a the end goal: sidecar integration for real latents, to be explored later.
 
 
 ## Install
