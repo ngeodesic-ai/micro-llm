@@ -61,7 +61,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 - Train against **2–5k synthetic latent prompts**.  
 - Benchmark with full Stage-11 runner on DeFi suites.
 
-**Status:** 👷 In progress — LLM benchmarks confirm deterministic reasoning on synthetic latents
+**Status:** 👷 In progress — LLM benchmarks confirm deterministic reasoning on synthetic latents (MVP)
 
 ### **Tier-2: Incorporate WDD with Synthetic Latents (Operational)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.  
