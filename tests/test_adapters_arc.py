@@ -1,5 +1,5 @@
-from micro_llm.adapters.base import AdapterInput, make_residuals
-from micro_llm.adapters.arc import ARCAdapter
+from micro_lm.adapters.base import AdapterInput, make_residuals
+from micro_lm.adapters.arc import ARCAdapter
 def test_arc_adapter_shapes():
     inp = AdapterInput(prompt="flip", context={"train_pairs": [], "test_inputs": []}, policy={"max_ops":3}, T=120)
     b = make_residuals(ARCAdapter(), inp)

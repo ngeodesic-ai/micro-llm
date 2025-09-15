@@ -1,5 +1,5 @@
 # tests/test_defi_verify.py
-from micro_llm.verify.defi_verify import defi_verify
+from micro_lm.verify.defi_verify import defi_verify
 
 def test_borrow_abstains_when_hf_low():
     plan = {"sequence": ["borrow_asset"]}

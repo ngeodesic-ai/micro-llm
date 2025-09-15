@@ -2,7 +2,7 @@
 # milestones/defi_milestone5.py
 import argparse, json, pathlib, sys, time, hashlib
 from typing import Dict, Any, List, Tuple
-from micro_llm.pipelines.runner import run_micro
+from micro_lm.pipelines.runner import run_micro
 
 """
 

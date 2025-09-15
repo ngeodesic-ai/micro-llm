@@ -1,6 +1,6 @@
 # tests/test_sandbox_guard.py
 import pytest
-from micro_llm.pipelines.runner import run_micro
+from micro_lm.pipelines.runner import run_micro
 
 def test_defi_sandbox_disables_stage11():
     """

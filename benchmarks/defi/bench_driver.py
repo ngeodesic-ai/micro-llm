@@ -4,7 +4,7 @@ import argparse, json, sys, time, pathlib, statistics as stats
 from collections import Counter, defaultdict
 from typing import Dict, Any
 
-from micro_llm.pipelines.runner import run_micro  # same API as milestones use  ✅
+from micro_lm.pipelines.runner import run_micro  # same API as milestones use  ✅
 
 """
 python3 benchmarks/defi/bench_driver.py \

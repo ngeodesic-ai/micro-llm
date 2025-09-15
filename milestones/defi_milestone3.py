@@ -36,7 +36,7 @@ import argparse, json, sys, hashlib
 from pathlib import Path
 from typing import Any, Dict, List
 
-from micro_llm.pipelines.runner import run_micro
+from micro_lm.pipelines.runner import run_micro
 
 ARTIFACTS_DIR = Path(".artifacts")
 SUMMARY_PATH = ARTIFACTS_DIR / "defi_milestone3_summary.json"

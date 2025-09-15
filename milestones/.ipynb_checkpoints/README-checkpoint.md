@@ -2,7 +2,7 @@
 
 This document condenses the NGF 12-step process into **5 parsable milestones** for DeFi, aligned with the **Warp → Detect → Denoise** doctrine described in the patents and article.  
 
-Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, then folded into the `micro_llm` package with benchmarks and tests.
+Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, then folded into the `micro_lm` package with benchmarks and tests.
 
 ---
 
@@ -44,11 +44,11 @@ Each milestone is **script-driven** (e.g., `defi_milestoneX.py`), validated, the
 ---
 
 ## Milestone 4 — Consolidation + Benchmarks ✅ (done)
-- Fold into **micro_llm package**.  
+- Fold into **micro_lm package**.  
 - ARC + DeFi **benchmark suites** (latent ARC, toy DeFi scenarios).  
 - **Test harness** for hallucination/abstain metrics.  
 - Push to GitHub, **tag release**.  
-➡️ Demonstrates end-to-end deterministic micro-LLM reasoning.
+➡️ Demonstrates end-to-end deterministic micro-LM reasoning.
 
 ---
 

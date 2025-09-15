@@ -1,5 +1,5 @@
 [project]
-name = "micro-llm"
+name = "micro-lm"
 version = "0.0.1"
 description = "Domain-agnostic micro reasoning adapters on top of ngeodesic Stage-10/11"
 readme = "README.md"
@@ -13,12 +13,12 @@ dependencies = [
 mapper = ["scikit-learn>=1.1", "joblib>=1.2"]
 
 [project.scripts]
-micro-arc = "micro_llm.cli.run_arc:main"
-micro-defi = "micro_llm.cli.run_defi:main"
-micro-eval = "micro_llm.cli.run_eval:main"
+micro-arc = "micro_lm.cli.run_arc:main"
+micro-defi = "micro_lm.cli.run_defi:main"
+micro-eval = "micro_lm.cli.run_eval:main"
 
 [tool.setuptools.packages.find]
-include = ["micro_llm*"]
+include = ["micro_lm*"]
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]

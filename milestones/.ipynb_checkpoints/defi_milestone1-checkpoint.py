@@ -30,8 +30,8 @@ import argparse, json, sys, hashlib
 from pathlib import Path
 from typing import Any, Dict
 
-# Assumes micro_llm is installed in editable mode or on PYTHONPATH
-from micro_llm.pipelines.runner import run_micro
+# Assumes micro_lm is installed in editable mode or on PYTHONPATH
+from micro_lm.pipelines.runner import run_micro
 
 ARTIFACTS_DIR = Path(".artifacts")
 SUMMARY_PATH = ARTIFACTS_DIR / "defi_milestone1_summary.json"

@@ -2,7 +2,7 @@ git branch -D defi_poc_v2
 git push origin --delete defi_poc_v2
 git reset --hard HEAD~5 
 
-python3 -m pip uninstall -y micro-llm micro_llm   
+python3 -m pip uninstall -y micro-lm micro_lm   
 python3 -m pip install -e . 
 
 pytest -v
@@ -15,37 +15,37 @@ micro-arc --prompt "flip the grid horizontally" --rails stage11
 micro-defi --prompt "deposit 10 ETH into aave" --rails stage11 
 
 python3 - <<'PY'
-from micro_llm.adapters.defi.mapper import map_prompt
+from micro_lm.adapters.defi.mapper import map_prompt
 for t in ["check balance", "view my positions", "what's my health factor"]:
     slots, conf = map_prompt(t, {}, {"model_path": ".artifacts/defi_mapper.joblib"})
     print(t, "->", slots, conf)
 PY
 
 python3 - <<'PY'                                               
-import micro_llm, inspect, os
-print("micro_llm:", micro_llm.__file__)
+import micro_lm, inspect, os
+print("micro_lm:", micro_lm.__file__)
 PY
 
 python3 - <<'PY'                                               
-from micro_llm.adapters.arc import ARCAdapter
-from micro_llm.adapters.defi import DeFiAdapter
+from micro_lm.adapters.arc import ARCAdapter
+from micro_lm.adapters.defi import DeFiAdapter
 print("ARC ok:", ARCAdapter)
 print("DeFi ok:", DeFiAdapter)
 PY
 
 python3 - <<'PY'                                               
-from micro_llm.pipelines.runner import run_micro
+from micro_lm.pipelines.runner import run_micro
 print("runner import OK")                      
 PY  
 
 python3 - <<'PY'                                               
-from micro_llm.adapters import get_adapter_for_domain
+from micro_lm.adapters import get_adapter_for_domain
 print(type(get_adapter_for_domain("arc")).__name__)
 print(type(get_adapter_for_domain("defi")).__name__)
 PY
 
 python3 - <<'PY'
-from micro_llm.pipelines.runner import run_micro
+from micro_lm.pipelines.runner import run_micro
 res = run_micro(
   domain="defi",
   prompt="borrow 500 USDC",

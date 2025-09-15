@@ -1,6 +1,6 @@
-from micro_llm.adapters.base import AdapterInput, make_residuals
-from micro_llm.adapters.defi import DeFiAdapter
-from micro_llm.rails.stage10 import run_stage10
+from micro_lm.adapters.base import AdapterInput, make_residuals
+from micro_lm.adapters.defi import DeFiAdapter
+from micro_lm.rails.stage10 import run_stage10
 
 def test_prior_pushes_deposit_first():
     inp = AdapterInput(
