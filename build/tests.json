@@ -1,0 +1,111 @@
+{
+  "contracts": {},
+  "tests": {
+    "tests/test_adapters_arc.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "792bd417d58123a82534870c6ccad5ae299f393d",
+      "txhash": []
+    },
+    "tests/test_arc_mapper_prior.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "668d157f5f3d1957ec033a6952db64e41ec33d67",
+      "txhash": []
+    },
+    "tests/test_cli_defi_examples.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "b9d9257b4c6aee819a0ad90739d2c4b3a0a5916c",
+      "txhash": []
+    },
+    "tests/test_defi_verify.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "...",
+      "sha1": "3ef5947734a50752904d72adb192270172b07475",
+      "txhash": []
+    },
+    "tests/test_m1_stability_smoke.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "17bd39c2ceaf096c53a5c54925aae0681e564a56",
+      "txhash": []
+    },
+    "tests/test_m2_stability_smoke.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "a95b876dea9138f32f321f9bd771fd1eb8db3ce6",
+      "txhash": []
+    },
+    "tests/test_m3_denoise_smoke.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "d15a3021b5f67040313e489637723cd4e84ac289",
+      "txhash": []
+    },
+    "tests/test_m4_safety_smoke.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "c9658f7dd41b2c4d982fe0d208c5fe8d2d32e04c",
+      "txhash": []
+    },
+    "tests/test_m4_stability_smoke.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "742aeea5e1572c6b82f7f00e8a58429aaf4f3355",
+      "txhash": []
+    },
+    "tests/test_m5_regression.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "99ef708099c774569ed1e28e51b5c719be72b275",
+      "txhash": []
+    },
+    "tests/test_m6_mapper_wire.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "6e6548c7da7c5a579eaf794b6ef2182d9c42ac8f",
+      "txhash": []
+    },
+    "tests/test_nonexec_abstain.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "007ffc8343e93b9c64f26fddccf32920f63ab40a",
+      "txhash": []
+    },
+    "tests/test_rails_stage10.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "db4f71f420f7ffcafd88209e6d3f0174db529c8b",
+      "txhash": []
+    },
+    "tests/test_sandbox_guard.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "4bbb639f6f284cefea0c12c742c79a51a2860411",
+      "txhash": []
+    },
+    "tests/test_stage10_prior_ordering.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "7fee46c6fed6e4faf8fb0bc6cd8b08989aa5cb40",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}

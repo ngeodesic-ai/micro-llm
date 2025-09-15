@@ -1,0 +1,4 @@
+{"prompt": "deposit 10 ETH into aave", "label": "deposit_asset"}
+{"prompt": "withdraw 200 USDC from compound", "label": "withdraw_asset"}
+{"prompt": "swap 2 ETH to USDC", "label": "swap_asset"}
+{"prompt": "check balance", "label": "check_balance"}
