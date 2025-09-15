@@ -1,0 +1,6 @@
+{
+  "check_balance": 0.2,
+  "deposit_asset": 0.2,
+  "swap_asset": 0.2,
+  "withdraw_asset": 0.45
+}

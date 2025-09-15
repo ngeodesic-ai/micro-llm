@@ -1,0 +1,121 @@
+prompt,gold_label,predicted,confidence,abstain,threshold
+deposit 10 ETH into aave,deposit_asset,deposit_asset,0.8194,False,0.4
+add 100 USDC to my compound account,deposit_asset,deposit_asset,1.0000,False,0.4
+supply 50 DAI into yearn,deposit_asset,deposit_asset,0.5896,False,0.4
+stake 20 ETH into curve,deposit_asset,,0.3333,True,0.4
+provide liquidity of 200 USDC,deposit_asset,deposit_asset,0.7429,False,0.4
+deposit funds into makerdao vault,deposit_asset,deposit_asset,0.7217,False,0.4
+top up my lending account with 300 DAI,deposit_asset,deposit_asset,0.9333,False,0.4
+fund my position with 2 ETH,deposit_asset,withdraw_asset,0.4005,False,0.4
+send 1 WBTC into compound,deposit_asset,,0.3161,True,0.4
+put 75 USDT into aave,deposit_asset,check_balance,0.5532,False,0.4
+supply collateral: 250 DAI on aave,deposit_asset,withdraw_asset,0.9703,False,0.4
+add funds to compound: 400 USDC,deposit_asset,deposit_asset,1.0000,False,0.4
+deposit my ETH into lending,deposit_asset,deposit_asset,0.7667,False,0.4
+stake some DAI on yearn,deposit_asset,swap_asset,0.5085,False,0.4
+supply 100 USDT to compound,deposit_asset,deposit_asset,1.0000,False,0.4
+move 3 ETH into aave as collateral,deposit_asset,deposit_asset,0.8344,False,0.4
+add 50 USDC liquidity to pool,deposit_asset,deposit_asset,0.8509,False,0.4
+deposit 1000 DAI into makerdao,deposit_asset,deposit_asset,0.6046,False,0.4
+top up position with 25 USDC,deposit_asset,deposit_asset,0.4167,False,0.4
+add another 0.5 WBTC to compound,deposit_asset,deposit_asset,0.7097,False,0.4
+provide 60 DAI to lending,deposit_asset,deposit_asset,0.6997,False,0.4
+fund aave with 2.5 ETH,deposit_asset,deposit_asset,0.6094,False,0.4
+supply usdc on aave: 120,deposit_asset,check_balance,0.6234,False,0.4
+add dai collateral in maker vault,deposit_asset,withdraw_asset,0.7738,False,0.4
+stake 15 ETH into a lending market,deposit_asset,deposit_asset,0.6962,False,0.4
+add more USDT to compound,deposit_asset,deposit_asset,0.7742,False,0.4
+deposit 220 DAI for collateral,deposit_asset,deposit_asset,0.7008,False,0.4
+supply 90 USDC to lending pool,deposit_asset,deposit_asset,0.8954,False,0.4
+put 4 ETH into aave v3,deposit_asset,deposit_asset,0.5833,False,0.4
+deposit stablecoins into compound,deposit_asset,deposit_asset,0.8291,False,0.4
+withdraw 200 USDC from compound,withdraw_asset,withdraw_asset,0.7763,False,0.4
+redeem my 50 DAI,withdraw_asset,withdraw_asset,0.9166,False,0.4
+unstake 2 ETH from aave,withdraw_asset,withdraw_asset,1.0000,False,0.4
+pull out 100 USDC from lending pool,withdraw_asset,withdraw_asset,0.7857,False,0.4
+take out 1 WBTC from curve,withdraw_asset,check_balance,0.4240,False,0.4
+remove liquidity of 500 USDT,withdraw_asset,withdraw_asset,0.8077,False,0.4
+cash out my dai from compound,withdraw_asset,withdraw_asset,0.7661,False,0.4
+withdraw my position of 10 ETH,withdraw_asset,withdraw_asset,1.0000,False,0.4
+take out my funds from makerdao vault,withdraw_asset,withdraw_asset,0.7966,False,0.4
+close my position and withdraw,withdraw_asset,withdraw_asset,0.8255,False,0.4
+redeem collateral 300 DAI from aave,withdraw_asset,withdraw_asset,1.0000,False,0.4
+withdraw everything from compound,withdraw_asset,withdraw_asset,0.8190,False,0.4
+unstake my ETH and return to wallet,withdraw_asset,withdraw_asset,0.8217,False,0.4
+pull my usdc out of lending,withdraw_asset,withdraw_asset,1.0000,False,0.4
+redeem 25 USDT from pool,withdraw_asset,withdraw_asset,0.6481,False,0.4
+withdraw 0.2 WBTC from compound,withdraw_asset,withdraw_asset,0.7609,False,0.4
+take back 60 DAI collateral,withdraw_asset,withdraw_asset,1.0000,False,0.4
+withdraw 3 ETH to wallet,withdraw_asset,deposit_asset,0.5535,False,0.4
+remove my funds from maker vault,withdraw_asset,withdraw_asset,0.7850,False,0.4
+close lending position for 100 USDC,withdraw_asset,withdraw_asset,1.0000,False,0.4
+withdraw dai from yearn,withdraw_asset,withdraw_asset,0.8908,False,0.4
+redeem usdc from aave,withdraw_asset,withdraw_asset,0.7493,False,0.4
+pull funds out of compound now,withdraw_asset,withdraw_asset,0.7790,False,0.4
+withdraw all stablecoins to wallet,withdraw_asset,withdraw_asset,0.7235,False,0.4
+unstake tokens and withdraw,withdraw_asset,withdraw_asset,0.8333,False,0.4
+redeem entire position,withdraw_asset,withdraw_asset,0.7714,False,0.4
+withdraw collateral and exit,withdraw_asset,withdraw_asset,0.8441,False,0.4
+take out loan repayment leftovers,withdraw_asset,withdraw_asset,0.7558,False,0.4
+withdraw remaining usdt from pool,withdraw_asset,withdraw_asset,0.5923,False,0.4
+withdraw 1 ETH and 200 USDC,withdraw_asset,withdraw_asset,0.5628,False,0.4
+swap 2 ETH to USDC,swap_asset,swap_asset,1.0000,False,0.4
+convert 10 DAI into ETH,swap_asset,swap_asset,0.9050,False,0.4
+exchange my WBTC for USDC,swap_asset,swap_asset,0.8570,False,0.4
+trade 100 USDT for DAI,swap_asset,swap_asset,0.9548,False,0.4
+swap ETH for wrapped BTC,swap_asset,swap_asset,0.6803,False,0.4
+flip 20 USDC into ETH,swap_asset,swap_asset,0.9915,False,0.4
+swap out dai to usdt,swap_asset,swap_asset,0.9886,False,0.4
+change eth to usdc,swap_asset,swap_asset,1.0000,False,0.4
+trade 1 ETH for 3500 USDC,swap_asset,swap_asset,0.9753,False,0.4
+swap all my dai into eth,swap_asset,swap_asset,0.7761,False,0.4
+route 50 DAI to USDC on uniswap,swap_asset,swap_asset,0.7521,False,0.4
+swap 0.5 WBTC to ETH,swap_asset,swap_asset,0.9562,False,0.4
+convert 250 USDC to DAI via 1inch,swap_asset,swap_asset,0.9824,False,0.4
+exchange 3 ETH into WBTC,swap_asset,swap_asset,0.8409,False,0.4
+trade 75 USDT to 75 USDC,swap_asset,swap_asset,0.9875,False,0.4
+swap usdc->dai,swap_asset,swap_asset,0.9427,False,0.4
+quote and swap 20 dai to usdc,swap_asset,swap_asset,0.9637,False,0.4
+market swap eth to dai,swap_asset,swap_asset,0.8686,False,0.4
+limit swap 1000 USDC to ETH,swap_asset,swap_asset,0.9607,False,0.4
+swap 15 DAI into WBTC,swap_asset,swap_asset,0.8108,False,0.4
+swap 0.1 ETH to USDT,swap_asset,swap_asset,1.0000,False,0.4
+convert 40 USDT into USDC,swap_asset,swap_asset,1.0000,False,0.4
+exchange 500 DAI into USDT,swap_asset,swap_asset,1.0000,False,0.4
+"trade WBTC for 25,000 USDC",swap_asset,swap_asset,0.7587,False,0.4
+swap 2.5 ETH for 4000 USDC,swap_asset,swap_asset,0.9991,False,0.4
+swap half my dai to eth,swap_asset,swap_asset,0.7990,False,0.4
+convert my usdc to dai now,swap_asset,swap_asset,0.9728,False,0.4
+exchange tokens: eth for usdc,swap_asset,swap_asset,0.8887,False,0.4
+swap stable to stable: usdc to dai,swap_asset,swap_asset,0.9762,False,0.4
+swap weth to usdc,swap_asset,swap_asset,0.9905,False,0.4
+check balance,check_balance,check_balance,0.9333,False,0.4
+show me my holdings,check_balance,check_balance,0.9552,False,0.4
+what’s in my wallet,check_balance,check_balance,0.9398,False,0.4
+check my portfolio value,check_balance,check_balance,0.9499,False,0.4
+display account balance,check_balance,check_balance,0.9613,False,0.4
+how much ETH do I have,check_balance,check_balance,0.9508,False,0.4
+get my dai balance,check_balance,check_balance,0.8252,False,0.4
+check my compound funds,check_balance,check_balance,0.6250,False,0.4
+query my account status,check_balance,check_balance,0.9333,False,0.4
+show wallet balance,check_balance,check_balance,0.9543,False,0.4
+what's my usdc on aave,check_balance,check_balance,0.9937,False,0.4
+view lending balances,check_balance,check_balance,0.9346,False,0.4
+show me all token balances,check_balance,check_balance,0.9527,False,0.4
+get total balance now,check_balance,check_balance,0.9333,False,0.4
+how many dai are in my wallet,check_balance,check_balance,0.8464,False,0.4
+print portfolio summary,check_balance,check_balance,0.9498,False,0.4
+retrieve balances across protocols,check_balance,check_balance,0.9541,False,0.4
+check aave position balances,check_balance,check_balance,0.9333,False,0.4
+what’s my collateral on makerdao,check_balance,check_balance,0.5940,False,0.4
+wallet summary please,check_balance,check_balance,0.9473,False,0.4
+check stablecoin balances,check_balance,check_balance,0.9571,False,0.4
+get holdings for compound,check_balance,check_balance,0.9819,False,0.4
+display asset balances,check_balance,check_balance,0.9633,False,0.4
+how much usdt do I own,check_balance,check_balance,0.9929,False,0.4
+check my aave v3 balances,check_balance,check_balance,0.9122,False,0.4
+show dai/usdc/eth balances,check_balance,check_balance,0.7716,False,0.4
+portfolio snapshot,check_balance,check_balance,0.9186,False,0.4
+report my balances,check_balance,check_balance,0.9333,False,0.4
+account overview,check_balance,check_balance,0.9561,False,0.4
+what's my current balance,check_balance,check_balance,0.9333,False,0.4
