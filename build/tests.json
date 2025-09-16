@@ -1,5 +1,34 @@
 {
   "contracts": {},
-  "tests": {},
+  "tests": {
+    "tests/unit/test_core_runner_api.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "...",
+      "sha1": "16e98ac5c94d4705ab078daa1e3359bb57321eaa",
+      "txhash": []
+    },
+    "tests/unit/test_import_is_light.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "809e1b20e871356324e8cd9712fe6c8b35b127b1",
+      "txhash": []
+    },
+    "tests/unit/test_mapper_fallback.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "0839727b1716dcf27441fc8ec09e1055e7a6570e",
+      "txhash": []
+    },
+    "tests/unit/test_sanity.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "60658ddc26340add590ba125261a4c94561d1e7e",
+      "txhash": []
+    }
+  },
   "tx": {}
 }

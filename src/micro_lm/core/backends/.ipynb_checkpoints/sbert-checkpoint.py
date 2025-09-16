@@ -1,22 +1,56 @@
-from __future__ import annotations
-from typing import Any, Dict, Tuple
+from typing import Tuple, Dict, Any
 
 class SBertMapper:
     """
-    Stub for Tier-1 encoder. Replace with actual model loading in Stage-2/3.
+    Tier-1 mapper backed by a saved classifier (e.g., LogisticRegression)
+    operating on sentence-transformer embeddings.
     """
-    def __init__(self, *, domain: str, policy: Dict[str, Any]):
+    def __init__(self, *, domain: str, policy: dict):
         self.domain = domain
         self.policy = policy
-        # In Stage-2 we may read a joblib from configs or artifacts.
+        cfg = policy.get("mapper", {})
+        self.model_path = cfg.get("model_path")
+        self.sbert_name = cfg.get("sbert", "sentence-transformers/all-mpnet-base-v2")
+        self._ready = False
+        self._labels = None
+
+        try:
+            # Lazy imports keep core import light
+            import joblib  # type: ignore
+            from sentence_transformers import SentenceTransformer  # type: ignore
+            self._joblib = joblib
+            self._embedder = SentenceTransformer(self.sbert_name)
+            if self.model_path:
+                self._clf = joblib.load(self.model_path)
+                if hasattr(self._clf, "classes_"):
+                    self._labels = list(self._clf.classes_)
+                self._ready = True
+        except Exception as e:
+            # Stay safe: fallback to heuristic path if anything is missing
+            self._err = str(e)
+            self._ready = False
 
     def map_prompt(self, prompt: str) -> Tuple[str, float, Dict[str, Any]]:
-        # Minimal heuristic so tests pass without heavy deps
-        p = prompt.lower().strip()
+        p = (prompt or "").strip()
         if not p:
             return "abstain", 0.0, {"reason": "empty"}
-        if "swap" in p:
-            return "swap_assets", 0.72, {"reason": "heuristic:swap"}
-        if "deposit" in p:
-            return "deposit_asset", 0.71, {"reason": "heuristic:deposit"}
-        return "abstain", 0.49, {"reason": "uncertain"}
+
+        if not self._ready:
+            # Heuristic fallback exactly like Stage-1 so tests keep passing
+            q = p.lower()
+            if "swap" in q:   return "swap_assets",   0.72, {"reason": "heuristic:swap"}
+            if "deposit" in q:return "deposit_asset", 0.71, {"reason": "heuristic:deposit"}
+            return "abstain", 0.49, {"reason": f"mapper_unready:{getattr(self,'_err','')}"}
+
+        # Real path
+        try:
+            X = self._embedder.encode([p], convert_to_numpy=True, normalize_embeddings=True)
+            # Assume scikit-like classifier with predict_proba
+            import numpy as np  # type: ignore
+            probs = self._clf.predict_proba(X)[0]
+            idx = int(probs.argmax())
+            label = self._labels[idx]
+            score = float(probs[idx])
+            return label, score, {"reason": "sbert:joblib", "probs": probs.tolist()}
+        except Exception as e:
+            return "abstain", 0.0, {"reason": f"mapper_error:{e.__class__.__name__}"}
