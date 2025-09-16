@@ -1,0 +1,708 @@
+{
+  "milestone": "defi_milestone11",
+  "status": "pass",
+  "rails": "stage11",
+  "baseline_rails": "stage10",
+  "T": 180,
+  "runs": 5,
+  "policy": {
+    "ltv_max": 0.75,
+    "hf_min": 1.0,
+    "mapper": {
+      "model_path": ".artifacts/defi_mapper.joblib",
+      "confidence_threshold": 0.7
+    }
+  },
+  "context": {
+    "oracle": {
+      "age_sec": 5,
+      "max_age_sec": 30
+    }
+  },
+  "sections": {
+    "main": {
+      "rails": "stage11",
+      "metrics": {
+        "accuracy_exact": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "jaccard": 0.9999999989999999,
+        "hallucination_rate": 0.0,
+        "omission_rate": 0.0,
+        "abstain_rate": 0.5
+      },
+      "scenarios": [
+        {
+          "name": "edge_ltv_withdraw_unsafe",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "withdraw 5 ETH",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale"
+          ],
+          "output": {
+            "prompt": "withdraw 5 ETH",
+            "top1": null,
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec",
+              "tags": [
+                "non_exec"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "edge_hf_health_breach",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "increase borrow to the maximum",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale"
+          ],
+          "output": {
+            "prompt": "increase borrow to the maximum",
+            "top1": null,
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec",
+              "tags": [
+                "non_exec"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "edge_oracle_stale_price",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "borrow 1000 USDC",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale"
+          ],
+          "output": {
+            "prompt": "borrow 1000 USDC",
+            "top1": null,
+            "flags": {
+              "oracle_stale": true
+            },
+            "verify": {
+              "ok": false,
+              "reason": "oracle_stale",
+              "tags": [
+                "oracle",
+                "stale"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "edge_mapper_low_conf_or_nonexec",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "stake xyz",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale"
+          ],
+          "output": {
+            "prompt": "stake xyz",
+            "top1": null,
+            "flags": {
+              "abstain_non_exec": true,
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec",
+              "tags": [
+                "non_exec"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "ok_deposit",
+          "type": "exec_ok",
+          "truth": "approve",
+          "prompt": "deposit 10 ETH into aave",
+          "runs": 1,
+          "output": {
+            "prompt": "deposit 10 ETH into aave",
+            "top1": "deposit_asset",
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": true,
+              "reason": ""
+            },
+            "plan": {
+              "sequence": [
+                "deposit_asset"
+              ]
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 1.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
+              "stage10": {
+                "note": "fallback ranking"
+              }
+            }
+          },
+          "decision": "approve",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "ok_swap",
+          "type": "exec_ok",
+          "truth": "approve",
+          "prompt": "swap 2 ETH for USDC",
+          "runs": 1,
+          "output": {
+            "prompt": "swap 2 ETH for USDC",
+            "top1": "swap_asset",
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": true,
+              "reason": ""
+            },
+            "plan": {
+              "sequence": [
+                "swap_asset"
+              ]
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 1.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
+              "stage10": {
+                "note": "fallback ranking"
+              }
+            }
+          },
+          "decision": "approve",
+          "ok": true,
+          "why": ""
+        }
+      ]
+    },
+    "baseline": {
+      "rails": "stage10",
+      "metrics": {
+        "accuracy_exact": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "jaccard": 0.9999999989999999,
+        "hallucination_rate": 0.0,
+        "omission_rate": 0.0,
+        "abstain_rate": 0.5
+      },
+      "scenarios": [
+        {
+          "name": "edge_ltv_withdraw_unsafe",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "withdraw 5 ETH",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale"
+          ],
+          "output": {
+            "prompt": "withdraw 5 ETH",
+            "top1": null,
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec",
+              "tags": [
+                "non_exec"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "edge_hf_health_breach",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "increase borrow to the maximum",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale",
+            "abstain_non_exec non_exec oracle_stale"
+          ],
+          "output": {
+            "prompt": "increase borrow to the maximum",
+            "top1": null,
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec",
+              "tags": [
+                "non_exec"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "edge_oracle_stale_price",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "borrow 1000 USDC",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale",
+            "oracle_stale oracle stale oracle_stale"
+          ],
+          "output": {
+            "prompt": "borrow 1000 USDC",
+            "top1": null,
+            "flags": {
+              "oracle_stale": true
+            },
+            "verify": {
+              "ok": false,
+              "reason": "oracle_stale",
+              "tags": [
+                "oracle",
+                "stale"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "edge_mapper_low_conf_or_nonexec",
+          "type": "edge",
+          "truth": "reject",
+          "prompt": "stake xyz",
+          "runs": 5,
+          "stable_reason": true,
+          "reasons": [
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale",
+            "abstain_non_exec non_exec abstain_non_exec oracle_stale"
+          ],
+          "output": {
+            "prompt": "stake xyz",
+            "top1": null,
+            "flags": {
+              "abstain_non_exec": true,
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec",
+              "tags": [
+                "non_exec"
+              ]
+            },
+            "plan": {
+              "sequence": []
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.0
+            }
+          },
+          "decision": "reject",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "ok_deposit",
+          "type": "exec_ok",
+          "truth": "approve",
+          "prompt": "deposit 10 ETH into aave",
+          "runs": 1,
+          "output": {
+            "prompt": "deposit 10 ETH into aave",
+            "top1": "deposit_asset",
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": true,
+              "reason": ""
+            },
+            "plan": {
+              "sequence": [
+                "deposit_asset"
+              ]
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 1.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 0.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
+              "stage10": {
+                "note": "fallback ranking"
+              }
+            }
+          },
+          "decision": "approve",
+          "ok": true,
+          "why": ""
+        },
+        {
+          "name": "ok_swap",
+          "type": "exec_ok",
+          "truth": "approve",
+          "prompt": "swap 2 ETH for USDC",
+          "runs": 1,
+          "output": {
+            "prompt": "swap 2 ETH for USDC",
+            "top1": "swap_asset",
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": true,
+              "reason": ""
+            },
+            "plan": {
+              "sequence": [
+                "swap_asset"
+              ]
+            },
+            "aux": {
+              "features": [
+                "deposit",
+                "withdraw",
+                "borrow",
+                "repay",
+                "swap",
+                "addcol",
+                "remcol"
+              ],
+              "prior": {
+                "deposit_asset": 0.0,
+                "withdraw_asset": 0.0,
+                "borrow_asset": 0.0,
+                "repay_loan": 0.0,
+                "swap_asset": 1.0,
+                "add_collateral": 0.0,
+                "remove_collateral": 0.0
+              },
+              "mapper_confidence": 0.92,
+              "stage10": {
+                "note": "fallback ranking"
+              }
+            }
+          },
+          "decision": "approve",
+          "ok": true,
+          "why": ""
+        }
+      ]
+    }
+  },
+  "failures": [],
+  "elapsed_sec": 0.936
+}
