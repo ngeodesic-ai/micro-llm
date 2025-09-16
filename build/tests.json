@@ -22,6 +22,13 @@
       "sha1": "0839727b1716dcf27441fc8ec09e1055e7a6570e",
       "txhash": []
     },
+    "tests/unit/test_rails_integration.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "c7a9f711ea57638f8f01060a72be6bf200e27f67",
+      "txhash": []
+    },
     "tests/unit/test_sanity.py": {
       "coverage": false,
       "isolated": false,
