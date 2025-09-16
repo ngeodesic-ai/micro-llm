@@ -1,6 +1,0 @@
-"name","ok","top1","verify_ok"
-"deposit_eth","true","deposit_asset","true"
-"swap_eth_usdc","true","swap_asset","true"
-"withdraw_high_ltv","true","None","false"
-"borrow_low_hf","true","None","false"
-"nonexec_abstain","true","None","false"

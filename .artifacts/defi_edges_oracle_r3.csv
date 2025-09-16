@@ -1,4 +1,0 @@
-kind,prompt,label,top1,verify_ok,reason,stable_top1,top1_list
-exec,deposit 10 ETH into aave,,deposit_asset,True,,True,"['deposit_asset', 'deposit_asset', 'deposit_asset']"
-blocked,borrow 1000 USDC,,,False,hf,True,"[None, None, None]"
-nonexec,check balance,,,False,abstain_non_exec,True,"[None, None, None]"

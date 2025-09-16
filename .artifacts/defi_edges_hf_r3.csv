@@ -1,7 +1,0 @@
-kind,prompt,label,top1,verify_ok,reason,stable_top1,top1_list
-exec,deposit 10 ETH into aave,,deposit_asset,True,,True,"['deposit_asset', 'deposit_asset', 'deposit_asset']"
-exec,swap 2 ETH for USDC,,swap_asset,True,,True,"['swap_asset', 'swap_asset', 'swap_asset']"
-blocked,borrow 1000 USDC,,,False,hf,True,"[None, None, None]"
-blocked,borrow 100 USDC,,,False,hf,True,"[None, None, None]"
-blocked,withdraw 5 ETH,,,False,ltv,True,"[None, None, None]"
-nonexec,check balance,,,False,abstain_non_exec,True,"[None, None, None]"
