@@ -66,6 +66,9 @@ threshold  total  abstain  abstain_rate  coverage  fired  correct_on_fired  accu
 ```bash
 jq '.chosen' .artifacts/m8_sum.json
 ```
+
+OUTPUT:
+```bash
 {
   "threshold": 0.4,
   "abstain_rate": 0.0,
@@ -73,6 +76,7 @@ jq '.chosen' .artifacts/m8_sum.json
   "accuracy_on_fired": 0.9901764234161988,
   "overall_accuracy": 0.9878
 }
+```
 
 #### inspect mistakes
 ```bash
