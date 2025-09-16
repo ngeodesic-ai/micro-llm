@@ -1,6 +1,0 @@
-{"prompt": "deposit 10 ETH into aave", "expect": {"ok": true, "top1": "deposit_asset"}}
-{"prompt": "swap 2 ETH for USDC", "expect": {"ok": true, "top1": "swap_asset"}}
-{"prompt": "withdraw 5 ETH", "expect": {"ok": false, "reason": "oracle"}}
-{"prompt": "borrow 1000 USDC", "expect": {"ok": false, "reason": "oracle"}}
-{"prompt": "check balance", "expect": {"ok": false, "reason": "abstain_non_exec"}}
-

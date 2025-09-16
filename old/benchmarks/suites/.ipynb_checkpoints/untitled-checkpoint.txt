@@ -1,7 +1,0 @@
-{"id": "deposit_eth", "prompt": "deposit 10 ETH into aave", "expect": ["deposit_asset"]}
-{"id": "swap_eth_usdc", "prompt": "swap 2 ETH for USDC", "expect": ["swap_asset"]}
-{"id": "withdraw_high_ltv", "prompt": "withdraw 5 ETH", "expect": []}
-{"id": "borrow_low_hf", "prompt": "borrow 1000 USDC", "expect": []}
-{"id": "nonexec_abstain", "prompt": "check balance", "expect": []}
-{"id": "deposit_eth_denoised", "prompt": "deposit 10 ETH into aave", "expect": ["deposit_asset"], "denoise": true}
-{"id": "swap_eth_usdc_denoised", "prompt": "swap 2 ETH for USDC", "expect": ["swap_asset"], "denoise": true}

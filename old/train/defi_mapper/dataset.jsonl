@@ -1,4 +1,0 @@
-{"text": "deposit 10 ETH into aave", "intent": "deposit_asset"}
-{"text": "borrow 500 usdc vs eth", "intent": "borrow_asset"}
-{"text": "swap 2 eth for usdc", "intent": "swap_asset"}
-{"text": "check balance", "intent": "non_exec"}
