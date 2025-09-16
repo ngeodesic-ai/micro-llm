@@ -13,7 +13,7 @@ No training happens here. This script only:
   load_mapper -> score prompts -> sweep thresholds -> emit summary/report/csv
 
 PYTHONPATH=. python3 milestones/train_mapper_embed.py \
-  --labels_csv tests/fixtures/defi_mapper_labeled_mini.csv \
+  --labels_csv tests/fixtures/defi_mapper_labeled_large.csv \
   --out_path .artifacts/defi_mapper_embed.joblib \
   --sbert sentence-transformers/all-mpnet-base-v2 \
   --C 8 --max_iter 2000 --calibrate

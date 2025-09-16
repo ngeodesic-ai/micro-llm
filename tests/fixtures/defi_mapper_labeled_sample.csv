@@ -1,0 +1,31 @@
+prompt,label
+claim staking rewards on aave base,claim_rewards
+pull out 2752.8264 ARB from lido,withdraw_asset
+"restake 33.8529 MATIC with balancer on solana — this minute, use normal gas",stake_asset
+deposit 4697 USDC into uniswap on base,deposit_asset
+supply 7.0245 SOL to maker,deposit_asset
+"convert 7064 USDT into LINK via sushiswap on arbitrum — minimize gas, safe mode",swap_asset
+repay 2861.82 LINK on maker (optimism) — use normal gas,repay_asset
+collect incentives at balancer (base) — now,claim_rewards
+delegate 4020.4921 OP to pendle (arbitrum),stake_asset
+restake 1.876441 BTC with yearn on optimism — now,stake_asset
+restake 39.238 MATIC with lido on avalanche — immediately,stake_asset
+claim staking rewards on sushiswap arbitrum — use fast gas,claim_rewards
+reduce loan by 4808.8879 ARB on compound (solana) — this minute,repay_asset
+remove 36.8239 SOL from aave,withdraw_asset
+harvest yield from maker on ethereum,claim_rewards
+"collect incentives at compound (optimism) — use fast gas, normal mode",claim_rewards
+lock 0.668373 WBTC in pendle on avalanche,stake_asset
+unstake 786.2037 AAVE from lido on arbitrum,unstake_asset
+"withdraw staked 0.667255 WBTC from pendle optimism — right away, use normal gas",unstake_asset
+"collect incentives at maker (solana) — asap, use normal gas, normal mode",claim_rewards
+convert 704.7582 AAVE into USDT via uniswap on arbitrum — minimize gas,swap_asset
+harvest yield from balancer on solana — high yield mode,claim_rewards
+borrow 19.5336 AVAX from aave on base using DAI as collateral,borrow_asset
+swap 860.4607 ARB to WBTC on sushiswap arbitrum with slippage 0.1% — asap,swap_asset
+cash out 0.195658 BTC from pendle (base),withdraw_asset
+unstow 4257.5573 OP from sushiswap on polygon — immediately,withdraw_asset
+move 20.2498 WETH into sushiswap on arbitrum,deposit_asset
+undelegate 10.317 WETH on balancer (polygon),unstake_asset
+move 25.9116 MATIC into sushiswap on arbitrum — safe mode,deposit_asset
+withdraw staked 1.974382 BTC from pendle arbitrum — use normal gas,unstake_asset

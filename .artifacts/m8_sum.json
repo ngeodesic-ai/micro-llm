@@ -1,0 +1,85 @@
+{
+  "ok": true,
+  "milestone": "defi_milestone8",
+  "timestamp": 1757979693,
+  "prompts": 5000,
+  "has_labels": true,
+  "thresholds": [
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4
+  ],
+  "metrics": [
+    {
+      "threshold": 0.2,
+      "total": 5000,
+      "abstain": false,
+      "abstain_rate": 0.0,
+      "coverage": 0.9994,
+      "fired": 4997,
+      "correct_on_fired": 4942,
+      "accuracy_on_fired": 0.9889933960376226,
+      "overall_correct": 4942,
+      "overall_accuracy": 0.9884
+    },
+    {
+      "threshold": 0.25,
+      "total": 5000,
+      "abstain": false,
+      "abstain_rate": 0.0,
+      "coverage": 0.9994,
+      "fired": 4997,
+      "correct_on_fired": 4942,
+      "accuracy_on_fired": 0.9889933960376226,
+      "overall_correct": 4942,
+      "overall_accuracy": 0.9884
+    },
+    {
+      "threshold": 0.3,
+      "total": 5000,
+      "abstain": false,
+      "abstain_rate": 0.0,
+      "coverage": 0.9994,
+      "fired": 4997,
+      "correct_on_fired": 4942,
+      "accuracy_on_fired": 0.9889933960376226,
+      "overall_correct": 4942,
+      "overall_accuracy": 0.9884
+    },
+    {
+      "threshold": 0.35,
+      "total": 5000,
+      "abstain": false,
+      "abstain_rate": 0.0,
+      "coverage": 0.9994,
+      "fired": 4997,
+      "correct_on_fired": 4942,
+      "accuracy_on_fired": 0.9889933960376226,
+      "overall_correct": 4942,
+      "overall_accuracy": 0.9884
+    },
+    {
+      "threshold": 0.4,
+      "total": 5000,
+      "abstain": false,
+      "abstain_rate": 0.0,
+      "coverage": 0.9976,
+      "fired": 4988,
+      "correct_on_fired": 4939,
+      "accuracy_on_fired": 0.9901764234161988,
+      "overall_correct": 4939,
+      "overall_accuracy": 0.9878
+    }
+  ],
+  "chosen": {
+    "threshold": 0.4,
+    "abstain_rate": 0.0,
+    "coverage": 0.9976,
+    "accuracy_on_fired": 0.9901764234161988,
+    "overall_accuracy": 0.9878
+  },
+  "status": "pass",
+  "rails": null
+}

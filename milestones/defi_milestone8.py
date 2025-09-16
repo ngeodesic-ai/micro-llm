@@ -18,22 +18,60 @@ PYTHONPATH=. python3 milestones/train_mapper_embed.py \
   --sbert sentence-transformers/all-mpnet-base-v2 \
   --C 8 --max_iter 2000 --calibrate
 
-python3 milestones/defi_milestone7.py \
+python3 milestones/defi_milestone8.py \
   --mapper_path .artifacts/defi_mapper_embed.joblib \
-  --prompts_jsonl tests/fixtures/defi_mapper_stress_prompts.jsonl \
-  --labels_csv  tests/fixtures/defi_mapper_stress_labeled.csv \
+  --prompts_jsonl tests/fixtures/defi_mapper_5k_prompts.jsonl \
+  --labels_csv   tests/fixtures/defi_mapper_labeled_5k.csv
   --thresholds "0.2,0.25,0.3,0.35,0.4" \
   --max_abstain_rate 0.20 \
   --min_overall_acc 0.85 \
   --choose_by utility \
-  --per_class_thresholds .artifacts/m7_per_class_thresholds.json \
-  --rows_csv .artifacts/m7_rows.csv \
-  --out_summary .artifacts/m7_sum.json \
-  --out_csv .artifacts/m7_metrics.csv
+  --per_class_thresholds tests/fixtures/m8_per_class_thresholds.json \
+  --rows_csv .artifacts/m8_rows.csv \
+  --out_summary .artifacts/m8_sum.json \
+  --out_csv .artifacts/m8_metrics.csv
 
-column -s, -t < .artifacts/m7_metrics.csv | sed -n '1,12p'
-awk -F, 'NR==1 || ($5=="False" && $2!=$3)' .artifacts/m7_rows.csv | sed -n '1,20p'
-jq '.chosen' .artifacts/defi_milestone7_summary.json
+  
+column -s, -t < .artifacts/m8_metrics.csv
+column -s, -t < .artifacts/m8_metrics.csv | sed -n '1,12p'
+awk -F, 'NR==1 || ($5=="False" && $2!=$3)' .artifacts/m8_rows.csv | sed -n '1,20p'
+jq '.chosen' .artifacts/defi_milestone8_summary.json
+
+# See which threshold M8 chose
+jq '.chosen' .artifacts/m8_sum.json
+
+# inspect mistakes
+awk -F, 'NR==1 || ($2!=$3 && $3!="")' .artifacts/m8_rows.csv | head -25
+
+# Inspect abstains (should be ~3 rows total)
+awk -F, 'NR==1 || $5=="True"' .artifacts/m8_rows.csv
+
+# Per-class accuracy (simple awk rollup)
+awk -F, 'NR>1{g[$2]++; if($2==$3) c[$2]++} END{for(k in g) printf "%-18s %5d  acc=%.4f\n", k, g[k], (c[k]+0.0)/g[k]}' .artifacts/m8_rows.csv | sort
+
+# swap misclassifications, top examples
+awk -F, 'NR>1 && $2=="swap_asset" && $3!=$2 {print $0}' .artifacts/m8_rows.csv | head -20
+
+# borrow misclassifications
+awk -F, 'NR>1 && $2=="borrow_asset" && $3!=$2 {print $0}' .artifacts/m8_rows.csv | head -20
+
+# unstake misclassifications
+awk -F, 'NR>1 && $2=="unstake_asset" && $3!=$2 {print $0}' .artifacts/m8_rows.csv | head -20
+
+# Quick, robust per-class accuracy (no installs)
+python3 - <<'PY'
+import csv,collections
+g=collections.Counter(); c=collections.Counter()
+with open(".artifacts/m8_rows.csv", newline="") as f:
+    r=csv.DictReader(f)
+    for row in r:
+        gold=row["gold_label"]; pred=row["predicted"]
+        g[gold]+=1
+        if pred==gold: c[gold]+=1
+for k in sorted(g):
+    print(f"{k:15s} {g[k]:5d}  acc={c[k]/g[k]:.4f}")
+PY
+ 
 """
 
 import argparse, csv, json, os, sys, time
@@ -267,10 +305,10 @@ def main():
     ap.add_argument("--choose_by", type=str, default="abstain_then_acc", choices=["abstain_then_acc","utility"],
             help="abstain_then_acc = pick highest thr with abstain≤cut; utility = maximize harmonic mean of coverage acc_on_fired")
 
-    ap.add_argument("--out_summary", type=str, default=".artifacts/defi_milestone7_summary.json")
-    ap.add_argument("--out_report", type=str, default=".artifacts/defi_milestone7_report.md")
-    ap.add_argument("--out_csv", type=str, default=".artifacts/defi_milestone7_metrics.csv")
-    ap.add_argument("--rows_csv", type=str, default=".artifacts/defi_milestone7_rows.csv",
+    ap.add_argument("--out_summary", type=str, default=".artifacts/defi_milestone8_summary.json")
+    ap.add_argument("--out_report", type=str, default=".artifacts/defi_milestone8_report.md")
+    ap.add_argument("--out_csv", type=str, default=".artifacts/defi_milestone8_metrics.csv")
+    ap.add_argument("--rows_csv", type=str, default=".artifacts/defi_milestone8_rows.csv",
                 help="Write per-prompt results at the chosen threshold")
     ap.add_argument(
         "--per_class_thresholds",
@@ -339,7 +377,7 @@ def main():
     # Write outputs
     summary = {
         "ok": True,
-        "milestone": "defi_milestone7",
+        "milestone": "defi_milestone8",
         "timestamp": int(time.time()),
         "prompts": len(prompts),
         "has_labels": has_labels,
@@ -369,6 +407,7 @@ def main():
 
     if args.out_report:
         lines = []
+        lines.append("# Milestone 8 (scaled 5k prompts; identical structure to m7)")
         lines.append("# Milestone 7 — Mapper Threshold Sweep (Eval)")
         lines.append(f"- Prompts: **{len(prompts)}**")
         lines.append(f"- Labels provided: **{has_labels}**")

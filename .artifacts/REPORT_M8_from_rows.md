@@ -1,7 +1,7 @@
 # Milestone 8 — Grid Summary (from row-level CSVs)
 
-- Files scanned: **21**
-- Selection rule: **Max exec_accuracy_exact with abstain ≤ 0.10**
+- Files scanned: **22**
+- Selection rule: **Max exec_accuracy_exact with abstain ≤ 0.30**
 - Output CSV: `.artifacts/m8_grid_from_rows.csv`
 - Plot: `.artifacts/m8_execacc_vs_abstain.png`
 
