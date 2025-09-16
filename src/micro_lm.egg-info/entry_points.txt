@@ -1,0 +1,2 @@
+[console_scripts]
+micro-lm = micro_lm.cli:main

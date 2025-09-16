@@ -1,25 +1,17 @@
-[project]
-name = "micro-lm"
-version = "0.0.1"
-description = "Domain-agnostic micro reasoning adapters on top of ngeodesic Stage-10/11"
-readme = "README.md"
-requires-python = ">=3.9"
-dependencies = [
-  "numpy>=1.24",
-  "ngeodesic>=0.1.0a1",   # or use an editable dep in your monorepo
-]
-
-[project.optional-dependencies]
-mapper = ["scikit-learn>=1.1", "joblib>=1.2"]
-
-[project.scripts]
-micro-arc = "micro_lm.cli.run_arc:main"
-micro-defi = "micro_lm.cli.run_defi:main"
-micro-eval = "micro_lm.cli.run_eval:main"
-
-[tool.setuptools.packages.find]
-include = ["micro_lm*"]
-
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "micro-lm"
+version = "0.0.0a0"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]   # auto-discovers micro_lm, micro_lm.core, etc.
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[project.scripts]
+micro-lm = "micro_lm.cli:main"

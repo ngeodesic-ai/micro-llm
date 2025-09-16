@@ -1,8 +1,0 @@
-mapper:
-  type: hybrid
-  model_path: ".artifacts/defi_mapper.joblib"   # where you save it
-  confidence_threshold: 0.7
-stage10:
-  prior_alpha: 3.5
-  prior_gamma: 0.5
-  clamp_top1_conf: 0.8
