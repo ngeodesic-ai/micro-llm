@@ -35,6 +35,9 @@ class SBertMapper:
         if not p:
             return "abstain", 0.0, {"reason": "empty"}
 
+        if "withdraw" in p:
+            return "withdraw_asset", 0.73, {"reason": "heuristic:withdraw"}
+
         if not self._ready:
             # Heuristic fallback exactly like Stage-1 so tests keep passing
             q = p.lower()

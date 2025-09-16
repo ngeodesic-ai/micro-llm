@@ -8,6 +8,13 @@
       "sha1": "16e98ac5c94d4705ab078daa1e3359bb57321eaa",
       "txhash": []
     },
+    "tests/unit/test_domains_defi_local.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "...",
+      "sha1": "c9479961adcb5de67c27ddd2efc2047e5c485cf1",
+      "txhash": []
+    },
     "tests/unit/test_import_is_light.py": {
       "coverage": false,
       "isolated": false,
@@ -19,14 +26,21 @@
       "coverage": false,
       "isolated": false,
       "results": ".",
-      "sha1": "0839727b1716dcf27441fc8ec09e1055e7a6570e",
+      "sha1": "68263d31d261992be8db7b5e730e324220eaa683",
       "txhash": []
     },
     "tests/unit/test_rails_integration.py": {
       "coverage": false,
       "isolated": false,
       "results": ".",
-      "sha1": "c7a9f711ea57638f8f01060a72be6bf200e27f67",
+      "sha1": "708f382c7b135c4bb450bf83c2b431b3baed9ad9",
+      "txhash": []
+    },
+    "tests/unit/test_rails_prefers_local_then_shim.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "d6dd66cb2e4158b29c86838677960ee3fef80d06",
       "txhash": []
     },
     "tests/unit/test_sanity.py": {

@@ -19,3 +19,11 @@ src/micro_lm/core/runner.py
 src/micro_lm/core/backends/__init__.py
 src/micro_lm/core/backends/sbert.py
 src/micro_lm/core/backends/wordmap.py
+src/micro_lm/domains/__init__.py
+src/micro_lm/domains/arc/__init__.py
+src/micro_lm/domains/arc/schema.py
+src/micro_lm/domains/arc/verify_local.py
+src/micro_lm/domains/defi/__init__.py
+src/micro_lm/domains/defi/guards.py
+src/micro_lm/domains/defi/schema.py
+src/micro_lm/domains/defi/verify_local.py
