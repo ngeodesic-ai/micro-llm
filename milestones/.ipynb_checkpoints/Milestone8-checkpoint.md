@@ -80,17 +80,24 @@ OUTPUT:
 
 #### inspect mistakes
 ```bash
-awk -F, 'NR==1 || ($2!=$3 && $3!="")' .artifacts/m8_rows.csv | head -25
+awk -F, 'NR==1 || ($2!=$3 && $3!="")' .artifacts/m8_rows.csv | head -10
 ```
+
+OUTPUT:
+```bash
 "restake 33.8529 MATIC with balancer on solana — this minute, use normal gas",stake_asset,stake_asset,1.0000,False,0.4
 "convert 7064 USDT into LINK via sushiswap on arbitrum — minimize gas, safe mode",swap_asset,swap_asset,0.8862,False,0.4
 "collect incentives at compound (optimism) — use fast gas, normal mode",claim_rewards,claim_rewards,1.0000,False,0.4
 "withdraw staked 0.667255 WBTC from pendle optimism — right away, use normal gas",unstake_asset,unstake_asset,1.0000,False,0.4
+```
 
 #### Inspect abstains (should be ~3 rows total)
 ```bash
 awk -F, 'NR==1 || $5=="True"' .artifacts/m8_rows.csv
 ```
+
+OUTPUT:
+```bash
 prompt,gold_label,predicted,confidence,abstain,threshold
 draw 18096 DAI from compound on polygon,borrow_asset,,0.3750,True,0.4
 draw 1.375626 BTC from maker on polygon,borrow_asset,,0.3859,True,0.4
@@ -101,17 +108,15 @@ borrow 799.5374 LINK from aave on avalanche,borrow_asset,,0.3750,True,0.4
 unlock 1.802823 BTC at yearn (base) — high yield mode,unstake_asset,,0.3750,True,0.4
 unstow 1.080917 WBTC from uniswap on solana — minimize gas,withdraw_asset,,0.1250,True,0.4
 ian_moore@Macmini micro-lm % 
-
-
-#### Per-class accuracy (simple awk rollup)
-```bash
-awk -F, 'NR>1{g[$2]++; if($2==$3) c[$2]++} END{for(k in g) printf "%-18s %5d  acc=%.4f\n", k, g[k], (c[k]+0.0)/g[k]}' .artifacts/m8_rows.csv | sort
 ```
 
 #### swap misclassifications, top examples
 ```bash
 awk -F, 'NR>1 && $2=="swap_asset" && $3!=$2 {print $0}' .artifacts/m8_rows.csv | head -10
 ```
+
+OUTPUT:
+```bash
 convert 26.7284 ETH into ARB via curve on base,swap_asset,deposit_asset,0.8333,False,0.4
 convert 3258.0979 OP into AAVE via uniswap on optimism — minimize gas,swap_asset,,0.3750,True,0.4
 convert 3.4123 AVAX into LINK via balancer on solana — asap,swap_asset,deposit_asset,0.5898,False,0.4
@@ -122,11 +127,15 @@ convert 4681.5472 ARB into ETH via uniswap on base,swap_asset,deposit_asset,0.46
 convert 32.8488 SOL into ETH via sushiswap on solana,swap_asset,deposit_asset,0.5300,False,0.4
 convert 45.6938 MATIC into SOL via balancer on solana,swap_asset,deposit_asset,0.6667,False,0.4
 convert 20.5658 MATIC into ARB via curve on avalanche — safe mode,swap_asset,deposit_asset,0.5909,False,0.4
+```
 
 #### borrow misclassifications
 ```bash
 awk -F, 'NR>1 && $2=="borrow_asset" && $3!=$2 {print $0}' .artifacts/m8_rows.csv | head -10
 ```
+
+OUTPUT:
+```bash
 draw 2003.1529 LINK from aave on optimism — ok with higher gas,borrow_asset,deposit_asset,0.4167,False,0.4
 draw 18096 DAI from compound on polygon,borrow_asset,,0.3750,True,0.4
 draw 1.375626 BTC from maker on polygon,borrow_asset,,0.3859,True,0.4
@@ -137,11 +146,15 @@ draw 12004 DAI from maker on solana — ok with higher gas,borrow_asset,deposit_
 draw 659.3806 LINK from aave on base,borrow_asset,deposit_asset,0.9792,False,0.4
 draw 3568.4042 LINK from maker on optimism — right away,borrow_asset,deposit_asset,0.4475,False,0.4
 draw 3042.6438 LINK from aave on solana,borrow_asset,deposit_asset,0.5660,False,0.4
+```
 
 #### unstake misclassifications
 ```bash
 awk -F, 'NR>1 && $2=="unstake_asset" && $3!=$2 {print $0}' .artifacts/m8_rows.csv | head -10
 ```
+
+OUTPUT:
+```bash
 unstake 40.3119 ETH from curve on polygon,unstake_asset,withdraw_asset,0.5617,False,0.4
 unstake 1508.0058 ARB from curve on optimism,unstake_asset,withdraw_asset,0.5243,False,0.4
 unstake 6446 USDC from pendle on ethereum,unstake_asset,withdraw_asset,0.5000,False,0.4
@@ -152,7 +165,7 @@ unstake 2031.7065 ARB from lido on polygon — minimize gas,unstake_asset,withdr
 unlock 1.802823 BTC at yearn (base) — high yield mode,unstake_asset,,0.3750,True,0.4
 unstake 23422 DAI from rocket pool on optimism — use normal gas,unstake_asset,withdraw_asset,0.5361,False,0.4
 unstake 2384 USDC from rocket pool on base,unstake_asset,withdraw_asset,0.4984,False,0.4
-
+```
 
 #### Quick, robust per-class accuracy (no installs)
 ```bash
@@ -169,6 +182,9 @@ for k in sorted(g):
     print(f"{k:15s} {g[k]:5d}  acc={c[k]/g[k]:.4f}")
 PY
 ```
+
+OUTPUT:
+```bash
 borrow_asset      625  acc=0.9776
 claim_rewards     625  acc=1.0000
 deposit_asset     625  acc=0.9984
@@ -177,6 +193,7 @@ stake_asset       625  acc=0.9984
 swap_asset        625  acc=0.9696
 unstake_asset     625  acc=0.9808
 withdraw_asset    625  acc=0.9792
+```
 
 ---
 # Prompt -> Primitive Mapper: small scale (< 200) (Milestone 7)
