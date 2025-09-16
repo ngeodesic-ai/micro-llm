@@ -1,0 +1,3 @@
+{"prompt":"swap 2 ETH to USDC","policy":{"mapper":{"confidence_threshold":0.7}}}
+{"prompt":"deposit 10 ETH into aave","context":{"oracle":{"age_sec":5,"max_age_sec":30}},"policy":{"ltv_max":0.75,"mapper":{"confidence_threshold":0.7}}}
+{"prompt":"withdraw 5 ETH","context":{"oracle":{"age_sec":5,"max_age_sec":30},"ltv":0.80},"policy":{"ltv_max":0.75,"mapper":{"confidence_threshold":0.7}}}

@@ -14,4 +14,16 @@ where = ["src"]   # auto-discovers micro_lm, micro_lm.core, etc.
 package-dir = {"" = "src"}
 
 [project.scripts]
-micro-lm = "micro_lm.cli:main"
+micro-lm = "micro_lm.cli.entry:main"
+micro-lm-bench = "micro_lm.bench_cli:main"
+
+[project.optional-dependencies]
+sbert = [
+  "sentence-transformers>=2.7,<3",
+  "scikit-learn>=1.3,<2",
+  "joblib>=1.3,<2",
+]
+dev = [
+  "pytest",
+  "ruff",
+]

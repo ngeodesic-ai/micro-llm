@@ -2,10 +2,13 @@ LICENSE
 README.md
 pyproject.toml
 src/micro_lm/__init__.py
+src/micro_lm/bench_cli.py
+src/micro_lm/config.py
 src/micro_lm.egg-info/PKG-INFO
 src/micro_lm.egg-info/SOURCES.txt
 src/micro_lm.egg-info/dependency_links.txt
 src/micro_lm.egg-info/entry_points.txt
+src/micro_lm.egg-info/requires.txt
 src/micro_lm.egg-info/top_level.txt
 src/micro_lm/cli/__init__.py
 src/micro_lm/cli/__main__.py
