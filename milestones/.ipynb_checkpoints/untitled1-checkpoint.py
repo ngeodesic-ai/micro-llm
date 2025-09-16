@@ -3,41 +3,7 @@
 from __future__ import annotations
 import argparse, json, time, random, copy, pathlib, hashlib
 from typing import Dict, Any, List, Tuple
-from micro_lm.pipelines.runner import run_micro
-import numpy as np
-
-
-
-"""
-# Clean run (no perturb):
-python3 milestones/defi_milestone10.py \
-  --rails stage11 --runs 5 \
-  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
-  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
-
-python3 milestones/inspect_summary.py .artifacts/defi_milestone10_summary.json
-
-# With perturbation robustness:
-python3 milestones/defi_milestone10.py \
-  --rails stage11 --runs 5 --perturb --perturb_k 3 \
-  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
-  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
-python3 milestones/inspect_summary.py .artifacts/defi_milestone10_summary.json
-
-# Freeze knobs in a small config file:
-cat > configs/m10_defaults.json <<'JSON'
-{"rails":"stage11","runs":5,"T":180,
- "policy":{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}},
- "context":{"oracle":{"age_sec":5,"max_age_sec":30}},
- "perturb": true, "perturb_k": 3}
-JSON
-
-# Quick CSV view:
-jq -r '["name","ok","top1","verify_ok"],
-  (.scenarios[] | select(.name|endswith("_perturb")|not) |
-   [ .name, (.ok|tostring), (.output.top1 // "None"), (.output.verify.ok|tostring) ]) | @csv' \
-   .artifacts/defi_milestone10_summary.json > .artifacts/m10_scenarios.csv
-"""
+from micro_llm.pipelines.runner import run_micro
 
 ARTIF = pathlib.Path(".artifacts"); ARTIF.mkdir(parents=True, exist_ok=True)
 SUMMARY_PATH = ARTIF / "defi_milestone10_summary.json"
@@ -62,12 +28,6 @@ SCENARIOS: List[Dict[str, Any]] = [
      "expect_top1": None, "expect_verify_ok": False, "expect_reason_contains": "abstain_non_exec"},
 ]
 
-def _np_json(o):
-    if isinstance(o, (np.integer,)):   return int(o)
-    if isinstance(o, (np.floating,)):  return float(o)
-    if isinstance(o, (np.ndarray,)):   return o.tolist()
-    return str(o)
-
 def _ctx_hash(ctx: Dict[str, Any]) -> str:
     return hashlib.sha256(json.dumps(ctx, sort_keys=True).encode()).hexdigest()[:8]
 
@@ -81,23 +41,17 @@ def run_once(prompt: str, context: Dict[str, Any], policy: Dict[str, Any], rails
     res = run_micro("defi", prompt, context=context, policy=policy, rails=rails, T=T)
     seq = (res.get("plan") or {}).get("sequence") or []
     top1 = seq[0] if seq else None
-    verify = res.get("verify") or {}
-    flags  = res.get("flags")  or {}
-    aux    = res.get("aux")    or {}
-    # keep only json-safe, scalar-ish aux bits
-    out = {
+    return {
         "prompt": prompt,
         "top1": top1,
-        "flags": {k: flags[k] for k in flags if isinstance(flags[k], (str, int, float, bool))},
-        "verify": {
-            "ok": bool(verify.get("ok", False)),
-            "reason": (verify.get("reason") or "")
-        },
+        "flags": res.get("flags") or {},
+        "verify": res.get("verify") or {},
         "aux": {
-            "mapper_confidence": float(aux.get("mapper_confidence") or 0.0)
+            "prior": (res.get("aux") or {}).get("prior"),
+            "mapper_confidence": (res.get("aux") or {}).get("mapper_confidence"),
         },
+        "raw": res,
     }
-    return out
 
 def check_expect(single: Dict[str, Any], expect: Dict[str, Any]) -> Tuple[bool, str]:
     # top1
@@ -184,21 +138,8 @@ def main():
             overall_ok = False
             failures.append(f"{case['name']}: {why or 'top1 not stable'}")
         scenarios_out.append({
-            "name": case["name"],
-            # inspector expects: sc["output"]["prompt"] and sc["output"]["top1"]
-            "output": {
-                "prompt": single["prompt"],
-                "top1": single["top1"],
-                "verify": {"ok": bool((single.get("verify") or {}).get("ok"))}
-            },
-            # keep these for humans / other tools
-            "ok": ok and ((case.get("expect_top1") is None) or stab["stable_top1"]),
-            "prompt": single["prompt"],          # convenience duplicate
-            "top1": single["top1"],              # convenience duplicate
-            "verify_ok": bool((single.get("verify") or {}).get("ok")),
-            "stable_top1": stab["stable_top1"],
-            "top1_list": stab["top1_list"],
-            "reason": "" if ok else why
+            "name": case["name"], "clean_ok": ok, "reason": "" if ok else why,
+            "output": single, "stability": stab
         })
 
     # B) Perturbation robustness (optional)
@@ -218,17 +159,7 @@ def main():
             if not case_ok:
                 overall_ok = False
                 failures.append(f"{case['name']}: perturbation failures")
-            rep = pert_runs[0]["output"]
-            scenarios_out.append({
-                "name": case["name"] + "_perturb",
-                "ok": case_ok,
-                "output": {
-                    "prompt": rep["prompt"],
-                    "top1": rep["top1"],
-                    "verify": {"ok": bool((rep.get("verify") or {}).get("ok"))}
-                },
-                "runs": pert_runs
-            })
+            scenarios_out.append({"name": case["name"]+"_perturb", "ok": case_ok, "runs": pert_runs})
 
     summary = {
         "milestone": "defi_milestone10",
@@ -240,7 +171,7 @@ def main():
         "elapsed_sec": round(time.time() - started, 3),
         "context_hash": _ctx_hash(ctx_base),
     }
-    SUMMARY_PATH.write_text(json.dumps(summary, indent=2, default=_np_json))
+    SUMMARY_PATH.write_text(json.dumps(summary, indent=2))
 
     # Human report
     lines = []

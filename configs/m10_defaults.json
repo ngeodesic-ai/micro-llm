@@ -1,0 +1,4 @@
+{"rails":"stage11","runs":5,"T":180,
+ "policy":{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}},
+ "context":{"oracle":{"age_sec":5,"max_age_sec":30}},
+ "perturb": true, "perturb_k": 3}

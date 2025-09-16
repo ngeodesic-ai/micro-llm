@@ -29,6 +29,13 @@
       "sha1": "1746d4543be7746b08e29181a7f00cba27a448b7",
       "txhash": []
     },
+    "tests/test_m10_smoke.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "9526f27597b81ac376761be0b15bbc3977f6629d",
+      "txhash": []
+    },
     "tests/test_m1_stability_smoke.py": {
       "coverage": false,
       "isolated": false,

@@ -1,0 +1,270 @@
+{
+  "milestone": "defi_milestone10",
+  "status": "pass",
+  "rails": "stage11",
+  "T": 180,
+  "runs": 1,
+  "perturb": true,
+  "perturb_k": 1,
+  "scenarios": [
+    {
+      "name": "deposit_eth",
+      "output": {
+        "prompt": "deposit 10 ETH into aave",
+        "top1": "deposit_asset",
+        "verify": {
+          "ok": true
+        }
+      },
+      "ok": true,
+      "prompt": "deposit 10 ETH into aave",
+      "top1": "deposit_asset",
+      "verify_ok": true,
+      "stable_top1": true,
+      "top1_list": [
+        "deposit_asset"
+      ],
+      "reason": ""
+    },
+    {
+      "name": "swap_eth_usdc",
+      "output": {
+        "prompt": "swap 2 ETH for USDC",
+        "top1": "swap_asset",
+        "verify": {
+          "ok": true
+        }
+      },
+      "ok": true,
+      "prompt": "swap 2 ETH for USDC",
+      "top1": "swap_asset",
+      "verify_ok": true,
+      "stable_top1": true,
+      "top1_list": [
+        "swap_asset"
+      ],
+      "reason": ""
+    },
+    {
+      "name": "withdraw_high_ltv",
+      "output": {
+        "prompt": "withdraw 5 ETH",
+        "top1": null,
+        "verify": {
+          "ok": false
+        }
+      },
+      "ok": true,
+      "prompt": "withdraw 5 ETH",
+      "top1": null,
+      "verify_ok": false,
+      "stable_top1": true,
+      "top1_list": [
+        null
+      ],
+      "reason": ""
+    },
+    {
+      "name": "borrow_low_hf",
+      "output": {
+        "prompt": "borrow 1000 USDC",
+        "top1": null,
+        "verify": {
+          "ok": false
+        }
+      },
+      "ok": true,
+      "prompt": "borrow 1000 USDC",
+      "top1": null,
+      "verify_ok": false,
+      "stable_top1": true,
+      "top1_list": [
+        null
+      ],
+      "reason": ""
+    },
+    {
+      "name": "nonexec_abstain",
+      "output": {
+        "prompt": "check balance",
+        "top1": null,
+        "verify": {
+          "ok": false
+        }
+      },
+      "ok": true,
+      "prompt": "check balance",
+      "top1": null,
+      "verify_ok": false,
+      "stable_top1": true,
+      "top1_list": [
+        null
+      ],
+      "reason": ""
+    },
+    {
+      "name": "deposit_eth_perturb",
+      "ok": true,
+      "output": {
+        "prompt": "add 10.1 ETH into aave",
+        "top1": "deposit_asset",
+        "verify": {
+          "ok": true
+        }
+      },
+      "runs": [
+        {
+          "variant": 0,
+          "ok": true,
+          "why": "",
+          "output": {
+            "prompt": "add 10.1 ETH into aave",
+            "top1": "deposit_asset",
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": true,
+              "reason": ""
+            },
+            "aux": {
+              "mapper_confidence": 0.92
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "swap_eth_usdc_perturb",
+      "ok": true,
+      "output": {
+        "prompt": "exchange 2.02 ETH for USDC",
+        "top1": "swap_asset",
+        "verify": {
+          "ok": true
+        }
+      },
+      "runs": [
+        {
+          "variant": 0,
+          "ok": true,
+          "why": "",
+          "output": {
+            "prompt": "exchange 2.02 ETH for USDC",
+            "top1": "swap_asset",
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": true,
+              "reason": ""
+            },
+            "aux": {
+              "mapper_confidence": 0.5617129957569429
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "withdraw_high_ltv_perturb",
+      "ok": true,
+      "output": {
+        "prompt": "withdraw 4.95 ETH",
+        "top1": null,
+        "verify": {
+          "ok": false
+        }
+      },
+      "runs": [
+        {
+          "variant": 0,
+          "ok": true,
+          "why": "",
+          "output": {
+            "prompt": "withdraw 4.95 ETH",
+            "top1": null,
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "ltv"
+            },
+            "aux": {
+              "mapper_confidence": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "borrow_low_hf_perturb",
+      "ok": true,
+      "output": {
+        "prompt": "borrow 990 USDC",
+        "top1": null,
+        "verify": {
+          "ok": false
+        }
+      },
+      "runs": [
+        {
+          "variant": 0,
+          "ok": true,
+          "why": "",
+          "output": {
+            "prompt": "borrow 990 USDC",
+            "top1": null,
+            "flags": {
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "hf"
+            },
+            "aux": {
+              "mapper_confidence": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "nonexec_abstain_perturb",
+      "ok": true,
+      "output": {
+        "prompt": "check balance",
+        "top1": null,
+        "verify": {
+          "ok": false
+        }
+      },
+      "runs": [
+        {
+          "variant": 0,
+          "ok": true,
+          "why": "",
+          "output": {
+            "prompt": "check balance",
+            "top1": null,
+            "flags": {
+              "abstain_non_exec": true,
+              "oracle_stale": false
+            },
+            "verify": {
+              "ok": false,
+              "reason": "abstain_non_exec"
+            },
+            "aux": {
+              "mapper_confidence": 0.0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "elapsed_sec": 1.046,
+  "context_hash": "66f32756"
+}
