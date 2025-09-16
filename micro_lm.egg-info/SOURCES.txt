@@ -46,6 +46,8 @@ tests/test_m3_denoise_smoke.py
 tests/test_m4_safety_smoke.py
 tests/test_m4_stability_smoke.py
 tests/test_m5_regression.py
+tests/test_m6_mapper_wire.py
+tests/test_m9_verifier.py
 tests/test_nonexec_abstain.py
 tests/test_rails_stage10.py
 tests/test_rails_stage11.py

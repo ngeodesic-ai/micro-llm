@@ -1,6 +1,7 @@
 # micro_lm/verify/defi_verify.py
 from __future__ import annotations
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
+import time
 
 # -------------------- DEBUG BLOCK -------------------- #
 import os, sys, json
@@ -19,16 +20,171 @@ def _snap(v):
     except Exception:
         return repr(v)
 
+# # Old - everything passes
+# def _get(d: Dict[str, Any], *path, default=None):
+#     x = d
+#     for p in path:
+#         if not isinstance(x, dict):
+#             return default
+#         x = x.get(p)
+#         if x is None:
+#             return default
+#     return x
+
+# -------------------- DEBUG BLOCK -------------------- #
+
+
+
+
+
+# -------------------- M9 BLOCK -------------------- #
+
+# # New - 12 failures
+# def _get(d: Dict[str, Any], path: str, default=None):
+#     """Safe nested get with dotted path, e.g. _get(state, 'oracle.age_sec', 0)."""
+#     cur = d
+#     for key in path.split("."):
+#         if not isinstance(cur, dict) or key not in cur:
+#             return default
+#         cur = cur[key]
+#     return cur
+
+# ---------- Reason taxonomy (canonical) ----------
+REASON_ORACLE = "oracle"
+REASON_LTV    = "ltv"
+REASON_HF     = "hf"
+REASON_LOWCF  = "low_conf"
+REASON_NONEX  = "abstain_non_exec"
+REASON_OK     = "ok"
+
+# ---------- Helpers ----------
+
 def _get(d: Dict[str, Any], *path, default=None):
+    """
+    Hybrid nested getter:
+      - _get(obj, "a", "b", "c")           # varargs style
+      - _get(obj, "a.b.c")                 # dotted string
+    """
+    # Normalize to a list of keys
+    if len(path) == 1 and isinstance(path[0], str):
+        keys = path[0].split(".")
+    else:
+        keys = list(path)
+
     x = d
-    for p in path:
+    for k in keys:
         if not isinstance(x, dict):
             return default
-        x = x.get(p)
+        x = x.get(k)
         if x is None:
             return default
     return x
-# -------------------- DEBUG BLOCK -------------------- #
+
+
+def _compute_collateral_value(state: Dict[str, Any]) -> float:
+    # Expect either a precomputed value or sum over positions.
+    v = _get(state, "positions.collateral_value", None)
+    if v is not None:
+        return float(v)
+    # Fallback: sum token_value entries if present.
+    toks = _get(state, "positions.tokens", []) or []
+    return float(sum(float(t.get("value", 0.0)) for t in toks if t.get("role") == "collateral"))
+
+def _compute_debt(state: Dict[str, Any]) -> float:
+    v = _get(state, "positions.debt_value", None)
+    if v is not None:
+        return float(v)
+    toks = _get(state, "positions.tokens", []) or []
+    return float(sum(float(t.get("debt", 0.0)) for t in toks))
+
+def _compute_liq_threshold(state: Dict[str, Any], default_lt: float = 0.85) -> float:
+    # Per-protocol liquidation threshold if given, else default
+    return float(_get(state, "risk.liq_threshold", default_lt))
+
+def _compute_ltv(state: Dict[str, Any]) -> float:
+    collat = max(0.0, _compute_collateral_value(state))
+    debt   = max(0.0, _compute_debt(state))
+    return 0.0 if collat <= 0 else (debt / collat)
+
+def _compute_hf(state: Dict[str, Any]) -> float:
+    collat = max(0.0, _compute_collateral_value(state))
+    debt   = max(1e-12, _compute_debt(state))
+    lt     = _compute_liq_threshold(state)
+    return (collat * lt) / debt
+
+def _oracle_age_sec(state: Dict[str, Any], now: Optional[float]) -> float:
+    # Prefer explicit age; otherwise compute from timestamp.
+    age = _get(state, "oracle.age_sec", None)
+    if age is not None:
+        return float(age)
+    ts  = _get(state, "oracle.ts", None)
+    if ts is None or now is None:
+        return 1e9  # treat as extremely stale if we can't tell
+    return float(max(0.0, now - float(ts)))
+
+# ---------- Core verify ----------
+def verify(plan: Dict[str, Any],
+           state: Dict[str, Any],
+           policy: Dict[str, Any],
+           now: Optional[float] = None) -> Dict[str, Any]:
+    """
+    First-failure-wins verifier for Tier-1 DeFi.
+    - Order: ORACLE → LTV → HF
+    - Returns: {"ok": bool, "reason": str, "tags": [str]}
+    - No mutation until a step passes all checks.
+    """
+    # Allow callers to omit 'now'
+    if now is None:
+        now = time.time()
+
+    # Pull thresholds from policy (with safe defaults)
+    ltv_max = float(policy.get("ltv_max", 0.75))
+    hf_min  = float(policy.get("hf_min", 1.0))
+    oracle_max_age = float(_get(policy, "oracle.max_age_sec", _get(state, "oracle.max_age_sec", 30.0)))
+
+    seq: List[Any] = (plan or {}).get("sequence") or []
+    # Non-exec / empty plan abstain
+    if not seq:
+        return {"ok": False, "reason": REASON_NONEX, "tags": [REASON_NONEX]}
+
+    # Simulate step-by-step; preview then commit if safe.
+    # Expect the calling pipeline to provide `sandbox.simulate`/`sandbox.apply`
+    # via the plan/meta; if not available, treat as non-exec abstain.
+    sandbox = (plan or {}).get("sandbox")
+    simulate = getattr(sandbox, "simulate", None) if sandbox else None
+    apply_   = getattr(sandbox, "apply", None)    if sandbox else None
+    if simulate is None or apply_ is None:
+        return {"ok": False, "reason": REASON_NONEX, "tags": [REASON_NONEX, "no_sandbox"]}
+
+    st = dict(state)  # shallow copy; assume inner dicts are handled by sandbox
+    for step in seq:
+        preview = simulate(st, step)  # MUST NOT mutate st
+        # 1) ORACLE freshness
+        if _oracle_age_sec(preview, now) > oracle_max_age:
+            return {"ok": False, "reason": REASON_ORACLE, "tags": [REASON_ORACLE, "stale_price_feed"]}
+        # 2) LTV
+        if _compute_ltv(preview) > ltv_max:
+            return {"ok": False, "reason": REASON_LTV, "tags": [REASON_LTV]}
+        # 3) HF
+        if _compute_hf(preview) < hf_min:
+            return {"ok": False, "reason": REASON_HF, "tags": [REASON_HF]}
+        # Commit this step if all guards pass
+        st = apply_(st, step)
+
+    return {"ok": True, "reason": REASON_OK, "tags": [REASON_OK]}
+
+# ---------- Convenience wrapper for mapper confidence ----------
+def verify_with_mapper(plan: Dict[str, Any],
+                       state: Dict[str, Any],
+                       policy: Dict[str, Any],
+                       mapper_conf: Optional[float],
+                       now: Optional[float] = None) -> Dict[str, Any]:
+    thr = float(_get(policy, "mapper.confidence_threshold", 0.7))
+    if mapper_conf is not None and mapper_conf < thr:
+        return {"ok": False, "reason": REASON_LOWCF, "tags": [REASON_LOWCF]}
+    return verify(plan, state, policy, now)
+# -------------------- M9 BLOCK -------------------- #
+
 
 
 def _ltv(collateral_value: float, debt_value: float) -> float:

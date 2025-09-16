@@ -26,7 +26,7 @@
       "coverage": false,
       "isolated": false,
       "results": "...",
-      "sha1": "3ef5947734a50752904d72adb192270172b07475",
+      "sha1": "1746d4543be7746b08e29181a7f00cba27a448b7",
       "txhash": []
     },
     "tests/test_m1_stability_smoke.py": {
@@ -76,6 +76,13 @@
       "isolated": false,
       "results": ".",
       "sha1": "6e6548c7da7c5a579eaf794b6ef2182d9c42ac8f",
+      "txhash": []
+    },
+    "tests/test_m9_verifier.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "d952899f35a18338f6705c9c4ba50e0db3e46e5c",
       "txhash": []
     },
     "tests/test_nonexec_abstain.py": {
