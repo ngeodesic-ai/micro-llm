@@ -34,20 +34,8 @@ def _snap(v):
 # -------------------- DEBUG BLOCK -------------------- #
 
 
-
-
-
 # -------------------- M9 BLOCK -------------------- #
 
-# # New - 12 failures
-# def _get(d: Dict[str, Any], path: str, default=None):
-#     """Safe nested get with dotted path, e.g. _get(state, 'oracle.age_sec', 0)."""
-#     cur = d
-#     for key in path.split("."):
-#         if not isinstance(cur, dict) or key not in cur:
-#             return default
-#         cur = cur[key]
-#     return cur
 
 # ---------- Reason taxonomy (canonical) ----------
 REASON_ORACLE = "oracle"

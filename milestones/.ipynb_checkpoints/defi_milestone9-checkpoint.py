@@ -7,7 +7,7 @@
 from pathlib import Path
 import argparse, json, time, copy, sys
 from typing import Dict, Any, List, Tuple, Optional
-from milestones.defi_verify import verify_with_mapper
+from micro_lm.verify.defi_verify import verify_with_mapper
 
 try:
     from micro_lm.pipelines.runner import run_micro
