@@ -1,12 +1,12 @@
 {
-  "ok": 2,
-  "total": 3,
+  "ok": 6,
+  "total": 9,
   "ok_acc": 0.6666666666666666,
   "bench": "e2e_bench",
-  "runs": 1,
+  "runs": 3,
   "rails": "stage11",
   "backend": "sbert",
   "T": 180,
   "deterministic_reasons": true,
-  "timestamp": 1758070886
+  "timestamp": 1758078097
 }

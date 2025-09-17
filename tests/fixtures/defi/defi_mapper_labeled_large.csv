@@ -1,0 +1,1001 @@
+prompt,label
+"close debt: repay 22.7616 AVAX at maker ethereum — right away, use normal gas",repay_asset
+reduce loan by 4415.6523 ARB on maker (avalanche),repay_asset
+"take a loan of 23941 USDT via aave (avalanche) — use fast gas, normal mode",borrow_asset
+move 4859.7295 AAVE into aave on base,deposit_asset
+collect incentives at compound (optimism),claim_rewards
+delegate 3820 DAI to balancer (solana),stake_asset
+"lock 17204 DAI in pendle on base — now, use normal gas",stake_asset
+deposit 16.104 WETH into stargate on base,deposit_asset
+cash out 35.326 WETH from compound (ethereum),withdraw_asset
+cash out 3607.8078 OP from uniswap (optimism),withdraw_asset
+borrow 4364.6921 AAVE from maker on base using OP as collateral,borrow_asset
+lock 4165.51 LINK in curve on arbitrum,stake_asset
+cash out 26.305 MATIC from compound (ethereum) — use fast gas,withdraw_asset
+restake 10622 USDC with lido on optimism — asap,stake_asset
+supply 34.3849 AVAX to lido,deposit_asset
+draw 39.6095 SOL from aave on ethereum using SOL as collateral,borrow_asset
+"draw 20659 USDT from maker on solana using USDT as collateral — right away, use fast gas",borrow_asset
+collect incentives at yearn (avalanche),claim_rewards
+add liquidity: deposit 48.0132 SOL to aave (avalanche),deposit_asset
+trade 38.4142 WETH for AAVE on balancer (polygon) with slippage 1%,swap_asset
+redeem 44.1471 AVAX from pendle (polygon),withdraw_asset
+redeem 0.832241 BTC from compound (polygon) — use fast gas,withdraw_asset
+open debt: 1221.2826 AAVE on compound base using WETH as collateral — use normal gas,borrow_asset
+lock 23.7296 AVAX in lido on avalanche — today,stake_asset
+stake 17720 DAI on rocket pool (solana),stake_asset
+pay back 8799 USDC to aave on ethereum,repay_asset
+fund compound with 3877.0728 ARB (optimism) — this minute,deposit_asset
+"lock 1792.2237 LINK in pendle on ethereum — immediately, ok with higher gas",stake_asset
+borrow 2488.6648 AAVE from aave on base using BTC as collateral,borrow_asset
+stake 1.0263 SOL on lido (optimism),stake_asset
+delegate 490.3574 ARB to yearn (optimism) — minimize gas,stake_asset
+borrow 35.0226 OP from maker on avalanche — now,borrow_asset
+swap 0.364058 BTC to USDT on sushiswap ethereum with slippage 1% — ok with higher gas,swap_asset
+unstow 15.7728 SOL from compound on polygon — normal mode,withdraw_asset
+"swap 1104.8875 ARB to WETH on balancer optimism with slippage 0.5% — now, ok with higher gas",swap_asset
+"claim rewards on yearn (ethereum) — this minute, use fast gas",claim_rewards
+market swap 15289 USDT->OP using balancer on avalanche,swap_asset
+collect incentives at lido (optimism),claim_rewards
+withdraw staked 2.010858 BTC from lido ethereum,unstake_asset
+undelegate 32.4386 ETH on rocket pool (base) — high yield mode,unstake_asset
+reduce loan by 12486 USDC on compound (ethereum),repay_asset
+undelegate 18734 DAI on yearn (avalanche) — use normal gas,unstake_asset
+"unstake 0.16258 BTC from lido on optimism — today, use fast gas, normal mode",unstake_asset
+cash out 2229.7715 OP from stargate (arbitrum) — minimize gas,withdraw_asset
+remove 30.7107 MATIC from pendle,withdraw_asset
+trade 4047.6346 LINK for ETH on sushiswap (solana) with slippage 0.5% — asap,swap_asset
+claim staking rewards on sushiswap ethereum — asap,claim_rewards
+claim staking rewards on rocket pool arbitrum,claim_rewards
+unstake 18484 DAI from lido on ethereum — asap,unstake_asset
+"lock 13.1282 MATIC in curve on ethereum — asap, ok with higher gas",stake_asset
+swap 29.3941 MATIC to AVAX on sushiswap avalanche with slippage 0.1%,swap_asset
+remove 36.2262 AVAX from yearn — safe mode,withdraw_asset
+add liquidity: deposit 21761 USDC to sushiswap (arbitrum),deposit_asset
+withdraw staked 39.6034 ETH from curve arbitrum,unstake_asset
+lock 4133.4053 LINK in pendle on solana,stake_asset
+"unstake 11.1854 MATIC from rocket pool on solana — today, high yield mode",unstake_asset
+convert 1983.9296 ARB into WBTC via sushiswap on ethereum with slippage 0.5%,swap_asset
+take a loan of 6910 USDT via aave (polygon),borrow_asset
+deposit 19057 USDT into pendle on polygon,deposit_asset
+withdraw 1.642823 BTC from yearn on solana,withdraw_asset
+borrow 39.1498 SOL from compound on solana using WETH as collateral — use fast gas,borrow_asset
+unlock 49.026 ETH at curve (avalanche) — safe mode,unstake_asset
+cash out 48.8058 MATIC from yearn (base) — safe mode,withdraw_asset
+trade 37.209 ETH for BTC on balancer (polygon) with slippage 0.1%,swap_asset
+trade 7362 USDT for BTC on balancer (base) — minimize gas,swap_asset
+borrow 28.8687 WETH from compound on solana using LINK as collateral — safe mode,borrow_asset
+open debt: 14645 USDC on aave solana using USDC as collateral,borrow_asset
+"stake 11750 DAI on rocket pool (optimism) — immediately, normal mode",stake_asset
+trade 41.59 WETH for MATIC on balancer (ethereum) — use normal gas,swap_asset
+pay back 3950.7462 ARB to compound on base — ok with higher gas,repay_asset
+stake 43.0036 ETH on lido (arbitrum) — now,stake_asset
+delegate 13949 USDT to curve (base) — minimize gas,stake_asset
+withdraw 5215 USDC from lido on ethereum — high yield mode,withdraw_asset
+unlock 0.190958 BTC at pendle (polygon) — asap,unstake_asset
+harvest yield from aave on arbitrum,claim_rewards
+open debt: 20465 USDT on aave polygon using SOL as collateral,borrow_asset
+unstake 26.1934 SOL from lido on ethereum,unstake_asset
+add liquidity: deposit 504.9005 ARB to yearn (polygon),deposit_asset
+supply 1394.564 ARB to yearn — today,deposit_asset
+supply 1777.8921 ARB to curve — ok with higher gas,deposit_asset
+"collect incentives at lido (polygon) — this minute, use fast gas",claim_rewards
+trade 5.6456 WETH for AAVE on sushiswap (optimism),swap_asset
+withdraw staked 1.8056 ETH from rocket pool solana,unstake_asset
+"delegate 1.980133 BTC to pendle (avalanche) — today, ok with higher gas",stake_asset
+withdraw staked 19709 USDT from curve avalanche — ok with higher gas,unstake_asset
+market swap 34.0059 ETH->LINK using curve on arbitrum,swap_asset
+redeem 1.630969 WBTC from lido (polygon),withdraw_asset
+"pay back 3486.9043 LINK to compound on ethereum — use fast gas, safe mode",repay_asset
+remove 18522 DAI from pendle — now,withdraw_asset
+open debt: 1.4321 AVAX on aave ethereum using DAI as collateral — right away,borrow_asset
+pull out 23450 DAI from balancer — use normal gas,withdraw_asset
+trade 5.9195 ETH for ARB on sushiswap (arbitrum),swap_asset
+borrow 32.5553 AVAX from maker on arbitrum using AAVE as collateral,borrow_asset
+market swap 7187 DAI->AVAX using uniswap on avalanche with slippage 1%,swap_asset
+lock 0.668373 WBTC in pendle on avalanche,stake_asset
+fund uniswap with 33.9314 SOL (optimism),deposit_asset
+claim rewards on uniswap (polygon) — now,claim_rewards
+repay 6.9144 AVAX on aave (solana) — use normal gas,repay_asset
+pull out 4.3311 AVAX from pendle,withdraw_asset
+restake 9.2071 ETH with lido on polygon — this minute,stake_asset
+pull out 21.3032 AVAX from yearn,withdraw_asset
+restake 17460 DAI with lido on arbitrum,stake_asset
+restake 37.4103 AVAX with lido on base,stake_asset
+"market swap 25.3269 AVAX->BTC using sushiswap on ethereum — immediately, normal mode",swap_asset
+unlock 0.978597 BTC at pendle (polygon),unstake_asset
+withdraw staked 807.1424 ARB from rocket pool solana,unstake_asset
+reduce loan by 8695 USDC on aave (solana),repay_asset
+claim staking rewards on lido arbitrum,claim_rewards
+take a loan of 1.28732 WBTC via aave (arbitrum),borrow_asset
+pull out 28.2674 ETH from curve — high yield mode,withdraw_asset
+add liquidity: deposit 0.662351 WBTC to pendle (arbitrum) — today,deposit_asset
+redeem 24.9812 AVAX from stargate (avalanche),withdraw_asset
+claim rewards on pendle (arbitrum),claim_rewards
+open debt: 22108 DAI on maker optimism,borrow_asset
+add liquidity: deposit 43.0744 WETH to lido (solana) — this minute,deposit_asset
+"pay back 20.4117 MATIC to maker on optimism — right away, high yield mode",repay_asset
+"pay back 21.6768 AVAX to aave on ethereum — immediately, use normal gas",repay_asset
+deposit 3.4704 WETH into lido on optimism — ok with higher gas,deposit_asset
+put 2453.3053 OP into yearn,deposit_asset
+"lock 640.0514 LINK in rocket pool on optimism — now, normal mode",stake_asset
+harvest yield from balancer on solana — high yield mode,claim_rewards
+fund rocket pool with 0.612783 BTC (base),deposit_asset
+claim staking rewards on sushiswap ethereum — ok with higher gas,claim_rewards
+remove 15.9089 MATIC from yearn,withdraw_asset
+take a loan of 49.4774 WETH via maker (avalanche),borrow_asset
+market swap 4709.1849 ARB->WBTC using uniswap on ethereum,swap_asset
+restake 19434 USDT with pendle on optimism,stake_asset
+borrow 21.1204 MATIC from maker on avalanche,borrow_asset
+unstake 985.8683 OP from pendle on solana — high yield mode,unstake_asset
+undelegate 2.381832 BTC on pendle (base) — use fast gas,unstake_asset
+repay 446.0615 LINK on aave (solana) — now,repay_asset
+open debt: 1291.9357 AAVE on aave arbitrum — now,borrow_asset
+draw 8454 USDT from aave on arbitrum using OP as collateral — normal mode,borrow_asset
+delegate 2909.4553 OP to yearn (optimism) — use fast gas,stake_asset
+market swap 27.444 SOL->AAVE using uniswap on ethereum — asap,swap_asset
+put 16003 USDT into curve,deposit_asset
+fund yearn with 14015 DAI (polygon) — right away,deposit_asset
+open debt: 9315 USDT on aave optimism — asap,borrow_asset
+take a loan of 23.2956 AVAX via compound (arbitrum) using LINK as collateral,borrow_asset
+pay back 1781 DAI to aave on polygon,repay_asset
+"unlock 3081.324 AAVE at pendle (avalanche) — immediately, ok with higher gas",unstake_asset
+convert 751.3489 AAVE into ARB via curve on solana with slippage 0.2%,swap_asset
+move 0.858324 BTC into curve on optimism — high yield mode,deposit_asset
+redeem 23692 DAI from balancer (avalanche),withdraw_asset
+draw 3316.3278 AAVE from aave on avalanche,borrow_asset
+pull out 3664.688 ARB from curve,withdraw_asset
+close debt: repay 11717 USDC at compound arbitrum,repay_asset
+move 20.8379 WETH into rocket pool on solana,deposit_asset
+"trade 14.6456 WETH for OP on sushiswap (arbitrum) — asap, high yield mode",swap_asset
+collect incentives at stargate (arbitrum) — now,claim_rewards
+unlock 31.5322 MATIC at curve (avalanche),unstake_asset
+add liquidity: deposit 4422.3898 ARB to maker (avalanche),deposit_asset
+claim staking rewards on compound ethereum,claim_rewards
+supply 0.352142 BTC to compound — use normal gas,deposit_asset
+pay back 22903 USDC to aave on solana — safe mode,repay_asset
+collect incentives at uniswap (base) — minimize gas,claim_rewards
+withdraw staked 28.9716 WETH from balancer solana,unstake_asset
+withdraw 1879 USDC from compound on ethereum — immediately,withdraw_asset
+"repay 1.271532 BTC on aave (ethereum) — this minute, minimize gas",repay_asset
+provide 21.4928 WETH on curve — safe mode,deposit_asset
+close debt: repay 2704.6666 OP at maker avalanche — safe mode,repay_asset
+put 1463 USDT into maker,deposit_asset
+close debt: repay 3371.6521 AAVE at maker ethereum — immediately,repay_asset
+undelegate 27.6846 ETH on balancer (ethereum),unstake_asset
+deposit 1.074453 WBTC into lido on avalanche,deposit_asset
+close debt: repay 16743 USDT at maker solana,repay_asset
+unstake 32.3487 SOL from rocket pool on avalanche,unstake_asset
+harvest yield from stargate on polygon,claim_rewards
+top up lido with 10671 USDC on solana — safe mode,deposit_asset
+market swap 49.7556 ETH->USDT using balancer on solana with slippage 0.5% — high yield mode,swap_asset
+close debt: repay 14.8954 ETH at maker solana,repay_asset
+reduce loan by 0.928795 WBTC on maker (avalanche),repay_asset
+unstow 21.4798 MATIC from balancer on polygon — ok with higher gas,withdraw_asset
+claim staking rewards on aave avalanche,claim_rewards
+borrow 19.8409 ETH from maker on base using BTC as collateral — today,borrow_asset
+undelegate 16.8257 WETH on balancer (ethereum),unstake_asset
+move 19.0531 MATIC into lido on optimism,deposit_asset
+market swap 7.497 SOL->ARB using balancer on arbitrum,swap_asset
+delegate 24520 USDT to curve (arbitrum) — immediately,stake_asset
+market swap 1136.9757 LINK->AAVE using uniswap on avalanche — this minute,swap_asset
+borrow 19989 USDC from aave on ethereum,borrow_asset
+delegate 9559 USDT to yearn (avalanche) — minimize gas,stake_asset
+claim staking rewards on uniswap solana — today,claim_rewards
+harvest yield from compound on avalanche — asap,claim_rewards
+repay 28.1756 SOL on compound (polygon) — use normal gas,repay_asset
+reduce loan by 20675 USDC on aave (polygon),repay_asset
+stake 7399 USDC on pendle (arbitrum),stake_asset
+open debt: 0.662436 BTC on compound arbitrum using AVAX as collateral,borrow_asset
+remove 1240 DAI from yearn,withdraw_asset
+restake 0.676034 WBTC with curve on optimism,stake_asset
+unstake 44.3443 ETH from rocket pool on arbitrum,unstake_asset
+add liquidity: deposit 4231.0025 ARB to compound (base),deposit_asset
+lock 609.4913 AAVE in balancer on ethereum — use normal gas,stake_asset
+open debt: 4442.2854 OP on aave avalanche — ok with higher gas,borrow_asset
+open debt: 23499 USDC on compound ethereum,borrow_asset
+take a loan of 814.424 ARB via compound (base) using WBTC as collateral — use fast gas,borrow_asset
+swap 26.4716 AVAX to USDC on balancer ethereum — use fast gas,swap_asset
+market swap 14888 DAI->USDT using curve on polygon — high yield mode,swap_asset
+lock 10683 DAI in lido on ethereum,stake_asset
+undelegate 48.7483 MATIC on lido (optimism) — right away,unstake_asset
+remove 4735.6072 ARB from sushiswap,withdraw_asset
+swap 41.8193 WETH to AVAX on sushiswap ethereum with slippage 0.1%,swap_asset
+lock 3744 USDC in yearn on polygon — safe mode,stake_asset
+"fund stargate with 45.9987 MATIC (arbitrum) — minimize gas, safe mode",deposit_asset
+lock 3598.7412 LINK in rocket pool on optimism,stake_asset
+unstake 0.851611 WBTC from curve on base,unstake_asset
+"claim rewards on maker (avalanche) — this minute, normal mode",claim_rewards
+market swap 22.585 SOL->ARB using curve on polygon,swap_asset
+"market swap 1752 DAI->AAVE using sushiswap on ethereum — immediately, high yield mode",swap_asset
+"restake 4877.5243 OP with balancer on avalanche — immediately, safe mode",stake_asset
+"market swap 0.613369 BTC->USDT using sushiswap on ethereum — today, high yield mode",swap_asset
+"redeem 0.898768 BTC from curve (polygon) — right away, ok with higher gas",withdraw_asset
+pay back 15822 USDT to compound on solana — now,repay_asset
+market swap 23.3222 ETH->DAI using curve on optimism with slippage 0.1% — immediately,swap_asset
+"delegate 19405 USDC to lido (base) — immediately, use fast gas",stake_asset
+restake 1783.1143 ARB with balancer on base,stake_asset
+"unstake 5.9575 ETH from yearn on arbitrum — today, normal mode",unstake_asset
+"convert 16477 DAI into MATIC via curve on solana — use fast gas, safe mode",swap_asset
+undelegate 2242.5694 AAVE on rocket pool (ethereum) — minimize gas,unstake_asset
+"unstow 4.9278 SOL from curve on avalanche — right away, minimize gas",withdraw_asset
+put 4086.2873 ARB into balancer — use fast gas,deposit_asset
+"repay 2999.1917 AAVE on maker (ethereum) — immediately, safe mode",repay_asset
+delegate 4.7854 WETH to lido (solana),stake_asset
+borrow 2399.0697 OP from aave on avalanche using BTC as collateral — right away,borrow_asset
+borrow 33.8083 MATIC from maker on base,borrow_asset
+add liquidity: deposit 5616 USDC to lido (arbitrum) — right away,deposit_asset
+stake 17396 USDC on pendle (arbitrum) — safe mode,stake_asset
+"restake 2277.8087 AAVE with lido on avalanche — this minute, safe mode",stake_asset
+provide 3259.4657 OP on uniswap — minimize gas,deposit_asset
+repay 204.3046 ARB on compound (optimism) — asap,repay_asset
+close debt: repay 0.349055 WBTC at maker solana — immediately,repay_asset
+stake 33.7105 MATIC on yearn (optimism),stake_asset
+repay 0.754357 WBTC on aave (base),repay_asset
+unstake 28.711 MATIC from lido on base,unstake_asset
+repay 49.1401 SOL on aave (avalanche) — right away,repay_asset
+market swap 21.1508 ETH->ARB using balancer on optimism,swap_asset
+delegate 7852 USDC to yearn (arbitrum),stake_asset
+trade 0.964749 BTC for AVAX on sushiswap (polygon) — normal mode,swap_asset
+"withdraw 19.8824 WETH from uniswap on arbitrum — right away, normal mode",withdraw_asset
+open debt: 9.3492 SOL on aave polygon using WBTC as collateral,borrow_asset
+draw 21.7852 MATIC from compound on polygon using WETH as collateral — this minute,borrow_asset
+delegate 20.9425 WETH to pendle (solana) — now,stake_asset
+claim staking rewards on curve optimism,claim_rewards
+take a loan of 0.182528 BTC via compound (arbitrum) using MATIC as collateral — use normal gas,borrow_asset
+harvest yield from aave on avalanche — use normal gas,claim_rewards
+convert 12.2051 SOL into BTC via sushiswap on optimism with slippage 0.5% — today,swap_asset
+lock 19.7847 AVAX in balancer on solana,stake_asset
+unstake 0.530491 BTC from yearn on solana,unstake_asset
+swap 8198 USDC to BTC on uniswap polygon with slippage 1%,swap_asset
+trade 6823 USDC for ETH on curve (arbitrum) — now,swap_asset
+close debt: repay 4229.0366 LINK at maker base,repay_asset
+reduce loan by 0.064184 WBTC on aave (optimism) — right away,repay_asset
+swap 10.9459 SOL to USDC on sushiswap arbitrum — safe mode,swap_asset
+unstake 902.0628 AAVE from balancer on solana,unstake_asset
+trade 3654.979 LINK for AAVE on uniswap (base) with slippage 0.2% — today,swap_asset
+delegate 3.9203 ETH to yearn (optimism),stake_asset
+draw 26.2856 MATIC from aave on solana using BTC as collateral — now,borrow_asset
+convert 14126 DAI into SOL via curve on polygon with slippage 0.1% — now,swap_asset
+repay 33.8257 AVAX on maker (ethereum) — now,repay_asset
+remove 2386.0122 AAVE from curve — high yield mode,withdraw_asset
+undelegate 5285 DAI on rocket pool (base),unstake_asset
+harvest yield from yearn on avalanche,claim_rewards
+undelegate 2435.7064 OP on rocket pool (arbitrum) — immediately,unstake_asset
+collect incentives at aave (ethereum),claim_rewards
+move 26.02 AVAX into balancer on ethereum — use normal gas,deposit_asset
+lock 34.5462 WETH in curve on polygon,stake_asset
+pay back 17103 DAI to compound on avalanche,repay_asset
+take a loan of 18.0934 AVAX via compound (solana) using LINK as collateral — right away,borrow_asset
+repay 10.2844 AVAX on maker (polygon) — asap,repay_asset
+repay 2571.9798 AAVE on compound (arbitrum) — safe mode,repay_asset
+pull out 3075.313 LINK from rocket pool,withdraw_asset
+withdraw staked 46.532 ETH from curve solana — immediately,unstake_asset
+stake 7396 DAI on yearn (base),stake_asset
+cash out 21616 USDC from curve (arbitrum) — this minute,withdraw_asset
+deposit 10052 USDC into yearn on base — ok with higher gas,deposit_asset
+trade 14.3669 SOL for ETH on curve (solana),swap_asset
+close debt: repay 2577.8236 AAVE at aave ethereum,repay_asset
+repay 4845.8086 AAVE on aave (polygon) — use normal gas,repay_asset
+move 4315.9317 LINK into stargate on polygon,deposit_asset
+trade 1.439948 WBTC for MATIC on curve (optimism) with slippage 0.1%,swap_asset
+stake 643.1017 ARB on lido (arbitrum),stake_asset
+remove 33.7285 MATIC from stargate,withdraw_asset
+withdraw 1681.8219 OP from sushiswap on arbitrum — this minute,withdraw_asset
+collect incentives at balancer (optimism) — normal mode,claim_rewards
+borrow 15.3485 WETH from aave on optimism using SOL as collateral,borrow_asset
+harvest yield from uniswap on solana,claim_rewards
+borrow 1.838435 WBTC from maker on base — minimize gas,borrow_asset
+harvest yield from uniswap on optimism,claim_rewards
+add liquidity: deposit 41.2743 SOL to rocket pool (optimism) — now,deposit_asset
+"harvest yield from balancer on base — today, normal mode",claim_rewards
+convert 2757.2543 OP into BTC via curve on optimism,swap_asset
+provide 1871.5274 LINK on balancer,deposit_asset
+delegate 9.1529 WETH to curve (arbitrum),stake_asset
+redeem 14.18 SOL from compound (optimism),withdraw_asset
+"pay back 4356.3335 AAVE to compound on optimism — asap, minimize gas",repay_asset
+"unlock 42.9642 SOL at balancer (arbitrum) — now, use normal gas",unstake_asset
+claim staking rewards on curve solana,claim_rewards
+market swap 4657.9367 ARB->USDC using sushiswap on polygon — ok with higher gas,swap_asset
+open debt: 25.1929 WETH on maker polygon using LINK as collateral,borrow_asset
+reduce loan by 2035.0227 LINK on aave (arbitrum) — high yield mode,repay_asset
+close debt: repay 276.4677 OP at maker ethereum,repay_asset
+borrow 1009.4238 LINK from compound on ethereum,borrow_asset
+top up sushiswap with 4080.5867 OP on polygon — use fast gas,deposit_asset
+open debt: 1521.7533 AAVE on aave avalanche using OP as collateral,borrow_asset
+swap 0.869925 BTC to AVAX on balancer ethereum — normal mode,swap_asset
+open debt: 3777.4125 ARB on maker arbitrum using LINK as collateral,borrow_asset
+deposit 1309 DAI into stargate on optimism — asap,deposit_asset
+harvest yield from balancer on optimism,claim_rewards
+supply 2.384586 BTC to lido,deposit_asset
+repay 20812 DAI on maker (solana) — right away,repay_asset
+"withdraw staked 34.4889 AVAX from curve polygon — today, use normal gas",unstake_asset
+pay back 1.13388 WBTC to maker on avalanche — safe mode,repay_asset
+"deposit 937.9423 AAVE into uniswap on arbitrum — today, use fast gas",deposit_asset
+open debt: 0.569073 WBTC on maker polygon using ARB as collateral — ok with higher gas,borrow_asset
+harvest yield from lido on optimism,claim_rewards
+borrow 6581 DAI from compound on base using BTC as collateral — today,borrow_asset
+claim rewards on stargate (base),claim_rewards
+claim rewards on balancer (avalanche),claim_rewards
+lock 28.6481 MATIC in rocket pool on polygon — this minute,stake_asset
+withdraw staked 3794.3081 LINK from yearn polygon,unstake_asset
+fund maker with 3530.6255 AAVE (solana) — safe mode,deposit_asset
+redeem 3249.1634 OP from yearn (base),withdraw_asset
+add liquidity: deposit 59.5011 LINK to stargate (solana) — high yield mode,deposit_asset
+lock 5286 USDC in pendle on polygon,stake_asset
+undelegate 43.0142 MATIC on pendle (polygon),unstake_asset
+pull out 6102 USDT from balancer — this minute,withdraw_asset
+withdraw staked 48.5849 MATIC from pendle optimism — this minute,unstake_asset
+open debt: 824.0231 ARB on compound polygon — right away,borrow_asset
+market swap 24366 USDT->ETH using uniswap on base,swap_asset
+claim rewards on lido (base),claim_rewards
+remove 6.6004 SOL from maker,withdraw_asset
+fund uniswap with 1.195977 WBTC (arbitrum),deposit_asset
+"cash out 7.3485 MATIC from sushiswap (arbitrum) — this minute, normal mode",withdraw_asset
+delegate 35.5888 SOL to lido (ethereum) — right away,stake_asset
+pay back 1.36609 WBTC to maker on polygon — now,repay_asset
+pay back 12688 USDT to aave on optimism,repay_asset
+delegate 0.315748 WBTC to curve (solana) — right away,stake_asset
+redeem 1339.0511 ARB from compound (solana) — today,withdraw_asset
+"remove 15.9449 ETH from maker — this minute, use fast gas, high yield mode",withdraw_asset
+claim staking rewards on maker ethereum — use fast gas,claim_rewards
+unlock 13262 DAI at balancer (polygon) — ok with higher gas,unstake_asset
+close debt: repay 16704 DAI at maker solana — immediately,repay_asset
+take a loan of 0.893328 WBTC via compound (avalanche) using AVAX as collateral — high yield mode,borrow_asset
+move 1.006261 WBTC into stargate on ethereum,deposit_asset
+withdraw staked 2.374716 WBTC from rocket pool polygon,unstake_asset
+redeem 48.2335 WETH from rocket pool (optimism),withdraw_asset
+delegate 19.857 WETH to curve (optimism),stake_asset
+redeem 22998 USDC from balancer (arbitrum) — use fast gas,withdraw_asset
+"close debt: repay 3659.1534 AAVE at aave polygon — ok with higher gas, normal mode",repay_asset
+close debt: repay 29.3769 WETH at compound base,repay_asset
+claim staking rewards on curve solana,claim_rewards
+claim rewards on rocket pool (base),claim_rewards
+add liquidity: deposit 48.1058 ETH to uniswap (arbitrum),deposit_asset
+trade 304.3205 AAVE for WBTC on sushiswap (arbitrum),swap_asset
+put 1683.0989 AAVE into stargate — asap,deposit_asset
+harvest yield from balancer on base,claim_rewards
+"withdraw 1.088947 WBTC from stargate on avalanche — right away, high yield mode",withdraw_asset
+withdraw staked 0.9449 BTC from balancer ethereum,unstake_asset
+close debt: repay 804.3681 LINK at aave optimism — safe mode,repay_asset
+collect incentives at aave (optimism) — safe mode,claim_rewards
+close debt: repay 49.3346 SOL at maker solana,repay_asset
+lock 2733 DAI in yearn on optimism,stake_asset
+lock 3164.2789 ARB in curve on avalanche,stake_asset
+"redeem 4630.353 ARB from rocket pool (avalanche) — right away, normal mode",withdraw_asset
+collect incentives at uniswap (optimism) — immediately,claim_rewards
+take a loan of 3.7709 SOL via compound (avalanche) — asap,borrow_asset
+withdraw 47.8276 ETH from aave on base — right away,withdraw_asset
+add liquidity: deposit 38.5036 MATIC to rocket pool (base),deposit_asset
+"withdraw staked 3.9362 MATIC from lido solana — use normal gas, high yield mode",unstake_asset
+unlock 1.230053 WBTC at curve (optimism),unstake_asset
+reduce loan by 47.7723 WETH on compound (avalanche),repay_asset
+market swap 5.8912 WETH->USDC using balancer on polygon — asap,swap_asset
+"claim staking rewards on rocket pool base — this minute, minimize gas",claim_rewards
+lock 16521 USDC in yearn on solana,stake_asset
+claim staking rewards on balancer polygon — ok with higher gas,claim_rewards
+harvest yield from yearn on avalanche,claim_rewards
+swap 1.417685 WBTC to OP on uniswap arbitrum with slippage 1% — asap,swap_asset
+unstow 3824.7738 LINK from maker on avalanche — normal mode,withdraw_asset
+undelegate 43.2842 AVAX on pendle (optimism) — today,unstake_asset
+top up curve with 6.5818 AVAX on polygon — ok with higher gas,deposit_asset
+withdraw staked 6.5217 SOL from lido polygon — asap,unstake_asset
+unlock 245.7441 LINK at yearn (ethereum) — asap,unstake_asset
+convert 5.1317 SOL into BTC via uniswap on arbitrum with slippage 0.5% — now,swap_asset
+"cash out 14959 USDT from pendle (optimism) — now, ok with higher gas",withdraw_asset
+pay back 46.8749 AVAX to maker on optimism,repay_asset
+claim staking rewards on yearn optimism,claim_rewards
+cash out 17.8257 ETH from pendle (ethereum) — normal mode,withdraw_asset
+delegate 2.482257 BTC to balancer (avalanche),stake_asset
+lock 32.4189 SOL in curve on arbitrum — normal mode,stake_asset
+"redeem 4913.9463 ARB from yearn (base) — right away, ok with higher gas",withdraw_asset
+unstow 9.9467 ETH from uniswap on arbitrum,withdraw_asset
+supply 33.4178 SOL to curve,deposit_asset
+claim staking rewards on yearn avalanche,claim_rewards
+trade 832.7419 ARB for MATIC on balancer (avalanche) with slippage 0.2%,swap_asset
+draw 1.875039 WBTC from aave on optimism — immediately,borrow_asset
+borrow 45.1164 ETH from compound on optimism,borrow_asset
+delegate 40.9063 WETH to pendle (avalanche),stake_asset
+harvest yield from yearn on polygon — use normal gas,claim_rewards
+reduce loan by 1183.4106 OP on compound (arbitrum) — normal mode,repay_asset
+restake 30.9114 SOL with lido on base,stake_asset
+collect incentives at balancer (avalanche) — today,claim_rewards
+delegate 3.9235 ETH to curve (arbitrum),stake_asset
+borrow 5.3662 MATIC from maker on solana using LINK as collateral,borrow_asset
+pay back 3734.6245 LINK to maker on avalanche — immediately,repay_asset
+claim staking rewards on curve solana,claim_rewards
+"withdraw staked 34.2626 MATIC from rocket pool base — this minute, use fast gas",unstake_asset
+unlock 37.2602 MATIC at lido (ethereum),unstake_asset
+"market swap 23.8395 SOL->DAI using balancer on optimism with slippage 0.2% — use fast gas, normal mode",swap_asset
+pay back 7371 USDC to maker on avalanche — ok with higher gas,repay_asset
+reduce loan by 11069 USDT on maker (optimism) — today,repay_asset
+undelegate 952.863 AAVE on curve (arbitrum) — minimize gas,unstake_asset
+stake 2509.1201 LINK on curve (arbitrum) — normal mode,stake_asset
+withdraw staked 1761 USDT from balancer arbitrum — immediately,unstake_asset
+take a loan of 1.085723 WBTC via maker (arbitrum) — now,borrow_asset
+open debt: 4787 DAI on maker arbitrum using SOL as collateral,borrow_asset
+harvest yield from curve on ethereum — high yield mode,claim_rewards
+take a loan of 18389 USDC via maker (optimism),borrow_asset
+close debt: repay 25.5368 MATIC at compound ethereum,repay_asset
+trade 3744.2327 LINK for WBTC on curve (solana) with slippage 0.5%,swap_asset
+market swap 3222.9579 OP->BTC using balancer on polygon — high yield mode,swap_asset
+provide 31.2371 AVAX on curve,deposit_asset
+lock 2927.7176 OP in balancer on solana — use fast gas,stake_asset
+swap 15.2766 WETH to ETH on balancer base — high yield mode,swap_asset
+lock 19.6512 WETH in lido on avalanche,stake_asset
+fund compound with 820.8464 LINK (optimism) — normal mode,deposit_asset
+"move 1612.5486 ARB into yearn on arbitrum — now, safe mode",deposit_asset
+"withdraw staked 4083 USDT from lido optimism — today, minimize gas",unstake_asset
+withdraw 18.9806 ETH from maker on arbitrum — safe mode,withdraw_asset
+unstake 0.820785 BTC from rocket pool on avalanche,unstake_asset
+claim staking rewards on uniswap arbitrum — high yield mode,claim_rewards
+remove 722.1336 AAVE from balancer — use normal gas,withdraw_asset
+unstow 47.8933 SOL from lido on base — today,withdraw_asset
+claim rewards on aave (optimism) — use normal gas,claim_rewards
+harvest yield from pendle on polygon,claim_rewards
+move 1939.3256 LINK into pendle on base,deposit_asset
+pull out 24218 DAI from compound,withdraw_asset
+withdraw 9.3071 SOL from balancer on ethereum,withdraw_asset
+convert 18.721 WETH into ARB via sushiswap on ethereum — ok with higher gas,swap_asset
+pay back 19013 USDT to compound on ethereum — high yield mode,repay_asset
+put 4701.4571 AAVE into sushiswap,deposit_asset
+restake 9031 USDC with balancer on solana,stake_asset
+pull out 44.9999 AVAX from compound — high yield mode,withdraw_asset
+take a loan of 2512.7998 LINK via aave (optimism),borrow_asset
+unstake 3577.1934 ARB from lido on base,unstake_asset
+open debt: 1644.0833 ARB on aave optimism using BTC as collateral,borrow_asset
+"redeem 758.9478 OP from pendle (solana) — immediately, use normal gas",withdraw_asset
+supply 15.814 ETH to uniswap,deposit_asset
+pay back 1.902976 BTC to compound on polygon — high yield mode,repay_asset
+undelegate 2771.1277 AAVE on curve (ethereum) — normal mode,unstake_asset
+stake 1.086028 BTC on yearn (polygon) — now,stake_asset
+top up yearn with 31.7832 MATIC on base,deposit_asset
+open debt: 3925.3295 AAVE on maker base using DAI as collateral,borrow_asset
+unstake 20506 USDC from rocket pool on avalanche,unstake_asset
+claim staking rewards on lido avalanche,claim_rewards
+draw 21.3242 WETH from maker on polygon — high yield mode,borrow_asset
+take a loan of 1.236227 BTC via maker (solana),borrow_asset
+take a loan of 23.828 WETH via compound (ethereum) using WETH as collateral — normal mode,borrow_asset
+withdraw 1.793539 BTC from curve on avalanche,withdraw_asset
+delegate 4.7796 WETH to pendle (polygon) — immediately,stake_asset
+put 21.2861 ETH into compound,deposit_asset
+harvest yield from sushiswap on ethereum — asap,claim_rewards
+close debt: repay 28.3608 ETH at compound base — safe mode,repay_asset
+lock 1.762011 WBTC in balancer on solana — use normal gas,stake_asset
+reduce loan by 44.7472 ETH on maker (avalanche) — now,repay_asset
+provide 1.092622 WBTC on rocket pool,deposit_asset
+claim rewards on yearn (optimism) — use fast gas,claim_rewards
+claim rewards on pendle (avalanche),claim_rewards
+draw 14535 USDT from maker on optimism using SOL as collateral — minimize gas,borrow_asset
+borrow 45.021 ETH from compound on arbitrum,borrow_asset
+"restake 13.8786 WETH with yearn on base — asap, safe mode",stake_asset
+market swap 47.4381 SOL->ARB using curve on base,swap_asset
+harvest yield from uniswap on arbitrum — asap,claim_rewards
+borrow 16.9354 MATIC from aave on ethereum using USDC as collateral — this minute,borrow_asset
+claim staking rewards on sushiswap ethereum — this minute,claim_rewards
+take a loan of 15.7086 AVAX via compound (avalanche),borrow_asset
+draw 4137.6225 OP from compound on optimism using WETH as collateral,borrow_asset
+reduce loan by 3346.6352 AAVE on maker (ethereum),repay_asset
+unlock 25.015 MATIC at curve (base) — immediately,unstake_asset
+repay 9261 USDC on compound (ethereum) — minimize gas,repay_asset
+close debt: repay 42.8996 ETH at aave polygon,repay_asset
+"lock 38.516 WETH in balancer on base — this minute, use fast gas",stake_asset
+"draw 14936 USDT from compound on optimism using OP as collateral — right away, use fast gas",borrow_asset
+add liquidity: deposit 34.7951 SOL to aave (ethereum) — safe mode,deposit_asset
+"restake 42.7645 WETH with lido on avalanche — today, safe mode",stake_asset
+claim rewards on stargate (arbitrum) — minimize gas,claim_rewards
+claim rewards on uniswap (base) — ok with higher gas,claim_rewards
+claim rewards on rocket pool (ethereum),claim_rewards
+redeem 18164 USDC from stargate (base),withdraw_asset
+withdraw staked 4240 USDC from yearn solana,unstake_asset
+withdraw staked 1.610446 BTC from balancer arbitrum,unstake_asset
+unstow 2.054139 BTC from curve on avalanche,withdraw_asset
+"pay back 4026.1452 ARB to compound on arbitrum — asap, normal mode",repay_asset
+pull out 1637.3728 ARB from balancer — high yield mode,withdraw_asset
+take a loan of 24.56 ETH via compound (ethereum) using OP as collateral — immediately,borrow_asset
+put 3.9924 WETH into stargate — high yield mode,deposit_asset
+market swap 0.99158 BTC->ARB using sushiswap on ethereum,swap_asset
+market swap 10920 DAI->OP using curve on arbitrum,swap_asset
+pay back 4060.9291 LINK to maker on solana — this minute,repay_asset
+lock 39.8719 WETH in balancer on base,stake_asset
+provide 15.2677 SOL on compound,deposit_asset
+lock 20.1647 WETH in lido on polygon — minimize gas,stake_asset
+pay back 6522 USDC to compound on arbitrum,repay_asset
+cash out 1.528113 BTC from pendle (optimism),withdraw_asset
+delegate 4917.2499 OP to rocket pool (base),stake_asset
+unstake 0.699453 WBTC from balancer on ethereum — ok with higher gas,unstake_asset
+swap 9.8202 SOL to MATIC on uniswap polygon — right away,swap_asset
+unlock 24390 USDT at rocket pool (avalanche),unstake_asset
+claim staking rewards on pendle polygon — high yield mode,claim_rewards
+trade 166.3521 OP for AVAX on curve (arbitrum),swap_asset
+"swap 2940.0058 ARB to WETH on sushiswap ethereum — use fast gas, high yield mode",swap_asset
+open debt: 2229.6751 OP on compound base,borrow_asset
+lock 4467.3241 OP in yearn on solana — ok with higher gas,stake_asset
+close debt: repay 18.6846 MATIC at aave arbitrum,repay_asset
+take a loan of 16838 DAI via maker (optimism),borrow_asset
+pay back 13.4698 AVAX to compound on ethereum — now,repay_asset
+reduce loan by 375.095 ARB on aave (solana),repay_asset
+reduce loan by 1.369945 WBTC on maker (polygon) — use normal gas,repay_asset
+"unstow 1.774214 BTC from compound on optimism — this minute, safe mode",withdraw_asset
+withdraw 25.7033 MATIC from lido on polygon — right away,withdraw_asset
+withdraw staked 2853.8847 OP from balancer solana,unstake_asset
+pay back 1374 DAI to compound on optimism,repay_asset
+reduce loan by 21.8963 WETH on compound (avalanche) — right away,repay_asset
+claim rewards on aave (arbitrum),claim_rewards
+top up aave with 21014 USDT on solana,deposit_asset
+swap 13172 DAI to BTC on uniswap solana with slippage 1% — asap,swap_asset
+unlock 21.8435 MATIC at curve (ethereum),unstake_asset
+convert 31.632 MATIC into USDC via balancer on ethereum with slippage 0.1% — right away,swap_asset
+open debt: 7.6126 WETH on aave base — high yield mode,borrow_asset
+convert 33.6926 SOL into USDT via sushiswap on polygon with slippage 0.1%,swap_asset
+reduce loan by 42.8571 ETH on maker (solana),repay_asset
+undelegate 1.457525 BTC on rocket pool (polygon),unstake_asset
+trade 30.6707 SOL for USDT on curve (polygon),swap_asset
+move 3338.4332 LINK into sushiswap on arbitrum,deposit_asset
+close debt: repay 37.1623 AVAX at maker base,repay_asset
+"borrow 32.0728 SOL from compound on solana — now, normal mode",borrow_asset
+move 12.1608 AVAX into yearn on arbitrum — use fast gas,deposit_asset
+provide 1096.9714 LINK on rocket pool,deposit_asset
+borrow 4917.1831 AAVE from maker on optimism,borrow_asset
+stake 5.4147 MATIC on yearn (polygon) — use normal gas,stake_asset
+delegate 10.9964 MATIC to pendle (ethereum) — safe mode,stake_asset
+open debt: 6678 USDC on maker optimism using OP as collateral — ok with higher gas,borrow_asset
+unstake 22496 USDC from pendle on arbitrum — today,unstake_asset
+remove 133.2816 ARB from stargate,withdraw_asset
+take a loan of 2.031075 BTC via maker (optimism),borrow_asset
+market swap 39.6839 ETH->OP using curve on ethereum with slippage 0.1%,swap_asset
+trade 4899.8429 AAVE for LINK on uniswap (ethereum) with slippage 0.5% — normal mode,swap_asset
+withdraw 8.0902 SOL from yearn on ethereum,withdraw_asset
+open debt: 11.9314 AVAX on compound base,borrow_asset
+stake 25.1878 MATIC on pendle (base),stake_asset
+claim rewards on aave (optimism) — ok with higher gas,claim_rewards
+open debt: 2039.0738 AAVE on aave base using ARB as collateral,borrow_asset
+provide 3133.7058 OP on stargate — use normal gas,deposit_asset
+claim staking rewards on aave base — use fast gas,claim_rewards
+unlock 3556.6706 LINK at curve (optimism),unstake_asset
+top up pendle with 735.4605 OP on polygon — now,deposit_asset
+unstow 4400.1646 LINK from curve on optimism,withdraw_asset
+borrow 2356.0688 ARB from compound on avalanche using USDT as collateral,borrow_asset
+reduce loan by 35.763 MATIC on compound (solana) — today,repay_asset
+repay 1846.158 OP on compound (optimism),repay_asset
+restake 25.5694 MATIC with lido on arbitrum,stake_asset
+add liquidity: deposit 3.0894 SOL to pendle (optimism),deposit_asset
+redeem 6.3469 SOL from stargate (polygon) — asap,withdraw_asset
+pull out 30.1841 MATIC from yearn — use fast gas,withdraw_asset
+"claim rewards on sushiswap (optimism) — immediately, normal mode",claim_rewards
+remove 3545.0846 AAVE from curve — minimize gas,withdraw_asset
+"convert 7901 USDC into WBTC via curve on optimism — immediately, minimize gas",swap_asset
+claim rewards on maker (ethereum),claim_rewards
+claim staking rewards on lido optimism — ok with higher gas,claim_rewards
+stake 1.287195 BTC on balancer (solana),stake_asset
+draw 25.0437 SOL from compound on optimism using WETH as collateral,borrow_asset
+cash out 0.604276 BTC from stargate (base) — use normal gas,withdraw_asset
+withdraw 1.544 ETH from compound on optimism,withdraw_asset
+"repay 1.337917 WBTC on compound (polygon) — this minute, high yield mode",repay_asset
+market swap 23119 DAI->SOL using uniswap on avalanche,swap_asset
+collect incentives at aave (avalanche),claim_rewards
+fund yearn with 1.587327 BTC (polygon),deposit_asset
+claim rewards on compound (polygon),claim_rewards
+restake 7.1466 ETH with balancer on base — right away,stake_asset
+market swap 0.626522 BTC->AAVE using balancer on avalanche — high yield mode,swap_asset
+"harvest yield from balancer on base — right away, normal mode",claim_rewards
+open debt: 6.3861 AVAX on compound arbitrum using BTC as collateral,borrow_asset
+remove 2.102152 WBTC from rocket pool,withdraw_asset
+supply 13651 USDT to yearn,deposit_asset
+pay back 49.5951 ETH to maker on polygon,repay_asset
+pull out 813.035 ARB from sushiswap — right away,withdraw_asset
+claim rewards on curve (ethereum),claim_rewards
+pull out 14861 USDT from sushiswap,withdraw_asset
+convert 1150.1012 LINK into SOL via curve on base,swap_asset
+"pull out 14390 USDC from yearn — immediately, high yield mode",withdraw_asset
+claim rewards on compound (base) — ok with higher gas,claim_rewards
+reduce loan by 21867 DAI on compound (polygon),repay_asset
+reduce loan by 8.6065 ETH on aave (solana),repay_asset
+close debt: repay 1.833914 BTC at maker ethereum,repay_asset
+deposit 10.971 ETH into aave on ethereum,deposit_asset
+withdraw 46.0603 SOL from compound on base,withdraw_asset
+unstow 21.6033 ETH from pendle on base — use fast gas,withdraw_asset
+"restake 37.1419 AVAX with yearn on base — ok with higher gas, high yield mode",stake_asset
+deposit 9695 USDT into aave on arbitrum — right away,deposit_asset
+convert 6721 USDC into ETH via uniswap on avalanche,swap_asset
+withdraw staked 29.7361 ETH from pendle avalanche,unstake_asset
+stake 22577 USDC on balancer (ethereum),stake_asset
+open debt: 24.4079 SOL on compound arbitrum using USDT as collateral,borrow_asset
+unstake 5.3362 SOL from curve on optimism,unstake_asset
+stake 49.4442 ETH on yearn (avalanche),stake_asset
+unstake 2128.1866 ARB from balancer on solana,unstake_asset
+withdraw staked 2.038129 BTC from lido arbitrum,unstake_asset
+"delegate 16.7334 WETH to pendle (base) — now, use fast gas",stake_asset
+draw 2464.6396 OP from aave on avalanche using USDT as collateral,borrow_asset
+withdraw staked 2030.538 LINK from pendle arbitrum,unstake_asset
+open debt: 12982 USDT on aave ethereum using AAVE as collateral,borrow_asset
+take a loan of 4538.1734 OP via compound (solana),borrow_asset
+lock 43.6317 WETH in rocket pool on avalanche,stake_asset
+supply 32.5444 MATIC to lido,deposit_asset
+undelegate 32.7082 ETH on rocket pool (solana),unstake_asset
+take a loan of 1211.0027 AAVE via maker (base),borrow_asset
+repay 0.899901 WBTC on maker (solana),repay_asset
+delegate 4061.2327 ARB to rocket pool (ethereum),stake_asset
+draw 22228 USDT from aave on arbitrum using OP as collateral,borrow_asset
+top up yearn with 2866.2014 ARB on ethereum,deposit_asset
+swap 18.2261 ETH to WBTC on sushiswap ethereum,swap_asset
+swap 4364.5372 LINK to USDC on curve optimism — use normal gas,swap_asset
+convert 0.322102 WBTC into OP via curve on optimism with slippage 1%,swap_asset
+market swap 5930 USDT->SOL using sushiswap on arbitrum — safe mode,swap_asset
+unstake 3893.9835 OP from rocket pool on base — right away,unstake_asset
+market swap 2706.7944 ARB->WBTC using sushiswap on optimism — normal mode,swap_asset
+withdraw staked 8.2609 SOL from lido polygon — this minute,unstake_asset
+harvest yield from curve on arbitrum — right away,claim_rewards
+withdraw staked 24.7833 ETH from pendle base — safe mode,unstake_asset
+open debt: 4552 USDT on aave arbitrum — now,borrow_asset
+open debt: 1096.157 ARB on compound avalanche using AAVE as collateral,borrow_asset
+draw 20389 USDT from compound on solana using USDC as collateral — this minute,borrow_asset
+"market swap 4.0983 MATIC->WETH using sushiswap on optimism with slippage 1% — right away, normal mode",swap_asset
+"lock 9377 DAI in rocket pool on base — use normal gas, normal mode",stake_asset
+lock 29.8303 AVAX in curve on avalanche,stake_asset
+"market swap 9.2063 SOL->USDT using uniswap on avalanche with slippage 0.1% — today, minimize gas",swap_asset
+unstow 20678 USDT from stargate on polygon — use fast gas,withdraw_asset
+pull out 48.5055 WETH from maker,withdraw_asset
+undelegate 0.884741 BTC on curve (optimism) — now,unstake_asset
+cash out 46.3162 SOL from sushiswap (polygon),withdraw_asset
+claim staking rewards on aave avalanche,claim_rewards
+close debt: repay 3801.1988 AAVE at aave arbitrum,repay_asset
+open debt: 18254 DAI on aave arbitrum,borrow_asset
+pay back 0.92656 BTC to maker on optimism — safe mode,repay_asset
+redeem 4811.332 LINK from aave (ethereum),withdraw_asset
+move 42.2729 AVAX into sushiswap on polygon — normal mode,deposit_asset
+claim staking rewards on curve avalanche,claim_rewards
+restake 2865.6562 AAVE with pendle on avalanche,stake_asset
+trade 7185 DAI for AAVE on balancer (solana) — use fast gas,swap_asset
+supply 21.656 SOL to lido,deposit_asset
+"unstow 17.903 ETH from compound on polygon — this minute, minimize gas",withdraw_asset
+lock 0.734381 WBTC in rocket pool on base — use fast gas,stake_asset
+lock 3209.4728 OP in curve on base — use fast gas,stake_asset
+claim rewards on maker (polygon),claim_rewards
+close debt: repay 8428 DAI at maker ethereum,repay_asset
+lock 1.803698 WBTC in yearn on solana — normal mode,stake_asset
+undelegate 40.3442 MATIC on rocket pool (solana),unstake_asset
+reduce loan by 2643.7713 ARB on aave (solana),repay_asset
+move 2.464253 WBTC into sushiswap on arbitrum,deposit_asset
+restake 33.767 ETH with lido on avalanche — now,stake_asset
+take a loan of 653.0636 LINK via maker (polygon) using MATIC as collateral,borrow_asset
+lock 20650 USDT in curve on solana,stake_asset
+"collect incentives at curve (arbitrum) — asap, minimize gas",claim_rewards
+swap 36.1417 AVAX to USDC on balancer polygon — minimize gas,swap_asset
+provide 24410 DAI on compound,deposit_asset
+harvest yield from maker on ethereum,claim_rewards
+market swap 13.9424 SOL->AVAX using curve on arbitrum — high yield mode,swap_asset
+close debt: repay 3947.1101 LINK at aave optimism — today,repay_asset
+withdraw staked 19105 USDC from curve optimism — immediately,unstake_asset
+unstow 1228.9877 AAVE from uniswap on base — normal mode,withdraw_asset
+stake 83.3158 ARB on rocket pool (polygon) — use normal gas,stake_asset
+claim rewards on stargate (base),claim_rewards
+add liquidity: deposit 3262.4448 LINK to balancer (avalanche) — safe mode,deposit_asset
+unlock 0.616478 BTC at yearn (solana) — minimize gas,unstake_asset
+repay 2531.779 ARB on compound (avalanche),repay_asset
+pay back 2.09526 BTC to maker on ethereum — use fast gas,repay_asset
+put 287.6227 ARB into lido — normal mode,deposit_asset
+pay back 14498 USDT to aave on optimism,repay_asset
+pay back 277.1538 OP to aave on ethereum,repay_asset
+trade 20646 DAI for AVAX on curve (optimism),swap_asset
+provide 903.4525 LINK on curve,deposit_asset
+lock 24025 DAI in lido on base — now,stake_asset
+"convert 1.005042 WBTC into DAI via uniswap on optimism with slippage 1% — immediately, use normal gas",swap_asset
+open debt: 1473.266 ARB on compound arbitrum using DAI as collateral — minimize gas,borrow_asset
+move 2.204196 WBTC into compound on optimism,deposit_asset
+unlock 1.193093 BTC at balancer (base),unstake_asset
+"harvest yield from uniswap on avalanche — this minute, ok with higher gas",claim_rewards
+stake 17322 USDC on balancer (solana) — right away,stake_asset
+unlock 32.5022 LINK at rocket pool (ethereum),unstake_asset
+convert 2.465794 WBTC into DAI via uniswap on ethereum with slippage 0.2%,swap_asset
+pay back 48.0824 MATIC to maker on optimism — safe mode,repay_asset
+remove 5.2083 ETH from compound,withdraw_asset
+"collect incentives at lido (arbitrum) — use normal gas, normal mode",claim_rewards
+claim rewards on rocket pool (optimism),claim_rewards
+undelegate 10.1973 MATIC on lido (avalanche) — safe mode,unstake_asset
+provide 33.615 WETH on yearn,deposit_asset
+borrow 2802.179 LINK from compound on arbitrum,borrow_asset
+"market swap 42.1124 MATIC->BTC using sushiswap on polygon with slippage 0.2% — right away, ok with higher gas",swap_asset
+redeem 34.9992 ETH from sushiswap (solana),withdraw_asset
+repay 4083.6223 ARB on aave (base) — immediately,repay_asset
+add liquidity: deposit 11.6981 WETH to stargate (arbitrum),deposit_asset
+cash out 22838 DAI from compound (optimism) — normal mode,withdraw_asset
+redeem 41.6698 ETH from curve (solana) — now,withdraw_asset
+unstake 380.5627 LINK from balancer on optimism — use fast gas,unstake_asset
+collect incentives at sushiswap (arbitrum) — normal mode,claim_rewards
+harvest yield from lido on solana,claim_rewards
+pay back 0.49838 BTC to compound on polygon,repay_asset
+trade 1.331493 WBTC for ETH on curve (polygon) with slippage 0.5%,swap_asset
+collect incentives at uniswap (optimism),claim_rewards
+pull out 23437 USDT from aave,withdraw_asset
+stake 2593.1572 ARB on pendle (optimism) — use fast gas,stake_asset
+claim staking rewards on uniswap ethereum,claim_rewards
+restake 3158.3199 ARB with curve on avalanche — normal mode,stake_asset
+cash out 1998.0255 ARB from yearn (ethereum) — today,withdraw_asset
+market swap 44.8041 MATIC->AVAX using curve on polygon — use fast gas,swap_asset
+"cash out 14.8569 SOL from lido (ethereum) — this minute, minimize gas",withdraw_asset
+trade 1.309199 BTC for WETH on sushiswap (optimism) with slippage 0.5% — ok with higher gas,swap_asset
+unstake 27.3231 AVAX from lido on arbitrum,unstake_asset
+claim staking rewards on maker solana — ok with higher gas,claim_rewards
+pay back 43.7599 ETH to maker on avalanche,repay_asset
+stake 26.2099 WETH on curve (avalanche),stake_asset
+"lock 1.418138 WBTC in yearn on base — right away, minimize gas",stake_asset
+collect incentives at aave (arbitrum) — immediately,claim_rewards
+unlock 10431 USDC at balancer (polygon) — right away,unstake_asset
+cash out 1374.7416 ARB from pendle (solana),withdraw_asset
+supply 15.6714 MATIC to stargate,deposit_asset
+delegate 2.414269 WBTC to rocket pool (base),stake_asset
+"undelegate 9956 USDC on balancer (base) — minimize gas, high yield mode",unstake_asset
+claim rewards on yearn (optimism),claim_rewards
+claim staking rewards on lido base,claim_rewards
+withdraw 297.5613 AAVE from uniswap on solana,withdraw_asset
+unlock 1.921755 WBTC at curve (base),unstake_asset
+"harvest yield from aave on polygon — ok with higher gas, high yield mode",claim_rewards
+supply 35.1498 ETH to maker,deposit_asset
+harvest yield from aave on avalanche — this minute,claim_rewards
+withdraw 18534 USDT from sushiswap on polygon,withdraw_asset
+move 1.5603 MATIC into curve on ethereum,deposit_asset
+withdraw 3214.8506 AAVE from compound on avalanche — safe mode,withdraw_asset
+draw 24217 USDC from aave on solana using SOL as collateral,borrow_asset
+restake 3.2153 ETH with curve on ethereum — immediately,stake_asset
+reduce loan by 23.8446 SOL on maker (ethereum) — minimize gas,repay_asset
+repay 15930 DAI on aave (base) — safe mode,repay_asset
+supply 1.1374 MATIC to sushiswap,deposit_asset
+take a loan of 42.7404 AVAX via aave (ethereum),borrow_asset
+reduce loan by 39.3511 MATIC on maker (optimism),repay_asset
+withdraw staked 4680.9934 ARB from balancer avalanche,unstake_asset
+lock 2677.7642 LINK in rocket pool on optimism — normal mode,stake_asset
+convert 1807.426 AAVE into USDT via uniswap on base,swap_asset
+open debt: 0.259082 BTC on maker optimism — high yield mode,borrow_asset
+delegate 9.1698 WETH to balancer (optimism) — immediately,stake_asset
+stake 27.8369 ETH on yearn (optimism),stake_asset
+close debt: repay 1.572078 BTC at maker avalanche,repay_asset
+"repay 3333.6306 AAVE on maker (optimism) — asap, high yield mode",repay_asset
+market swap 11699 DAI->USDC using sushiswap on polygon,swap_asset
+delegate 40.4217 SOL to rocket pool (arbitrum) — now,stake_asset
+"take a loan of 45.1838 SOL via compound (optimism) — minimize gas, normal mode",borrow_asset
+add liquidity: deposit 2.370565 WBTC to aave (avalanche) — right away,deposit_asset
+claim rewards on pendle (ethereum) — right away,claim_rewards
+market swap 45.4581 SOL->WBTC using sushiswap on avalanche — asap,swap_asset
+harvest yield from stargate on ethereum,claim_rewards
+fund pendle with 17.3774 SOL (base) — right away,deposit_asset
+pay back 7899 USDC to maker on optimism — safe mode,repay_asset
+reduce loan by 1248.6501 LINK on maker (optimism) — normal mode,repay_asset
+open debt: 3254.5634 ARB on maker polygon using ARB as collateral — today,borrow_asset
+market swap 2896.2696 OP->AVAX using curve on solana — minimize gas,swap_asset
+unstake 0.264317 BTC from yearn on base,unstake_asset
+lock 2609.7536 LINK in yearn on solana — normal mode,stake_asset
+withdraw 7.0395 MATIC from curve on base,withdraw_asset
+repay 1107 DAI on maker (polygon) — asap,repay_asset
+swap 45.0879 AVAX to WBTC on curve arbitrum,swap_asset
+pull out 22120 USDC from rocket pool,withdraw_asset
+convert 1.742108 BTC into OP via sushiswap on avalanche,swap_asset
+harvest yield from curve on avalanche,claim_rewards
+swap 24.545 SOL to AAVE on sushiswap arbitrum with slippage 0.5% — ok with higher gas,swap_asset
+deposit 8.8235 AVAX into pendle on base,deposit_asset
+redeem 15.515 ETH from maker (polygon) — this minute,withdraw_asset
+"deposit 46.283 ETH into compound on base — asap, ok with higher gas",deposit_asset
+claim rewards on pendle (arbitrum),claim_rewards
+close debt: repay 19142 USDC at aave base,repay_asset
+deposit 48.028 MATIC into sushiswap on arbitrum,deposit_asset
+add liquidity: deposit 30.4335 WETH to uniswap (polygon),deposit_asset
+pay back 45.7096 SOL to compound on polygon,repay_asset
+undelegate 42.3415 WETH on yearn (avalanche),unstake_asset
+"collect incentives at compound (optimism) — use fast gas, normal mode",claim_rewards
+repay 1710.1096 ARB on maker (solana),repay_asset
+claim staking rewards on pendle arbitrum,claim_rewards
+withdraw staked 5440 USDT from curve avalanche,unstake_asset
+claim rewards on pendle (avalanche),claim_rewards
+draw 0.352266 WBTC from aave on solana using ETH as collateral,borrow_asset
+cash out 16194 USDC from lido (optimism),withdraw_asset
+collect incentives at yearn (solana) — right away,claim_rewards
+trade 22.4823 SOL for AAVE on curve (solana) with slippage 0.2%,swap_asset
+cash out 990.1953 AAVE from maker (avalanche) — minimize gas,withdraw_asset
+provide 23254 DAI on curve,deposit_asset
+unlock 1.9006 WETH at pendle (avalanche),unstake_asset
+open debt: 1.589154 BTC on compound ethereum using ETH as collateral,borrow_asset
+top up uniswap with 2503.1119 ARB on solana,deposit_asset
+close debt: repay 1.92256 BTC at compound polygon,repay_asset
+unstow 3895 DAI from balancer on base,withdraw_asset
+claim rewards on balancer (optimism),claim_rewards
+undelegate 18972 USDT on rocket pool (base),unstake_asset
+collect incentives at uniswap (arbitrum) — asap,claim_rewards
+trade 12.6273 AVAX for USDC on sushiswap (base),swap_asset
+repay 2.473033 BTC on compound (base),repay_asset
+remove 23373 DAI from maker,withdraw_asset
+"lock 42.1375 MATIC in lido on solana — use fast gas, high yield mode",stake_asset
+collect incentives at aave (ethereum) — today,claim_rewards
+provide 19624 USDT on maker,deposit_asset
+claim rewards on rocket pool (solana),claim_rewards
+take a loan of 45.9047 SOL via aave (ethereum) — safe mode,borrow_asset
+add liquidity: deposit 4034.0042 ARB to stargate (arbitrum),deposit_asset
+put 2093.7146 OP into yearn — today,deposit_asset
+"open debt: 1.564684 BTC on maker polygon using USDC as collateral — now, normal mode",borrow_asset
+withdraw staked 18490 DAI from pendle solana,unstake_asset
+"unlock 8.4628 ETH at balancer (arbitrum) — today, safe mode",unstake_asset
+unlock 968.3911 OP at pendle (avalanche),unstake_asset
+redeem 993.5455 OP from balancer (solana),withdraw_asset
+supply 18.4684 SOL to aave — now,deposit_asset
+convert 14.1821 SOL into USDC via curve on polygon,swap_asset
+remove 0.055761 BTC from uniswap — asap,withdraw_asset
+provide 26.2469 MATIC on balancer,deposit_asset
+swap 10498 DAI to MATIC on curve ethereum,swap_asset
+"draw 1.752826 WBTC from maker on ethereum using WETH as collateral — right away, use normal gas",borrow_asset
+"unstow 21675 USDT from lido on polygon — asap, use normal gas",withdraw_asset
+"pay back 42.2768 WETH to aave on arbitrum — this minute, ok with higher gas",repay_asset
+reduce loan by 10015 USDC on compound (solana),repay_asset
+redeem 9881 USDT from rocket pool (optimism),withdraw_asset
+"unlock 3001 USDT at rocket pool (optimism) — now, ok with higher gas",unstake_asset
+harvest yield from maker on polygon — this minute,claim_rewards
+trade 1540.4966 LINK for USDC on sushiswap (optimism) with slippage 1%,swap_asset
+unstake 18.6494 MATIC from rocket pool on polygon — asap,unstake_asset
+unstow 2633.4199 OP from maker on ethereum,withdraw_asset
+borrow 34.548 AVAX from maker on polygon using AVAX as collateral,borrow_asset
+restake 8639 USDT with balancer on avalanche,stake_asset
+put 1835.5833 OP into rocket pool,deposit_asset
+swap 2215 DAI to ETH on balancer solana,swap_asset
+close debt: repay 0.125728 BTC at compound optimism,repay_asset
+claim staking rewards on compound avalanche — right away,claim_rewards
+withdraw staked 876.2274 AAVE from lido arbitrum — minimize gas,unstake_asset
+swap 1270.8789 OP to LINK on uniswap optimism,swap_asset
+top up lido with 8896 DAI on ethereum — normal mode,deposit_asset
+claim rewards on rocket pool (solana),claim_rewards
+deposit 1574.888 ARB into aave on base,deposit_asset
+withdraw staked 18166 USDC from curve polygon,unstake_asset
+provide 74.6358 ARB on maker,deposit_asset
+take a loan of 2132.1055 AAVE via maker (solana) using DAI as collateral,borrow_asset
+take a loan of 8552 USDC via compound (optimism) using USDT as collateral,borrow_asset
+repay 18440 USDT on aave (arbitrum),repay_asset
+swap 261.606 OP to MATIC on uniswap base,swap_asset
+"convert 1.6787 AVAX into WBTC via balancer on polygon — use fast gas, normal mode",swap_asset
+delegate 1.071592 BTC to lido (arbitrum) — this minute,stake_asset
+unlock 33.054 AVAX at yearn (optimism) — ok with higher gas,unstake_asset
+draw 17.7536 WETH from maker on ethereum using WBTC as collateral — use normal gas,borrow_asset
+undelegate 0.693343 BTC on rocket pool (solana) — immediately,unstake_asset
+draw 46.741 ETH from aave on solana using ARB as collateral,borrow_asset
+harvest yield from pendle on arbitrum,claim_rewards
+supply 3606.4019 ARB to aave,deposit_asset
+unlock 2028.6087 LINK at pendle (arbitrum) — this minute,unstake_asset
+draw 0.344143 WBTC from compound on ethereum using SOL as collateral — immediately,borrow_asset
+supply 48.2766 SOL to curve,deposit_asset
+reduce loan by 11.3309 WETH on maker (optimism) — safe mode,repay_asset
+harvest yield from aave on avalanche — right away,claim_rewards
+remove 7.4753 MATIC from pendle — safe mode,withdraw_asset
+unlock 3043.568 AAVE at rocket pool (polygon),unstake_asset
+undelegate 2.324451 WBTC on curve (ethereum),unstake_asset
+unlock 1.381926 WBTC at lido (polygon),unstake_asset
+open debt: 13572 DAI on aave avalanche using WBTC as collateral,borrow_asset
+stake 6968 DAI on balancer (base),stake_asset
+withdraw 3685.2656 ARB from lido on solana,withdraw_asset
+"withdraw staked 0.044475 WBTC from yearn polygon — this minute, ok with higher gas",unstake_asset
+"borrow 3136.1953 LINK from aave on ethereum using AAVE as collateral — immediately, use normal gas",borrow_asset
+pay back 2367.9628 LINK to compound on optimism — asap,repay_asset
+convert 8924 DAI into SOL via curve on ethereum,swap_asset
+unstake 7932 USDT from curve on avalanche — ok with higher gas,unstake_asset
+borrow 0.648306 WBTC from maker on base — immediately,borrow_asset
+collect incentives at balancer (polygon) — right away,claim_rewards
+provide 2.001749 BTC on stargate,deposit_asset
+collect incentives at compound (base),claim_rewards
+restake 13.8315 AVAX with balancer on solana — minimize gas,stake_asset
+close debt: repay 970.4342 OP at maker polygon,repay_asset
+open debt: 0.859876 WBTC on maker ethereum — minimize gas,borrow_asset
+remove 8985 DAI from uniswap — right away,withdraw_asset
+withdraw staked 21.3087 SOL from pendle arbitrum,unstake_asset
+claim rewards on lido (optimism) — use fast gas,claim_rewards
+lock 3358.472 AAVE in rocket pool on polygon — normal mode,stake_asset
+claim staking rewards on maker avalanche,claim_rewards
+close debt: repay 2741.941 LINK at maker base — normal mode,repay_asset
+market swap 2015.4316 OP->DAI using balancer on polygon with slippage 0.1% — use fast gas,swap_asset
+remove 23608 USDC from yearn,withdraw_asset
+reduce loan by 16003 DAI on maker (optimism) — use fast gas,repay_asset
+collect incentives at aave (ethereum) — minimize gas,claim_rewards
+swap 21.4244 AVAX to OP on uniswap optimism,swap_asset
+unlock 2282.0417 LINK at rocket pool (optimism) — use normal gas,unstake_asset
+add liquidity: deposit 7210 DAI to pendle (solana),deposit_asset
+draw 4719.0176 ARB from maker on polygon using WBTC as collateral — today,borrow_asset
+unstake 32.8283 WETH from balancer on optimism,unstake_asset
+provide 8.5036 MATIC on yearn,deposit_asset
+deposit 4487.2051 OP into balancer on base,deposit_asset
+market swap 4.7389 AVAX->SOL using curve on avalanche with slippage 0.2% — minimize gas,swap_asset
+claim rewards on aave (optimism),claim_rewards
+"collect incentives at aave (avalanche) — this minute, use normal gas, high yield mode",claim_rewards
+stake 9793 USDT on yearn (optimism) — right away,stake_asset
+"deposit 1145.4407 LINK into yearn on avalanche — use fast gas, high yield mode",deposit_asset
+restake 43.0522 AVAX with lido on polygon — right away,stake_asset
+"harvest yield from yearn on polygon — today, use fast gas, high yield mode",claim_rewards
+swap 21.2959 SOL to WETH on curve base,swap_asset
+stake 1.271387 BTC on rocket pool (base),stake_asset
+"unstake 2516.4196 ARB from lido on solana — asap, ok with higher gas",unstake_asset
+redeem 21502 USDT from sushiswap (ethereum),withdraw_asset
+"trade 2.342115 BTC for LINK on balancer (ethereum) — immediately, normal mode",swap_asset
+repay 932.79 OP on aave (polygon) — today,repay_asset
+pull out 1726.6766 ARB from curve,withdraw_asset
+unlock 38.9677 WETH at lido (base),unstake_asset
+trade 20.3507 MATIC for SOL on uniswap (solana),swap_asset
+"fund balancer with 4176.2055 LINK (optimism) — this minute, use normal gas",deposit_asset
+take a loan of 22441 USDC via compound (solana),borrow_asset
+open debt: 40.1047 WETH on compound polygon using AVAX as collateral,borrow_asset
+open debt: 361.3096 OP on compound arbitrum — normal mode,borrow_asset
+convert 1.73188 BTC into USDC via uniswap on base with slippage 0.2% — asap,swap_asset
+"trade 17584 USDT for LINK on balancer (ethereum) — today, ok with higher gas",swap_asset
+delegate 33.9553 WETH to pendle (polygon),stake_asset
+repay 24.3381 WETH on aave (polygon),repay_asset
+unstake 1422.7403 LINK from balancer on optimism,unstake_asset
+stake 39.2337 AVAX on lido (optimism) — high yield mode,stake_asset
+pull out 1122.0831 OP from pendle,withdraw_asset
+trade 201.6686 ARB for USDC on balancer (arbitrum) with slippage 0.5%,swap_asset
+close debt: repay 1.074322 WBTC at aave base — safe mode,repay_asset
+claim rewards on pendle (optimism),claim_rewards
+trade 32.883 MATIC for WBTC on curve (avalanche),swap_asset
+reduce loan by 4374.321 AAVE on aave (base) — high yield mode,repay_asset
+"restake 12934 USDT with yearn on ethereum — this minute, minimize gas",stake_asset
+delegate 301.2621 ARB to pendle (polygon),stake_asset
+reduce loan by 32.03 SOL on aave (polygon) — normal mode,repay_asset
+move 5727 USDT into rocket pool on optimism — safe mode,deposit_asset
+"market swap 20.787 WETH->USDC using sushiswap on solana — this minute, minimize gas",swap_asset
+withdraw 16685 USDT from maker on arbitrum,withdraw_asset
+open debt: 6667 DAI on aave optimism — use normal gas,borrow_asset
+borrow 1185.7298 LINK from maker on ethereum — use fast gas,borrow_asset
+take a loan of 1.6063 SOL via compound (avalanche) using USDT as collateral — ok with higher gas,borrow_asset
+claim rewards on rocket pool (avalanche),claim_rewards
+unlock 4600.1312 OP at curve (base) — this minute,unstake_asset
+lock 1.854 AVAX in lido on arbitrum,stake_asset
+withdraw staked 729.3238 AAVE from yearn solana — immediately,unstake_asset
+pay back 1.994453 WBTC to compound on arbitrum — normal mode,repay_asset
+swap 12913 DAI to BTC on curve polygon with slippage 0.5%,swap_asset
+"deposit 0.0583 SOL into curve on optimism — this minute, safe mode",deposit_asset
+remove 5656 USDT from yearn,withdraw_asset
+remove 27.5958 MATIC from lido,withdraw_asset
+swap 19548 USDC to LINK on balancer optimism,swap_asset
+pay back 9.9008 SOL to aave on arbitrum,repay_asset
+withdraw staked 2481.5326 OP from lido polygon,unstake_asset
+top up rocket pool with 1.92616 BTC on optimism — high yield mode,deposit_asset
+deposit 2940.9438 LINK into compound on ethereum — minimize gas,deposit_asset
+reduce loan by 3271.2818 AAVE on maker (arbitrum) — minimize gas,repay_asset
+stake 1948.2034 OP on balancer (base),stake_asset
+claim staking rewards on compound arbitrum — minimize gas,claim_rewards
+undelegate 12673 USDT on pendle (solana) — this minute,unstake_asset
+stake 2387.4009 OP on balancer (arbitrum) — right away,stake_asset
+convert 0.01837 WBTC into AAVE via curve on polygon — minimize gas,swap_asset
+withdraw staked 31.3375 AVAX from yearn avalanche,unstake_asset
+undelegate 18.0908 MATIC on rocket pool (ethereum),unstake_asset
+"swap 32.4217 MATIC to WBTC on sushiswap arbitrum — ok with higher gas, normal mode",swap_asset
+borrow 13.745 AVAX from maker on optimism,borrow_asset
+"unlock 1.136554 WBTC at rocket pool (avalanche) — asap, minimize gas",unstake_asset
+claim rewards on lido (base) — minimize gas,claim_rewards
+move 31.6311 AVAX into maker on solana,deposit_asset
+supply 17637 DAI to curve,deposit_asset
+put 47.2553 ETH into compound,deposit_asset
+top up pendle with 4428.4042 AAVE on avalanche — safe mode,deposit_asset
+lock 2802.8477 OP in curve on polygon,stake_asset
+open debt: 4395 DAI on aave polygon,borrow_asset
+put 0.332594 BTC into stargate,deposit_asset
+redeem 1613 USDT from rocket pool (avalanche),withdraw_asset
+take a loan of 4938.3382 ARB via maker (avalanche) — high yield mode,borrow_asset
+take a loan of 9159 USDT via aave (arbitrum) using BTC as collateral — use fast gas,borrow_asset
+borrow 36.9968 SOL from aave on polygon,borrow_asset
+redeem 1.485515 WBTC from curve (polygon),withdraw_asset
+trade 982.4697 LINK for USDC on balancer (avalanche) — use fast gas,swap_asset
+market swap 22286 DAI->WBTC using sushiswap on ethereum — high yield mode,swap_asset
+open debt: 13.3022 SOL on maker arbitrum using MATIC as collateral,borrow_asset
+unstake 15700 USDT from balancer on ethereum — now,unstake_asset
+withdraw staked 487.3202 OP from balancer ethereum — right away,unstake_asset
+unstake 2.08493 BTC from balancer on avalanche — normal mode,unstake_asset
+lock 6611 USDT in yearn on base — high yield mode,stake_asset
+convert 4430.0564 ARB into USDC via balancer on polygon — use normal gas,swap_asset
+trade 23780 USDT for DAI on curve (polygon) — normal mode,swap_asset
+"swap 6601 DAI to SOL on sushiswap optimism — immediately, minimize gas",swap_asset
+"withdraw staked 0.337906 BTC from lido polygon — now, use fast gas",unstake_asset
+withdraw 3135.9997 LINK from lido on optimism — normal mode,withdraw_asset
+pull out 8.5831 WETH from aave — normal mode,withdraw_asset
+withdraw staked 18031 DAI from yearn ethereum,unstake_asset
+harvest yield from sushiswap on ethereum — minimize gas,claim_rewards
+"remove 4649.2721 OP from uniswap — today, safe mode",withdraw_asset
+put 11.7176 SOL into pendle,deposit_asset
+draw 1.156234 WBTC from compound on solana using WETH as collateral,borrow_asset
+close debt: repay 2936.5574 LINK at maker ethereum,repay_asset
+collect incentives at balancer (avalanche),claim_rewards
+delegate 4615.984 LINK to curve (polygon),stake_asset
+cash out 9721 USDT from yearn (optimism),withdraw_asset
+top up lido with 42.3714 MATIC on arbitrum,deposit_asset
+cash out 10958 USDC from yearn (solana),withdraw_asset

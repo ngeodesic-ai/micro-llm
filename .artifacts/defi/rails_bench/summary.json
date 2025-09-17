@@ -1,11 +1,11 @@
 {
-  "ok": 2,
-  "total": 3,
+  "ok": 6,
+  "total": 9,
   "ok_acc": 0.6666666666666666,
   "bench": "rails_bench",
-  "runs": 1,
+  "runs": 3,
   "rails": "stage11",
   "backend": "sbert",
   "T": 180,
-  "timestamp": 1758070876
+  "timestamp": 1758078073
 }

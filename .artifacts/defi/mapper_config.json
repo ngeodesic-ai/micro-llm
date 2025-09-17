@@ -1,0 +1,5 @@
+{
+  "backend": "sbert",
+  "model_path": ".artifacts/defi_mapper.joblib",
+  "threshold": 0.5
+}
