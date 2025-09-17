@@ -8,6 +8,13 @@
       "sha1": "c9c5f1367de8fc656f935c3c28f9e46c10ce1aad",
       "txhash": []
     },
+    "tests/smoke/test_mapper_bench_fast.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "b3a6fd75c6ddccc3f83d69c2b94846601412c779",
+      "txhash": []
+    },
     "tests/unit/test_core_runner_api.py": {
       "coverage": false,
       "isolated": false,

@@ -1,0 +1,2 @@
+threshold,total,abstain,abstain_count,abstain_rate,coverage,fired,correct_on_fired,accuracy_on_fired,overall_correct,overall_accuracy
+0.7,6,True,6,1.0,0.0,0,0,0.0,0,0.0

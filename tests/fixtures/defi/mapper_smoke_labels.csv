@@ -1,0 +1,7 @@
+prompt,label
+deposit 10 ETH into aave,deposit_asset
+swap 2 ETH to USDC on uniswap v3,swap_asset
+borrow 500 USDC with ETH collateral at 70% ltv,borrow_asset
+repay 200 USDC on aave from wallet,repay_asset
+stake 5 ETH on lido,stake_asset
+claim rewards on compound,claim_rewards

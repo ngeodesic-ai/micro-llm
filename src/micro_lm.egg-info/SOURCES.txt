@@ -22,6 +22,7 @@ src/micro_lm/core/runner.py
 src/micro_lm/core/backends/__init__.py
 src/micro_lm/core/backends/sbert.py
 src/micro_lm/core/backends/wordmap.py
+src/micro_lm/core/mapper/base.py
 src/micro_lm/domains/__init__.py
 src/micro_lm/domains/arc/__init__.py
 src/micro_lm/domains/arc/schema.py
@@ -31,4 +32,7 @@ src/micro_lm/domains/defi/guards.py
 src/micro_lm/domains/defi/schema.py
 src/micro_lm/domains/defi/verify_local.py
 src/micro_lm/domains/defi/benches/e2e_bench.py
+src/micro_lm/domains/defi/benches/mapper_bench.py
 src/micro_lm/domains/defi/benches/rails_bench.py
+src/micro_lm/domains/defi/mapper_backends/sbert_backend.py
+src/micro_lm/domains/defi/mapper_backends/wordmap_backend.py
