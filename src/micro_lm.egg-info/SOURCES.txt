@@ -30,3 +30,5 @@ src/micro_lm/domains/defi/__init__.py
 src/micro_lm/domains/defi/guards.py
 src/micro_lm/domains/defi/schema.py
 src/micro_lm/domains/defi/verify_local.py
+src/micro_lm/domains/defi/benches/e2e_bench.py
+src/micro_lm/domains/defi/benches/rails_bench.py

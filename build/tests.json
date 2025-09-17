@@ -1,6 +1,13 @@
 {
   "contracts": {},
   "tests": {
+    "tests/smoke/test_defi_rails_e2e_fast.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "c9c5f1367de8fc656f935c3c28f9e46c10ce1aad",
+      "txhash": []
+    },
     "tests/unit/test_core_runner_api.py": {
       "coverage": false,
       "isolated": false,
