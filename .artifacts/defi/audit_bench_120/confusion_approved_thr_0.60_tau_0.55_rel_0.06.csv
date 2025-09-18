@@ -1,0 +1,9 @@
+gold\pred,borrow_asset,claim_rewards,deposit_asset,repay_asset,stake_asset,swap_asset,unstake_asset,withdraw_asset
+borrow_asset,2,0,0,0,0,0,0,0
+claim_rewards,0,15,0,0,0,0,0,0
+deposit_asset,0,0,10,0,0,0,0,0
+repay_asset,0,0,0,10,0,0,0,0
+stake_asset,0,0,0,0,7,0,0,0
+swap_asset,0,0,0,0,0,9,0,0
+unstake_asset,0,0,0,0,0,0,1,0
+withdraw_asset,0,0,0,0,0,0,0,3

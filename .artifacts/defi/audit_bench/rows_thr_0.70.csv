@@ -1,0 +1,7 @@
+prompt,gold_label,mapper_top,mapper_conf,audit_best,decision,reason,approved,threshold
+deposit 10 ETH into aave,deposit_asset,deposit_asset,0.9983,deposit_asset,approve,,True,0.7000
+swap 2 ETH to USDC on uniswap v3,swap_asset,swap_asset,1.0000,swap_asset,approve,,True,0.7000
+borrow 500 USDC with ETH collateral at 70% ltv,borrow_asset,borrow_asset,1.0000,borrow_asset,approve,,True,0.7000
+repay 200 USDC on aave from wallet,repay_asset,repay_asset,1.0000,repay_asset,approve,,True,0.7000
+stake 5 ETH on lido,stake_asset,stake_asset,0.6613,stake_asset,reject,low_confidence,False,0.7000
+claim rewards on compound,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000

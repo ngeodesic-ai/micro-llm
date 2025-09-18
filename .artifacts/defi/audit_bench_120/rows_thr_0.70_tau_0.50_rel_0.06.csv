@@ -1,0 +1,121 @@
+prompt,gold_label,mapper_top,mapper_conf,audit_best,decision,reason,approved,threshold
+remove liquidity from 1837.0486 ARB — asap,withdraw_asset,deposit_asset,0.5980,withdraw_asset,reject,low_confidence,False,0.7000
+harvest compound on solana — asap,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+provide 4569.792 OP to balancer on arbitrum — asap,deposit_asset,deposit_asset,0.7083,deposit_asset,approve,,True,0.7000
+swap 2947.6869 OP to ARB on stargate ,swap_asset,deposit_asset,0.9755,swap_asset,reject,audit_mismatch:deposit_asset_vs_swap_asset,False,0.7000
+repay 4717.1354 USDT into sushiswap on ethereum ,repay_asset,swap_asset,0.5656,repay_asset,reject,low_confidence,False,0.7000
+collect rewards on compound on avalanche — minimize gas,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+stake 3145.4313 DAI ,stake_asset,stake_asset,0.7949,stake_asset,approve,,True,0.7000
+open a loan for 598.7582 DAI — asap,borrow_asset,borrow_asset,0.9885,,reject,no_span_evidence,False,0.7000
+pay back 2805.1238 DAI — minimize gas,repay_asset,repay_asset,0.9815,repay_asset,approve,,True,0.7000
+harvest compound on polygon ,claim_rewards,claim_rewards,0.9815,claim_rewards,approve,,True,0.7000
+open a loan for 1495.415 SOL — asap,borrow_asset,borrow_asset,0.9885,,reject,no_span_evidence,False,0.7000
+pay back 4763.4888 SOL to balancer on ethereum ,repay_asset,repay_asset,1.0000,repay_asset,approve,,True,0.7000
+redeem 2087.7159 WETH from stargate on solana — safe mode,withdraw_asset,withdraw_asset,0.9841,,reject,no_span_evidence,False,0.7000
+unstake and take out 3858.6593 MATIC from curve on ethereum — minimize gas,withdraw_asset,unstake_asset,0.8542,,reject,no_span_evidence,False,0.7000
+bond 3245.3465 USDT — low slippage,stake_asset,borrow_asset,0.1250,stake_asset,reject,low_confidence,False,0.7000
+unlock 1870.5117 AAVE into aave on solana — low slippage,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+close out the loan for 1863.9395 WBTC into yearn on ethereum — asap,repay_asset,borrow_asset,0.6202,,reject,low_confidence,False,0.7000
+redeem 2474.221 WETH — safe mode,withdraw_asset,withdraw_asset,1.0000,,reject,no_span_evidence,False,0.7000
+unlock 1316.1171 AAVE into stargate on avalanche — asap,unstake_asset,unstake_asset,0.8141,unstake_asset,approve,,True,0.7000
+lock 2850.5454 ARB — safe mode,stake_asset,stake_asset,0.9259,stake_asset,approve,,True,0.7000
+swap 991.2209 WETH to MATIC on compound ,swap_asset,swap_asset,0.6344,swap_asset,reject,low_confidence,False,0.7000
+unlock 651.5128 OP from aave on ethereum ,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+harvest stargate on ethereum — use normal gas,claim_rewards,claim_rewards,0.9779,claim_rewards,approve,,True,0.7000
+unstake and take out 1941.4165 LINK — use normal gas,withdraw_asset,withdraw_asset,0.5803,,reject,low_confidence,False,0.7000
+unlock 1934.7091 ETH — use normal gas,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+open a loan for 4425.1251 ETH into curve on solana — asap,borrow_asset,borrow_asset,0.9663,,reject,no_span_evidence,False,0.7000
+supply 231.3364 USDC — safe mode,deposit_asset,deposit_asset,0.6280,deposit_asset,reject,low_confidence,False,0.7000
+withdraw 2728.1894 ARB — asap,withdraw_asset,withdraw_asset,0.5354,withdraw_asset,reject,low_confidence,False,0.7000
+deposit 2830.0075 AVAX into balancer on ethereum — asap,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+repay 3112.8116 WETH to yearn on polygon ,repay_asset,repay_asset,1.0000,repay_asset,approve,,True,0.7000
+unbond 567.6572 ARB into yearn on base ,unstake_asset,withdraw_asset,0.4081,unstake_asset,reject,low_confidence,False,0.7000
+bond 2312.3418 SOL to stargate on optimism ,stake_asset,stake_asset,0.4167,stake_asset,reject,low_confidence,False,0.7000
+borrow 4257.2397 AVAX into balancer on avalanche — safe mode,borrow_asset,borrow_asset,0.4167,borrow_asset,reject,low_confidence,False,0.7000
+deposit 1150.5221 MATIC to curve on polygon — asap,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+open a loan for 3680.6104 WETH from uniswap on base — minimize gas,borrow_asset,borrow_asset,1.0000,,reject,no_span_evidence,False,0.7000
+supply 3835.2223 AVAX to aave on avalanche — minimize gas,deposit_asset,deposit_asset,0.7083,deposit_asset,approve,,True,0.7000
+unstake and take out 4664.7171 WBTC into yearn on polygon — safe mode,withdraw_asset,unstake_asset,0.8542,,reject,no_span_evidence,False,0.7000
+draw 4783.1214 USDT into curve on ethereum — asap,borrow_asset,deposit_asset,0.7083,,reject,no_span_evidence,False,0.7000
+collect rewards on sushiswap on ethereum — low slippage,claim_rewards,claim_rewards,0.7164,claim_rewards,approve,,True,0.7000
+supply 906.1149 ETH — safe mode,deposit_asset,deposit_asset,0.8495,deposit_asset,approve,,True,0.7000
+claim rewards from compound on solana ,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+unlock 963.2996 MATIC — asap,unstake_asset,unstake_asset,0.8436,unstake_asset,approve,,True,0.7000
+top up 2587.6976 WETH into compound on base — minimize gas,deposit_asset,deposit_asset,1.0000,,reject,no_span_evidence,False,0.7000
+redeem 2578.5127 ARB — safe mode,withdraw_asset,withdraw_asset,1.0000,,reject,no_span_evidence,False,0.7000
+exchange 1890.7595 AAVE to WETH on sushiswap — asap,swap_asset,swap_asset,0.4882,swap_asset,reject,low_confidence,False,0.7000
+collect rewards on sushiswap on arbitrum — safe mode,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+stake 750.8843 WBTC to stargate on ethereum — low slippage,stake_asset,stake_asset,0.5198,stake_asset,reject,low_confidence,False,0.7000
+close out the loan for 635.9779 ETH to compound on avalanche — asap,repay_asset,repay_asset,0.7453,,reject,no_span_evidence,False,0.7000
+redeem 2387.6623 SOL — asap,withdraw_asset,withdraw_asset,1.0000,,reject,no_span_evidence,False,0.7000
+unbond 4986.1516 LINK into stargate on base — asap,unstake_asset,unstake_asset,0.9764,unstake_asset,approve,,True,0.7000
+claim rewards from balancer on base — asap,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+deposit 2328.0005 LINK to sushiswap on avalanche — minimize gas,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+bond 599.3507 DAI into curve on avalanche — safe mode,stake_asset,stake_asset,0.4167,stake_asset,reject,low_confidence,False,0.7000
+stake 471.7254 USDC into uniswap on ethereum — safe mode,stake_asset,unstake_asset,1.0000,stake_asset,reject,veto_opposite:unstake_asset_vs_stake_asset,False,0.7000
+repay 2194.2693 LINK into yearn on polygon — low slippage,repay_asset,repay_asset,1.0000,repay_asset,approve,,True,0.7000
+harvest balancer on polygon — low slippage,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+unlock 4031.2368 LINK into sushiswap on optimism — asap,unstake_asset,unstake_asset,0.6667,unstake_asset,reject,low_confidence,False,0.7000
+unlock 4818.3447 ARB into curve on solana — use normal gas,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+lock 1170.9452 AVAX to aave on solana — safe mode,stake_asset,stake_asset,1.0000,stake_asset,approve,,True,0.7000
+withdraw 3296.6955 SOL — safe mode,withdraw_asset,withdraw_asset,0.6705,withdraw_asset,reject,low_confidence,False,0.7000
+provide 3887.2451 LINK — use normal gas,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+borrow 2494.2492 MATIC from aave on polygon — safe mode,borrow_asset,borrow_asset,1.0000,borrow_asset,approve,,True,0.7000
+add liquidity to 1741.1876 AAVE to stargate on polygon — safe mode,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+withdraw 2237.5171 AVAX from stargate on polygon — use normal gas,withdraw_asset,withdraw_asset,0.9442,withdraw_asset,approve,,True,0.7000
+swap 4289.1188 USDC to WETH on aave — minimize gas,swap_asset,swap_asset,1.0000,swap_asset,approve,,True,0.7000
+collect rewards on sushiswap on solana — use normal gas,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+exchange 3059.6254 MATIC to WBTC on stargate — use normal gas,swap_asset,deposit_asset,0.6696,swap_asset,reject,low_confidence,False,0.7000
+draw 3604.6954 ARB into aave on ethereum ,borrow_asset,borrow_asset,0.3973,,reject,low_confidence,False,0.7000
+harvest aave on base — low slippage,claim_rewards,claim_rewards,0.9947,claim_rewards,approve,,True,0.7000
+swap 1126.4072 USDC to ARB on aave — use normal gas,swap_asset,swap_asset,1.0000,swap_asset,approve,,True,0.7000
+lock 4966.4162 MATIC ,stake_asset,stake_asset,0.8840,stake_asset,approve,,True,0.7000
+open a loan for 4366.7785 WBTC from balancer on polygon ,borrow_asset,borrow_asset,1.0000,,reject,no_span_evidence,False,0.7000
+swap 3547.4391 WBTC to USDT on balancer — safe mode,swap_asset,swap_asset,1.0000,swap_asset,approve,,True,0.7000
+pay back 958.4274 OP into stargate on arbitrum — asap,repay_asset,repay_asset,0.7083,repay_asset,approve,,True,0.7000
+pay back 2100.9792 MATIC to curve on ethereum — safe mode,repay_asset,borrow_asset,0.1250,repay_asset,reject,low_confidence,False,0.7000
+claim rewards from uniswap on optimism ,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+open a loan for 2202.5581 SOL from sushiswap on optimism — safe mode,borrow_asset,borrow_asset,0.7083,,reject,no_span_evidence,False,0.7000
+repay 1913.4898 MATIC — use normal gas,repay_asset,repay_asset,0.9778,repay_asset,approve,,True,0.7000
+convert 3161.362 WBTC to ARB on uniswap — use normal gas,swap_asset,swap_asset,0.6233,swap_asset,reject,low_confidence,False,0.7000
+swap 3025.7142 SOL to USDC on aave ,swap_asset,swap_asset,1.0000,swap_asset,approve,,True,0.7000
+borrow 299.5707 USDT into curve on solana — safe mode,borrow_asset,borrow_asset,0.4167,borrow_asset,reject,low_confidence,False,0.7000
+unstake and take out 68.9624 MATIC — minimize gas,withdraw_asset,withdraw_asset,0.5258,,reject,low_confidence,False,0.7000
+trade 1225.4994 AVAX to LINK on compound — use normal gas,swap_asset,deposit_asset,0.7798,swap_asset,reject,audit_mismatch:deposit_asset_vs_swap_asset,False,0.7000
+supply 1585.539 AVAX ,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+supply 140.3579 SOL to aave on ethereum — safe mode,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+draw 2756.3802 LINK ,borrow_asset,deposit_asset,0.9744,borrow_asset,reject,audit_mismatch:deposit_asset_vs_borrow_asset,False,0.7000
+unlock 1017.6278 WBTC into sushiswap on ethereum — use normal gas,unstake_asset,swap_asset,0.5618,unstake_asset,reject,low_confidence,False,0.7000
+bond 577.5577 AVAX into curve on ethereum — asap,stake_asset,borrow_asset,0.4167,stake_asset,reject,low_confidence,False,0.7000
+pay back 4855.5726 WBTC ,repay_asset,repay_asset,0.9606,repay_asset,approve,,True,0.7000
+bond 3634.7231 ARB — low slippage,stake_asset,stake_asset,0.7083,stake_asset,approve,,True,0.7000
+unlock 3688.5362 MATIC into yearn on ethereum — asap,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+unbond 4480.8452 LINK from stargate on arbitrum — low slippage,unstake_asset,withdraw_asset,0.7430,unstake_asset,reject,audit_mismatch:withdraw_asset_vs_unstake_asset,False,0.7000
+collect rewards on aave on base — low slippage,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+borrow 4938.5663 SOL — low slippage,borrow_asset,borrow_asset,1.0000,borrow_asset,approve,,True,0.7000
+unlock 3568.4058 WETH into balancer on arbitrum — minimize gas,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+convert 4518.1291 USDC to WETH on curve — low slippage,swap_asset,swap_asset,0.9885,swap_asset,approve,,True,0.7000
+provide 890.4777 USDT to curve on arbitrum — minimize gas,deposit_asset,swap_asset,0.6667,deposit_asset,reject,low_confidence,False,0.7000
+unstake and take out 1181.2487 AAVE from aave on polygon — minimize gas,withdraw_asset,unstake_asset,0.7251,,reject,no_span_evidence,False,0.7000
+close out the loan for 81.6817 AAVE to sushiswap on base — asap,repay_asset,borrow_asset,0.4167,,reject,low_confidence,False,0.7000
+top up 3237.0415 WBTC to compound on avalanche ,deposit_asset,deposit_asset,1.0000,deposit_asset,approve,,True,0.7000
+pay back 2554.0767 SOL into aave on ethereum — low slippage,repay_asset,repay_asset,0.8018,repay_asset,approve,,True,0.7000
+unbond 3700.9689 USDT from stargate on ethereum ,unstake_asset,withdraw_asset,0.7150,unstake_asset,reject,audit_mismatch:withdraw_asset_vs_unstake_asset,False,0.7000
+lock 1359.7805 DAI to yearn on solana — low slippage,stake_asset,stake_asset,0.9675,stake_asset,approve,,True,0.7000
+bond 4489.1137 MATIC into yearn on base — use normal gas,stake_asset,stake_asset,0.5725,stake_asset,reject,low_confidence,False,0.7000
+trade 4751.7528 USDC to WETH on compound — use normal gas,swap_asset,swap_asset,0.6667,swap_asset,reject,low_confidence,False,0.7000
+collect rewards on uniswap on optimism — asap,claim_rewards,claim_rewards,1.0000,claim_rewards,approve,,True,0.7000
+convert 4543.1936 MATIC to USDC on balancer — use normal gas,swap_asset,swap_asset,0.9083,swap_asset,approve,,True,0.7000
+unlock 3127.2312 ARB from aave on base — use normal gas,unstake_asset,unstake_asset,1.0000,unstake_asset,approve,,True,0.7000
+draw 3405.613 LINK — low slippage,borrow_asset,deposit_asset,0.5556,borrow_asset,reject,low_confidence,False,0.7000
+unstake and take out 4769.795 AVAX from uniswap on base — low slippage,withdraw_asset,unstake_asset,0.5087,,reject,low_confidence,False,0.7000
+repay 2217.4601 DAI into uniswap on optimism — asap,repay_asset,repay_asset,1.0000,repay_asset,approve,,True,0.7000
+redeem 4129.4558 USDT — minimize gas,withdraw_asset,withdraw_asset,1.0000,,reject,no_span_evidence,False,0.7000
+exchange 1236.446 WETH to USDT on uniswap — use normal gas,swap_asset,swap_asset,0.8549,swap_asset,approve,,True,0.7000
+harvest stargate on avalanche — minimize gas,claim_rewards,claim_rewards,0.9870,claim_rewards,approve,,True,0.7000
+repay 267.9782 DAI ,repay_asset,repay_asset,0.8750,repay_asset,approve,,True,0.7000
+top up 3348.9443 MATIC into aave on polygon — asap,deposit_asset,deposit_asset,1.0000,,reject,no_span_evidence,False,0.7000
+exchange 4778.8046 OP to USDT on stargate — use normal gas,swap_asset,swap_asset,0.6098,swap_asset,reject,low_confidence,False,0.7000
+draw 953.2908 SOL — safe mode,borrow_asset,deposit_asset,0.7073,borrow_asset,reject,audit_mismatch:deposit_asset_vs_borrow_asset,False,0.7000
+stake 4530.3219 LINK to yearn on optimism — use normal gas,stake_asset,stake_asset,0.8962,stake_asset,approve,,True,0.7000
+stake 303.4188 LINK into balancer on optimism — low slippage,stake_asset,stake_asset,0.9697,stake_asset,approve,,True,0.7000

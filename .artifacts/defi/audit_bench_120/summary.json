@@ -1,0 +1,27 @@
+{
+  "bench": "audit_bench",
+  "sbert": "sentence-transformers/all-MiniLM-L6-v2",
+  "thresholds": {
+    "conf_thr": [
+      0.7,
+      0.75,
+      0.8
+    ],
+    "tau_span": [
+      0.55
+    ],
+    "rel_margin": [
+      0.06
+    ]
+  },
+  "chosen": {
+    "conf_thr": 0.7,
+    "tau_span": 0.55,
+    "rel_margin": 0.06,
+    "coverage": 0.49166666666666664,
+    "abstain_rate": 0.5083333333333333,
+    "accuracy_on_approved": 1.0,
+    "overall_accuracy": 0.49166666666666664
+  },
+  "timestamp": 1758167910
+}

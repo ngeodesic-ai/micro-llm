@@ -1,0 +1,28 @@
+{
+  "bench": "audit_bench_nb_standalone",
+  "params": {
+    "model_path": ".artifacts/defi_mapper.joblib",
+    "prompts_jsonl": ".artifacts/defi/synth/defi_prompts_120.jsonl",
+    "labels_csv": ".artifacts/defi/synth/defi_labels_120.csv",
+    "sbert": "sentence-transformers/all-MiniLM-L6-v2",
+    "n_max": 6,
+    "tau_span": 0.55,
+    "tau_rel": 0.6,
+    "tau_abs": 0.93,
+    "T": 720,
+    "L": 160,
+    "beta": 8.6,
+    "sigma": 0.0,
+    "strict_mapper_match": false,
+    "out_dir": ".artifacts/defi/audit_bench_nb"
+  },
+  "metrics": {
+    "total": 120,
+    "approved": 38,
+    "rejected": 82,
+    "coverage": 0.31666666666666665,
+    "abstain_rate": 0.6833333333333333,
+    "accuracy_on_approved": 0.7368421052631579,
+    "overall_accuracy": 0.23333333333333334
+  }
+}
