@@ -1,0 +1,55 @@
+{
+  "deposit_asset": [
+    "deposit",
+    "supply",
+    "top up",
+    "add",
+    "fund",
+    "put in",
+    "provide"
+  ],
+  "withdraw_asset": [
+    "withdraw",
+    "take out",
+    "redeem",
+    "unstow",
+    "remove"
+  ],
+  "swap_asset": [
+    "swap",
+    "convert",
+    "exchange",
+    "trade"
+  ],
+  "borrow_asset": [
+    "borrow",
+    "draw",
+    "take loan",
+    "obtain credit"
+  ],
+  "repay_asset": [
+    "repay",
+    "pay back",
+    "settle debt",
+    "return loan"
+  ],
+  "stake_asset": [
+    "stake",
+    "lock",
+    "bond",
+    "delegate"
+  ],
+  "unstake_asset": [
+    "unstake",
+    "unlock",
+    "withdraw stake",
+    "redeem stake"
+  ],
+  "claim_rewards": [
+    "claim",
+    "collect",
+    "harvest",
+    "receive rewards"
+  ]
+}
+

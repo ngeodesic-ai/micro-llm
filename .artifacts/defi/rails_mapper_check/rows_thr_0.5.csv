@@ -1,0 +1,4 @@
+prompt,gold_label,predicted,confidence,abstain,threshold
+deposit 10 ETH into aave,deposit_asset,deposit_asset,0.9983,False,0.5
+swap 2 ETH to USDC on uniswap v3,swap_asset,swap_asset,1.0000,False,0.5
+borrow 500 USDC with ETH collateral at 70% ltv,borrow_asset,borrow_asset,1.0000,False,0.5

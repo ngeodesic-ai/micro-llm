@@ -1,0 +1,11 @@
+id,prompt,primitive
+0,deposit 100 USDC,deposit_asset
+1,put in 1 ETH,deposit_asset
+2,take out 5 DAI,withdraw_asset
+3,take out 50 WBTC,withdraw_asset
+4,obtain 50 USDC,borrow_asset
+5,take loan of 5 WBTC,borrow_asset
+6,repay 50 USDC,repay_asset
+7,settle 2 ETH debt,repay_asset
+8,exchange 10 WBTC for USDC,swap_asset
+9,swap 1 WBTC to ETH,swap_asset

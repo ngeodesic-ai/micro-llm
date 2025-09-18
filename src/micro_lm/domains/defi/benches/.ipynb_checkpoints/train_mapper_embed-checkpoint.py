@@ -20,6 +20,12 @@ PYTHONPATH=. python3 milestones/train_mapper_embed.py \
   --out_path .artifacts/defi_mapper_embed.joblib \
   --sbert sentence-transformers/all-mpnet-base-v2 \
   --C 8 --max_iter 2000 --calibrate
+
+PYTHONPATH=. python3 src/micro_lm/domains/defi/benches/train_mapper_embed.py \
+  --labels_csv tests/fixtures/defi/defi_mapper_labeled_large.csv \
+  --out_path .artifacts/defi_mapper.joblib \
+  --sbert sentence-transformers/all-MiniLM-L6-v2 \
+  --C 8 --max_iter 2000 --calibrate
 """
 
 def main():

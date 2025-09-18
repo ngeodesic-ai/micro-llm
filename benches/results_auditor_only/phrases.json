@@ -1,0 +1,52 @@
+{
+  "withdraw_asset": [
+    [
+      "take out 10 USDC",
+      0.6950832605361938
+    ],
+    [
+      "take out 100 USDC",
+      0.6761676073074341
+    ],
+    [
+      "withdraw 1 ETH",
+      0.6454262733459473
+    ]
+  ],
+  "repay_asset": [
+    [
+      "return 2 USDC",
+      0.8928959965705872
+    ],
+    [
+      "in 5",
+      0.5778989791870117
+    ]
+  ],
+  "borrow_asset": [
+    [
+      "take loan of 2 USDC",
+      0.614581286907196
+    ],
+    [
+      "convert 10 USDC into",
+      0.5653904676437378
+    ]
+  ],
+  "swap_asset": [
+    [
+      "trade 10 WBTC into ETH",
+      0.6363641023635864
+    ]
+  ],
+  "deposit_asset": [
+    [
+      "put in 5 ETH",
+      0.6990054249763489
+    ],
+    [
+      "add 10 USDC to account",
+      0.6552914381027222
+    ]
+  ]
+}

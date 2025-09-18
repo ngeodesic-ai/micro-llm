@@ -1,0 +1,31 @@
+set,id,prompt,gold,pred,ok
+test,0,deposit 100 USDC,deposit_asset,,False
+test,1,put in 1 ETH,deposit_asset,repay_asset,False
+test,2,take out 5 DAI,withdraw_asset,,False
+test,3,take out 50 WBTC,withdraw_asset,repay_asset,False
+test,4,obtain 50 USDC,borrow_asset,repay_asset,False
+test,5,take loan of 5 WBTC,borrow_asset,,False
+test,6,repay 50 USDC,repay_asset,,False
+test,7,settle 2 ETH debt,repay_asset,,False
+test,8,exchange 10 WBTC for USDC,swap_asset,,False
+test,9,swap 1 WBTC to ETH,swap_asset,,False
+junk,0,sing me a lullaby,,,True
+junk,1,what time is lunch,,,True
+junk,2,tell me a joke,,,True
+junk,3,play some music,,,True
+junk,4,open the pod bay doors,,,True
+junk,5,what is the weather today,,,True
+junk,6,order a pizza,,,True
+junk,7,schedule a meeting,,,True
+junk,8,how tall is mount everest,,,True
+junk,9,who won the football match,,withdraw_asset,False
+junk,10,recommend me a movie,,,True
+junk,11,write a poem about the sea,,,True
+junk,12,set an alarm for 7am,,,True
+junk,13,turn off the lights,,,True
+junk,14,call my mom,,,True
+junk,15,search the internet,,,True
+junk,16,draw a picture,,,True
+junk,17,sing happy birthday,,,True
+junk,18,what's your name,,,True
+junk,19,explain quantum mechanics,,,True

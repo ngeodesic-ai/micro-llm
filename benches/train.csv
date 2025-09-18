@@ -1,0 +1,501 @@
+id,prompt,primitive
+0,remove 2 ETH,withdraw_asset
+1,take loan of 10 WBTC,borrow_asset
+2,repay 100 ETH,repay_asset
+3,withdraw 5 DAI,withdraw_asset
+4,get 50 DAI credit,borrow_asset
+5,put in 100 ETH,deposit_asset
+6,withdraw 1 ETH,withdraw_asset
+7,return 1 ETH,repay_asset
+8,swap 100 USDC to DAI,swap_asset
+9,repay 2 DAI,repay_asset
+10,withdraw 10 USDC,withdraw_asset
+11,settle 50 WBTC debt,repay_asset
+12,swap 5 WBTC to DAI,swap_asset
+13,repay 5 WBTC,repay_asset
+14,exchange 2 ETH for DAI,swap_asset
+15,remove 2 ETH,withdraw_asset
+16,obtain 100 WBTC,borrow_asset
+17,withdraw 100 ETH,withdraw_asset
+18,trade 1 ETH into WBTC,swap_asset
+19,swap 10 WBTC to DAI,swap_asset
+20,trade 1 DAI into USDC,swap_asset
+21,top up 100 WBTC,deposit_asset
+22,pay back 5 WBTC,repay_asset
+23,pay back 100 DAI,repay_asset
+24,obtain 1 USDC,borrow_asset
+25,trade 50 ETH into WBTC,swap_asset
+26,top up 100 WBTC,deposit_asset
+27,repay 5 WBTC,repay_asset
+28,deposit 100 WBTC,deposit_asset
+29,cash out 10 DAI,withdraw_asset
+30,pay back 100 ETH,repay_asset
+31,cash out 2 ETH,withdraw_asset
+32,borrow 10 USDC,borrow_asset
+33,top up 100 USDC,deposit_asset
+34,borrow 100 WBTC,borrow_asset
+35,add 100 USDC to account,deposit_asset
+36,remove 2 ETH,withdraw_asset
+37,settle 100 USDC debt,repay_asset
+38,remove 100 WBTC,withdraw_asset
+39,return 10 ETH,repay_asset
+40,exchange 5 DAI for USDC,swap_asset
+41,exchange 50 ETH for DAI,swap_asset
+42,obtain 100 ETH,borrow_asset
+43,remove 5 WBTC,withdraw_asset
+44,pay back 1 WBTC,repay_asset
+45,return 2 USDC,repay_asset
+46,convert 10 USDC into DAI,swap_asset
+47,pay back 10 DAI,repay_asset
+48,repay 2 DAI,repay_asset
+49,deposit 100 USDC,deposit_asset
+50,pay back 5 ETH,repay_asset
+51,top up 2 WBTC,deposit_asset
+52,borrow 50 ETH,borrow_asset
+53,return 100 USDC,repay_asset
+54,remove 1 USDC,withdraw_asset
+55,remove 50 ETH,withdraw_asset
+56,deposit 1 ETH,deposit_asset
+57,trade 5 USDC into DAI,swap_asset
+58,return 50 ETH,repay_asset
+59,swap 50 USDC to DAI,swap_asset
+60,pay back 10 WBTC,repay_asset
+61,convert 1 WBTC into ETH,swap_asset
+62,take out 100 USDC,withdraw_asset
+63,withdraw 10 DAI,withdraw_asset
+64,add 50 WBTC to account,deposit_asset
+65,convert 2 WBTC into DAI,swap_asset
+66,settle 2 WBTC debt,repay_asset
+67,settle 5 USDC debt,repay_asset
+68,take out 5 ETH,withdraw_asset
+69,pay back 100 DAI,repay_asset
+70,return 50 USDC,repay_asset
+71,repay 50 WBTC,repay_asset
+72,exchange 5 WBTC for DAI,swap_asset
+73,exchange 50 WBTC for ETH,swap_asset
+74,exchange 1 ETH for DAI,swap_asset
+75,remove 10 WBTC,withdraw_asset
+76,get 2 USDC credit,borrow_asset
+77,cash out 50 DAI,withdraw_asset
+78,obtain 5 ETH,borrow_asset
+79,get 2 WBTC credit,borrow_asset
+80,pay back 5 WBTC,repay_asset
+81,take out 50 DAI,withdraw_asset
+82,pay back 10 USDC,repay_asset
+83,take loan of 50 ETH,borrow_asset
+84,trade 1 ETH into USDC,swap_asset
+85,convert 100 DAI into ETH,swap_asset
+86,obtain 10 USDC,borrow_asset
+87,withdraw 10 WBTC,withdraw_asset
+88,exchange 2 ETH for WBTC,swap_asset
+89,convert 10 WBTC into ETH,swap_asset
+90,trade 2 DAI into USDC,swap_asset
+91,convert 100 ETH into USDC,swap_asset
+92,add 100 DAI to account,deposit_asset
+93,get 50 DAI credit,borrow_asset
+94,deposit 10 ETH,deposit_asset
+95,add 10 ETH to account,deposit_asset
+96,add 5 ETH to account,deposit_asset
+97,withdraw 50 USDC,withdraw_asset
+98,trade 10 WBTC into ETH,swap_asset
+99,remove 2 ETH,withdraw_asset
+100,exchange 50 DAI for WBTC,swap_asset
+101,get 1 DAI credit,borrow_asset
+102,remove 10 ETH,withdraw_asset
+103,get 50 DAI credit,borrow_asset
+104,cash out 100 DAI,withdraw_asset
+105,borrow 100 USDC,borrow_asset
+106,add 5 WBTC to account,deposit_asset
+107,trade 50 DAI into WBTC,swap_asset
+108,take loan of 1 WBTC,borrow_asset
+109,trade 2 WBTC into USDC,swap_asset
+110,repay 50 WBTC,repay_asset
+111,swap 50 ETH to WBTC,swap_asset
+112,trade 2 WBTC into USDC,swap_asset
+113,remove 5 USDC,withdraw_asset
+114,deposit 5 USDC,deposit_asset
+115,convert 100 USDC into DAI,swap_asset
+116,return 100 ETH,repay_asset
+117,withdraw 100 WBTC,withdraw_asset
+118,pay back 1 ETH,repay_asset
+119,top up 5 ETH,deposit_asset
+120,withdraw 100 ETH,withdraw_asset
+121,withdraw 50 USDC,withdraw_asset
+122,obtain 50 DAI,borrow_asset
+123,trade 10 ETH into WBTC,swap_asset
+124,convert 2 USDC into WBTC,swap_asset
+125,cash out 100 WBTC,withdraw_asset
+126,deposit 5 ETH,deposit_asset
+127,cash out 10 DAI,withdraw_asset
+128,deposit 1 USDC,deposit_asset
+129,obtain 10 DAI,borrow_asset
+130,return 5 DAI,repay_asset
+131,swap 10 ETH to USDC,swap_asset
+132,add 5 WBTC to account,deposit_asset
+133,take out 100 DAI,withdraw_asset
+134,obtain 100 WBTC,borrow_asset
+135,withdraw 100 WBTC,withdraw_asset
+136,exchange 2 ETH for WBTC,swap_asset
+137,swap 2 WBTC to ETH,swap_asset
+138,obtain 1 USDC,borrow_asset
+139,top up 1 USDC,deposit_asset
+140,convert 10 WBTC into DAI,swap_asset
+141,top up 100 DAI,deposit_asset
+142,add 50 USDC to account,deposit_asset
+143,add 5 WBTC to account,deposit_asset
+144,deposit 10 ETH,deposit_asset
+145,convert 10 DAI into WBTC,swap_asset
+146,take loan of 50 WBTC,borrow_asset
+147,convert 2 DAI into ETH,swap_asset
+148,cash out 1 DAI,withdraw_asset
+149,settle 10 ETH debt,repay_asset
+150,swap 10 USDC to ETH,swap_asset
+151,trade 50 USDC into ETH,swap_asset
+152,swap 2 WBTC to ETH,swap_asset
+153,settle 50 WBTC debt,repay_asset
+154,remove 50 DAI,withdraw_asset
+155,convert 100 USDC into ETH,swap_asset
+156,settle 10 USDC debt,repay_asset
+157,borrow 1 ETH,borrow_asset
+158,put in 2 WBTC,deposit_asset
+159,obtain 1 DAI,borrow_asset
+160,withdraw 10 ETH,withdraw_asset
+161,return 10 WBTC,repay_asset
+162,settle 100 DAI debt,repay_asset
+163,take loan of 5 WBTC,borrow_asset
+164,cash out 50 DAI,withdraw_asset
+165,top up 10 DAI,deposit_asset
+166,borrow 50 DAI,borrow_asset
+167,take out 1 WBTC,withdraw_asset
+168,borrow 10 WBTC,borrow_asset
+169,obtain 5 WBTC,borrow_asset
+170,repay 2 USDC,repay_asset
+171,top up 100 WBTC,deposit_asset
+172,settle 10 DAI debt,repay_asset
+173,obtain 100 DAI,borrow_asset
+174,add 2 ETH to account,deposit_asset
+175,cash out 5 WBTC,withdraw_asset
+176,get 1 DAI credit,borrow_asset
+177,swap 50 USDC to DAI,swap_asset
+178,obtain 5 ETH,borrow_asset
+179,get 1 USDC credit,borrow_asset
+180,obtain 5 WBTC,borrow_asset
+181,trade 10 DAI into ETH,swap_asset
+182,cash out 10 ETH,withdraw_asset
+183,obtain 5 WBTC,borrow_asset
+184,swap 1 USDC to WBTC,swap_asset
+185,obtain 2 DAI,borrow_asset
+186,cash out 50 USDC,withdraw_asset
+187,swap 10 USDC to DAI,swap_asset
+188,swap 50 USDC to ETH,swap_asset
+189,swap 100 DAI to ETH,swap_asset
+190,take out 100 DAI,withdraw_asset
+191,convert 1 WBTC into ETH,swap_asset
+192,take loan of 1 DAI,borrow_asset
+193,repay 10 ETH,repay_asset
+194,borrow 5 DAI,borrow_asset
+195,add 1 WBTC to account,deposit_asset
+196,repay 50 DAI,repay_asset
+197,cash out 10 ETH,withdraw_asset
+198,take out 100 USDC,withdraw_asset
+199,take loan of 10 USDC,borrow_asset
+200,swap 100 USDC to WBTC,swap_asset
+201,repay 2 DAI,repay_asset
+202,pay back 50 ETH,repay_asset
+203,get 2 USDC credit,borrow_asset
+204,convert 100 USDC into DAI,swap_asset
+205,withdraw 1 DAI,withdraw_asset
+206,trade 10 ETH into USDC,swap_asset
+207,take out 5 ETH,withdraw_asset
+208,cash out 50 WBTC,withdraw_asset
+209,trade 5 WBTC into ETH,swap_asset
+210,repay 2 WBTC,repay_asset
+211,pay back 5 USDC,repay_asset
+212,add 10 WBTC to account,deposit_asset
+213,return 100 USDC,repay_asset
+214,convert 10 USDC into DAI,swap_asset
+215,add 5 WBTC to account,deposit_asset
+216,borrow 100 USDC,borrow_asset
+217,remove 100 ETH,withdraw_asset
+218,settle 5 USDC debt,repay_asset
+219,trade 1 USDC into ETH,swap_asset
+220,obtain 50 USDC,borrow_asset
+221,exchange 1 DAI for WBTC,swap_asset
+222,obtain 2 WBTC,borrow_asset
+223,trade 10 WBTC into DAI,swap_asset
+224,settle 10 WBTC debt,repay_asset
+225,borrow 50 USDC,borrow_asset
+226,cash out 1 USDC,withdraw_asset
+227,put in 100 DAI,deposit_asset
+228,put in 1 WBTC,deposit_asset
+229,trade 100 ETH into DAI,swap_asset
+230,add 50 DAI to account,deposit_asset
+231,swap 5 USDC to WBTC,swap_asset
+232,convert 2 DAI into WBTC,swap_asset
+233,deposit 100 WBTC,deposit_asset
+234,borrow 5 ETH,borrow_asset
+235,return 1 USDC,repay_asset
+236,pay back 100 DAI,repay_asset
+237,settle 10 WBTC debt,repay_asset
+238,add 10 DAI to account,deposit_asset
+239,convert 5 USDC into DAI,swap_asset
+240,repay 100 DAI,repay_asset
+241,take out 10 USDC,withdraw_asset
+242,get 100 WBTC credit,borrow_asset
+243,swap 5 USDC to WBTC,swap_asset
+244,get 2 ETH credit,borrow_asset
+245,return 50 DAI,repay_asset
+246,deposit 2 DAI,deposit_asset
+247,swap 50 ETH to DAI,swap_asset
+248,get 5 WBTC credit,borrow_asset
+249,get 100 ETH credit,borrow_asset
+250,exchange 2 WBTC for DAI,swap_asset
+251,put in 10 DAI,deposit_asset
+252,return 5 DAI,repay_asset
+253,settle 2 USDC debt,repay_asset
+254,top up 100 DAI,deposit_asset
+255,trade 1 WBTC into USDC,swap_asset
+256,add 10 USDC to account,deposit_asset
+257,repay 100 DAI,repay_asset
+258,repay 10 ETH,repay_asset
+259,exchange 5 DAI for ETH,swap_asset
+260,take out 5 USDC,withdraw_asset
+261,trade 2 DAI into USDC,swap_asset
+262,trade 2 DAI into ETH,swap_asset
+263,obtain 10 ETH,borrow_asset
+264,pay back 50 ETH,repay_asset
+265,take out 50 ETH,withdraw_asset
+266,top up 1 ETH,deposit_asset
+267,cash out 50 ETH,withdraw_asset
+268,return 1 DAI,repay_asset
+269,deposit 1 ETH,deposit_asset
+270,take out 100 DAI,withdraw_asset
+271,take loan of 50 USDC,borrow_asset
+272,deposit 50 DAI,deposit_asset
+273,borrow 100 DAI,borrow_asset
+274,put in 2 DAI,deposit_asset
+275,take loan of 5 DAI,borrow_asset
+276,get 1 USDC credit,borrow_asset
+277,obtain 5 WBTC,borrow_asset
+278,cash out 5 DAI,withdraw_asset
+279,borrow 100 DAI,borrow_asset
+280,put in 100 DAI,deposit_asset
+281,put in 5 WBTC,deposit_asset
+282,top up 50 DAI,deposit_asset
+283,add 1 DAI to account,deposit_asset
+284,add 100 ETH to account,deposit_asset
+285,put in 5 ETH,deposit_asset
+286,swap 100 USDC to ETH,swap_asset
+287,repay 2 USDC,repay_asset
+288,swap 100 WBTC to USDC,swap_asset
+289,deposit 2 ETH,deposit_asset
+290,add 2 USDC to account,deposit_asset
+291,obtain 50 DAI,borrow_asset
+292,cash out 1 WBTC,withdraw_asset
+293,put in 100 DAI,deposit_asset
+294,return 10 WBTC,repay_asset
+295,add 1 WBTC to account,deposit_asset
+296,deposit 2 DAI,deposit_asset
+297,obtain 2 USDC,borrow_asset
+298,obtain 10 USDC,borrow_asset
+299,pay back 50 DAI,repay_asset
+300,add 50 WBTC to account,deposit_asset
+301,deposit 5 WBTC,deposit_asset
+302,withdraw 2 USDC,withdraw_asset
+303,take loan of 10 ETH,borrow_asset
+304,settle 5 DAI debt,repay_asset
+305,borrow 50 WBTC,borrow_asset
+306,take out 1 WBTC,withdraw_asset
+307,put in 100 USDC,deposit_asset
+308,top up 100 USDC,deposit_asset
+309,take loan of 2 ETH,borrow_asset
+310,take loan of 10 WBTC,borrow_asset
+311,take out 1 USDC,withdraw_asset
+312,convert 1 WBTC into USDC,swap_asset
+313,trade 1 ETH into DAI,swap_asset
+314,top up 10 WBTC,deposit_asset
+315,obtain 50 USDC,borrow_asset
+316,get 1 DAI credit,borrow_asset
+317,remove 100 ETH,withdraw_asset
+318,convert 10 USDC into DAI,swap_asset
+319,pay back 50 ETH,repay_asset
+320,settle 5 DAI debt,repay_asset
+321,withdraw 5 ETH,withdraw_asset
+322,remove 10 ETH,withdraw_asset
+323,take loan of 1 ETH,borrow_asset
+324,get 1 WBTC credit,borrow_asset
+325,return 5 USDC,repay_asset
+326,exchange 5 DAI for USDC,swap_asset
+327,add 1 USDC to account,deposit_asset
+328,put in 5 ETH,deposit_asset
+329,top up 10 USDC,deposit_asset
+330,return 1 WBTC,repay_asset
+331,pay back 5 ETH,repay_asset
+332,deposit 2 WBTC,deposit_asset
+333,convert 2 USDC into DAI,swap_asset
+334,return 5 ETH,repay_asset
+335,get 10 DAI credit,borrow_asset
+336,borrow 10 WBTC,borrow_asset
+337,convert 100 DAI into ETH,swap_asset
+338,convert 10 ETH into DAI,swap_asset
+339,withdraw 100 WBTC,withdraw_asset
+340,take out 10 WBTC,withdraw_asset
+341,cash out 10 WBTC,withdraw_asset
+342,settle 2 DAI debt,repay_asset
+343,top up 10 WBTC,deposit_asset
+344,take out 2 DAI,withdraw_asset
+345,deposit 5 USDC,deposit_asset
+346,get 10 DAI credit,borrow_asset
+347,swap 2 USDC to WBTC,swap_asset
+348,repay 100 ETH,repay_asset
+349,take out 5 ETH,withdraw_asset
+350,withdraw 50 ETH,withdraw_asset
+351,put in 100 USDC,deposit_asset
+352,return 5 USDC,repay_asset
+353,return 100 ETH,repay_asset
+354,pay back 10 WBTC,repay_asset
+355,deposit 100 ETH,deposit_asset
+356,trade 10 WBTC into USDC,swap_asset
+357,remove 1 USDC,withdraw_asset
+358,add 50 USDC to account,deposit_asset
+359,trade 100 ETH into DAI,swap_asset
+360,settle 100 WBTC debt,repay_asset
+361,deposit 10 ETH,deposit_asset
+362,deposit 100 USDC,deposit_asset
+363,settle 100 WBTC debt,repay_asset
+364,trade 50 WBTC into ETH,swap_asset
+365,swap 100 DAI to ETH,swap_asset
+366,top up 100 DAI,deposit_asset
+367,take loan of 10 DAI,borrow_asset
+368,repay 2 WBTC,repay_asset
+369,repay 5 USDC,repay_asset
+370,take out 50 ETH,withdraw_asset
+371,borrow 2 USDC,borrow_asset
+372,trade 2 DAI into WBTC,swap_asset
+373,trade 100 WBTC into ETH,swap_asset
+374,top up 1 WBTC,deposit_asset
+375,top up 10 DAI,deposit_asset
+376,deposit 100 USDC,deposit_asset
+377,borrow 50 ETH,borrow_asset
+378,return 2 USDC,repay_asset
+379,deposit 2 DAI,deposit_asset
+380,exchange 1 DAI for ETH,swap_asset
+381,pay back 50 WBTC,repay_asset
+382,take out 1 DAI,withdraw_asset
+383,take out 5 WBTC,withdraw_asset
+384,pay back 1 ETH,repay_asset
+385,take loan of 5 WBTC,borrow_asset
+386,add 10 USDC to account,deposit_asset
+387,deposit 100 ETH,deposit_asset
+388,borrow 5 DAI,borrow_asset
+389,withdraw 2 ETH,withdraw_asset
+390,remove 50 USDC,withdraw_asset
+391,settle 5 DAI debt,repay_asset
+392,take out 5 ETH,withdraw_asset
+393,swap 1 ETH to WBTC,swap_asset
+394,take out 1 ETH,withdraw_asset
+395,remove 2 DAI,withdraw_asset
+396,repay 10 ETH,repay_asset
+397,settle 100 DAI debt,repay_asset
+398,swap 2 DAI to USDC,swap_asset
+399,take loan of 50 WBTC,borrow_asset
+400,add 50 WBTC to account,deposit_asset
+401,take out 100 ETH,withdraw_asset
+402,withdraw 1 WBTC,withdraw_asset
+403,get 100 USDC credit,borrow_asset
+404,obtain 10 USDC,borrow_asset
+405,settle 2 DAI debt,repay_asset
+406,obtain 2 WBTC,borrow_asset
+407,cash out 2 ETH,withdraw_asset
+408,borrow 50 WBTC,borrow_asset
+409,pay back 1 DAI,repay_asset
+410,pay back 5 WBTC,repay_asset
+411,remove 1 ETH,withdraw_asset
+412,put in 50 USDC,deposit_asset
+413,settle 1 WBTC debt,repay_asset
+414,put in 50 DAI,deposit_asset
+415,repay 1 USDC,repay_asset
+416,withdraw 2 DAI,withdraw_asset
+417,get 5 DAI credit,borrow_asset
+418,trade 50 ETH into DAI,swap_asset
+419,obtain 2 WBTC,borrow_asset
+420,top up 50 USDC,deposit_asset
+421,take loan of 5 ETH,borrow_asset
+422,withdraw 5 WBTC,withdraw_asset
+423,return 1 WBTC,repay_asset
+424,swap 5 ETH to DAI,swap_asset
+425,convert 2 WBTC into USDC,swap_asset
+426,trade 1 WBTC into DAI,swap_asset
+427,swap 5 ETH to USDC,swap_asset
+428,settle 50 USDC debt,repay_asset
+429,deposit 50 DAI,deposit_asset
+430,add 5 USDC to account,deposit_asset
+431,add 10 USDC to account,deposit_asset
+432,swap 2 WBTC to DAI,swap_asset
+433,add 50 USDC to account,deposit_asset
+434,borrow 10 USDC,borrow_asset
+435,return 5 ETH,repay_asset
+436,trade 5 DAI into ETH,swap_asset
+437,get 2 ETH credit,borrow_asset
+438,take out 1 ETH,withdraw_asset
+439,put in 100 DAI,deposit_asset
+440,repay 5 DAI,repay_asset
+441,top up 5 ETH,deposit_asset
+442,repay 1 DAI,repay_asset
+443,settle 10 USDC debt,repay_asset
+444,pay back 50 USDC,repay_asset
+445,repay 1 ETH,repay_asset
+446,get 5 DAI credit,borrow_asset
+447,swap 1 DAI to USDC,swap_asset
+448,repay 1 WBTC,repay_asset
+449,settle 100 ETH debt,repay_asset
+450,borrow 5 WBTC,borrow_asset
+451,convert 50 USDC into WBTC,swap_asset
+452,settle 5 USDC debt,repay_asset
+453,convert 5 USDC into WBTC,swap_asset
+454,pay back 50 DAI,repay_asset
+455,put in 1 ETH,deposit_asset
+456,exchange 2 ETH for DAI,swap_asset
+457,return 50 USDC,repay_asset
+458,trade 2 ETH into DAI,swap_asset
+459,exchange 10 ETH for WBTC,swap_asset
+460,pay back 100 WBTC,repay_asset
+461,repay 1 WBTC,repay_asset
+462,remove 100 WBTC,withdraw_asset
+463,return 1 ETH,repay_asset
+464,remove 10 DAI,withdraw_asset
+465,cash out 100 DAI,withdraw_asset
+466,add 2 USDC to account,deposit_asset
+467,settle 5 USDC debt,repay_asset
+468,convert 50 ETH into WBTC,swap_asset
+469,pay back 100 WBTC,repay_asset
+470,convert 5 ETH into DAI,swap_asset
+471,trade 100 WBTC into ETH,swap_asset
+472,withdraw 5 USDC,withdraw_asset
+473,take loan of 5 USDC,borrow_asset
+474,take loan of 2 DAI,borrow_asset
+475,put in 100 USDC,deposit_asset
+476,take loan of 2 USDC,borrow_asset
+477,convert 10 WBTC into DAI,swap_asset
+478,exchange 5 USDC for DAI,swap_asset
+479,top up 10 WBTC,deposit_asset
+480,put in 2 ETH,deposit_asset
+481,borrow 100 ETH,borrow_asset
+482,trade 100 USDC into DAI,swap_asset
+483,return 5 WBTC,repay_asset
+484,settle 100 DAI debt,repay_asset
+485,cash out 1 USDC,withdraw_asset
+486,put in 10 DAI,deposit_asset
+487,get 1 USDC credit,borrow_asset
+488,get 100 DAI credit,borrow_asset
+489,exchange 10 WBTC for DAI,swap_asset
+490,add 50 ETH to account,deposit_asset
+491,deposit 10 USDC,deposit_asset
+492,take out 10 DAI,withdraw_asset
+493,trade 5 DAI into WBTC,swap_asset
+494,cash out 100 WBTC,withdraw_asset
+495,take loan of 10 DAI,borrow_asset
+496,withdraw 5 ETH,withdraw_asset
+497,cash out 50 ETH,withdraw_asset
+498,borrow 2 WBTC,borrow_asset
+499,borrow 50 WBTC,borrow_asset

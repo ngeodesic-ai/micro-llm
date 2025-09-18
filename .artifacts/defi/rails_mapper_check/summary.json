@@ -1,0 +1,15 @@
+{
+  "bench": "mapper_bench",
+  "backend": "sbert",
+  "thresholds": [
+    0.5
+  ],
+  "chosen": {
+    "threshold": 0.5,
+    "abstain_rate": 0.0,
+    "coverage": 1.0,
+    "accuracy_on_fired": 1.0,
+    "overall_accuracy": 1.0
+  },
+  "timestamp": 1758079854
+}

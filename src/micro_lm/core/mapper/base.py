@@ -8,6 +8,7 @@ class MapperBackend(Protocol):
 
 def load_backend(kind: str, **kwargs) -> MapperBackend:
     kind = (kind or "wordmap").lower()
+    print('[mapper] backend=', kind, 'kwargs=', kwargs)
     if kind == "wordmap":
         from micro_lm.domains.defi.mapper_backends.wordmap_backend import WordmapBackend
         return WordmapBackend(**kwargs)
