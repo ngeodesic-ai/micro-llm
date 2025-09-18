@@ -1,0 +1,68 @@
+{
+  "total": 200,
+  "coverage": 0.94,
+  "abstain_rate": 0.06000000000000005,
+  "span_yield_rate": 1.0,
+  "abstain_no_span_rate": 0.0,
+  "abstain_with_span_rate": 0.06,
+  "peak_mean_pass": 1.9974255319148935,
+  "peak_mean_abstain": 0.70135,
+  "rel_mean_pass": 0.9451372340425532,
+  "rel_mean_abstain": 0.789225,
+  "per_class": {
+    "claim_rewards": {
+      "n": 39,
+      "coverage": 1.0,
+      "span_yield_rate": 1.0
+    },
+    "withdraw_asset": {
+      "n": 24,
+      "coverage": 0.625,
+      "span_yield_rate": 1.0
+    },
+    "stake_asset": {
+      "n": 27,
+      "coverage": 1.0,
+      "span_yield_rate": 1.0
+    },
+    "deposit_asset": {
+      "n": 25,
+      "coverage": 0.88,
+      "span_yield_rate": 1.0
+    },
+    "swap_asset": {
+      "n": 27,
+      "coverage": 1.0,
+      "span_yield_rate": 1.0
+    },
+    "repay_asset": {
+      "n": 22,
+      "coverage": 1.0,
+      "span_yield_rate": 1.0
+    },
+    "unstake_asset": {
+      "n": 24,
+      "coverage": 1.0,
+      "span_yield_rate": 1.0
+    },
+    "borrow_asset": {
+      "n": 12,
+      "coverage": 1.0,
+      "span_yield_rate": 1.0
+    }
+  },
+  "params": {
+    "sbert": "sentence-transformers/all-MiniLM-L6-v2",
+    "tau_span": 0.5,
+    "tau_rel": 0.6,
+    "tau_abs": 0.93,
+    "n_max": 4,
+    "topk_per_prim": 3,
+    "T": 720,
+    "L": 160,
+    "beta": 8.6,
+    "sigma": 0.0
+  },
+  "hallucination_rate": 0.01,
+  "multi_accept_rate": 0.39
+}

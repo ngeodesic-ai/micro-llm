@@ -1,5 +1,5 @@
 from __future__ import annotations
-import argparse, json, csv, sys, os, time
+import argparse, json, csv, sys, os, time, re
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
@@ -23,6 +23,14 @@ from sentence_transformers import SentenceTransformer
       --labels_csv    tests/fixtures/defi/defi_mapper_labeled_5k.csv \
       --sbert sentence-transformers/all-MiniLM-L6-v2 \
       --out_dir .artifacts/defi/audit_bench 
+
+
+python3 src/micro_lm/domains/defi/benches/audit_bench_manual.py \
+      --model_path .artifacts/defi_mapper.joblib \                             
+      --prompts_jsonl tests/fixtures/defi/tests/fixtures/defi/defi_mapper_5k_prompts.json \
+      --labels_csv    tests/fixtures/defi/defi_mapper_labeled_5k.csv \
+      --sbert sentence-transformers/all-MiniLM-L6-v2 \     
+      --out_dir .artifacts/defi/audit_bench
 """
 
 PRIMITIVE = "claim_rewards"
@@ -51,18 +59,15 @@ def load_phrases():
         "repay_asset":  ["repay","pay back","close out the loan for","settle loan","pay debt","repay debt","close loan"],
         "stake_asset":  [
             "stake","lock","bond","delegate","lock up","stake into","stake to","stake on",
-            "restake",               
-            "redelegate"       
+            "restake", "redelegate"
         ],
         "unstake_asset": [
             "unstake","unlock","unbond","undelegate","release","unstake from","unstake out",
-            "unstow",             
-            "withdraw staked"    
+            "unstow", "withdraw staked"
         ],
         "claim_rewards": [
             "claim","harvest","collect rewards","claim rewards","collect staking rewards",
-            "collect yield","claim yield","harvest rewards",
-            "collect incentives"   
+            "collect yield","claim yield","harvest rewards", "collect incentives"   
         ],
     }
     return default
@@ -133,18 +138,36 @@ def cosine(a, b):
     bn = b / (np.linalg.norm(b) + 1e-8)
     return float(np.dot(an, bn))
 
+def _norm_tokens(s: str):
+    s = s.lower()
+    s = re.sub(r"[^a-z0-9 ]+", " ", s)   # strip punctuation/dashes/emoji
+    return [t for t in s.split() if t]
+
+def span_similarity_max(phrase_vec, prim, term_vectors, protos):
+    # term_vectors[prim] is a list of SBERT vectors for each phrase in TERM_BANK[prim]
+    # fall back to class mean (protos[prim]) if you didn’t precompute term vectors
+    best = 0.0
+    for v in term_vectors.get(prim, []):
+        na = np.linalg.norm(phrase_vec); nb = np.linalg.norm(v)
+        if na > 0 and nb > 0:
+            best = max(best, float(np.dot(phrase_vec, v) / (na * nb)))
+    if best == 0.0:  # fallback
+        pv = protos[prim]; na = np.linalg.norm(phrase_vec); nb = np.linalg.norm(pv)
+        if na > 0 and nb > 0:
+            best = float(np.dot(phrase_vec, pv) / (na * nb))
+    return best
+
 def spans_from_prompt(prompt, prototypes, emb, tau_span=0.55):
-    toks = prompt.strip().split()
+    toks = _norm_tokens(prompt)
     spans = []
-    NGRAM = 3
-    for n in range(1, min(NGRAM, len(toks))+1):
+    for n in range(1, min(3, len(toks))+1):
         for i in range(0, len(toks)-n+1):
             s = " ".join(toks[i:i+n])
             e = emb.encode_one(s)
             for k, v in prototypes.items():
                 sc = max(0.0, cosine(e, v))
                 if sc >= tau_span:
-                    t_center = (i + n/2.0) / max(1.0, len(toks))  # normalized [0,1]
+                    t_center = (i + n/2.0) / max(1.0, len(toks))
                     spans.append({"primitive": k, "term": s, "score": round(sc,4), "t_center": round(t_center,4)})
     # keep top 3 spans per primitive
     by_prim = {}
@@ -291,8 +314,8 @@ if __name__ == "__main__":
     ap.add_argument("--verbose", default=False)
     args = ap.parse_args()
     
-    tau_span = 0.55
-    N_TESTS = 100
+    TAU_SPAN = 0.50
+    N_TESTS = 200
     
     test_prompts, test_labels = get_test_prompts(args, N_TESTS)
 
@@ -303,7 +326,7 @@ if __name__ == "__main__":
     pass_audit = 0
     
     for k, test_prompt in enumerate(test_prompts):
-        span_map = spans_from_prompt(test_prompt, prototypes, emb, tau_span=tau_span)
+        span_map = spans_from_prompt(test_prompt, prototypes, emb, tau_span=TAU_SPAN)
         primitive = test_labels[k]
         if(primitive in span_map):    
             primitive_to_term_mapping = {
@@ -322,14 +345,17 @@ if __name__ == "__main__":
             audit = audit_from_span_map(
                 test_prompt,
                 primitive_to_term_mapping,
-                T=720, tau_span=0.55, tau_abs=0.50, tau_rel=0.60, sigma=0.02,
+                T=720, tau_span=TAU_SPAN, tau_abs=0.50, tau_rel=0.60, sigma=0.02,
                 fuse_per_primitive=False
             )
 
             is_passed = audit['decision']
-            if(args.verbose): print(f'{k} {is_passed} / prompt: {test_prompt} / primitives: {list(span_map.keys())}')
+            
             if is_passed == "PASS":
                 pass_audit += 1
+                if(args.verbose): print(f'{k} {is_passed} / prompt: {test_prompt} / primitives: {list(span_map.keys())}')
+            else:
+                print(f'{k} ABSTAIN / prompt: {test_prompt} / primitives: {list(span_map.keys())} / truth: {primitive}')
         else:
             print(f'{k} ABSTAIN* / prompt: {test_prompt} / primitives: {list(span_map.keys())} / truth: {primitive}')
 

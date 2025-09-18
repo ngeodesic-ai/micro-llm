@@ -1,0 +1,201 @@
+idx,prompt,gold,had_spans,decision,reason,peak,rel,null,span_terms,comp_seq,hallucinated_non_gold,multi_accept
+0,claim staking rewards on aave base,claim_rewards,True,PASS,pass,1.3798,0.7609,1.8134,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+1,pull out 2752.8264 ARB from lido,withdraw_asset,True,PASS,pass,1.814,0.9302,1.95,pull out|pull|from,withdraw_asset|unstake_asset,False,True
+2,"restake 33.8529 MATIC with balancer on solana — this minute, use normal gas",stake_asset,True,PASS,pass,2.5064,1.0,2.5064,restake|restake 33|restake 33 8529,stake_asset,False,False
+3,deposit 4697 USDC into uniswap on base,deposit_asset,True,PASS,pass,1.8645,0.9455,1.972,deposit|deposit 4697|deposit 4697 usdc,deposit_asset|unstake_asset,False,True
+4,supply 7.0245 SOL to maker,deposit_asset,True,PASS,pass,1.5996,0.9001,1.7771,supply|supply 7|supply 7 0245,deposit_asset,False,False
+5,"convert 7064 USDT into LINK via sushiswap on arbitrum — minimize gas, safe mode",swap_asset,True,PASS,pass,1.5772,0.9373,1.6828,convert|into|convert 7064,swap_asset|deposit_asset,False,True
+6,repay 2861.82 LINK on maker (optimism) — use normal gas,repay_asset,True,PASS,pass,2.2551,0.9973,2.2611,repay|repay 2861|repay 2861 82,repay_asset,False,False
+7,collect incentives at balancer (base) — now,claim_rewards,True,PASS,pass,2.2273,0.9443,2.3587,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+8,delegate 4020.4921 OP to pendle (arbitrum),stake_asset,True,PASS,pass,1.8109,0.9449,1.9164,delegate|delegate 4020|delegate 4020 4921,stake_asset,False,False
+9,restake 1.876441 BTC with yearn on optimism — now,stake_asset,True,PASS,pass,2.3968,0.9898,2.4215,restake|restake 1|restake 1 876441,stake_asset,False,False
+10,restake 39.238 MATIC with lido on avalanche — immediately,stake_asset,True,PASS,pass,2.207,0.9912,2.2265,restake|restake 39|restake 39 238,stake_asset,False,False
+11,claim staking rewards on sushiswap arbitrum — use fast gas,claim_rewards,True,PASS,pass,1.6705,0.8356,1.9991,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+12,reduce loan by 4808.8879 ARB on compound (solana) — this minute,repay_asset,True,PASS,pass,1.8273,0.9834,1.8581,loan|reduce loan|loan by,borrow_asset|repay_asset,False,True
+13,remove 36.8239 SOL from aave,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+14,harvest yield from maker on ethereum,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards|withdraw_asset,False,True
+15,"collect incentives at compound (optimism) — use fast gas, normal mode",claim_rewards,True,PASS,pass,2.7123,0.9965,2.7218,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+16,lock 0.668373 WBTC in pendle on avalanche,stake_asset,True,PASS,pass,1.7974,0.9492,1.8937,lock|lock 0|lock 0 668373 wbtc,stake_asset|unstake_asset,False,True
+17,unstake 786.2037 AAVE from lido on arbitrum,unstake_asset,True,PASS,pass,1.9279,0.978,1.9713,unstake|unstake 786|unstake 786 2037,unstake_asset,False,False
+18,"withdraw staked 0.667255 WBTC from pendle optimism — right away, use normal gas",unstake_asset,True,PASS,pass,2.5261,0.997,2.5337,withdraw staked|withdraw staked 0|withdraw staked 0 667255,unstake_asset|stake_asset|withdraw_asset,False,True
+19,"collect incentives at maker (solana) — asap, use normal gas, normal mode",claim_rewards,True,PASS,pass,2.8119,0.9994,2.8136,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+20,convert 704.7582 AAVE into USDT via uniswap on arbitrum — minimize gas,swap_asset,True,PASS,pass,1.6132,0.9398,1.7165,convert|convert 704|into,swap_asset|unstake_asset|deposit_asset,False,True
+21,harvest yield from balancer on solana — high yield mode,claim_rewards,True,PASS,pass,2.3688,0.9883,2.3969,harvest|harvest yield|harvest yield from,claim_rewards,False,False
+22,borrow 19.5336 AVAX from aave on base using DAI as collateral,borrow_asset,True,PASS,pass,2.4946,0.9999,2.4947,borrow|borrow 19|borrow 19 5336,borrow_asset|repay_asset,False,True
+23,swap 860.4607 ARB to WBTC on sushiswap arbitrum with slippage 0.1% — asap,swap_asset,True,PASS,pass,2.3818,1.0,2.3818,swap|swap 860|swap 860 4607,swap_asset,False,False
+24,cash out 0.195658 BTC from pendle (base),withdraw_asset,True,PASS,pass,1.5485,0.8879,1.744,cash out|cash out 0|from,withdraw_asset|unstake_asset,False,True
+25,unstow 4257.5573 OP from sushiswap on polygon — immediately,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,1.0,0.7077,from,unstake_asset,True,False
+26,move 20.2498 WETH into sushiswap on arbitrum,deposit_asset,True,PASS,pass,1.0175,0.9723,1.0464,into|weth into,deposit_asset,False,False
+27,undelegate 10.317 WETH on balancer (polygon),unstake_asset,True,PASS,pass,2.0353,0.9396,2.1662,undelegate|undelegate 10|undelegate 10 317,unstake_asset,False,False
+28,move 25.9116 MATIC into sushiswap on arbitrum — safe mode,deposit_asset,True,ABSTAIN,below_threshold,0.6823,1.0,0.6823,into,,False,False
+29,withdraw staked 1.974382 BTC from pendle arbitrum — use normal gas,unstake_asset,True,PASS,pass,2.3727,0.9844,2.4104,withdraw staked|withdraw staked 1|withdraw staked 1 974382,unstake_asset|stake_asset|withdraw_asset,False,True
+30,withdraw 18534 USDT from sushiswap on polygon,withdraw_asset,True,PASS,pass,1.5121,0.9046,1.6715,withdraw|from|withdraw 18534,withdraw_asset,False,False
+31,swap 0.240081 WBTC to WETH on balancer solana,swap_asset,True,PASS,pass,2.2237,0.9912,2.2435,swap|swap 0|swap 0 240081,swap_asset,False,False
+32,add liquidity: deposit 34.7951 SOL to aave (ethereum) — safe mode,deposit_asset,True,PASS,pass,1.9963,0.9006,2.2166,add liquidity|deposit|liquidity,deposit_asset|withdraw_asset,False,True
+33,market swap 5930 USDT->SOL using sushiswap on arbitrum — safe mode,swap_asset,True,PASS,pass,2.3597,0.9994,2.3612,swap|market swap|market swap 5930,swap_asset,False,False
+34,claim rewards on lido (polygon),claim_rewards,True,PASS,pass,1.4055,0.7331,1.9173,claim|claim rewards|claim rewards on,claim_rewards,False,False
+35,reduce loan by 27.7855 SOL on maker (polygon) — use normal gas,repay_asset,True,PASS,pass,1.9096,0.992,1.9249,loan|reduce loan|loan by,borrow_asset|repay_asset,False,True
+36,claim rewards on yearn (solana),claim_rewards,True,PASS,pass,1.4055,0.7331,1.9173,claim|claim rewards|claim rewards on,claim_rewards,False,False
+37,unstake 0.851611 WBTC from curve on base,unstake_asset,True,PASS,pass,2.0963,0.9806,2.1378,unstake|unstake 0|unstake 0 851611,unstake_asset,False,False
+38,unstake 10978 DAI from pendle on avalanche,unstake_asset,True,PASS,pass,1.0,1.0,1.0,unstake,unstake_asset,False,False
+39,pay back 31.7708 MATIC to aave on solana — ok with higher gas,repay_asset,True,PASS,pass,2.4057,1.0,2.4057,pay back|pay|pay back 31,repay_asset,False,False
+40,delegate 14.3826 ETH to yearn (avalanche) — use fast gas,stake_asset,True,PASS,pass,2.384,0.9974,2.3902,delegate|delegate 14|delegate 14 3826,stake_asset,False,False
+41,collect incentives at balancer (polygon) — right away,claim_rewards,True,PASS,pass,2.3564,0.9645,2.4432,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+42,market swap 26.3876 MATIC->WBTC using sushiswap on polygon with slippage 0.1% — right away,swap_asset,True,PASS,pass,2.5184,0.9999,2.5186,swap|swap 26|market swap,swap_asset,False,False
+43,withdraw staked 487.3202 OP from balancer ethereum — right away,unstake_asset,True,PASS,pass,2.0777,0.9587,2.1673,withdraw staked|withdraw staked 487|withdraw staked 487 3202,unstake_asset|stake_asset|withdraw_asset,False,True
+44,stake 1.271387 BTC on rocket pool (base),stake_asset,True,PASS,pass,2.15,0.9802,2.1935,stake|stake 1|stake 1 271387,stake_asset|unstake_asset|deposit_asset|withdraw_asset|claim_rewards,False,True
+45,claim rewards on maker (arbitrum),claim_rewards,True,PASS,pass,1.4055,0.7331,1.9173,claim|claim rewards|claim rewards on,claim_rewards,False,False
+46,trade 6823 USDC for ETH on curve (arbitrum) — now,swap_asset,True,PASS,pass,2.0172,0.9902,2.0373,trade|trade 6823|trade 6823 usdc,swap_asset,False,False
+47,deposit 28.967 WETH into yearn on arbitrum,deposit_asset,True,PASS,pass,2.1835,0.9741,2.2416,deposit|deposit 28|deposit 28 967,deposit_asset,False,False
+48,restake 3989.2693 LINK with curve on arbitrum,stake_asset,True,PASS,pass,1.7134,0.9267,1.849,restake|restake 3989|restake 3989 2693 link,stake_asset,False,False
+49,"unstake 4974.62 AAVE from rocket pool on avalanche — immediately, high yield mode",unstake_asset,True,PASS,pass,2.241,1.0,2.241,unstake|unstake 4974|unstake 4974 62,unstake_asset|deposit_asset|claim_rewards|withdraw_asset,False,True
+50,pull out 15.5176 MATIC from pendle — normal mode,withdraw_asset,True,PASS,pass,1.8928,0.9367,2.0208,pull out|pull|from,withdraw_asset|unstake_asset,False,True
+51,provide 3133.7058 OP on stargate — use normal gas,deposit_asset,True,PASS,pass,1.0,1.0,1.0,provide,deposit_asset,False,False
+52,lock 7.8507 WETH in curve on solana,stake_asset,True,PASS,pass,2.1104,0.9756,2.1633,lock|lock 7|lock 7 8507,stake_asset|unstake_asset,False,True
+53,harvest yield from lido on polygon,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards,False,False
+54,unlock 21.3856 AVAX at rocket pool (polygon) — this minute,unstake_asset,True,PASS,pass,2.3198,0.9973,2.326,unlock|unlock 21|unlock 21 3856,unstake_asset|deposit_asset|withdraw_asset|stake_asset,False,True
+55,unlock 38.9677 WETH at lido (base),unstake_asset,True,PASS,pass,1.7913,0.9416,1.9025,unlock|unlock 38|unlock 38 9677,unstake_asset,False,False
+56,redeem 3249.1634 OP from yearn (base),withdraw_asset,True,PASS,pass,1.6116,0.9144,1.7624,redeem|from|redeem 3249,withdraw_asset,False,False
+57,claim staking rewards on curve base,claim_rewards,True,PASS,pass,1.3798,0.7609,1.8134,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+58,restake 10622 USDC with lido on optimism — asap,stake_asset,True,PASS,pass,2.0432,0.9786,2.0879,restake|restake 10622|restake 10622 usdc,stake_asset,False,False
+59,repay 9261 USDC on compound (ethereum) — minimize gas,repay_asset,True,PASS,pass,1.9614,0.9778,2.0059,repay|repay 9261|repay 9261 usdc,repay_asset,False,False
+60,trade 3389.1714 OP for WBTC on curve (base) with slippage 1% — asap,swap_asset,True,PASS,pass,2.0596,0.997,2.0658,trade|trade 3389|trade 3389 1714 op,swap_asset,False,False
+61,swap 3229.3468 LINK to AAVE on curve avalanche with slippage 0.1%,swap_asset,True,PASS,pass,2.1427,0.9968,2.1496,swap|swap 3229|swap 3229 3468 link,swap_asset,False,False
+62,claim staking rewards on pendle optimism — high yield mode,claim_rewards,True,PASS,pass,1.6705,0.8356,1.9991,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+63,trade 32.883 MATIC for WBTC on curve (avalanche),swap_asset,True,PASS,pass,2.055,0.9915,2.0726,trade|trade 32|trade 32 883,swap_asset,False,False
+64,convert 1216 USDT into WETH via balancer on ethereum,swap_asset,True,PASS,pass,1.6724,0.9436,1.7724,convert|convert 1216|into,swap_asset,False,False
+65,close debt: repay 1346 USDT at maker polygon,repay_asset,True,PASS,pass,1.8844,0.8815,2.1377,repay|debt repay|debt,repay_asset|borrow_asset,False,True
+66,cash out 0.05873 BTC from maker (solana) — asap,withdraw_asset,True,PASS,pass,1.6073,0.9014,1.7831,cash out|cash out 0|from,withdraw_asset|unstake_asset,False,True
+67,unstake 40.3119 ETH from curve on polygon,unstake_asset,True,PASS,pass,1.9476,0.9781,1.9912,unstake|unstake 40|unstake 40 3119,unstake_asset,False,False
+68,top up curve with 2.2646 AVAX on arbitrum — use fast gas,deposit_asset,True,PASS,pass,2.4765,0.9999,2.4766,top up|top|up,deposit_asset,False,False
+69,claim staking rewards on aave solana,claim_rewards,True,PASS,pass,1.3798,0.7609,1.8134,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+70,swap 684.2186 LINK to USDC on uniswap arbitrum with slippage 0.2% — minimize gas,swap_asset,True,PASS,pass,2.1906,0.9997,2.1912,swap|swap 684|swap 684 2186 link,swap_asset|unstake_asset,False,True
+71,open debt: 1932.7248 ARB on compound solana using LINK as collateral,borrow_asset,True,PASS,pass,2.4867,0.9999,2.4868,open debt|open debt 1932|debt,borrow_asset|repay_asset,False,True
+72,restake 9.4125 SOL with lido on avalanche — ok with higher gas,stake_asset,True,PASS,pass,2.5977,0.9999,2.5978,restake|restake 9|restake 9 4125,stake_asset,False,False
+73,pull out 3415.9313 OP from uniswap — normal mode,withdraw_asset,True,PASS,pass,1.8928,0.9367,2.0208,pull out|pull|from,withdraw_asset|unstake_asset,False,True
+74,claim rewards on maker (solana) — use fast gas,claim_rewards,True,PASS,pass,2.4677,0.97,2.544,claim|claim rewards|claim rewards on,claim_rewards,False,False
+75,take a loan of 3451.5982 LINK via maker (arbitrum) — high yield mode,borrow_asset,True,PASS,pass,2.3579,0.9764,2.4149,take a loan|take a loan of|loan,borrow_asset|repay_asset|claim_rewards|withdraw_asset|deposit_asset,False,True
+76,provide 21597 DAI on rocket pool,deposit_asset,True,PASS,pass,1.0,0.6941,1.4407,provide|pool|rocket pool,deposit_asset,False,False
+77,remove 33.7285 MATIC from stargate,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+78,market swap 25.7623 ETH->SOL using balancer on avalanche with slippage 1%,swap_asset,True,PASS,pass,2.371,0.9969,2.3785,swap|market swap|swap 25,swap_asset,False,False
+79,swap 22.1568 SOL to ARB on curve ethereum — asap,swap_asset,True,PASS,pass,2.2032,0.9975,2.2086,swap|swap 22|swap 22 1568,swap_asset,False,False
+80,stake 1629.5167 ARB on yearn (solana),stake_asset,True,PASS,pass,1.7621,0.9526,1.8498,stake|stake 1629|stake 1629 5167,stake_asset|unstake_asset,False,True
+81,reduce loan by 12486 USDC on compound (ethereum),repay_asset,True,PASS,pass,1.4006,0.8879,1.5774,loan|reduce loan|loan by,borrow_asset|repay_asset,False,True
+82,lock 3747.8802 AAVE in rocket pool on avalanche — now,stake_asset,True,PASS,pass,2.2328,0.9973,2.239,lock|lock 3747|lock 3747 8802,stake_asset|unstake_asset|withdraw_asset|deposit_asset,False,True
+83,"withdraw staked 19757 USDT from lido ethereum — today, use fast gas, normal mode",unstake_asset,True,PASS,pass,2.547,1.0,2.547,withdraw staked|withdraw staked 19757|staked,unstake_asset|stake_asset|withdraw_asset,False,True
+84,withdraw 222.9527 LINK from uniswap on arbitrum,withdraw_asset,True,PASS,pass,1.3127,0.8423,1.5585,withdraw|from|withdraw 222 9527,withdraw_asset|unstake_asset,False,True
+85,draw 14223 USDT from aave on ethereum,borrow_asset,True,PASS,pass,1.7045,0.9536,1.7874,draw|draw 14223|draw 14223 usdt,borrow_asset,False,False
+86,pay back 16161 USDT to aave on solana — immediately,repay_asset,True,PASS,pass,2.0708,0.9915,2.0886,pay back|pay|pay back 16161,repay_asset,False,False
+87,redeem 1319.6368 ARB from compound (ethereum) — right away,withdraw_asset,True,PASS,pass,1.7111,0.9241,1.8517,redeem|redeem 1319|from,withdraw_asset,False,False
+88,claim rewards on stargate (ethereum),claim_rewards,True,PASS,pass,1.4055,0.7331,1.9173,claim|claim rewards|claim rewards on,claim_rewards,False,False
+89,undelegate 1.00574 WBTC on pendle (solana) — immediately,unstake_asset,True,PASS,pass,2.3191,0.9738,2.3814,undelegate|undelegate 1|undelegate 1 00574,unstake_asset,False,False
+90,convert 11.5522 ETH into MATIC via sushiswap on base with slippage 0.2%,swap_asset,True,PASS,pass,1.7455,0.9479,1.8415,convert|convert 11|into,swap_asset|deposit_asset,False,True
+91,undelegate 2664.3434 AAVE on balancer (base),unstake_asset,True,PASS,pass,1.9752,0.9364,2.1093,undelegate|undelegate 2664|undelegate 2664 3434,unstake_asset,False,False
+92,restake 33.1326 AVAX with curve on arbitrum,stake_asset,True,PASS,pass,2.1172,0.9771,2.1669,restake|restake 33|restake 33 1326,stake_asset,False,False
+93,pull out 41.2999 AVAX from lido — normal mode,withdraw_asset,True,PASS,pass,1.8928,0.9367,2.0208,pull out|pull|from,withdraw_asset|unstake_asset,False,True
+94,fund compound with 3877.0728 ARB (optimism) — this minute,deposit_asset,True,PASS,pass,2.047,0.9905,2.0668,fund|fund compound|fund compound with,deposit_asset,False,False
+95,restake 4652.2459 ARB with pendle on optimism,stake_asset,True,PASS,pass,2.0776,0.9767,2.1272,restake|restake 4652|restake 4652 2459,stake_asset,False,False
+96,claim rewards on lido (polygon),claim_rewards,True,PASS,pass,1.4055,0.7331,1.9173,claim|claim rewards|claim rewards on,claim_rewards,False,False
+97,claim rewards on rocket pool (solana),claim_rewards,True,PASS,pass,1.8494,0.8588,2.1534,claim|claim rewards|claim rewards on,claim_rewards|deposit_asset|withdraw_asset,False,True
+98,collect incentives at compound (polygon) — asap,claim_rewards,True,PASS,pass,2.2273,0.9443,2.3587,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+99,draw 1.156234 WBTC from compound on solana using WETH as collateral,borrow_asset,True,PASS,pass,2.2302,0.9922,2.2477,draw|draw 1|draw 1 156234 wbtc,borrow_asset,False,False
+100,"collect incentives at sushiswap (avalanche) — now, minimize gas",claim_rewards,True,PASS,pass,2.4707,0.9786,2.5246,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+101,add liquidity: deposit 2624.4826 ARB to pendle (ethereum),deposit_asset,True,PASS,pass,1.6625,0.8345,1.9921,add liquidity|deposit|liquidity,deposit_asset|withdraw_asset,False,True
+102,remove 5.7029 WETH from stargate — normal mode,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+103,"top up compound with 2239.2724 LINK on avalanche — this minute, ok with higher gas",deposit_asset,True,PASS,pass,2.5104,1.0,2.5104,top up|top|top up compound,deposit_asset,False,False
+104,take a loan of 3535 USDC via aave (ethereum) — safe mode,borrow_asset,True,PASS,pass,2.2158,0.9575,2.3141,take a loan|take a loan of|loan,borrow_asset|repay_asset|deposit_asset|withdraw_asset,False,True
+105,lock 4333.2006 LINK in pendle on solana,stake_asset,True,PASS,pass,2.0059,0.9736,2.0603,lock|lock 4333 2006|lock 4333,stake_asset|unstake_asset|deposit_asset,False,True
+106,pay back 17505 USDT to aave on ethereum,repay_asset,True,PASS,pass,1.9924,0.9801,2.0329,pay back|pay|pay back 17505,repay_asset,False,False
+107,open debt: 18254 DAI on aave arbitrum,borrow_asset,True,PASS,pass,2.016,0.9567,2.1073,open debt|open debt 18254|debt,borrow_asset|repay_asset,False,True
+108,claim staking rewards on aave arbitrum,claim_rewards,True,PASS,pass,1.3798,0.7609,1.8134,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+109,harvest yield from balancer on arbitrum,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards,False,False
+110,put 2517.84 OP into rocket pool,deposit_asset,True,ABSTAIN,below_threshold,0.6823,0.5796,1.1772,pool|into|put,,False,False
+111,fund balancer with 46.3296 ETH (optimism),deposit_asset,True,PASS,pass,1.7017,0.946,1.7988,fund|fund balancer|fund balancer with,deposit_asset,False,False
+112,pay back 22903 USDC to aave on solana — safe mode,repay_asset,True,PASS,pass,2.2063,0.9975,2.2118,pay back|pay|pay back 22903,repay_asset,False,False
+113,market swap 6682 DAI->ARB using sushiswap on base with slippage 1%,swap_asset,True,PASS,pass,2.4069,0.9999,2.4071,swap|market swap|market swap 6682,swap_asset,False,False
+114,market swap 1.327043 BTC->ETH using uniswap on solana with slippage 0.2% — high yield mode,swap_asset,True,PASS,pass,2.6456,1.0,2.6457,swap|swap 1|market swap,swap_asset|claim_rewards|unstake_asset,False,True
+115,swap 17722 USDT to MATIC on sushiswap avalanche with slippage 0.5% — safe mode,swap_asset,True,PASS,pass,2.2114,1.0,2.2114,swap|swap 17722|swap 17722 usdt,swap_asset,False,False
+116,deposit 3200.9519 OP into balancer on optimism — immediately,deposit_asset,True,PASS,pass,2.221,0.9888,2.2461,deposit|deposit 3200 9519|deposit 3200,deposit_asset|swap_asset,False,True
+117,pay back 45.0458 WETH to maker on arbitrum — now,repay_asset,True,PASS,pass,2.2287,0.9974,2.2345,pay back|pay|pay back 45,repay_asset,False,False
+118,claim staking rewards on rocket pool arbitrum — normal mode,claim_rewards,True,PASS,pass,1.6705,0.8356,1.9991,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|deposit_asset|stake_asset|withdraw_asset,False,True
+119,harvest yield from uniswap on base,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards|unstake_asset,False,True
+120,collect incentives at maker (avalanche),claim_rewards,True,PASS,pass,2.0646,0.9143,2.2582,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+121,remove 8739 USDT from pendle — use normal gas,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+122,withdraw staked 3551.824 ARB from rocket pool avalanche — use fast gas,unstake_asset,True,PASS,pass,2.3244,0.9918,2.3437,withdraw staked|withdraw staked 3551|withdraw staked 3551 824,unstake_asset|stake_asset|deposit_asset|withdraw_asset,False,True
+123,fund lido with 20458 DAI (base),deposit_asset,True,PASS,pass,1.4446,0.9054,1.5955,fund|fund lido|fund lido with,deposit_asset,False,False
+124,repay 13457 DAI on maker (solana),repay_asset,True,PASS,pass,1.5331,0.8989,1.7056,repay|repay 13457|repay 13457 dai,repay_asset,False,False
+125,collect incentives at balancer (base),claim_rewards,True,PASS,pass,2.0646,0.9143,2.2582,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+126,"remove 14285 USDT from pendle — now, safe mode",withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+127,lock 3499.5595 LINK in pendle on arbitrum,stake_asset,True,PASS,pass,1.9179,0.976,1.9651,lock|lock 3499|lock 3499 5595,stake_asset|unstake_asset|deposit_asset,False,True
+128,claim staking rewards on balancer solana — normal mode,claim_rewards,True,PASS,pass,1.5899,0.8252,1.9267,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+129,swap 21.4244 AVAX to OP on uniswap optimism,swap_asset,True,PASS,pass,2.232,0.9903,2.254,swap|swap 21|swap 21 4244,swap_asset|unstake_asset,False,True
+130,unstake 725.1881 ARB from rocket pool on avalanche — immediately,unstake_asset,True,PASS,pass,2.128,0.998,2.1323,unstake|unstake 725|unstake 725 1881,unstake_asset|deposit_asset|withdraw_asset,False,True
+131,supply 7.8146 WETH to stargate,deposit_asset,True,PASS,pass,1.6001,0.8992,1.7794,supply|supply 7|supply 7 8146,deposit_asset,False,False
+132,trade 42.474 ETH for USDT on curve (solana) with slippage 0.2%,swap_asset,True,PASS,pass,2.2968,1.0,2.2969,trade|trade 42|trade 42 474,swap_asset,False,False
+133,convert 34.6057 ETH into BTC via balancer on polygon with slippage 1%,swap_asset,True,PASS,pass,2.2904,1.0,2.2905,convert|convert 34|convert 34 6057,swap_asset|deposit_asset,False,True
+134,trade 18672 USDT for AAVE on sushiswap (arbitrum),swap_asset,True,PASS,pass,1.0,1.0,1.0,trade,swap_asset,False,False
+135,restake 4672 DAI with lido on solana — asap,stake_asset,True,PASS,pass,2.0624,0.9782,2.1085,restake|restake 4672|restake 4672 dai,stake_asset,False,False
+136,withdraw 18.0414 SOL from stargate on avalanche — asap,withdraw_asset,True,PASS,pass,2.2771,0.9887,2.3032,withdraw|withdraw 18|withdraw 18 0414,withdraw_asset|unstake_asset,False,True
+137,harvest yield from uniswap on optimism,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards|unstake_asset,False,True
+138,restake 25.5694 MATIC with lido on arbitrum,stake_asset,True,PASS,pass,2.0729,0.9785,2.1185,restake|restake 25|restake 25 5694,stake_asset,False,False
+139,"unstake 12.0945 WETH from lido on avalanche — this minute, use fast gas",unstake_asset,True,PASS,pass,2.3861,1.0,2.3861,unstake|unstake 12|unstake 12 0945,unstake_asset,False,False
+140,close debt: repay 23.4877 WETH at compound ethereum — ok with higher gas,repay_asset,True,PASS,pass,2.4129,0.976,2.4723,repay|debt repay|debt,repay_asset|borrow_asset,False,True
+141,swap 1.258954 BTC to WETH on sushiswap arbitrum — safe mode,swap_asset,True,PASS,pass,2.1698,0.983,2.2073,swap|swap 1|swap 1 258954 btc,swap_asset,False,False
+142,unstake 16.5648 ETH from yearn on solana,unstake_asset,True,PASS,pass,2.0225,0.9767,2.0707,unstake|unstake 16|unstake 16 5648,unstake_asset,False,False
+143,collect incentives at yearn (solana) — right away,claim_rewards,True,PASS,pass,2.3564,0.9645,2.4432,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+144,restake 27.2527 SOL with curve on avalanche — normal mode,stake_asset,True,PASS,pass,2.3956,0.9975,2.4017,restake|restake 27|restake 27 2527,stake_asset,False,False
+145,remove 165.6592 AAVE from rocket pool,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.6336,1.117,from|pool|remove,deposit_asset,True,False
+146,restake 1.900363 BTC with yearn on avalanche — high yield mode,stake_asset,True,PASS,pass,2.5489,0.9995,2.5502,restake|restake 1|restake 1 900363,stake_asset|claim_rewards,False,True
+147,withdraw 3214.8506 AAVE from compound on avalanche — safe mode,withdraw_asset,True,PASS,pass,1.7276,0.9254,1.8669,withdraw|withdraw 3214|from,withdraw_asset,False,False
+148,claim rewards on yearn (avalanche) — today,claim_rewards,True,PASS,pass,1.8494,0.8588,2.1534,claim|claim rewards|claim rewards on,claim_rewards,False,False
+149,"stake 48.0545 SOL on rocket pool (ethereum) — immediately, high yield mode",stake_asset,True,PASS,pass,2.4575,0.9999,2.4577,stake|stake 48|stake 48 0545,stake_asset|unstake_asset|claim_rewards|deposit_asset|withdraw_asset,False,True
+150,remove 1437.6033 OP from compound,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+151,repay 43.6674 WETH on aave (arbitrum) — use normal gas,repay_asset,True,PASS,pass,2.2518,0.9975,2.2575,repay|repay 43|repay 43 6674,repay_asset,False,False
+152,harvest yield from uniswap on arbitrum,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards|unstake_asset,False,True
+153,top up balancer with 37.2422 WETH on ethereum,deposit_asset,True,PASS,pass,2.2432,0.9901,2.2657,top up|top|up,deposit_asset,False,False
+154,harvest yield from stargate on avalanche — this minute,claim_rewards,True,PASS,pass,2.2161,0.9721,2.2798,harvest|harvest yield|harvest yield from,claim_rewards,False,False
+155,claim rewards on compound (polygon),claim_rewards,True,PASS,pass,1.4055,0.7331,1.9173,claim|claim rewards|claim rewards on,claim_rewards,False,False
+156,unlock 13262 DAI at balancer (polygon) — ok with higher gas,unstake_asset,True,PASS,pass,2.0981,0.9975,2.1033,unlock|unlock 13262|unlock 13262 dai,unstake_asset,False,False
+157,pay back 45.8378 WETH to maker on polygon,repay_asset,True,PASS,pass,2.1164,0.9902,2.1373,pay back|pay|pay back 45,repay_asset,False,False
+158,stake 44.4797 MATIC on balancer (ethereum),stake_asset,True,PASS,pass,1.8396,0.9499,1.9367,stake|stake 44|stake 44 4797,stake_asset|unstake_asset,False,True
+159,reduce loan by 23958 USDT on aave (optimism),repay_asset,True,PASS,pass,1.4006,0.8879,1.5774,loan|reduce loan|loan by,borrow_asset|repay_asset,False,True
+160,trade 34.9473 MATIC for BTC on uniswap (polygon) with slippage 0.1%,swap_asset,True,PASS,pass,2.2203,1.0,2.2204,trade|trade 34|trade 34 9473,swap_asset|unstake_asset,False,True
+161,pull out 29.7726 MATIC from maker — normal mode,withdraw_asset,True,PASS,pass,1.8928,0.9367,2.0208,pull out|pull|from,withdraw_asset|unstake_asset,False,True
+162,"repay 2711.6001 ARB on maker (base) — today, safe mode",repay_asset,True,PASS,pass,2.2025,0.9974,2.2082,repay|repay 2711|repay 2711 6001,repay_asset,False,False
+163,restake 9.365 ETH with balancer on base,stake_asset,True,PASS,pass,2.254,0.9724,2.3181,restake|restake 9|restake 9 365,stake_asset,False,False
+164,top up lido with 42.3714 MATIC on arbitrum,deposit_asset,True,PASS,pass,2.2724,0.9894,2.2968,top up|top|top up lido,deposit_asset,False,False
+165,claim staking rewards on curve solana,claim_rewards,True,PASS,pass,1.3798,0.7609,1.8134,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+166,delegate 34.0667 WETH to balancer (optimism),stake_asset,True,PASS,pass,1.8709,0.9467,1.9763,delegate|delegate 34|delegate 34 0667,stake_asset,False,False
+167,pull out 1.860781 WBTC from curve,withdraw_asset,True,PASS,pass,2.056,0.9434,2.1794,pull out|pull|pull out 1,withdraw_asset|unstake_asset,False,True
+168,remove 1.677774 WBTC from compound,withdraw_asset,True,ABSTAIN,below_threshold,0.7077,0.7896,0.8963,from|remove,,False,False
+169,"market swap 16193 DAI->LINK using uniswap on solana with slippage 1% — minimize gas, high yield mode",swap_asset,True,PASS,pass,2.39,1.0,2.39,swap|market swap|swap 16193,swap_asset|claim_rewards|unstake_asset,False,True
+170,undelegate 49.0211 MATIC on balancer (avalanche),unstake_asset,True,PASS,pass,1.9765,0.9407,2.1011,undelegate|undelegate 49|undelegate 49 0211,unstake_asset,False,False
+171,unlock 1307.1878 OP at pendle (arbitrum) — today,unstake_asset,True,PASS,pass,1.66,0.9347,1.776,unlock|unlock 1307|unlock 1307 1878 op,unstake_asset,False,False
+172,take a loan of 3193.3486 LINK via aave (arbitrum) using SOL as collateral,borrow_asset,True,PASS,pass,2.4516,0.9858,2.487,take a loan|take a loan of|loan,borrow_asset|repay_asset|deposit_asset|withdraw_asset,False,True
+173,"top up yearn with 3363.8293 OP on ethereum — asap, use normal gas",deposit_asset,True,PASS,pass,2.5716,1.0,2.5716,top up|top|top up yearn,deposit_asset,False,False
+174,stake 3277.616 LINK on lido (base) — use fast gas,stake_asset,True,PASS,pass,2.1973,0.9975,2.2029,stake|stake 3277|stake 3277 616,stake_asset|unstake_asset,False,True
+175,withdraw 3483.9524 AAVE from lido on solana,withdraw_asset,True,PASS,pass,2.0368,0.9739,2.0914,withdraw|withdraw 3483|withdraw 3483 9524,withdraw_asset,False,False
+176,harvest yield from curve on solana,claim_rewards,True,PASS,pass,1.6748,0.8689,1.9276,harvest|harvest yield|harvest yield from,claim_rewards,False,False
+177,lock 2.388027 BTC in rocket pool on avalanche,stake_asset,True,PASS,pass,2.2263,0.9904,2.2478,lock|lock 2|lock 2 388027,stake_asset|unstake_asset|withdraw_asset|deposit_asset,False,True
+178,unlock 0.630628 WBTC at balancer (solana) — ok with higher gas,unstake_asset,True,PASS,pass,2.4325,0.9995,2.4336,unlock|unlock 0|unlock 0 630628,unstake_asset|stake_asset,False,True
+179,claim staking rewards on pendle ethereum — this minute,claim_rewards,True,PASS,pass,1.5899,0.8252,1.9267,claim|staking rewards|staking rewards on,claim_rewards|unstake_asset|stake_asset,False,True
+180,draw 2003.1529 LINK from aave on optimism — ok with higher gas,borrow_asset,True,PASS,pass,2.4336,0.9999,2.4338,draw|draw 2003|draw 2003 1529,borrow_asset,False,False
+181,unlock 3290.3395 ARB at curve (solana) — now,unstake_asset,True,PASS,pass,1.9502,0.9768,1.9966,unlock|unlock 3290|unlock 3290 3395,unstake_asset,False,False
+182,pay back 0.0606 WETH to aave on avalanche,repay_asset,True,PASS,pass,2.2061,0.9881,2.2326,pay back|pay back 0|pay,repay_asset,False,False
+183,unstake 2101.4644 AAVE from curve on solana — today,unstake_asset,True,PASS,pass,2.0488,0.9912,2.0671,unstake|unstake 2101|unstake 2101 4644,unstake_asset,False,False
+184,"top up compound with 12.4491 WETH on solana — this minute, use fast gas",deposit_asset,True,PASS,pass,2.5104,1.0,2.5104,top up|top|top up compound,deposit_asset,False,False
+185,top up uniswap with 1.844295 WBTC on solana,deposit_asset,True,PASS,pass,2.2589,0.9897,2.2824,top up|top|top up uniswap,deposit_asset|unstake_asset,False,True
+186,top up curve with 48.2305 SOL on arbitrum,deposit_asset,True,PASS,pass,2.2432,0.9901,2.2657,top up|top|up,deposit_asset,False,False
+187,put 11650 USDT into aave,deposit_asset,True,ABSTAIN,below_threshold,0.6823,0.7303,0.9343,into|put,,False,False
+188,repay 4845.8086 AAVE on aave (polygon) — use normal gas,repay_asset,True,PASS,pass,2.2099,0.9975,2.2155,repay|repay 4845|repay 4845 8086,repay_asset,False,False
+189,repay 1.045258 WBTC on maker (arbitrum),repay_asset,True,PASS,pass,1.9915,0.9493,2.098,repay|repay 1|repay 1 045258,repay_asset|borrow_asset,False,True
+190,repay 3898.7463 ARB on aave (base) — use fast gas,repay_asset,True,PASS,pass,2.2271,0.9973,2.2331,repay|repay 3898|repay 3898 7463,repay_asset,False,False
+191,"close debt: repay 36.141 AVAX at compound base — today, use fast gas",repay_asset,True,PASS,pass,2.4129,0.976,2.4723,repay|debt repay|debt,repay_asset|borrow_asset,False,True
+192,harvest yield from compound on solana — use fast gas,claim_rewards,True,PASS,pass,2.3688,0.9883,2.3969,harvest|harvest yield|harvest yield from,claim_rewards,False,False
+193,borrow 45.021 ETH from compound on arbitrum,borrow_asset,True,PASS,pass,1.9881,0.9755,2.0381,borrow|borrow 45|borrow 45 021,borrow_asset,False,False
+194,convert 3330.1 OP into USDC via sushiswap on base,swap_asset,True,PASS,pass,1.1645,0.84,1.3863,convert|into|convert 3330 1 op,deposit_asset|swap_asset,False,True
+195,collect incentives at stargate (ethereum),claim_rewards,True,PASS,pass,2.0646,0.9143,2.2582,collect incentives|collect incentives at|incentives,claim_rewards,False,False
+196,open debt: 10.5308 ETH on maker solana,borrow_asset,True,PASS,pass,1.7451,0.8805,1.9819,open debt|open debt 10|open debt 10 5308,borrow_asset|repay_asset,False,True
+197,open debt: 6583 DAI on compound avalanche,borrow_asset,True,PASS,pass,1.996,0.9562,2.0875,open debt|open debt 6583|debt,borrow_asset|repay_asset,False,True
+198,"supply 1486.4032 OP to curve — immediately, high yield mode",deposit_asset,True,PASS,pass,1.6482,0.9523,1.7309,supply|supply 1486|high,deposit_asset|claim_rewards,False,True
+199,convert 7370 USDT into AVAX via balancer on solana with slippage 1% — today,swap_asset,True,PASS,pass,1.5874,0.938,1.6923,convert|into|convert 7370,swap_asset,False,False
