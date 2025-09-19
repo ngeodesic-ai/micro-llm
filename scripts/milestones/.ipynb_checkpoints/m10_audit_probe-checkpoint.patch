@@ -1,0 +1,139 @@
+*** a/milestones/defi_milestone10.py
+--- b/milestones/defi_milestone10.py
+***************
+*** 4,10 ****
+  import argparse, json, time, random, copy, pathlib, hashlib
+  from typing import Dict, Any, List, Tuple
+  from micro_lm.pipelines.runner import run_micro
+  import numpy as np
+  
+  
+--- 4,20 ----
+  import argparse, json, time, random, copy, pathlib, hashlib
+  from typing import Dict, Any, List, Tuple
+  from micro_lm.pipelines.runner import run_micro
+  import numpy as np
++ 
++ # --- Optional, tautology-free audit probe (evidence-only)
++ try:
++     # package path
++     from micro_lm.domains.defi.verify import run_audit  # type: ignore
++ except Exception:
++     try:
++         # local dev fallback if running outside package
++         from verify import run_audit  # type: ignore
++     except Exception:
++         run_audit = None  # probe disabled if not available
+  
+  
+***************
+*** 76,92 ****
+- def run_once(prompt: str, context: Dict[str, Any], policy: Dict[str, Any], rails: str, T: int) -> Dict[str, Any]:
++ def _audit_probe(prompt: str, gold_label: str,
++                  sbert_model: str = "sentence-transformers/all-MiniLM-L6-v2",
++                  n_max: int = 4, tau_span: float = 0.50, tau_rel: float = 0.60, tau_abs: float = 0.93,
++                  L: int = 160, beta: float = 8.6, sigma: float = 0.0) -> Dict[str, Any]:
++     """
++     Single-example, evidence-only audit (no mapper coupling). Returns dict with ok_gold/pred/accepts.
++     Disabled if run_audit is unavailable.
++     """
++     if run_audit is None or not gold_label:
++         return {}
++     res = run_audit([prompt], [gold_label],
++                     sbert_model=sbert_model, n_max=n_max,
++                     tau_span=tau_span, tau_rel=tau_rel, tau_abs=tau_abs,
++                     L=L, beta=beta, sigma=sigma, competitive_eval=False)
++     row = (res or {}).get("rows", [{}])[0]
++     return {
++         "ok_gold": bool(row.get("ok", False)),
++         "pred": row.get("pred", ""),
++         "accepts": (row.get("tags", {}) or {}).get("accepts", [])
++     }
++ 
++ 
++ def run_once(prompt: str, context: Dict[str, Any], policy: Dict[str, Any], rails: str, T: int,
++              gold_label: str | None = None) -> Dict[str, Any]:
+      res = run_micro("defi", prompt, context=context, policy=policy, rails=rails, T=T)
+      seq = (res.get("plan") or {}).get("sequence") or []
+      top1 = seq[0] if seq else None
+      verify = res.get("verify") or {}
+      flags  = res.get("flags")  or {}
+      aux    = res.get("aux")    or {}
+      # keep only json-safe, scalar-ish aux bits
+      out = {
+          "prompt": prompt,
+          "top1": top1,
+          "flags": {k: flags[k] for k in flags if isinstance(flags[k], (str, int, float, bool))},
+          "verify": {
+              "ok": bool(verify.get("ok", False)),
+              "reason": (verify.get("reason") or "")
+          },
+          "aux": {
+              "mapper_confidence": float(aux.get("mapper_confidence") or 0.0)
+          },
+      }
++     # attach audit probe when we have a concrete expected primitive (skip for None/non-exec cases)
++     if gold_label:
++         out["audit"] = _audit_probe(prompt, gold_label)
+      return out
+***************
+*** 116,127 ****
+-     for case in SCENARIOS:
+-         single = run_once(case["prompt"], ctx_base, pol_base, args.rails, args.T)
++     for case in SCENARIOS:
++         gold = case.get("expect_top1") if case.get("expect_top1") in {"deposit_asset","withdraw_asset","swap_asset","borrow_asset","repay_asset","stake_asset","unstake_asset","claim_rewards"} else None
++         single = run_once(case["prompt"], ctx_base, pol_base, args.rails, args.T, gold_label=gold)
+          ok, why = check_expect(single, case)
+          stab = stability(case["prompt"], args.runs, ctx_base, pol_base, args.rails, args.T)
+          if not ok or (case.get("expect_top1") and not stab["stable_top1"]):
+              overall_ok = False
+              failures.append(f"{case['name']}: {why or 'top1 not stable'}")
+          scenarios_out.append({
+              "name": case["name"],
+              # inspector expects: sc["output"]["prompt"] and sc["output"]["top1"]
+              "output": {
+                  "prompt": single["prompt"],
+                  "top1": single["top1"],
+                  "verify": {"ok": bool((single.get("verify") or {}).get("ok"))}
+              },
+              # keep these for humans / other tools
+              "ok": ok and ((case.get("expect_top1") is None) or stab["stable_top1"]),
+              "prompt": single["prompt"],          # convenience duplicate
+              "top1": single["top1"],              # convenience duplicate
+              "verify_ok": bool((single.get("verify") or {}).get("ok")),
+              "stable_top1": stab["stable_top1"],
+              "top1_list": stab["top1_list"],
+              "reason": "" if ok else why
+          })
+***************
+*** 131,146 ****
+-     if args.perturb:
++     if args.perturb:
+          seed0 = 20259
+          for case in SCENARIOS:
+              case_ok = True
+              pert_runs = []
+              for j in range(max(1, args.perturb_k)):
+                  p_prompt = perturb_prompt(case["prompt"], seed0 + j)
+                  p_ctx    = perturb_context(ctx_base, seed0 + j)
+-                 out      = run_once(p_prompt, p_ctx, pol_base, args.rails, args.T)
++                 gold     = case.get("expect_top1") if case.get("expect_top1") in {"deposit_asset","withdraw_asset","swap_asset","borrow_asset","repay_asset","stake_asset","unstake_asset","claim_rewards"} else None
++                 out      = run_once(p_prompt, p_ctx, pol_base, args.rails, args.T, gold_label=gold)
+                  ok_j, why_j = check_expect(out, case)
+                  if not ok_j:
+                      case_ok = False
+                  pert_runs.append({"variant": j, "ok": ok_j, "why": "" if ok_j else why_j, "output": out})
+              if not case_ok:
+                  overall_ok = False
+                  failures.append(f"{case['name']}: perturbation failures")
+              rep = pert_runs[0]["output"]
+              scenarios_out.append({
+                  "name": case["name"] + "_perturb",
+                  "ok": case_ok,
+                  "output": {
+                      "prompt": rep["prompt"],
+                      "top1": rep["top1"],
+                      "verify": {"ok": bool((rep.get("verify") or {}).get("ok"))}
+                  },
+                  "runs": pert_runs
+              })

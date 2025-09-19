@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: micro-lm
+Version: 0.0.0a0
+Requires-Python: >=3.10
+License-File: LICENSE
+Provides-Extra: sbert
+Requires-Dist: sentence-transformers<3,>=2.7; extra == "sbert"
+Requires-Dist: scikit-learn<2,>=1.3; extra == "sbert"
+Requires-Dist: joblib<2,>=1.3; extra == "sbert"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Dynamic: license-file

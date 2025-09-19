@@ -1,0 +1,7 @@
+#!/Users/ian_moore/repos/micro-lm/.venv/bin/python3
+import sys
+from micro_lm.cli.defi_audit_bench import main
+if __name__ == '__main__':
+    if sys.argv[0].endswith('.exe'):
+        sys.argv[0] = sys.argv[0][:-4]
+    sys.exit(main())

@@ -40,6 +40,27 @@ try:
 except Exception:
     verify_with_mapper = None
 
+# --- Optional: include tautology-free audit bench metrics in M11 report (read-only)
+import json as _json_mod
+from pathlib import Path as _Path_mod
+try:
+    # constants/types only; no mapper coupling
+    from micro_lm.domains.defi import verify as _verify_mod  # type: ignore
+except Exception:
+    _verify_mod = None
+
+def _load_audit_metrics(path: str | None):
+    if not path:
+        return None
+    P = _Path_mod(path)
+    if not P.exists():
+        return None
+    try:
+        return _json_mod.loads(P.read_text())
+    except Exception:
+        return None
+
+
 ARTIF = Path(".artifacts")
 ARTIF.mkdir(parents=True, exist_ok=True)
 

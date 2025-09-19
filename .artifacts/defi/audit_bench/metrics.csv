@@ -1,2 +1,0 @@
-conf_thr,tau_span,rel_margin,total,approved,rejected,coverage,abstain_rate,accuracy_on_approved,overall_accuracy
-0.7,0.55,0.06,6,4,2,0.6666666666666666,0.3333333333333333,1.0,0.6666666666666666

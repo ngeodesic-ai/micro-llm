@@ -16,6 +16,7 @@ package-dir = {"" = "src"}
 [project.scripts]
 micro-lm = "micro_lm.cli.entry:main"
 micro-lm-bench = "micro_lm.bench_cli:main"
+micro-lm-audit-bench = "micro_lm.cli.defi_audit_bench:main"
 
 [project.optional-dependencies]
 sbert = [
