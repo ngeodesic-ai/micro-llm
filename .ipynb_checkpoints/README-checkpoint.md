@@ -27,10 +27,10 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 ---
 
-## Why this repo?
+## What’s included
 
-- **ARC micro-LM (today):** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
-- **DeFi micro-LM (next):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
+- **ARC micro-LM :** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
+- **DeFi micro-LM:** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
 
 > NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
 
@@ -41,11 +41,6 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 - **Stage-11 (Denoise):** stabilization via hybrid EMA+median smoothing, confidence gates, seed-jitter averaging — the Warp→Detect→Denoise doctrine to suppress phantoms.
 
 These are provided by the `ngeodesic` package and reused here without modification.
-
-### What’s included
-
-- **ARC sandbox**: synthetic adapters that produce per-primitive traces; evaluation scripts that compute accuracy, precision/recall/F1, and NGF-native rates (hallucination/omission).
-- **DeFi stubs (WIP)**: adapters for market features → latent traces; same parser/denoiser stack; same metrics.
 
 ---
 
