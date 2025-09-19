@@ -59,7 +59,8 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 ### **Tier-1: Micro-LM on Synthetic Latents (In Progress)**  
 - Replace hashmap lookups with a **trained micro-LM encoder**.  
-- Train against **2–5k synthetic latent prompts**.  
+- Train against **2–5k synthetic latent prompts**.
+- Include audit step **using matched filter on latents**
 - Benchmark with full Stage-11 runner on DeFi suites.
 
 **Status:** ✅ Complete — MVP secured.
