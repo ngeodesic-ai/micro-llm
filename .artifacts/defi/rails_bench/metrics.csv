@@ -1,4 +1,4 @@
 prompt,pred,reason,ok
 deposit 10 ETH into aave,,shim:accept:stage-4,True
 swap 2 ETH to USDC on uniswap v3,,shim:accept:stage-4,True
-borrow 500 USDC with ETH collateral at 70% ltv,,shim:accept:stage-11,False
+borrow 500 USDC with ETH collateral at 70% ltv,,shim:accept:stage-4,True
