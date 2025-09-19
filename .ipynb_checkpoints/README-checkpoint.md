@@ -8,7 +8,7 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 ## Tier-1 LLMs vs. micro-lm (DeFi Execution)
 
-| Dimension | Tier-1 LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-lm Tier-1 (DeFi)** |
+| Dimension | Tier-1 LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-LM Tier-1 (DeFi)** |
 |-----------|-------------------------------------------------------|-----------------------------|
 | **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k DeFi prompts. Benchmarked accuracy > 98% on swaps/deposits; abstains correctly when uncertain. |
 | **Determinism** | Outputs vary run-to-run (sampling drift). Even `temperature=0` doesn’t guarantee identical results. | Stage-11 NGF rails (Warp → Detect → Denoise) yield reproducible traces. Perturbation tests confirm stable decisions. |
