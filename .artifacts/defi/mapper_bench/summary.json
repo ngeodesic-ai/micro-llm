@@ -6,10 +6,10 @@
   ],
   "chosen": {
     "threshold": 0.7,
-    "abstain_rate": 0.16666666666666666,
-    "coverage": 0.8333333333333334,
-    "accuracy_on_fired": 1.0,
-    "overall_accuracy": 0.8333333333333334
+    "abstain_rate": 1.0,
+    "coverage": 0.0,
+    "accuracy_on_fired": 0.0,
+    "overall_accuracy": 0.0
   },
-  "timestamp": 1758311295
+  "timestamp": 1758314121
 }

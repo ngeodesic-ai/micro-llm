@@ -1,9 +1,7 @@
-# Micro-LM MVP — Benchmarks & Training Guide
+# Micro-LM SBERT — Benchmarks & Training Guide
 
 This guide explains how to **train** the Tier-1 mapper and how to run the three **MVP benchmarks**:
 - **Stage 8 (Mapper bench, ~5k prompts)** — validates the prompt→primitive mapper.
-- **Stage 10 (Rails bench)** — validates mapper + rails integration.
-- **Stage 11 (E2E bench)** — validates the full rails pipeline with deterministic reasons.
 
 ---
 
@@ -68,47 +66,8 @@ python3 defi_milestone8.py   --mapper_path .artifacts/defi_mapper.joblib   --pro
 
 ---
 
-## 3) Stage 10 — Rails Bench
-
-**Goal:** validate mapper + rails integration using the Stage-11 shim; keep non-regression gate.
-
-```bash
-python3 src/micro_lm/domains/defi/benches/rails_bench.py   --runs 3 --rails stage11 --gate_min 0.66
-```
-Outputs: `.artifacts/defi/rails_bench/{summary.json, report.md}`
-
-✅ Gate: `ok_acc ≥ 0.66`
-
----
-
-## 4) Stage 11 — End-to-End Bench
-
-**Goal:** validate the full rails pipeline (deterministic reason codes).
-
-```bash
-python3 src/micro_lm/domains/defi/benches/e2e_bench.py   --runs 3 --rails stage11 --gate_min 0.66
-```
-Outputs: `.artifacts/defi/e2e_bench/{summary.json, report.md}`
-
-✅ Gates: `ok_acc ≥ 0.66` **and** reasons deterministic
-
----
-
-## Troubleshooting
-
-- **Deprecation warnings (Transformers / Torch):** harmless. To hide them:
-  ```bash
-  PYTHONWARNINGS=ignore::FutureWarning your_command_here
-  ```
-- **Ganache/uws warnings:** appear only in tests that spin a chain; benches here don’t require local chain.
-- **Paths:** If your repo uses root-level `benches/`, the smoke tests auto-detect both root and `src/.../benches/` locations.
-
----
-
 ## TL;DR flow
 
 1. **Train mapper (SBERT)** → `.artifacts/defi_mapper.joblib`  
 2. **Run Stage 8 (5k)** → pin threshold (e.g., 0.5)  
-3. **Run Rails + E2E** → confirm MVP gates
 
-If all three pass, your MVP is green for demo and integration.

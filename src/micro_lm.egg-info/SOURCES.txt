@@ -31,6 +31,7 @@ src/micro_lm/core/interfaces/intent_mapper.py
 src/micro_lm/core/mapper/base.py
 src/micro_lm/domains/__init__.py
 src/micro_lm/domains/arc/__init__.py
+src/micro_lm/domains/arc/runner.py
 src/micro_lm/domains/arc/schema.py
 src/micro_lm/domains/arc/verify_local.py
 src/micro_lm/domains/defi/__init__.py
