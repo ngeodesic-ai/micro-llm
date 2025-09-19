@@ -292,6 +292,15 @@ def run_once(prompt: str, context: Dict[str, Any], policy: Dict[str, Any], rails
     res = run_micro("defi", prompt, context=context, policy=policy, rails=rails, T=T)
     plan = (res.get("plan") or {})
     seq  = plan.get("sequence") or plan.get("steps") or []
+
+    mapper_out = (res.get("artifacts") or {}).get("mapper", {})
+    print("[DEBUG][mapper.intent]:", mapper_out.get("intent"))
+    print("[DEBUG][mapper.raw]:", mapper_out)
+
+    print("[DEBUG][run_once] run_micro output keys:", list(res.keys()))
+    print("[DEBUG][run_once] label:", res.get("label"))
+    artifacts = res.get("artifacts") or {}
+    print("[DEBUG][run_once] mapper:", artifacts.get("mapper"))
     
     # Fallback to label/intent if sequence missing or abstain
     extracted = _extract_top1(seq)
@@ -424,6 +433,12 @@ def extract_reason_tokens(out: Dict[str, Any]) -> str:
     return " ".join([reason, tag_str, flag_keys]).strip()
 
 def check_expectations(case: Dict[str, Any], out: Dict[str, Any]) -> Tuple[bool, str]:
+
+    print(f"\n[DEBUG][check_expectations] case={case['name']}, expected_top1={case.get('expected_top1')}")
+    print("[DEBUG][check_expectations] out.label:", out.get("label"))
+    print("[DEBUG][check_expectations] out.reason:", out.get("reason"))
+    print("[DEBUG][check_expectations] out.score:", out.get("score"))
+    
     # top1 and verify.ok checks
     if "expect_top1" in case and out["top1"] != case["expect_top1"]:
         return False, f"expected top1={case['expect_top1']}, got={out['top1']}"
@@ -503,8 +518,7 @@ def consolidate_metrics(records: List[Dict[str, Any]]) -> Dict[str, float]:
 def run_suite(rails: str, T: int, runs: int, ctx_base: Dict[str, Any], pol_base: Dict[str, Any],
               edges: List[Dict[str, Any]], exec_ok: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[str]]:
     scenarios: List[Dict[str, Any]] = []
-    failures: List[str] = []
-
+    failures: List[str] = []   
     # Exec-ok cases (approve) — allow case patches like edges
     for i, case in enumerate(exec_ok, 1):
         name = case.get("name", f"exec_{i}")
@@ -512,8 +526,10 @@ def run_suite(rails: str, T: int, runs: int, ctx_base: Dict[str, Any], pol_base:
         ppatch = case.get("policy_patch", {})
         context = deep_merge(ctx_base, cpatch)
         policy  = deep_merge(pol_base, ppatch)
+        print(f"\n[DEBUG][run_suite] Running case: {case['name']}")   
         out = run_once(case["prompt"], context, policy, rails, T)
-        
+        print("[DEBUG][run_suite] Result label:", out.get("label"))
+        print("[DEBUG][run_suite] Result reason:", out.get("reason"))
         ok, why = check_expectations(case, out)
         if not ok:
             failures.append(f"{name}: {why}")
@@ -529,6 +545,8 @@ def run_suite(rails: str, T: int, runs: int, ctx_base: Dict[str, Any], pol_base:
             "ok": ok, "why": "" if ok else why,
         })
 
+
+    
     # (No second exec_ok loop — the patched one above already handles it)
 
     return scenarios, failures

@@ -8,19 +8,9 @@ benchmark over exec‑ok and edge (reject) scenarios. Optionally runs a baseline
 comparison (typically Stage‑10 rails) to show deltas in precision/recall,
 hallucination, and omission.
 
-python3 -m micro_lm.cli.defi_audit_bench \
-  --prompts_jsonl tests/fixtures/defi/defi_mapper_5k_prompts.jsonl \
-  --labels_csv    tests/fixtures/defi/defi_mapper_labeled_5k.csv \
-  --sbert sentence-transformers/all-MiniLM-L6-v2 \
-  --n_max 4 --tau_span 0.50 --tau_rel 0.60 --tau_abs 0.93 \
-  --L 160 --beta 8.6 --sigma 0.0 \
-  --out_dir .artifacts/defi/audit_bench \
-  --competitive_eval
-
-
 USAGE (examples)
 ----------------
-python3 scripts/milestones/defi_milestone11.py \
+python3 milestones/defi_milestone11.py \
   --rails stage11 --baseline_rails stage10 \
   --runs 5 --T 180 \
   --policy '{"ltv_max":0.75,"hf_min":1.0,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
@@ -396,7 +386,6 @@ def main():
     ap.add_argument("--compare_baseline", type=int, default=1, choices=[0,1])
     ap.add_argument("--out_json", default=str(ARTIF / "defi_milestone11_summary.json"))
     ap.add_argument("--out_md",   default=str(ARTIF / "defi_milestone11_report.md"))
-    ap.add_argument("--audit_metrics_json", default=".artifacts/defi/audit_bench/metrics_audit.json", help="optional: include audit bench metrics in the report")
     ap.add_argument("--max_halluc", type=float, default=0.01, help="fail if hallucination_rate > this")
     ap.add_argument("--min_exec_approve", type=float, default=0.90, help="fail if exec approval < this (1-omission)")
     ap.add_argument("--no_baseline", action="store_true")
@@ -454,21 +443,6 @@ def main():
         "failures": failures,
         "elapsed_sec": round(time.time() - started, 3),
     }
-
-
-# Optionally attach audit bench metrics (tautology-free) for context
-try:
-    _m11_audit = _load_audit_metrics(getattr(args, "audit_metrics_json", None))
-    if _m11_audit:
-        summary.setdefault("external", {})["audit_bench"] = {
-            "coverage": _m11_audit.get("coverage"),
-            "abstain_rate": _m11_audit.get("abstain_rate"),
-            "hallucination_rate": _m11_audit.get("hallucination_rate"),
-            "multi_accept_rate": _m11_audit.get("multi_accept_rate"),
-            "params": _m11_audit.get("params"),
-        }
-except Exception:
-    pass
 
     Path(args.out_json).write_text(json.dumps(summary, indent=2))
 

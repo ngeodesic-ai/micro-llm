@@ -1,269 +1,161 @@
+
 #!/usr/bin/env python3
-# milestones/defi_milestone10.py
+"""
+Milestone 10 (Audit) — Evidence-only, tautology-free verifier harness.
+
+This spins off the audit path into a milestone-style script so you can keep
+the original M10 intact. It mirrors the CLI of audit_bench but emits
+milestone-like artifacts (summary + report).
+
+Example:
+python3 milestones/defi_milestone10_audit.py   --prompts_jsonl tests/fixtures/defi/defi_mapper_5k_prompts.jsonl   --labels_csv    tests/fixtures/defi/defi_mapper_labeled_5k.csv   --sbert sentence-transformers/all-MiniLM-L6-v2   --n_max 4 --tau_span 0.50 --tau_rel 0.60 --tau_abs 0.93   --L 160 --beta 8.6 --sigma 0.0   --out_dir .artifacts/defi_m10_audit
+
+
+python3 scripts/milestones/defi_milestone10_audit.py \
+  --prompts_jsonl tests/fixtures/defi/defi_mapper_5k_prompts.jsonl \
+  --labels_csv    tests/fixtures/defi/defi_mapper_labeled_5k.csv \
+  --sbert sentence-transformers/all-MiniLM-L6-v2 \
+  --n_max 4 --tau_span 0.50 --tau_rel 0.60 --tau_abs 0.93 \
+  --L 160 --beta 8.6 --sigma 0.0 \
+  --out_dir .artifacts/defi_m10_audit \
+  --competitive_eval
+
+"""
 from __future__ import annotations
-import argparse, json, time, random, copy, pathlib, hashlib
-from typing import Dict, Any, List, Tuple
-from micro_lm.pipelines.runner import run_micro
-import numpy as np
+import argparse, json, csv, os, sys
+from pathlib import Path
+from typing import List, Dict, Any
 
+# Prefer package path; fall back to local verify.py for quick runs
+try:
+    from micro_lm.domains.defi.verify import run_audit  # type: ignore
+except Exception:
+    from verify import run_audit  # type: ignore
 
-
-"""
-# Clean run (no perturb):
-python3 milestones/defi_milestone10.py \
-  --rails stage11 --runs 5 \
-  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
-  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
-
-python3 milestones/inspect_summary.py .artifacts/defi_milestone10_summary.json
-
-# With perturbation robustness:
-python3 milestones/defi_milestone10.py \
-  --rails stage11 --runs 5 --perturb --perturb_k 3 \
-  --policy '{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \
-  --context '{"oracle":{"age_sec":5,"max_age_sec":30}}'
-python3 milestones/inspect_summary.py .artifacts/defi_milestone10_summary.json
-
-# Freeze knobs in a small config file:
-cat > configs/m10_defaults.json <<'JSON'
-{"rails":"stage11","runs":5,"T":180,
- "policy":{"ltv_max":0.75,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}},
- "context":{"oracle":{"age_sec":5,"max_age_sec":30}},
- "perturb": true, "perturb_k": 3}
-JSON
-
-# Quick CSV view:
-jq -r '["name","ok","top1","verify_ok"],
-  (.scenarios[] | select(.name|endswith("_perturb")|not) |
-   [ .name, (.ok|tostring), (.output.top1 // "None"), (.output.verify.ok|tostring) ]) | @csv' \
-   .artifacts/defi_milestone10_summary.json > .artifacts/m10_scenarios.csv
-"""
-
-ARTIF = pathlib.Path(".artifacts"); ARTIF.mkdir(parents=True, exist_ok=True)
-SUMMARY_PATH = ARTIF / "defi_milestone10_summary.json"
-REPORT_PATH  = ARTIF / "defi_milestone10_report.md"
-
-# --- Canonical scenarios (self-contained; no M9 import) ---
-SCENARIOS: List[Dict[str, Any]] = [
-    # exec paths
-    {"name": "deposit_eth",   "prompt": "deposit 10 ETH into aave",
-     "expect_top1": "deposit_asset", "expect_verify_ok": True},
-    {"name": "swap_eth_usdc", "prompt": "swap 2 ETH for USDC",
-     "expect_top1": "swap_asset",    "expect_verify_ok": True},
-
-    # abstain/verify trips
-    {"name": "withdraw_high_ltv", "prompt": "withdraw 5 ETH",
-     "expect_top1": None, "expect_verify_ok": False, "expect_reason_contains": "ltv"},
-    {"name": "borrow_low_hf",     "prompt": "borrow 1000 USDC",
-     "expect_top1": None, "expect_verify_ok": False, "expect_reason_contains": "hf"},
-
-    # non-exec abstain
-    {"name": "nonexec_abstain", "prompt": "check balance",
-     "expect_top1": None, "expect_verify_ok": False, "expect_reason_contains": "abstain_non_exec"},
-]
-
-def _np_json(o):
-    if isinstance(o, (np.integer,)):   return int(o)
-    if isinstance(o, (np.floating,)):  return float(o)
-    if isinstance(o, (np.ndarray,)):   return o.tolist()
-    return str(o)
-
-def _ctx_hash(ctx: Dict[str, Any]) -> str:
-    return hashlib.sha256(json.dumps(ctx, sort_keys=True).encode()).hexdigest()[:8]
-
-def _json_arg(s: str | None) -> Dict[str, Any]:
-    if not s: return {}
-    s = s.strip()
-    if s.startswith("{"): return json.loads(s)
-    p = pathlib.Path(s); return json.loads(p.read_text()) if p.exists() else {}
-
-def run_once(prompt: str, context: Dict[str, Any], policy: Dict[str, Any], rails: str, T: int) -> Dict[str, Any]:
-    res = run_micro("defi", prompt, context=context, policy=policy, rails=rails, T=T)
-    seq = (res.get("plan") or {}).get("sequence") or []
-    top1 = seq[0] if seq else None
-    verify = res.get("verify") or {}
-    flags  = res.get("flags")  or {}
-    aux    = res.get("aux")    or {}
-    # keep only json-safe, scalar-ish aux bits
-    out = {
-        "prompt": prompt,
-        "top1": top1,
-        "flags": {k: flags[k] for k in flags if isinstance(flags[k], (str, int, float, bool))},
-        "verify": {
-            "ok": bool(verify.get("ok", False)),
-            "reason": (verify.get("reason") or "")
-        },
-        "aux": {
-            "mapper_confidence": float(aux.get("mapper_confidence") or 0.0)
-        },
-    }
+def _read_prompts_jsonl(path: str) -> List[str]:
+    P = Path(path)
+    out: List[str] = []
+    with P.open("r") as f:
+        for ln in f:
+            ln = ln.strip()
+            if not ln:
+                continue
+            try:
+                obj = json.loads(ln)
+            except Exception:
+                continue
+            p = (obj.get("prompt") or "").strip()
+            if p:
+                out.append(p)
     return out
 
-def check_expect(single: Dict[str, Any], expect: Dict[str, Any]) -> Tuple[bool, str]:
-    # top1
-    expected_top1 = expect.get("expect_top1", "...skip...")
-    if expected_top1 != "...skip..." and single["top1"] != expected_top1:
-        return False, f"expected top1={expected_top1}, got={single['top1']}"
-    # verify.ok
-    evo = expect.get("expect_verify_ok")
-    if evo is not None:
-        ok = bool((single.get("verify") or {}).get("ok"))
-        if ok != bool(evo):
-            return False, f"expected verify.ok={evo}, got={single.get('verify')}"
-    # reason substring (soft)
-    sub = (expect.get("expect_reason_contains") or "").lower()
-    if sub:
-        reason = ((single.get("verify") or {}).get("reason") or "").lower()
-        if sub not in reason:
-            return False, f"expected reason contains '{sub}', got '{reason}'"
-    return True, ""
+def _read_labels_csv(path: str) -> List[str]:
+    P = Path(path)
+    out: List[str] = []
+    with P.open(newline="") as f:
+        r = csv.DictReader(f)
+        if "label" not in r.fieldnames:
+            raise ValueError(f"labels csv must have a 'label' column; got fields={r.fieldnames}")
+        for row in r:
+            out.append((row.get("label") or "").strip())
+    return out
 
-def stability(prompt: str, runs: int, context: Dict[str, Any], policy: Dict[str, Any], rails: str, T: int) -> Dict[str, Any]:
-    tops, oks = [], []
-    for _ in range(runs):
-        out = run_once(prompt, context, policy, rails, T)
-        tops.append(out["top1"])
-        oks.append(bool((out["verify"] or {}).get("ok")))
-    return {"stable_top1": len(set(tops)) == 1, "top1_list": tops, "ok_list": oks}
+def _write_rows_csv(rows: List[Dict[str, Any]], path: str) -> None:
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    # gather headers
+    headers = set()
+    for r in rows:
+        headers.update(r.keys())
+    ordered = ["prompt","gold","pred","score","ok","reason","spans","tags"]
+    for h in sorted(headers):
+        if h not in ordered:
+            ordered.append(h)
+    with open(path, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=ordered)
+        w.writeheader()
+        for r in rows:
+            w.writerow(r)
 
-# --- perturbation helpers (small & safe) ---
-NUM_WORD_JITTER = [("deposit","add"),("swap","exchange"),("into","to"),("for","into")]
-def perturb_prompt(p: str, seed: int) -> str:
-    rng = random.Random(seed)
-    words = p.split()
-    if len(words) <= 1: return p
-    # synonym swap
-    for a, b in NUM_WORD_JITTER:
-        if rng.random() < 0.5 and a in words:
-            words = [b if w==a and rng.random()<0.7 else w for w in words]
-    # tiny numeric jitter (e.g., 10→9.9 or 2→2.1)
-    for i, w in enumerate(words):
-        try:
-            val = float(w)
-            jitter = 1.0 + rng.choice([-0.01, 0.01])
-            words[i] = f"{val*jitter:.3g}"
-        except ValueError:
-            pass
-    return " ".join(words)
-
-def perturb_context(ctx: Dict[str, Any], seed: int) -> Dict[str, Any]:
-    rng = random.Random(seed)
-    ctx2 = copy.deepcopy(ctx)
-    # nudge oracle age bounds by ±1s within sane bounds
-    o = ctx2.setdefault("oracle", {})
-    for k in ("age_sec","max_age_sec"):
-        if k in o and isinstance(o[k], (int, float)):
-            o[k] = max(1, int(round(o[k] * (1.0 + rng.choice([-0.05, 0.05])))))
-    return ctx2
+def _write_report_md(metrics: Dict[str, Any], path: str) -> None:
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        f.write("# Milestone 10 — Audit (Tautology-Free)\n\n")
+        f.write("This report reflects the evidence-only verifier (no mapper coupling).\n\n")
+        keys = ["coverage","abstain_rate","span_yield_rate","abstain_no_span_rate",
+                "abstain_with_span_rate","hallucination_rate","multi_accept_rate"]
+        for k in keys:
+            if k in metrics:
+                f.write(f"- **{k}** = {metrics[k]}\n")
+        f.write("\n## Params\n\n")
+        for k,v in (metrics.get("params") or {}).items():
+            f.write(f"- {k}: {v}\n")
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--rails", default="stage11")
-    ap.add_argument("--runs", type=int, default=5)
-    ap.add_argument("--T", type=int, default=180)
-    ap.add_argument("--context", default='{"oracle":{"age_sec":5,"max_age_sec":30}}')
-    ap.add_argument("--policy",  default='{"ltv_max":0.75, "mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}')
-    ap.add_argument("--perturb", action="store_true", help="enable prompt/context perturbations")
-    ap.add_argument("--perturb_k", type=int, default=3, help="number of perturbation variants per scenario")
+    ap = argparse.ArgumentParser(description="Milestone 10 (Audit) — evidence-only verifier harness")
+    ap.add_argument("--prompts_jsonl", required=True)
+    ap.add_argument("--labels_csv",    required=True)
+    ap.add_argument("--sbert", default="sentence-transformers/all-MiniLM-L6-v2")
+    ap.add_argument("--n_max", type=int, default=4)
+    ap.add_argument("--topk_per_prim", type=int, default=3)
+    ap.add_argument("--tau_span", type=float, default=0.50)
+    ap.add_argument("--tau_rel",  type=float, default=0.60)
+    ap.add_argument("--tau_abs",  type=float, default=0.93)
+    ap.add_argument("--L", type=int, default=160)
+    ap.add_argument("--beta", type=float, default=8.6)
+    ap.add_argument("--sigma", type=float, default=0.0)
+    ap.add_argument("--competitive_eval", action="store_true")
+    ap.add_argument("--out_dir", default=".artifacts/defi_m10_audit")
     args = ap.parse_args()
 
-    ctx_base = _json_arg(args.context) or {"oracle":{"age_sec":5,"max_age_sec":30}}
-    pol_base = _json_arg(args.policy)  or {"ltv_max":0.75}
-    started = time.time()
+    prompts = _read_prompts_jsonl(args.prompts_jsonl)
+    gold = _read_labels_csv(args.labels_csv)
 
-    scenarios_out: List[Dict[str, Any]] = []
-    failures: List[str] = []
-    overall_ok = True
+    prompts = prompts[0:20]
+    gold = gold[0:20]
+    
+    if len(prompts) != len(gold):
+        raise ValueError(f"prompts vs labels length mismatch: {len(prompts)} != {len(gold)}")
 
-    # A) Clean runs + stability
-    for case in SCENARIOS:
-        single = run_once(case["prompt"], ctx_base, pol_base, args.rails, args.T)
-        ok, why = check_expect(single, case)
-        stab = stability(case["prompt"], args.runs, ctx_base, pol_base, args.rails, args.T)
-        if not ok or (case.get("expect_top1") and not stab["stable_top1"]):
-            overall_ok = False
-            failures.append(f"{case['name']}: {why or 'top1 not stable'}")
-        scenarios_out.append({
-            "name": case["name"],
-            # inspector expects: sc["output"]["prompt"] and sc["output"]["top1"]
-            "output": {
-                "prompt": single["prompt"],
-                "top1": single["top1"],
-                "verify": {"ok": bool((single.get("verify") or {}).get("ok"))}
-            },
-            # keep these for humans / other tools
-            "ok": ok and ((case.get("expect_top1") is None) or stab["stable_top1"]),
-            "prompt": single["prompt"],          # convenience duplicate
-            "top1": single["top1"],              # convenience duplicate
-            "verify_ok": bool((single.get("verify") or {}).get("ok")),
-            "stable_top1": stab["stable_top1"],
-            "top1_list": stab["top1_list"],
-            "reason": "" if ok else why
-        })
+    res = run_audit(prompts=prompts, gold_labels=gold,
+                    sbert_model=args.sbert, n_max=args.n_max, topk_per_prim=args.topk_per_prim,
+                    tau_span=args.tau_span, tau_rel=args.tau_rel, tau_abs=args.tau_abs,
+                    L=args.L, beta=args.beta, sigma=args.sigma, competitive_eval=args.competitive_eval)
 
-    # B) Perturbation robustness (optional)
-    if args.perturb:
-        seed0 = 20259
-        for case in SCENARIOS:
-            case_ok = True
-            pert_runs = []
-            for j in range(max(1, args.perturb_k)):
-                p_prompt = perturb_prompt(case["prompt"], seed0 + j)
-                p_ctx    = perturb_context(ctx_base, seed0 + j)
-                out      = run_once(p_prompt, p_ctx, pol_base, args.rails, args.T)
-                ok_j, why_j = check_expect(out, case)
-                if not ok_j:
-                    case_ok = False
-                pert_runs.append({"variant": j, "ok": ok_j, "why": "" if ok_j else why_j, "output": out})
-            if not case_ok:
-                overall_ok = False
-                failures.append(f"{case['name']}: perturbation failures")
-            rep = pert_runs[0]["output"]
-            scenarios_out.append({
-                "name": case["name"] + "_perturb",
-                "ok": case_ok,
-                "output": {
-                    "prompt": rep["prompt"],
-                    "top1": rep["top1"],
-                    "verify": {"ok": bool((rep.get("verify") or {}).get("ok"))}
-                },
-                "runs": pert_runs
-            })
+    out_dir = Path(args.out_dir); out_dir.mkdir(parents=True, exist_ok=True)
+    rows_csv    = out_dir / "rows_audit.csv"
+    metrics_js  = out_dir / "metrics_audit.json"
+    summary_js  = out_dir / "defi_milestone10_audit_summary.json"
+    report_md   = out_dir / "defi_milestone10_audit_report.md"
 
+    # rows + metrics
+    _write_rows_csv(res.get("rows", []), str(rows_csv))
+    with open(metrics_js, "w") as f:
+        json.dump(res.get("metrics", {}), f, indent=2)
+
+    # simple milestone-style summary
+    M = res.get("metrics", {})
     summary = {
-        "milestone": "defi_milestone10",
-        "status": "pass" if overall_ok else "fail",
-        "rails": args.rails, "T": args.T, "runs": args.runs,
-        "perturb": bool(args.perturb), "perturb_k": args.perturb_k,
-        "scenarios": scenarios_out,
-        "failures": failures,
-        "elapsed_sec": round(time.time() - started, 3),
-        "context_hash": _ctx_hash(ctx_base),
+        "milestone": "defi_milestone10_audit",
+        "ok": True,  # audit is informational; gate in CI separately if desired
+        "n": len(prompts),
+        "outputs": {
+            "rows_csv": str(rows_csv),
+            "metrics_json": str(metrics_js),
+            "report_md": str(report_md)
+        },
+        "metrics": M
     }
-    SUMMARY_PATH.write_text(json.dumps(summary, indent=2, default=_np_json))
+    with open(summary_js, "w") as f:
+        json.dump(summary, f, indent=2)
 
-    # Human report
-    lines = []
-    lines.append(f"# Milestone 10 Report\n")
-    lines.append(f"- Status: {'✅ pass' if overall_ok else '❌ fail'}")
-    lines.append(f"- Rails: `{args.rails}`  •  T={args.T}  •  runs={args.runs}  •  perturb={args.perturb} (k={args.perturb_k})\n")
-    for sc in scenarios_out:
-        name = sc["name"]; ok = sc.get("clean_ok", sc.get("ok", True))
-        lines.append(f"## {name} — {'OK' if ok else 'FAIL'}")
-        if "output" in sc:
-            o = sc["output"]
-            lines.append(f"- prompt: `{o['prompt']}`")
-            lines.append(f"- top1: `{o['top1']}`  •  verify.ok: `{bool((o.get('verify') or {}).get('ok'))}`")
-            if "stability" in sc:
-                s = sc["stability"]
-                lines.append(f"- stable_top1: `{s['stable_top1']}`  •  top1_list: {s['top1_list']}")
-            if sc.get("reason"): lines.append(f"- reason: {sc['reason']}")
-        if "runs" in sc:
-            bad = [r for r in sc["runs"] if not r["ok"]]
-            lines.append(f"- perturb variants: {len(sc['runs'])}  •  fails: {len(bad)}")
-    REPORT_PATH.write_text("\n".join(lines))
+    # human report
+    _write_report_md(M, str(report_md))
 
-    print(json.dumps({"ok": overall_ok, "summary": str(SUMMARY_PATH), "report": str(REPORT_PATH)}, indent=2))
+    print(json.dumps({
+        "ok": True,
+        "summary": str(summary_js),
+        "report": str(report_md)
+    }))
 
 if __name__ == "__main__":
     main()

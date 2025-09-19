@@ -1,173 +1,858 @@
 {
-  "milestone": "defi_milestone11",
-  "status": "fail",
+  "ok": false,
   "rails": "stage11",
   "baseline_rails": "stage10",
-  "T": 180,
-  "runs": 3,
-  "policy": {
-    "ltv_max": 0.75,
-    "hf_min": 1.0,
-    "mapper": {
-      "model_path": ".artifacts/defi_mapper.joblib",
-      "confidence_threshold": 0.7
-    }
-  },
-  "context": {
-    "oracle": {
-      "age_sec": 5,
-      "max_age_sec": 30
-    }
-  },
-  "sections": {
-    "main": {
-      "rails": "stage11",
-      "metrics": {
-        "accuracy_exact": 0.0,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "jaccard": 0.0,
-        "hallucination_rate": 0.0,
-        "omission_rate": 1.0,
-        "abstain_rate": 1.0
-      },
-      "scenarios": [
+  "timestamp": 1758295708,
+  "results": {
+    "stage11": {
+      "failures": [
+        "edge_ltv_withdraw_unsafe: expected no concrete action, got top1=withdraw_asset",
+        "edge_hf_health_breach: expected no concrete action, got top1=borrow_asset",
+        "edge_oracle_stale_price: expected no concrete action, got top1=borrow_asset",
+        "edge_mapper_low_conf_or_nonexec: expected no concrete action, got top1=stake_asset"
+      ],
+      "cases": [
         {
-          "name": "ok_deposit",
-          "type": "exec_ok",
-          "truth": "approve",
-          "prompt": "deposit 10 ETH into aave",
-          "runs": 1,
-          "output": {
+          "case": "ok_deposit",
+          "out": {
+            "rails": "stage11",
             "prompt": "deposit 10 ETH into aave",
-            "top1": null,
-            "flags": null,
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "deposit_asset",
             "verify": {
-              "ok": false,
-              "reason": "abstain_non_exec",
-              "tags": [
-                "non_exec"
-              ]
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "deposit_asset",
+                "score": 0.9983419190704078,
+                "top": [
+                  [
+                    "deposit_asset",
+                    0.9983419190704078
+                  ],
+                  [
+                    "borrow_asset",
+                    0.001658080929592077
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "repay_asset",
+                    0.0
+                  ],
+                  [
+                    "stake_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "deposit_asset",
+                      0.9983419190704078
+                    ],
+                    [
+                      "borrow_asset",
+                      0.001658080929592077
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "repay_asset",
+                      0.0
+                    ],
+                    [
+                      "stake_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
             },
-            "plan": null,
-            "aux": null
+            "artifacts": {}
           },
-          "decision": "reject",
-          "ok": false,
-          "why": "expected top1=deposit_asset, got=None"
+          "passed": true
         },
         {
-          "name": "ok_swap",
-          "type": "exec_ok",
-          "truth": "approve",
-          "prompt": "swap 2 ETH for USDC",
-          "runs": 1,
-          "output": {
+          "case": "ok_swap",
+          "out": {
+            "rails": "stage11",
             "prompt": "swap 2 ETH for USDC",
-            "top1": null,
-            "flags": null,
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "swap_asset",
             "verify": {
-              "ok": false,
-              "reason": "abstain_non_exec",
-              "tags": [
-                "non_exec"
-              ]
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "swap_asset",
+                "score": 1.0,
+                "top": [
+                  [
+                    "swap_asset",
+                    1.0
+                  ],
+                  [
+                    "borrow_asset",
+                    0.0
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ],
+                  [
+                    "repay_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "swap_asset",
+                      1.0
+                    ],
+                    [
+                      "borrow_asset",
+                      0.0
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ],
+                    [
+                      "repay_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
             },
-            "plan": null,
-            "aux": null
+            "artifacts": {}
           },
-          "decision": "reject",
-          "ok": false,
-          "why": "expected top1=swap_asset, got=None"
+          "passed": true
+        },
+        {
+          "case": "edge_ltv_withdraw_unsafe",
+          "out": {
+            "rails": "stage11",
+            "prompt": "withdraw 5 ETH",
+            "label": "withdraw_asset",
+            "reason": "shim:accept:stage-4",
+            "top1": "withdraw_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "withdraw_asset",
+                "score": 0.801900985480864,
+                "top": [
+                  [
+                    "withdraw_asset",
+                    0.801900985480864
+                  ],
+                  [
+                    "unstake_asset",
+                    0.198099014519136
+                  ],
+                  [
+                    "borrow_asset",
+                    0.0
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "withdraw_asset",
+                      0.801900985480864
+                    ],
+                    [
+                      "unstake_asset",
+                      0.198099014519136
+                    ],
+                    [
+                      "borrow_asset",
+                      0.0
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {
+              "mapper": {
+                "score": 0.73,
+                "reason": "heuristic:withdraw",
+                "aux": {
+                  "reason": "heuristic:withdraw"
+                }
+              },
+              "verify": {
+                "ok": true,
+                "reason": "shim:accept:stage-4"
+              },
+              "schema": {
+                "v": 1,
+                "keys": [
+                  "mapper",
+                  "verify"
+                ]
+              }
+            }
+          },
+          "passed": false
+        },
+        {
+          "case": "edge_hf_health_breach",
+          "out": {
+            "rails": "stage11",
+            "prompt": "increase borrow to the maximum",
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "borrow_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "borrow_asset",
+                "score": 0.8510735092411581,
+                "top": [
+                  [
+                    "borrow_asset",
+                    0.8510735092411581
+                  ],
+                  [
+                    "repay_asset",
+                    0.07850325166882223
+                  ],
+                  [
+                    "claim_rewards",
+                    0.06028261024026571
+                  ],
+                  [
+                    "deposit_asset",
+                    0.010140628849753948
+                  ],
+                  [
+                    "stake_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "borrow_asset",
+                      0.8510735092411581
+                    ],
+                    [
+                      "repay_asset",
+                      0.07850325166882223
+                    ],
+                    [
+                      "claim_rewards",
+                      0.06028261024026571
+                    ],
+                    [
+                      "deposit_asset",
+                      0.010140628849753948
+                    ],
+                    [
+                      "stake_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {}
+          },
+          "passed": false
+        },
+        {
+          "case": "edge_oracle_stale_price",
+          "out": {
+            "rails": "stage11",
+            "prompt": "borrow 1000 USDC",
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "borrow_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "borrow_asset",
+                "score": 1.0,
+                "top": [
+                  [
+                    "borrow_asset",
+                    1.0
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ],
+                  [
+                    "repay_asset",
+                    0.0
+                  ],
+                  [
+                    "stake_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "borrow_asset",
+                      1.0
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ],
+                    [
+                      "repay_asset",
+                      0.0
+                    ],
+                    [
+                      "stake_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {}
+          },
+          "passed": false
+        },
+        {
+          "case": "edge_mapper_low_conf_or_nonexec",
+          "out": {
+            "rails": "stage11",
+            "prompt": "stake xyz",
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "stake_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "stake_asset",
+                "score": 0.7313511809004943,
+                "top": [
+                  [
+                    "stake_asset",
+                    0.7313511809004943
+                  ],
+                  [
+                    "unstake_asset",
+                    0.13749619259984278
+                  ],
+                  [
+                    "claim_rewards",
+                    0.13115262649966283
+                  ],
+                  [
+                    "borrow_asset",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "stake_asset",
+                      0.7313511809004943
+                    ],
+                    [
+                      "unstake_asset",
+                      0.13749619259984278
+                    ],
+                    [
+                      "claim_rewards",
+                      0.13115262649966283
+                    ],
+                    [
+                      "borrow_asset",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {}
+          },
+          "passed": false
         }
       ]
     },
-    "baseline": {
-      "rails": "stage10",
-      "metrics": {
-        "accuracy_exact": 0.0,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "jaccard": 0.0,
-        "hallucination_rate": 0.0,
-        "omission_rate": 1.0,
-        "abstain_rate": 1.0
-      },
-      "scenarios": [
+    "stage10": {
+      "failures": [
+        "edge_ltv_withdraw_unsafe: expected no concrete action, got top1=withdraw_asset",
+        "edge_hf_health_breach: expected no concrete action, got top1=borrow_asset",
+        "edge_oracle_stale_price: expected no concrete action, got top1=borrow_asset",
+        "edge_mapper_low_conf_or_nonexec: expected no concrete action, got top1=stake_asset"
+      ],
+      "cases": [
         {
-          "name": "ok_deposit",
-          "type": "exec_ok",
-          "truth": "approve",
-          "prompt": "deposit 10 ETH into aave",
-          "runs": 1,
-          "output": {
+          "case": "ok_deposit",
+          "out": {
+            "rails": "stage10",
             "prompt": "deposit 10 ETH into aave",
-            "top1": null,
-            "flags": null,
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "deposit_asset",
             "verify": {
-              "ok": false,
-              "reason": "abstain_non_exec",
-              "tags": [
-                "non_exec"
-              ]
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "deposit_asset",
+                "score": 0.9983419190704078,
+                "top": [
+                  [
+                    "deposit_asset",
+                    0.9983419190704078
+                  ],
+                  [
+                    "borrow_asset",
+                    0.001658080929592077
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "repay_asset",
+                    0.0
+                  ],
+                  [
+                    "stake_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "deposit_asset",
+                      0.9983419190704078
+                    ],
+                    [
+                      "borrow_asset",
+                      0.001658080929592077
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "repay_asset",
+                      0.0
+                    ],
+                    [
+                      "stake_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
             },
-            "plan": null,
-            "aux": null
+            "artifacts": {}
           },
-          "decision": "reject",
-          "ok": false,
-          "why": "expected top1=deposit_asset, got=None"
+          "passed": true
         },
         {
-          "name": "ok_swap",
-          "type": "exec_ok",
-          "truth": "approve",
-          "prompt": "swap 2 ETH for USDC",
-          "runs": 1,
-          "output": {
+          "case": "ok_swap",
+          "out": {
+            "rails": "stage10",
             "prompt": "swap 2 ETH for USDC",
-            "top1": null,
-            "flags": null,
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "swap_asset",
             "verify": {
-              "ok": false,
-              "reason": "abstain_non_exec",
-              "tags": [
-                "non_exec"
-              ]
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "swap_asset",
+                "score": 1.0,
+                "top": [
+                  [
+                    "swap_asset",
+                    1.0
+                  ],
+                  [
+                    "borrow_asset",
+                    0.0
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ],
+                  [
+                    "repay_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "swap_asset",
+                      1.0
+                    ],
+                    [
+                      "borrow_asset",
+                      0.0
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ],
+                    [
+                      "repay_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
             },
-            "plan": null,
-            "aux": null
+            "artifacts": {}
           },
-          "decision": "reject",
-          "ok": false,
-          "why": "expected top1=swap_asset, got=None"
+          "passed": true
+        },
+        {
+          "case": "edge_ltv_withdraw_unsafe",
+          "out": {
+            "rails": "stage10",
+            "prompt": "withdraw 5 ETH",
+            "label": "withdraw_asset",
+            "reason": "shim:accept:stage-4",
+            "top1": "withdraw_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "withdraw_asset",
+                "score": 0.801900985480864,
+                "top": [
+                  [
+                    "withdraw_asset",
+                    0.801900985480864
+                  ],
+                  [
+                    "unstake_asset",
+                    0.198099014519136
+                  ],
+                  [
+                    "borrow_asset",
+                    0.0
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "withdraw_asset",
+                      0.801900985480864
+                    ],
+                    [
+                      "unstake_asset",
+                      0.198099014519136
+                    ],
+                    [
+                      "borrow_asset",
+                      0.0
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {
+              "mapper": {
+                "score": 0.73,
+                "reason": "heuristic:withdraw",
+                "aux": {
+                  "reason": "heuristic:withdraw"
+                }
+              },
+              "verify": {
+                "ok": true,
+                "reason": "shim:accept:stage-4"
+              },
+              "schema": {
+                "v": 1,
+                "keys": [
+                  "mapper",
+                  "verify"
+                ]
+              }
+            }
+          },
+          "passed": false
+        },
+        {
+          "case": "edge_hf_health_breach",
+          "out": {
+            "rails": "stage10",
+            "prompt": "increase borrow to the maximum",
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "borrow_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "borrow_asset",
+                "score": 0.8510735092411581,
+                "top": [
+                  [
+                    "borrow_asset",
+                    0.8510735092411581
+                  ],
+                  [
+                    "repay_asset",
+                    0.07850325166882223
+                  ],
+                  [
+                    "claim_rewards",
+                    0.06028261024026571
+                  ],
+                  [
+                    "deposit_asset",
+                    0.010140628849753948
+                  ],
+                  [
+                    "stake_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "borrow_asset",
+                      0.8510735092411581
+                    ],
+                    [
+                      "repay_asset",
+                      0.07850325166882223
+                    ],
+                    [
+                      "claim_rewards",
+                      0.06028261024026571
+                    ],
+                    [
+                      "deposit_asset",
+                      0.010140628849753948
+                    ],
+                    [
+                      "stake_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {}
+          },
+          "passed": false
+        },
+        {
+          "case": "edge_oracle_stale_price",
+          "out": {
+            "rails": "stage10",
+            "prompt": "borrow 1000 USDC",
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "borrow_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "borrow_asset",
+                "score": 1.0,
+                "top": [
+                  [
+                    "borrow_asset",
+                    1.0
+                  ],
+                  [
+                    "claim_rewards",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ],
+                  [
+                    "repay_asset",
+                    0.0
+                  ],
+                  [
+                    "stake_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "borrow_asset",
+                      1.0
+                    ],
+                    [
+                      "claim_rewards",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ],
+                    [
+                      "repay_asset",
+                      0.0
+                    ],
+                    [
+                      "stake_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {}
+          },
+          "passed": false
+        },
+        {
+          "case": "edge_mapper_low_conf_or_nonexec",
+          "out": {
+            "rails": "stage10",
+            "prompt": "stake xyz",
+            "label": "abstain",
+            "reason": "low_confidence",
+            "top1": "stake_asset",
+            "verify": {
+              "ok": true,
+              "reason": "shim:mapper",
+              "aux": {
+                "intent": "stake_asset",
+                "score": 0.7313511809004943,
+                "top": [
+                  [
+                    "stake_asset",
+                    0.7313511809004943
+                  ],
+                  [
+                    "unstake_asset",
+                    0.13749619259984278
+                  ],
+                  [
+                    "claim_rewards",
+                    0.13115262649966283
+                  ],
+                  [
+                    "borrow_asset",
+                    0.0
+                  ],
+                  [
+                    "deposit_asset",
+                    0.0
+                  ]
+                ],
+                "raw": {
+                  "topk": [
+                    [
+                      "stake_asset",
+                      0.7313511809004943
+                    ],
+                    [
+                      "unstake_asset",
+                      0.13749619259984278
+                    ],
+                    [
+                      "claim_rewards",
+                      0.13115262649966283
+                    ],
+                    [
+                      "borrow_asset",
+                      0.0
+                    ],
+                    [
+                      "deposit_asset",
+                      0.0
+                    ]
+                  ]
+                }
+              }
+            },
+            "artifacts": {}
+          },
+          "passed": false
         }
       ]
-    }
-  },
-  "failures": [
-    "ok_deposit: expected top1=deposit_asset, got=None",
-    "ok_swap: expected top1=swap_asset, got=None"
-  ],
-  "elapsed_sec": 9.272,
-  "external": {
-    "audit_bench": {
-      "coverage": 1.0,
-      "abstain_rate": 0.05,
-      "hallucination_rate": 0.01,
-      "multi_accept_rate": 0.38,
-      "params": {
-        "n_max": 4,
-        "topk_per_prim": 3,
-        "tau_span": 0.5,
-        "tau_rel": 0.6,
-        "tau_abs": 0.93,
-        "L": 160,
-        "beta": 8.6,
-        "sigma": 0.0
-      }
     }
   }
 }
