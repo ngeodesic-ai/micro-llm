@@ -31,16 +31,6 @@ These are provided by the `ngeodesic` package and reused here without modificati
 ### ARC micro PoC — run a reasoning primitive
 micro-arc --prompt "flip the grid horizontally" --rails stage11
 
-#### Example output:
-{
-  "domain": "arc",
-  "rails": "stage11",
-  "plan": {
-    "sequence": ["flip_h"]
-  },
-  "verify": {"ok": true, "reason": ""}
-}
-
 ---
 
 ## DeFi Micro-LM: Tiered Plan of Attack
@@ -153,7 +143,7 @@ print(out)
 -   **`reason: 'shim:accept:stage-4'`** → Accepted by Stage-4 rails
     shim.
 
-#### Artifacts
+### Artifacts
 
 -   **`mapper`**
     -   Raw mapper result.\
