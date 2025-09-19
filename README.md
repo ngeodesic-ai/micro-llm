@@ -14,6 +14,25 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 ---
 
+## Tier-1 LLMs vs. micro-lm (DeFi Execution)
+
+| Dimension | Tier-1 LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-lm Tier-1 (DeFi)** |
+|-----------|-------------------------------------------------------|-----------------------------|
+| **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k DeFi prompts. Benchmarked accuracy > 98% on swaps/deposits; abstains correctly when uncertain. |
+| **Determinism** | Outputs vary run-to-run (sampling drift). Even `temperature=0` doesn’t guarantee identical results. | Stage-11 NGF rails (Warp → Detect → Denoise) yield reproducible traces. Perturbation tests confirm stable decisions. |
+| **Safety / Policy enforcement** | Can be prompted with “stay under LTV 0.75,” but no hard guarantees — may still propose unsafe actions. | Built-in verifiers: Loan-to-Value (LTV), Health Factor (HF), Oracle freshness. Unsafe paths always block or abstain. |
+| **Abstain behavior** | Rarely abstains — tends to “make something up” even when uncertain. | Explicit abstain mode: non-exec prompts (balance checks, nonsense) → abstain with clear reason (`abstain_non_exec`). |
+| **Auditability** | Opaque; no structured rationale. | Every run produces machine-readable artifacts: mapper score, abstain reason, verifier tags, plan trace. Auditable for compliance. |
+| **Efficiency / Cost** | 10s–100s of billions of params; inference is slow/expensive. | SBERT (~22M params) + lightweight classifier. Fast, cheap, deployable in CI. |
+| **Regulatory / Compliance fit** | Hard to certify (stochastic, unexplainable). | Deterministic + auditable by design. Built for domains where regulators demand safety. |
+
+---
+
+### **Summary**
+- **Tier-1 LLMs = generalists**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical DeFi execution.  
+- **micro-lm Tier-1 = specialist**: slim, deterministic, auditable, and *more accurate where it matters* (DeFi primitives, policy enforcement, reproducibility).
+
+
 ## Foundation: `ngeodesic` (NGF Stage-10/11)
 
 - **Stage-10 (Parser):** matched-filter parsing with dual thresholds (absolute vs null; relative vs best channel), then ordering by peak time.
