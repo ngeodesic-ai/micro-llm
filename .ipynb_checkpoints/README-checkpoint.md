@@ -3,14 +3,6 @@
 NGF-powered micro-LMs: lightweight, domain-specific reasoning sidecars.  
 This repo is a research testbed: first for **ARC** (visual reasoning), then for a **DeFi** PoC — both built on top of the `ngeodesic` Python package.
 
----
-
-## Why this repo?
-
-- **ARC micro-LM (today):** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
-- **DeFi micro-LM (next):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
-
-> NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
 
 ---
 
@@ -33,22 +25,27 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 - **micro-lm Tier-1 = specialist**: slim, deterministic, auditable, and *more accurate where it matters* (DeFi primitives, policy enforcement, reproducibility).
 
 
-## Foundation: `ngeodesic` (NGF Stage-10/11)
+---
+
+## Why this repo?
+
+- **ARC micro-LM (today):** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
+- **DeFi micro-LM (next):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
+
+> NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
+
+
+### Foundation: `ngeodesic` (NGF Stage-10/11)
 
 - **Stage-10 (Parser):** matched-filter parsing with dual thresholds (absolute vs null; relative vs best channel), then ordering by peak time.
 - **Stage-11 (Denoise):** stabilization via hybrid EMA+median smoothing, confidence gates, seed-jitter averaging — the Warp→Detect→Denoise doctrine to suppress phantoms.
 
 These are provided by the `ngeodesic` package and reused here without modification.
 
----
-
-## What’s included
+### What’s included
 
 - **ARC sandbox**: synthetic adapters that produce per-primitive traces; evaluation scripts that compute accuracy, precision/recall/F1, and NGF-native rates (hallucination/omission).
 - **DeFi stubs (WIP)**: adapters for market features → latent traces; same parser/denoiser stack; same metrics.
-
-### ARC micro PoC — run a reasoning primitive
-micro-arc --prompt "flip the grid horizontally" --rails stage11
 
 ---
 
