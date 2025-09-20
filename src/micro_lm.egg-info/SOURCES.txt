@@ -61,3 +61,5 @@ src/micro_lm/interfaces/runner.py
 src/micro_lm/interfaces/verify.py
 src/micro_lm/mappers/joblib_mapper.py
 src/micro_lm/planners/rule_planner.py
+src/micro_lm/verify/wdd_audit.py
+src/micro_lm/verify/wdd_helpers.py
