@@ -6,7 +6,7 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 ---
 
-## Tier-1 LLMs vs. micro-lm (DeFi Execution)
+## Comparing LLMs vs. micro-LM 
 
 | Dimension | Tier-1 LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-LM Tier-1 (DeFi)** |
 |-----------|-------------------------------------------------------|-----------------------------|
