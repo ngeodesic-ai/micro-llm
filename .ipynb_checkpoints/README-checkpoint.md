@@ -45,7 +45,7 @@ These are provided by the `ngeodesic` package and reused here without modificati
 
 ## Micro-LM: Tiered Plan of Attack
 
-This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**. Our current focus is the DeFi domain for the usecase, and ARC to highlight its potential, and yet the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
+This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**. Our current focus is the DeFi domain for the usecase, and ARC to highlight the extent of its potential, and yet the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
 
 ---
 
