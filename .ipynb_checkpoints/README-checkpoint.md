@@ -57,20 +57,21 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 **Status:** ✅ Complete — foundation secured.
 
-### **Tier-1: Micro-LM on Synthetic Latents (In Progress)**  
+### **Tier-1: Micro-LM on SBERT Latents (✔ Secured)**  
 - Replace hashmap lookups with a **trained micro-LM encoder**.  
 - Train against **2–5k synthetic latent prompts**.  
 - Benchmark with full Stage-11 runner on DeFi suites.
 
 **Status:** ✅ Complete — MVP secured.
 
-### **Tier-2: Incorporate WDD with Synthetic Latents (Operational)**  
-- Add **Warp → Detect → Denoise (WDD)** pipeline.  
+### **Tier-2: Incorporate WDD with SBERT Latents (In Progress)**  
+- Add **Warp → Detect → Denoise (WDD)** pipeline.
+- Handles both DeFi (usecase) and ARC (aptitute) prompts
 - Stress test signal separation + denoising with synthetic latents.
 
 **Status:** 🚧 In Progress — WDD LLM benchmarks confirm deterministic reasoning on synthetic latents.
 
-### **Tier-3: Real Latents (End Goal)**  
+### **Tier-3: LLM Latents (End Goal)**  
 - Swap synthetic latents for **true model latents**.  
 - Validate WDD under real-world latent distributions.
 
