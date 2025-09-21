@@ -72,8 +72,8 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 **Status:** 🚧 In Progress — WDD LLM benchmarks confirm deterministic reasoning on synthetic latents.
 
 ### **Tier-3: LLM Latents (End Goal)**  
-- Swap synthetic latents for **true model latents**.  
-- Validate WDD under real-world latent distributions.
+- Swap SBERT latents for **LLM model latents**.  
+- Validate micro-LM when paired with LLM systems as sidecar.
 
 **Status:** 🔮 Planning stage — future work, not required for MVP.
 
