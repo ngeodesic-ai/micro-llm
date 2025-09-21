@@ -28,9 +28,8 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 ---
 
 ## What’s included
-
-- **ARC micro-LM :** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
-- **DeFi micro-LM:** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
+- **DeFi micro-LM (business usecase):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
+- **ARC micro-LM (showcase aptitude) :** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
 
 > NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
 
