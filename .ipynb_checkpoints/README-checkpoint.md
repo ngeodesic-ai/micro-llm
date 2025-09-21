@@ -66,7 +66,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 ### **Tier-2: Incorporate WDD with SBERT Latents (In Progress)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.
-- Handles both DeFi (usecase) and ARC (aptitute) prompts
+- Handle both DeFi (usecase) and ARC (aptitute) prompts
 - Stress test signal separation + denoising with synthetic latents.
 
 **Status:** 🚧 In Progress — WDD LLM benchmarks confirm deterministic reasoning on synthetic latents.
