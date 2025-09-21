@@ -11,6 +11,9 @@ from .bench_io import ArtifactWriter
 from micro_lm.adapters.simple_context import SimpleContextAdapter
 from micro_lm.mappers.joblib_mapper import JoblibMapper, JoblibMapperConfig
 from micro_lm.planners.rule_planner import RulePlanner
+from micro_lm.core.config import load_domain_config
+from micro_lm.domains.arc.audit_wdd import wdd_arc_audit as _arc_wdd
+from micro_lm.domains.defi.audit_wdd import wdd_defi_audit as _defi_wdd
 
 
 @dataclass(frozen=True)
@@ -22,6 +25,16 @@ class RunInputs:
     rails: str
     T: int
     backend: str = "sbert"  # Tier-1 default; Tier-0 "wordmap" available
+
+def _audit_selector(domain: str, backend: str):
+    if backend == "wdd":
+        return _arc_wdd if domain == "arc" else _defi_wdd
+    # fallback: Tier-1 existing audits
+    if domain == "arc":
+        from micro_lm.domains.arc.audit import arc_audit as _t1
+    else:
+        from micro_lm.domains.defi.audit import defi_audit as _t1
+    return _t1
 
 
 def _shim_map_and_plan(user_text: str, *, context: dict, policy: dict) -> dict:
@@ -89,6 +102,26 @@ def run_micro(
     PUBLIC API (stable).
     Returns a dict with: ok, label, score, reason, artifacts.
     """
+
+    # load defaults from configs/{domain}.yaml
+    domain_cfg = load_domain_config(domain)
+    # merge policy.audit over file audit (policy wins if present)
+    file_audit: Dict[str, Any] = domain_cfg.get("audit", {})
+    policy_audit: Dict[str, Any] = (policy or {}).get("audit", {})
+    audit_cfg: Dict[str, Any] = {**file_audit, **policy_audit}  # shallow is fine for our keys
+    
+    # rollout params (runner can still be overridden by explicit args if you pass them)
+    T    = int((policy or {}).get("T", domain_cfg.get("T", 600)))
+    seed = int((policy or {}).get("seed", domain_cfg.get("seed", 0)))
+    
+    # choose AUDIT backend (keep mapper backend separate!)
+    audit_backend = audit_cfg.get("backend", "threshold")
+    audit_fn = _audit_selector(domain, audit_backend)
+    
+    # later, when you already have emb/prototypes/anchors from mapper/encoder:
+    # audit_out = audit_fn(emb, prototypes, anchors, {**audit_cfg, "T": T, "seed": seed})
+
+    
     # 1) Map prompt -> (label, score, aux) via selected backend
     mapper = MapperAPI(backend=backend, domain=domain, policy=policy)
     label, score, aux = mapper.map_prompt(prompt)
