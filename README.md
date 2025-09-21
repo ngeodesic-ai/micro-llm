@@ -28,7 +28,7 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 ---
 
 ## What’s included
-- **ARC micro-LM (showcases aptitude) :** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
+- **ARC micro-LM (showcases aptitude) :** a compact, NGF-style classifier that detects and orders latent “primitives” on SBERT ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
 - **DeFi micro-LM (business usecase):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
 
 > NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
@@ -58,7 +58,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 ### **Tier-1: Micro-LM on SBERT Latents (✔ Secured)**  
 - Replace hashmap lookups with a **trained micro-LM encoder**.  
-- Train against **2–5k synthetic latent prompts**.  
+- Train against **2–5k SBERT latent prompts**.  
 - Benchmark with full Stage-11 runner on DeFi suites (**1% hallucination / 0.98 F1 Score** across 8 primitives)
 
 **Status:** ✅ Complete — MVP secured.
@@ -66,7 +66,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 ### **Tier-2: Incorporate WDD with SBERT Latents (In Progress)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.
 - Handle both DeFi (usecase) and ARC (aptitute) prompts
-- Stress test signal separation + denoising with synthetic latents.
+- Stress test signal separation + denoising with SBERT latents.
 
 **Status:** 🚧 Proven — WDD LLM benchmarks confirm deterministic reasoning on ARC and DeFi SBERT latents.
 
@@ -79,9 +79,9 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 ---
 
 **Roadmap Summary:**  
-- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LM reasoning on synthetic latents.
-- Tier 2 expands the scope of what micro-LM can do
-- Tier 3 remains a the end goal: sidecar integration for real latents, to be explored later.
+- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LM reasoning on SBERT latents.
+- Tier 2 expands the scope of what micro-LM can do using WDD
+- Tier 3 remains a the end goal: sidecar integration for LMM latents, to be explored later.
 
 ## Quickstart
 
