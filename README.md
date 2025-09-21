@@ -60,7 +60,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 ### **Tier-1: Micro-LM on SBERT Latents (✔ Secured)**  
 - Replace hashmap lookups with a **trained micro-LM encoder**.  
 - Train against **2–5k synthetic latent prompts**.  
-- Benchmark with full Stage-11 runner on DeFi suites.
+- Benchmark with full Stage-11 runner on DeFi suites (1% hallucination / 0.98 F1 Score across 8 primitives)
 
 **Status:** ✅ Complete — MVP secured.
 
