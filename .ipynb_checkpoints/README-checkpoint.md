@@ -69,7 +69,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 - Handle both DeFi (usecase) and ARC (aptitute) prompts
 - Stress test signal separation + denoising with synthetic latents.
 
-**Status:** 🚧 In Progress — WDD LLM benchmarks confirm deterministic reasoning on synthetic latents.
+**Status:** 🚧 Proven — WDD LLM benchmarks confirm deterministic reasoning on ARC and DeFi SBERT latents.
 
 ### **Tier-3: LLM Latents (End Goal)**  
 - Swap SBERT latents for **LLM model latents**.  
