@@ -1,4 +1,0 @@
-[console_scripts]
-micro-arc = micro_lm.cli.run_arc:main
-micro-defi = micro_lm.cli.run_defi:main
-micro-eval = micro_lm.cli.run_eval:main

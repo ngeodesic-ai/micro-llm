@@ -23,6 +23,7 @@ src/micro_lm/core/metrics.py
 src/micro_lm/core/rails_shim.py
 src/micro_lm/core/runner.py
 src/micro_lm/core/audit/__init__.py
+src/micro_lm/core/audit/checks.py
 src/micro_lm/core/audit/detector.py
 src/micro_lm/core/audit/encoder.py
 src/micro_lm/core/audit/orchestrator.py
