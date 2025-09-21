@@ -59,7 +59,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 ### **Tier-1: Micro-LM on SBERT Latents (✔ Secured)**  
 - Replace hashmap lookups with a **trained micro-LM encoder**.  
 - Train against **2–5k SBERT latent prompts**.
-- Audit results using cosine sims
+- Audit results to return ABSTAIN / PASS with auditable trace
 - Benchmark with full Stage-11 runner on DeFi suites (**1% hallucination / 0.98 F1 Score** across 8 primitives)
 
 **Status:** ✅ Complete — MVP secured.
@@ -67,7 +67,7 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 ### **Tier-2: Incorporate WDD with SBERT Latents (In Progress)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.
 - Handle both DeFi (usecase) and ARC (aptitute) prompts
-- Audit results using WDD
+- Audit results using WDD to return ABSTAIN / PASS with auditable trace
 - Stress test signal separation + denoising with SBERT latents.
 
 **Status:** 🚧 Proven — WDD LLM benchmarks confirm deterministic reasoning on ARC and DeFi SBERT latents.
