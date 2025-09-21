@@ -10,7 +10,7 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 | Dimension | Tier-1 LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-LM Tier-1 (DeFi)** |
 |-----------|-------------------------------------------------------|-----------------------------|
-| **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k DeFi prompts. Benchmarked accuracy > 98% on swaps/deposits; abstains correctly when uncertain. |
+| **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k usecase prompts (eg. DeFi, ARC). Benchmarked accuracy > 98% on 8 DeFi primitives; abstains correctly when uncertain. |
 | **Determinism** | Outputs vary run-to-run (sampling drift). Even `temperature=0` doesn’t guarantee identical results. | Stage-11 NGF rails (Warp → Detect → Denoise) yield reproducible traces. Perturbation tests confirm stable decisions. |
 | **Safety / Policy enforcement** | Can be prompted with “stay under LTV 0.75,” but no hard guarantees — may still propose unsafe actions. | Built-in verifiers: Loan-to-Value (LTV), Health Factor (HF), Oracle freshness. Unsafe paths always block or abstain. |
 | **Abstain behavior** | Rarely abstains — tends to “make something up” even when uncertain. | Explicit abstain mode: non-exec prompts (balance checks, nonsense) → abstain with clear reason (`abstain_non_exec`). |
