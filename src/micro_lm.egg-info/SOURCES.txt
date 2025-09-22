@@ -11,6 +11,7 @@ src/micro_lm.egg-info/entry_points.txt
 src/micro_lm.egg-info/requires.txt
 src/micro_lm.egg-info/top_level.txt
 src/micro_lm/adapters/simple_context.py
+src/micro_lm/benches/sweep.py
 src/micro_lm/cli/__init__.py
 src/micro_lm/cli/__main__.py
 src/micro_lm/cli/defi_audit_bench.py
