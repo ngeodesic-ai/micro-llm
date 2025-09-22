@@ -1,7 +1,12 @@
 # Audit backend + rollout controls
 audit:
   backend: wdd              # or "threshold" for Tier-1
-  mode: family              # pure | family | guided
+  mode: pure       # pure | family | guided
+  template_width: 64
+  keep_fracs:
+    default: 0.7
+  alpha_max: 1.0
+  
 T: 600
 seed: 0
 

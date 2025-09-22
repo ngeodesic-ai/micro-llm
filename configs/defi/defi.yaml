@@ -1,6 +1,11 @@
 audit:
+  mode: pure        # pure | family | guided
+  template_width: 64
+  keep_fracs:
+    default: 0.7
+  alpha_max: 1.0
   backend: wdd
-  mode: family
+
 T: 600
 seed: 0
 

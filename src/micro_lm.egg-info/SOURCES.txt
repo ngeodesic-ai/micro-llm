@@ -19,10 +19,13 @@ src/micro_lm/cli/entry.py
 src/micro_lm/core/__init__.py
 src/micro_lm/core/bench_io.py
 src/micro_lm/core/config.py
+src/micro_lm/core/encoder.py
 src/micro_lm/core/mapper_api.py
 src/micro_lm/core/metrics.py
 src/micro_lm/core/rails_shim.py
 src/micro_lm/core/runner.py
+src/micro_lm/core/runner__.py
+src/micro_lm/core/utils.py
 src/micro_lm/core/audit/__init__.py
 src/micro_lm/core/audit/checks.py
 src/micro_lm/core/audit/detector.py
@@ -32,6 +35,7 @@ src/micro_lm/core/audit/prototypes.py
 src/micro_lm/core/audit/traces.py
 src/micro_lm/core/audit/types.py
 src/micro_lm/core/audit/utils.py
+src/micro_lm/core/audit/wdd.py
 src/micro_lm/core/backends/__init__.py
 src/micro_lm/core/backends/sbert.py
 src/micro_lm/core/backends/wordmap.py
