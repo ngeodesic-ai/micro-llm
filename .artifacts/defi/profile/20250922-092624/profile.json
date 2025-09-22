@@ -1,0 +1,21 @@
+[
+  {
+    "phase": "parse",
+    "t": 0.0004521250957623124,
+    "rails": "stage11",
+    "backend": "wordmap",
+    "T": 128
+  },
+  {
+    "phase": "map",
+    "t": 0.0005236670840531588,
+    "label": "deposit_asset",
+    "score": 0.66
+  },
+  {
+    "phase": "rails",
+    "t": 0.0014272500993683934,
+    "ok": true,
+    "reason": "shim:accept:stage-4"
+  }
+]

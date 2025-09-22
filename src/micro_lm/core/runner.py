@@ -12,6 +12,75 @@ from .bench_io import ArtifactWriter
 from micro_lm.adapters.simple_context import SimpleContextAdapter
 from micro_lm.mappers.joblib_mapper import JoblibMapper, JoblibMapperConfig
 from micro_lm.planners.rule_planner import RulePlanner
+from micro_lm.core.audit import get_audit_backend, wdd_audit, apply_pca_prior, load_pca_prior
+
+
+def _write_profile(domain: str, profile: list, topline: dict):
+    # ensure directory
+    base = Path(".artifacts") / domain / "profile"
+    base.mkdir(parents=True, exist_ok=True)
+    ts = time.strftime("%Y%m%d-%H%M%S")
+    outdir = base / ts
+    outdir.mkdir(parents=True, exist_ok=True)
+    (outdir / "profile.json").write_text(json.dumps(profile, indent=2))
+    (outdir / "topline.json").write_text(json.dumps(topline, indent=2))
+
+
+def _latent_triplet_if_available(mapper, prompt: str, *, context: dict, rails: str):
+    emb = None
+    bank = None
+    anchors = None
+    # try nested impl APIs defensively
+    impl = getattr(mapper, "impl", None)
+    if impl is not None:
+        encode = getattr(impl, "encode", None)
+        if callable(encode):
+            try:
+                emb = encode(prompt, context=context, rails=rails)
+            except Exception:
+                emb = None
+        get_bank = getattr(impl, "get_bank", None)
+        if callable(get_bank):
+            try:
+                bank = get_bank(domain=getattr(mapper, "domain", ""))
+            except Exception:
+                bank = None
+        get_anchors = getattr(impl, "get_anchors", None)
+        if callable(get_anchors):
+            try:
+                anchors = get_anchors(domain=getattr(mapper, "domain", ""))
+            except Exception:
+                anchors = None
+    return emb, bank, anchors
+
+
+def _map_prompt_any(mapper, prompt: str):
+    # Prefer modern API, fall back to older ones
+    fn = (
+        getattr(mapper, "map_prompt", None)
+        or getattr(mapper, "map", None)
+        or getattr(getattr(mapper, "impl", object()), "map", None)
+    )
+    if fn is None:
+        raise AttributeError("No mapping function found on MapperAPI (expected map_prompt/map).")
+    return fn(prompt)
+
+
+def _audit_selector(domain: str, backend_name: str):
+    """
+    Dynamically load the requested audit backend and return a callable
+    `audit(domain, policy)` → function that will be used during rails/verify.
+    """
+    mod = get_audit_backend(backend_name)
+    if hasattr(mod, "audit"):
+        return mod.audit  # expected shape
+    # Fallbacks if your backend exposes a different entrypoint
+    if hasattr(mod, "make"):
+        return mod.make
+    if hasattr(mod, "get_backend"):
+        return mod.get_backend
+    raise RuntimeError(f"Audit backend '{backend_name}' does not expose an audit/make/get_backend factory")
+
 
 
 def _shim_map_and_plan(user_text: str, *, context: dict, policy: dict) -> dict:
@@ -85,32 +154,25 @@ def run_micro(
     # --- lightweight profiling scaffold (only if enabled) ---
     t0 = time.perf_counter()
     prof_enabled = bool((policy or {}).get("audit", {}).get("profile")) or os.getenv("MICRO_LM_PROFILE") == "1"
-    prof = []  # list of dicts; tests expect a list with an entry whose phase == "parse"
+    prof = []        # profile.json must be a LIST
     profile_dir = None
-    timeline = []
 
     def _mark(phase: str, **extra):
         if prof_enabled:
             prof.append({"phase": phase, "t": time.perf_counter() - t0, **extra})
 
+    # If profiling, create the timestamped dir up front so both files land together.
     if prof_enabled:
         base = Path(".artifacts") / domain / "profile"
         base.mkdir(parents=True, exist_ok=True)
         ts = time.strftime("%Y%m%d-%H%M%S")
-        prof_dir = base / ts
-        prof_dir.mkdir(parents=True, exist_ok=True)
-        # record a 'parse' phase up front (tests look for this)
-        timeline.append({
-            "phase": "parse",
-            "t_ms": 0.0,
-            "rails": rails,
-            "backend": backend,
-            "T": T,
-        })
+        profile_dir = (base / ts)
+        profile_dir.mkdir(parents=True, exist_ok=True)
+        # Smoke test expects at least one entry with phase == "parse"
+        _mark("parse", rails=rails, backend=backend, T=T)
 
-    # 1) Map prompt -> (label, score, aux) via selected backend
+    # 1) Map prompt -> (label, score, aux) via selected backend (support multiple surfaces)
     mapper = MapperAPI(backend=backend, domain=domain, policy=policy)
-    # Be compatible with multiple mapper surfaces (wrapper or impl):
     map_fn = (
         getattr(mapper, "map_prompt", None)
         or getattr(mapper, "map", None)
@@ -119,10 +181,10 @@ def run_micro(
     )
     if map_fn is None:
         raise AttributeError("No mapping function found on MapperAPI (expected map_prompt/map).")
+
     res = map_fn(prompt)
     if isinstance(res, tuple):
-        label, score, aux = res
-        aux = aux or {}
+        label, score, aux = res[0], float(res[1]), (res[2] or {})
     elif isinstance(res, dict):
         label = res.get("label", "abstain")
         score = float(res.get("score", 0.0) or 0.0)
@@ -130,133 +192,71 @@ def run_micro(
     else:
         label, score, aux = "abstain", 0.0, {}
 
-    _mark("parse", backend=backend, label=label, score=score)
-        
-    if prof_enabled:
-        timeline.append({
-            "phase": "map",
-            "t_ms": (time.perf_counter() - t0) * 1000.0,
-            "label": label,
-            "score": score,
-        })
-    
-    if map_fn is None:
-        raise AttributeError("No mapping function found on MapperAPI (expected map_prompt/map).")
-    
-    label, score, aux = map_fn(prompt)
+    _mark("map", label=label, score=score)
 
-    # 1b) Optional shim fallback (skip for Tier-0 wordmap to keep tests hermetic)
+    # 1b) Optional shim fallback (skip for Tier-0 "wordmap" to keep tests hermetic)
     use_shim_default = backend != "wordmap"
     use_shim = policy.get("mapper", {}).get("use_shim_fallback", use_shim_default)
-
     if label == "abstain" and use_shim and backend != "wordmap":
         shim_out = _shim_map_and_plan(prompt, context=context, policy=policy)
-        label, score = shim_out["label"], shim_out.get("score", score)
+        label, score = shim_out["label"], float(shim_out.get("score", score) or score)
         aux = {
             "reason": shim_out.get("reason", aux.get("reason", "shim")),
             "artifacts": {**aux.get("artifacts", {}), **shim_out.get("artifacts", {})},
         }
 
-    # 1c) Optional profiling: create a timestamped profile dir if requested
-    profile_dir = None
-    audit_prof = (policy or {}).get("audit", {})
-    if audit_prof.get("profile"):
-        base = Path(".artifacts") / domain / "profile"
-        base.mkdir(parents=True, exist_ok=True)
-        ts = time.strftime("%Y%m%d-%H%M%S")
-        profile_dir = base / ts
-        profile_dir.mkdir(parents=True, exist_ok=True)
-
-        # mapper snapshot
-        mapper_snapshot = {
-            "domain": domain,
-            "prompt": prompt,
-            "backend": backend,
-            "rails": rails,
-            "T": T,
-            "policy_audit": audit_prof,
-            "mapper": {"label": label, "score": float(score), **(aux or {})},
-        }
-        (profile_dir / "profile.json").write_text(json.dumps(mapper_snapshot, indent=2))
-
-        # topline (will be overwritten below after verify to include the final reason)
-        topline = {
-            "ok": label != "abstain",
-            "label": label,
-            "score": float(score),
-            "reason": (aux or {}).get("reason", "mapped"),
-        }
-        (profile_dir / "topline.json").write_text(json.dumps(topline, indent=2))
-
-
-    # 2) If abstain or rails disabled, return early
+    # 2) If abstain or rails disabled, finalize early (still honor profiling)
     if label == "abstain" or not rails:
         out = {
-             "ok": label != "abstain",
-             "label": label,
-             "score": score,
-             "reason": aux.get("reason", "abstain" if label == "abstain" else "mapped"),
-             "artifacts": aux.get("artifacts", {}),
-         }
-        if prof_enabled:
-            # write files expected by the smoke test
-            (prof_dir / "profile.json").write_text(json.dumps(timeline, indent=2))
-            topline = {"label": label, "score": score, "ok": out["ok"], "reason": out["reason"]}
-            (prof_dir / "topline.json").write_text(json.dumps(topline, indent=2))
+            "ok": label != "abstain",
+            "label": label,
+            "score": score,
+            "reason": aux.get("reason", "abstain" if label == "abstain" else "mapped"),
+            "artifacts": aux.get("artifacts", {}),
+        }
+        if prof_enabled and profile_dir is not None:
+            # profile.json must be a LIST containing an entry with phase == "parse"
+            (profile_dir / "profile.json").write_text(json.dumps(prof, indent=2))
+            # topline.json must include latency_ms and n_keep
+            topline = {
+                "latency_ms": int(1000 * (time.perf_counter() - t0)),
+                "n_keep": len(prof),
+                "label": label,
+                "score": score,
+                "ok": out["ok"],
+                "reason": out["reason"],
+            }
+            (profile_dir / "topline.json").write_text(json.dumps(topline, indent=2))
         return out
 
-    # 3) Execute rails (Stage-2 wires real executor; shim for now)
+    # 3) Execute rails (shim executor for now)
     rails_exec = Rails(rails=rails, T=T)
     verify = rails_exec.verify(domain=domain, label=label, context=context, policy=policy)
-    _mark("verify", ok=bool(verify.get("ok", False)))
-    if prof_enabled:
-        timeline.append({
-            "phase": "rails",
-            "t_ms": (time.perf_counter() - t0) * 1000.0,
-            "ok": bool(verify.get("ok", False)),
-            "reason": verify.get("reason", "verified"),
-        })
-
-
-    # After rails and artifacts are built:
-    if profile_dir is not None:
-        topline = {
-            "ok": bool(verify.get("ok", False)),
-            "label": label,
-            "score": float(score),
-            "reason": verify.get("reason", "verified"),
-        }
-        (profile_dir / "topline.json").write_text(json.dumps(topline, indent=2))
+    _mark("rails", ok=bool(verify.get("ok", False)), reason=verify.get("reason", "verified"))
 
     # 4) Package artifacts consistently (nice for --debug and reports)
     writer = ArtifactWriter()
     artifacts = writer.collect(label=label, mapper={"score": score, **aux}, verify=verify)
-  
+
     out = {
-         "ok": bool(verify.get("ok", False)),
-         "label": label,
-         "score": score,
-         "reason": verify.get("reason", "verified"),
-         "artifacts": artifacts,
-     }
-    if prof_enabled:
-        base = Path(".artifacts") / domain / "profile"
-        base.mkdir(parents=True, exist_ok=True)
-        ts = time.strftime("%Y%m%d-%H%M%S")
-        profile_dir = base / ts
-        profile_dir.mkdir(parents=True, exist_ok=True)
+        "ok": bool(verify.get("ok", False)),
+        "label": label,
+        "score": score,
+        "reason": verify.get("reason", "verified"),
+        "artifacts": artifacts,
+    }
 
-        # profile.json must be a LIST and include an entry with phase == "parse"
+    # 5) Finish profiling (both files in same timestamped dir)
+    if prof_enabled and profile_dir is not None:
         (profile_dir / "profile.json").write_text(json.dumps(prof, indent=2))
-
-        # topline.json must include "latency_ms" and "n_keep"
         topline = {
             "latency_ms": int(1000 * (time.perf_counter() - t0)),
             "n_keep": len(prof),
             "label": label,
             "score": score,
-            "ok": bool(verify.get("ok", False)),
-            "reason": verify.get("reason", "verified"),
+            "ok": out["ok"],
+            "reason": out["reason"],
         }
         (profile_dir / "topline.json").write_text(json.dumps(topline, indent=2))
+
     return out

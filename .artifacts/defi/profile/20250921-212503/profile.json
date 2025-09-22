@@ -1,0 +1,14 @@
+[
+  {
+    "phase": "parse",
+    "t": 0.0002216249704360962,
+    "backend": "wordmap",
+    "label": "deposit_asset",
+    "score": 0.66
+  },
+  {
+    "phase": "verify",
+    "t": 0.0025167909916490316,
+    "ok": true
+  }
+]
