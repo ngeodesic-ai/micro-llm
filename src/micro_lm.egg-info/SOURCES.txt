@@ -16,6 +16,8 @@ src/micro_lm/cli/__init__.py
 src/micro_lm/cli/__main__.py
 src/micro_lm/cli/defi_audit_bench.py
 src/micro_lm/cli/entry.py
+src/micro_lm/compat/__init__.py
+src/micro_lm/compat/legacy_imports.py
 src/micro_lm/core/__init__.py
 src/micro_lm/core/bench_io.py
 src/micro_lm/core/config.py
