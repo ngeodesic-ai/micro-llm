@@ -13,6 +13,7 @@ from micro_lm.adapters.simple_context import SimpleContextAdapter
 from micro_lm.mappers.joblib_mapper import JoblibMapper, JoblibMapperConfig
 from micro_lm.planners.rule_planner import RulePlanner
 from micro_lm.core.audit import get_audit_backend, wdd_audit, apply_pca_prior, load_pca_prior
+from micro_lm.domains.defi.wdd_harness import detect as wdd_detect
 
 
 def _write_profile(domain: str, profile: list, topline: dict):
@@ -24,6 +25,22 @@ def _write_profile(domain: str, profile: list, topline: dict):
     outdir.mkdir(parents=True, exist_ok=True)
     (outdir / "profile.json").write_text(json.dumps(profile, indent=2))
     (outdir / "topline.json").write_text(json.dumps(topline, indent=2))
+
+
+def _intent_to_primitive(intent: str) -> str:
+    t = (intent or "").strip().lower()
+    table = {
+        "swap": "swap_asset",
+        "deposit": "deposit_asset",
+        "withdraw": "withdraw_asset",
+        "stake": "stake_asset",
+        "unstake": "unstake_asset",
+        "borrow": "borrow_asset",
+        "repay": "repay_asset",
+        "claim_rewards": "claim_rewards_asset",
+    }
+    return table.get(t, t)
+
 
 
 def _latent_triplet_if_available(mapper, prompt: str, *, context: dict, rails: str):
@@ -237,7 +254,7 @@ def run_micro(
     # 4) Package artifacts consistently (nice for --debug and reports)
     writer = ArtifactWriter()
     artifacts = writer.collect(label=label, mapper={"score": score, **aux}, verify=verify)
-
+    
     out = {
         "ok": bool(verify.get("ok", False)),
         "label": label,
@@ -245,6 +262,42 @@ def run_micro(
         "reason": verify.get("reason", "verified"),
         "artifacts": artifacts,
     }
+    
+    # --- Add verify block for quickstart contract ---
+    out["verify"] = {"ok": bool(verify.get("ok", False)), "reason": str(verify.get("reason", "verified"))}
+ 
+    # --- WDD detector (only when audit backend == "wdd") ---
+
+    # Canonical top-1 primitive for downstream use
+    seq_canon = []
+    if label and label != "abstain":
+        seq_canon = [_intent_to_primitive(label)]
+    
+    audit_cfg = (policy or {}).get("audit") or {}
+    if str(audit_cfg.get("backend", "")).lower() == "wdd":
+        try:
+
+            # --- Minimal plan for downstream consumers (quickstart expects plan.sequence) ---            
+            wdd = wdd_detect(
+                prompt=prompt,
+                sequence=seq_canon,
+                policy=policy,
+                context=context,
+                pca_prior=audit_cfg.get("pca_prior"),
+                debug=bool(audit_cfg.get("debug")),   # <-- add this
+            ) or {}
+        except Exception as e:
+            wdd = {"error": str(e)}
+    
+        stage11 = out.setdefault("aux", {}).setdefault("stage11", {})
+        stage11["wdd"] = {
+            "decision":    wdd.get("decision"),
+            "sigma":       wdd.get("sigma"),
+            "proto_w":     wdd.get("proto_w"),
+            "which_prior": wdd.get("which_prior"),
+            "mf_peak":     wdd.get("mf_peak"),
+            "keep":        wdd.get("keep"),
+        }
 
     # 5) Finish profiling (both files in same timestamped dir)
     if prof_enabled and profile_dir is not None:

@@ -15,6 +15,7 @@ src/micro_lm/benches/sweep.py
 src/micro_lm/cli/__init__.py
 src/micro_lm/cli/__main__.py
 src/micro_lm/cli/defi_audit_bench.py
+src/micro_lm/cli/defi_quickstart.py
 src/micro_lm/cli/entry.py
 src/micro_lm/compat/__init__.py
 src/micro_lm/compat/legacy_imports.py
@@ -26,6 +27,7 @@ src/micro_lm/core/mapper_api.py
 src/micro_lm/core/metrics.py
 src/micro_lm/core/rails_shim.py
 src/micro_lm/core/runner.py
+src/micro_lm/core/runner_current.py
 src/micro_lm/core/utils.py
 src/micro_lm/core/audit/__init__.py
 src/micro_lm/core/audit/checks.py
@@ -70,6 +72,7 @@ src/micro_lm/domains/defi/schema.py
 src/micro_lm/domains/defi/verify.py
 src/micro_lm/domains/defi/verify_fixed.py
 src/micro_lm/domains/defi/verify_local.py
+src/micro_lm/domains/defi/wdd_harness.py
 src/micro_lm/domains/defi/benches/audit_bench.py
 src/micro_lm/domains/defi/benches/audit_bench_manual.py
 src/micro_lm/domains/defi/benches/audit_bench_metrics.py

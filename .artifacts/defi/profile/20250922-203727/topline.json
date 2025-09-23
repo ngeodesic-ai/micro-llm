@@ -1,0 +1,8 @@
+{
+  "latency_ms": 2,
+  "n_keep": 3,
+  "label": "deposit_asset",
+  "score": 0.66,
+  "ok": true,
+  "reason": "shim:accept:stage-4"
+}

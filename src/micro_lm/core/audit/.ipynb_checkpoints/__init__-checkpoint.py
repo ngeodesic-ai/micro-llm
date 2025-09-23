@@ -6,15 +6,35 @@ from importlib import import_module
 from typing import Callable, Dict, Any
 from .pca_backend import pca_audit
 from . import wdd as _wdd
+from dataclasses import dataclass
+from typing import List, Dict, Any
 
 __all__ = [
      "AuditRequest", "AuditResult", "FamilySpec", "Mode", "Peak", "run_wdd",
-    "wdd_audit", "pca_audit",
+    "wdd_audit", "pca_audit", "run_families",
     "get_audit_backend",
     "load_pca_prior",
     "apply_pca_prior",
     "get_audit_backend",
 ]
+
+# Minimal stub so the notebook smoke test runs now (mapper-free).
+def run_families(prompt: str, fams: List[FamilySpec],
+                 policy: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:
+    p = prompt.lower()
+    order = []
+    if any(t in p for t in ("swap","convert","trade","exchange")):
+        order.append("swap_asset")
+    if any(t in p for t in ("deposit","supply","provide","add liquidity","top up","stake","move")):
+        order.append("deposit_asset")
+    # de-dupe
+    seen = set(); order = [x for x in order if not (x in seen or seen.add(x))]
+    return {
+        "order": order,
+        "keep": [f.name for f in fams],
+        "route": ["defi", "wdd", "family"],
+        "reason": "audit.facade_stub"
+    }
 
 def get_audit_backend(name: str):
     """
@@ -44,4 +64,3 @@ except Exception:
     # Keep the symbol present but unusable if wdd isn't available.
     def wdd_audit(*_args, **_kwargs):
         raise RuntimeError("WDD backend not available")
-

@@ -1,0 +1,17 @@
+{
+  "defi_families_wdd": {
+    "module": "micro_lm.domains.defi.families_wdd",
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/families_wdd.py",
+    "public": [
+      "FamilySpec",
+      "defi_family_registry"
+    ]
+  },
+  "legacy_imports_shim": {
+    "module": "micro_lm.compat.legacy_imports",
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/compat/legacy_imports.py",
+    "public": [
+      "install"
+    ]
+  }
+}

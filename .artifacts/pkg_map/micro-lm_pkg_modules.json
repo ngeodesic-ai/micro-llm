@@ -1,0 +1,571 @@
+[
+  {
+    "module": "micro_lm",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/__init__.py",
+    "public": [
+      "defi_family_registry",
+      "run_micro"
+    ]
+  },
+  {
+    "module": "micro_lm.bench_cli",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/bench_cli.py",
+    "public": [
+      "Counter",
+      "main",
+      "run_micro"
+    ]
+  },
+  {
+    "module": "micro_lm.cli",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/cli/__init__.py",
+    "public": [
+      "main"
+    ]
+  },
+  {
+    "module": "micro_lm.cli.__main__",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/cli/__main__.py",
+    "public": [
+      "main"
+    ]
+  },
+  {
+    "module": "micro_lm.cli.defi_audit_bench",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/cli/defi_audit_bench.py",
+    "public": [
+      "main"
+    ]
+  },
+  {
+    "module": "micro_lm.cli.entry",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/cli/entry.py",
+    "public": [
+      "main",
+      "run_micro"
+    ]
+  },
+  {
+    "module": "micro_lm.compat",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/compat/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.compat.legacy_imports",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/compat/legacy_imports.py",
+    "public": [
+      "install"
+    ]
+  },
+  {
+    "module": "micro_lm.config",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/config.py",
+    "public": [
+      "discover_context",
+      "discover_policy"
+    ]
+  },
+  {
+    "module": "micro_lm.core",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.core.audit",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/__init__.py",
+    "public": [
+      "AuditRequest",
+      "AuditResult",
+      "FamilySpec",
+      "Mode",
+      "Peak",
+      "apply_pca_prior",
+      "dataclass",
+      "get_audit_backend",
+      "import_module",
+      "load_pca_prior",
+      "pca_audit",
+      "run_families",
+      "run_wdd",
+      "wdd_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.checks",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/checks.py",
+    "public": [
+      "assert_deterministic"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.detector",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/detector.py",
+    "public": [
+      "AuditResult",
+      "Detector",
+      "FamilySpec",
+      "Mode",
+      "Peak",
+      "circshift",
+      "halfmax_window",
+      "make_rng",
+      "nxcorr"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.encoder",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/encoder.py",
+    "public": [
+      "SbertEncoder"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.orchestrator",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/orchestrator.py",
+    "public": [
+      "AuditRequest",
+      "AuditResult",
+      "Detector",
+      "Mode",
+      "run_wdd",
+      "synth_traces"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.pca_backend",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/pca_backend.py",
+    "public": [
+      "Path",
+      "apply_pca_prior",
+      "load_pca_prior",
+      "pca_audit",
+      "wdd_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.pca_prior",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/pca_prior.py",
+    "public": [
+      "Path",
+      "apply_pca_prior",
+      "load_pca_prior"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.prototypes",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/prototypes.py",
+    "public": [
+      "default_anchors",
+      "from_centroids",
+      "from_linear_coef",
+      "l2_normalize"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.traces",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/traces.py",
+    "public": [
+      "synth_traces",
+      "zscore"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.types",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/types.py",
+    "public": [
+      "AuditRequest",
+      "AuditResult",
+      "Enum",
+      "FamilySpec",
+      "Mode",
+      "Peak",
+      "dataclass",
+      "field"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.utils",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/utils.py",
+    "public": [
+      "circshift",
+      "halfmax_window",
+      "l2_normalize",
+      "make_rng",
+      "nxcorr",
+      "zscore"
+    ]
+  },
+  {
+    "module": "micro_lm.core.audit.wdd",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/audit/wdd.py",
+    "public": [
+      "wdd_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.core.backends",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/backends/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.core.backends.sbert",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/backends/sbert.py",
+    "public": [
+      "SBertMapper"
+    ]
+  },
+  {
+    "module": "micro_lm.core.backends.wordmap",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/backends/wordmap.py",
+    "public": [
+      "WordMapMapper"
+    ]
+  },
+  {
+    "module": "micro_lm.core.bench_io",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/bench_io.py",
+    "public": [
+      "ArtifactWriter"
+    ]
+  },
+  {
+    "module": "micro_lm.core.config",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/config.py",
+    "public": [
+      "Path",
+      "load_domain_config"
+    ]
+  },
+  {
+    "module": "micro_lm.core.encoder",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/encoder.py",
+    "public": [
+      "encode_batch",
+      "lru_cache"
+    ]
+  },
+  {
+    "module": "micro_lm.core.interfaces",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/interfaces/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.core.interfaces.context_adapter",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/interfaces/context_adapter.py",
+    "public": [
+      "Context",
+      "ContextAdapter",
+      "Protocol",
+      "dataclass"
+    ]
+  },
+  {
+    "module": "micro_lm.core.interfaces.exec_planner",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/interfaces/exec_planner.py",
+    "public": [
+      "ExecPlanner",
+      "Plan",
+      "PlanStep",
+      "Protocol",
+      "dataclass"
+    ]
+  },
+  {
+    "module": "micro_lm.core.interfaces.intent_mapper",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/interfaces/intent_mapper.py",
+    "public": [
+      "IntentMapper",
+      "IntentResult",
+      "Protocol",
+      "dataclass"
+    ]
+  },
+  {
+    "module": "micro_lm.core.mapper_api",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/mapper_api.py",
+    "public": [
+      "MapperAPI"
+    ]
+  },
+  {
+    "module": "micro_lm.core.metrics",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/metrics.py",
+    "public": [
+      "f1_micro"
+    ]
+  },
+  {
+    "module": "micro_lm.core.rails_shim",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/rails_shim.py",
+    "public": [
+      "Rails",
+      "import_module"
+    ]
+  },
+  {
+    "module": "micro_lm.core.runner",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/runner.py",
+    "public": [
+      "ArtifactWriter",
+      "JoblibMapper",
+      "JoblibMapperConfig",
+      "MapperAPI",
+      "Path",
+      "Rails",
+      "RulePlanner",
+      "RunInputs",
+      "SimpleContextAdapter",
+      "apply_pca_prior",
+      "dataclass",
+      "get_audit_backend",
+      "load_pca_prior",
+      "run_micro",
+      "wdd_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.core.utils",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/core/utils.py",
+    "public": [
+      "contextmanager",
+      "timed"
+    ]
+  },
+  {
+    "module": "micro_lm.domains",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.domains.arc",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.domains.arc.args",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/args.py",
+    "public": [
+      "extract_args",
+      "extract_crop_bbox",
+      "extract_recolor_map",
+      "extract_rotate_k",
+      "extract_translate"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.arc.audit_wdd",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/audit_wdd.py",
+    "public": [
+      "AuditRequest",
+      "Mode",
+      "arc_family_registry",
+      "load_domain_config",
+      "run_wdd",
+      "wdd_arc_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.arc.exec",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/exec.py",
+    "public": [
+      "apply_crop_bbox",
+      "apply_recolor_map",
+      "apply_rotate_k",
+      "apply_translate",
+      "replay"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.arc.families_wdd",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/families_wdd.py",
+    "public": [
+      "FamilySpec",
+      "arc_family_registry"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.arc.runner",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/runner.py",
+    "public": [
+      "MapOut",
+      "Plan",
+      "Verify",
+      "dataclass",
+      "execute_arc",
+      "flip_h",
+      "flip_v",
+      "get_domain_runner",
+      "map_prompt_arc",
+      "plan_arc",
+      "register_arc",
+      "rotate_ccw",
+      "rotate_cw",
+      "run_arc"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.arc.schema",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/schema.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.domains.arc.solver",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/solver.py",
+    "public": [
+      "extract_args",
+      "replay",
+      "solve_arc_io"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.arc.verify_local",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/arc/verify_local.py",
+    "public": [
+      "verify_action_local"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi",
+    "is_pkg": true,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/__init__.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.domains.defi.audit",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/audit.py",
+    "public": [
+      "defi_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi.audit_wdd",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/audit_wdd.py",
+    "public": [
+      "AuditRequest",
+      "Mode",
+      "defi_family_registry",
+      "load_domain_config",
+      "run_wdd",
+      "wdd_defi_audit"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi.families_wdd",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/families_wdd.py",
+    "public": [
+      "FamilySpec",
+      "defi_family_registry"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi.guards",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/guards.py",
+    "public": [
+      "check_hf",
+      "check_ltv",
+      "check_oracle"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi.schema",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/schema.py",
+    "public": []
+  },
+  {
+    "module": "micro_lm.domains.defi.verify",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/verify.py",
+    "public": [
+      "Emb",
+      "SentenceTransformer",
+      "build_term_vectors_and_protos",
+      "decide_from_scores",
+      "kaiser_window",
+      "matched_filter_scores_all",
+      "run_audit",
+      "span_similarity_max",
+      "spans_all",
+      "spans_gold_only"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi.verify_fixed",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/verify_fixed.py",
+    "public": [
+      "Emb",
+      "SentenceTransformer",
+      "build_term_vectors_and_protos",
+      "decide_from_scores",
+      "kaiser_window",
+      "matched_filter_scores_all",
+      "run_audit",
+      "span_similarity_max",
+      "spans_all",
+      "spans_gold_only"
+    ]
+  },
+  {
+    "module": "micro_lm.domains.defi.verify_local",
+    "is_pkg": false,
+    "file": "/Users/ian_moore/repos/micro-lm/src/micro_lm/domains/defi/verify_local.py",
+    "public": [
+      "check_hf",
+      "check_ltv",
+      "check_oracle",
+      "verify_action_local"
+    ]
+  }
+]

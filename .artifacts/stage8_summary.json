@@ -3,9 +3,9 @@
   "status": "fail",
   "rails": "stage11",
   "T": 180,
-  "runs": 3,
+  "runs": 1,
   "domains": [
-    "arc"
+    "defi"
   ],
   "caps": {
     "max_cases_per_domain": 200,
@@ -14,18 +14,21 @@
     "perturb_k": 1
   },
   "metrics": {
-    "total": 8,
-    "edges_total": 0,
+    "total": 6,
+    "edges_total": 4,
     "edges_caught": 0,
-    "false_approvals": 0,
-    "exec_approved": 0,
-    "exec_accuracy": 0.0,
-    "arc_total": 8,
-    "arc_accuracy": 0.875
+    "false_approvals": 4,
+    "exec_approved": 2,
+    "exec_accuracy": 1.0,
+    "arc_total": 0,
+    "arc_accuracy": 0.0
   },
   "failures": [
-    "arc_flip_v_perturb1: expected top1=flip_v, got=flip_h"
+    "edge_ltv_withdraw_unsafe: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}",
+    "edge_hf_health_breach: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}",
+    "edge_oracle_stale: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}",
+    "edge_low_conf_nonexec: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}"
   ],
-  "timestamp": 1758576100,
+  "timestamp": 1758608114,
   "rows_path": ".artifacts/stage8_rows.jsonl"
 }
