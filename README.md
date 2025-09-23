@@ -64,13 +64,13 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 **Status:** ✅ Complete — MVP secured.
 
-### **Tier-2: Incorporate WDD with SBERT Latents (In Progress)**  
+### **Tier-2: Incorporate WDD with SBERT Latents (✔ Secured)**  
 - Add **Warp → Detect → Denoise (WDD)** pipeline.
 - Handle both DeFi (usecase) and ARC (aptitute) prompts
 - Audit results using WDD to return ABSTAIN / PASS with auditable trace
 - Stress test signal separation + denoising with SBERT latents.
 
-**Status:** 🚧 Proven — WDD LLM benchmarks confirm deterministic reasoning on ARC and DeFi SBERT latents.
+**Status:** ✅ Complete — WWD secured.
 
 ### **Tier-3: LLM Latents (End Goal)**  
 - Swap SBERT latents for **LLM model latents**.  
