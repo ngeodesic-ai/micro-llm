@@ -1,0 +1,11 @@
+{
+  "time": 1758580901,
+  "total": 4,
+  "failures": [
+    "ok_deposit: top1 expected deposit_asset got None",
+    "ok_deposit_p1: top1 expected deposit_asset got None",
+    "ok_swap: top1 expected swap_asset got None",
+    "ok_swap_p1: top1 expected swap_asset got None"
+  ],
+  "stable_frac": 1.0
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "i": 1,
+    "prompt": "deposit 10 ETH into aave",
+    "seq0": "deposit_asset",
+    "verify_ok": true,
+    "verify_reason": "shim:accept:stage-4",
+    "wdd_decision": null,
+    "wdd_which_prior": null,
+    "wdd_sigma": null,
+    "wdd_proto_w": null,
+    "wdd_note": null
+  },
+  {
+    "i": 2,
+    "prompt": "swap 2 ETH for USDC",
+    "seq0": null,
+    "verify_ok": false,
+    "verify_reason": "abstain_non_exec",
+    "wdd_decision": null,
+    "wdd_which_prior": null,
+    "wdd_sigma": null,
+    "wdd_proto_w": null,
+    "wdd_note": null
+  },
+  {
+    "i": 3,
+    "prompt": "withdraw 5 ETH",
+    "seq0": null,
+    "verify_ok": true,
+    "verify_reason": "shim:accept:stage-4",
+    "wdd_decision": null,
+    "wdd_which_prior": null,
+    "wdd_sigma": null,
+    "wdd_proto_w": null,
+    "wdd_note": null
+  }
+]

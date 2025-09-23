@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 
 """
-python3 scripts/milestones/defi_milestone11_final.py \
+python3 scripts/milestones/defi_milestone11.py \
   --rails stage11 --baseline_rails stage10 \
   --runs 3 --T 180 \
   --policy '{"ltv_max":0.75,"hf_min":1.0,"mapper":{"model_path":".artifacts/defi_mapper.joblib","confidence_threshold":0.7}}' \

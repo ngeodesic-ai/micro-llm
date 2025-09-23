@@ -1,0 +1,17 @@
+{
+  "domain": "defi",
+  "prompt": "deposit 1 ETH",
+  "backend": "wordmap",
+  "rails": "stage11",
+  "T": 128,
+  "policy_audit": {
+    "backend": "wdd",
+    "mode": "pure",
+    "profile": true
+  },
+  "mapper": {
+    "label": "deposit_asset",
+    "score": 0.66,
+    "reason": "word:deposit"
+  }
+}

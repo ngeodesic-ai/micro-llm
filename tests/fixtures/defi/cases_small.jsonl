@@ -1,0 +1,6 @@
+{"prompt": "deposit 10 ETH into aave", "label": "deposit"}
+{"prompt": "swap 50 USDC to DAI on uniswap", "label": "swap_asset"}
+{"prompt": "withdraw 1000 USDT with LTV 0.9", "label": "abstain"} 
+{"prompt": "borrow 5000 DAI at health factor 0.8", "label": "abstain"}
+{"prompt": "please sing me a song", "label": "abstain"}
+

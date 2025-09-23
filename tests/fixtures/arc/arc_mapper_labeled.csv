@@ -1,0 +1,1001 @@
+prompt,label
+reflect this grid vertically.,flip_v
+invert the pattern up↕down asap!!,flip_v
+rotate the board 90 degrees clockwise,rotate
+reflect the canvas UD now.,flip_v
+do a horizontal mirror for the grid,flip_h
+mirror this grid LR.,flip_h
+perform an LR flip for the tile grid,flip_h
+invert the grid top to bottom.,flip_v
+reflect the matrix horizontally,flip_h
+invert the tile grid across the horizontal axis.,flip_v
+rotate by 180 degrees!!,rotate
+invert the board across the vertical axis now!,flip_h
+invert the pattern UD please.,flip_v
+spin the pattern 90 degrees clockwise,rotate
+reverse the board across the horizontal axis please,flip_v
+flip the board up↕down now!!,flip_v
+three-quarter turn clockwise for the tile grid,rotate
+reverse the grid across the horizontal axis,flip_v
+reflect this grid across the horizontal axis now,flip_v
+rotate the tile grid 90 degrees counterclockwise,rotate
+mirror the matrix vertically,flip_v
+flip the matrix across the vertical axis,flip_h
+spin the puzzle grid 90 degrees clockwise asap.,rotate
+spin the puzzle grid 270 degrees clockwise,rotate
+reflect this grid left to right,flip_h
+turn the puzzle grid 180 degrees,rotate
+invert the matrix along the vertical axis,flip_h
+reflect the canvas along the horizontal axis thanks!!,flip_v
+reverse the canvas left to right asap,flip_h
+reverse the canvas across the horizontal axis thanks.,flip_v
+invert the tile grid horizontally quickly.,flip_h
+reverse the matrix across the vertical axis,flip_h
+flip the puzzle grid UD,flip_v
+flip the puzzle grid up↕down,flip_v
+invert this grid up↕down,flip_v
+turn the canvas 90 degrees clockwise thanks!,rotate
+rotate the puzzle grid 270 degrees counterclockwise,rotate
+do a vertical mirror for the puzzle grid,flip_v
+turn the puzzle grid 270 degrees counterclockwise asap,rotate
+reverse the matrix vertically now!!,flip_v
+rotate the tile grid 180 degrees,rotate
+spin the canvas 90 degrees counterclockwise,rotate
+invert the puzzle grid along the vertical axis,flip_h
+spin the canvas 270 degrees clockwise,rotate
+turn the puzzle grid 90 degrees counterclockwise,rotate
+turn the pattern 90 degrees counterclockwise,rotate
+invert the canvas along the vertical axis please!!,flip_h
+mirror the matrix along the vertical axis asap,flip_h
+mirror the grid LR,flip_h
+flip the matrix vertically quickly,flip_v
+invert the tile grid UD,flip_v
+mirror-image it horizontally for the grid,flip_h
+reflect the tile grid left↔right,flip_h
+perform a UD flip now,flip_v
+reflect the matrix UD asap.,flip_v
+three-quarter turn clockwise now!!,rotate
+rotate the grid 90 degrees clockwise now!!,rotate
+reflect this grid horizontally!,flip_h
+reverse the tile grid across the horizontal axis now,flip_v
+reflect the tile grid across the horizontal axis asap,flip_v
+flip the grid LR thanks,flip_h
+flip the board across the horizontal axis asap.,flip_v
+reverse the puzzle grid up↕down,flip_v
+reverse the canvas LR!,flip_h
+reverse the pattern across the horizontal axis asap!!,flip_v
+turn the board 90 degrees counterclockwise thanks,rotate
+apply a horizontal flip asap!!,flip_h
+invert this grid along the horizontal axis,flip_v
+do a horizontal mirror asap!!,flip_h
+half turn please!!,rotate
+turn the tile grid 180 degrees,rotate
+flip the tile grid along the horizontal axis,flip_v
+mirror this grid across the vertical axis,flip_h
+rotate the grid 270 degrees counterclockwise,rotate
+reverse the matrix top to bottom now!,flip_v
+mirror the tile grid top to bottom asap,flip_v
+reflect the puzzle grid along the horizontal axis,flip_v
+rotate the canvas 90 degrees clockwise,rotate
+quarter turn counterclockwise,rotate
+invert this grid LR,flip_h
+mirror the canvas up↕down now.,flip_v
+turn the canvas 90 degrees counterclockwise quickly,rotate
+reverse the puzzle grid horizontally,flip_h
+perform an LR flip please!!,flip_h
+flip the puzzle grid vertically,flip_v
+reverse the grid top to bottom thanks.,flip_v
+three-quarter turn counterclockwise!!,rotate
+mirror the board horizontally thanks!!,flip_h
+quarter turn counterclockwise on the grid,rotate
+invert the board LR,flip_h
+flip the pattern up↕down,flip_v
+reverse this grid across the vertical axis please!,flip_h
+reverse this grid along the horizontal axis thanks!!,flip_v
+spin this grid 270 degrees clockwise thanks.,rotate
+apply a horizontal flip thanks.,flip_h
+reverse the matrix up↕down now!!,flip_v
+reverse the puzzle grid LR asap,flip_h
+invert the puzzle grid along the vertical axis thanks!,flip_h
+mirror the grid UD.,flip_v
+reverse the tile grid along the vertical axis,flip_h
+reverse the pattern left to right,flip_h
+vertical flip,flip_v
+flip the grid left↔right,flip_h
+spin the canvas 90 degrees clockwise asap.,rotate
+spin the tile grid 270 degrees clockwise,rotate
+reflect the grid left↔right,flip_h
+do a vertical mirror,flip_v
+three-quarter turn counterclockwise on this grid,rotate
+reflect horizontally,flip_h
+reflect this grid top to bottom now.,flip_v
+do a horizontal mirror on this grid,flip_h
+do a vertical mirror asap,flip_v
+do a horizontal mirror now!,flip_h
+spin the grid 270 degrees clockwise.,rotate
+flip the matrix up↕down,flip_v
+spin the matrix 180 degrees,rotate
+perform an LR flip on the grid,flip_h
+mirror the canvas UD,flip_v
+apply a vertical flip on the canvas,flip_v
+apply a vertical flip now,flip_v
+invert the tile grid across the vertical axis.,flip_h
+reverse the board LR asap!,flip_h
+spin the canvas 270 degrees counterclockwise,rotate
+three-quarter turn clockwise on the tile grid,rotate
+perform a UD flip for the grid,flip_v
+flip the puzzle grid across the vertical axis,flip_h
+perform a UD flip asap!,flip_v
+reflect the grid left↔right please,flip_h
+reverse the canvas across the vertical axis quickly.,flip_h
+quarter turn clockwise on this grid,rotate
+quarter turn clockwise on the matrix,rotate
+rotate by a right angle on the grid,rotate
+flip the board left to right.,flip_h
+flip the canvas left to right.,flip_h
+reverse this grid top to bottom quickly!,flip_v
+flip the canvas UD now.,flip_v
+invert this grid horizontally,flip_h
+quarter turn clockwise for the tile grid,rotate
+rotate the grid,rotate
+flip the pattern left to right!,flip_h
+spin the grid 270 degrees counterclockwise,rotate
+make it a left-right reflection on the tile grid,flip_h
+reverse the puzzle grid left↔right,flip_h
+quarter turn clockwise asap,rotate
+flip the puzzle grid top to bottom thanks,flip_v
+invert the canvas along the horizontal axis please,flip_v
+invert the pattern top to bottom,flip_v
+mirror the puzzle grid across the vertical axis,flip_h
+rotate the matrix 180 degrees,rotate
+apply a vertical flip asap.,flip_v
+mirror the board along the vertical axis quickly!!,flip_h
+flip the grid LR,flip_h
+make a top-bottom reflection now!,flip_v
+reverse the canvas UD,flip_v
+invert the board along the horizontal axis,flip_v
+reverse the board up↕down,flip_v
+invert the canvas UD,flip_v
+make a top-bottom reflection now!!,flip_v
+flip the tile grid UD,flip_v
+rotate by a right angle for the canvas,rotate
+three-quarter turn counterclockwise for this grid,rotate
+flip the puzzle grid left to right,flip_h
+three-quarter turn clockwise for this grid,rotate
+turn the board 180 degrees,rotate
+reflect the puzzle grid horizontally quickly!,flip_h
+three-quarter turn counterclockwise for the pattern,rotate
+reverse the puzzle grid across the vertical axis asap!!,flip_h
+reverse the board horizontally quickly!,flip_h
+reverse this grid across the vertical axis,flip_h
+invert the tile grid up↕down!!,flip_v
+spin this grid 90 degrees clockwise quickly!,rotate
+three-quarter turn clockwise for the matrix,rotate
+invert the board up↕down,flip_v
+do a horizontal mirror thanks,flip_h
+rotate the grid 270 degrees clockwise!,rotate
+rotate the matrix 270 degrees counterclockwise,rotate
+reflect this grid LR thanks!!,flip_h
+flip the tile grid left↔right,flip_h
+half turn asap!!,rotate
+mirror-image it horizontally on the puzzle grid,flip_h
+reverse the tile grid along the vertical axis asap!!,flip_h
+invert this grid along the vertical axis thanks!,flip_h
+LR flip,flip_h
+apply a horizontal flip for the grid,flip_h
+reflect the puzzle grid along the vertical axis,flip_h
+flip the canvas LR.,flip_h
+invert this grid across the vertical axis quickly.,flip_h
+reflect the grid vertically,flip_v
+invert the pattern UD,flip_v
+quarter turn counterclockwise thanks!!,rotate
+mirror the grid horizontally,flip_h
+reverse the tile grid LR!!,flip_h
+flip it upside down for the puzzle grid,flip_v
+invert the pattern LR thanks!,flip_h
+flip it upside down thanks,flip_v
+spin the board 90 degrees counterclockwise now!!,rotate
+invert the matrix UD quickly.,flip_v
+reflect the pattern left to right!!,flip_h
+reverse this grid top to bottom,flip_v
+rotate by a right angle now!!,rotate
+reverse the puzzle grid UD.,flip_v
+reverse the grid left to right thanks.,flip_h
+spin the canvas 270 degrees clockwise.,rotate
+invert the grid top to bottom,flip_v
+flip the matrix left↔right,flip_h
+rotate the tile grid 270 degrees counterclockwise thanks!!,rotate
+flip the pattern along the vertical axis,flip_h
+rotate by a right angle for this grid,rotate
+half turn for the matrix,rotate
+reflect the pattern across the vertical axis,flip_h
+half turn on this grid,rotate
+reverse this grid UD,flip_v
+rotate by a right angle on the pattern,rotate
+invert the matrix top to bottom,flip_v
+reflect the pattern left↔right,flip_h
+invert the canvas top to bottom please!,flip_v
+flip the canvas vertically,flip_v
+reflect the puzzle grid horizontally,flip_h
+rotate by 180 degrees thanks,rotate
+invert the canvas left to right asap.,flip_h
+turn the matrix 270 degrees clockwise,rotate
+invert the matrix across the vertical axis asap!!,flip_h
+flip it upside down on the matrix,flip_v
+turn the matrix 90 degrees clockwise please!,rotate
+flip the board along the horizontal axis,flip_v
+rotate by a right angle for the puzzle grid,rotate
+reverse the pattern top to bottom,flip_v
+perform a UD flip asap!!,flip_v
+invert the tile grid along the horizontal axis!!,flip_v
+reverse the puzzle grid up↕down now.,flip_v
+rotate by 180 degrees for this grid,rotate
+mirror this grid top to bottom asap,flip_v
+invert the board top to bottom asap!,flip_v
+spin the board 270 degrees counterclockwise,rotate
+rotate by 180 degrees on the canvas,rotate
+invert the matrix along the horizontal axis,flip_v
+make it a left-right reflection thanks!,flip_h
+three-quarter turn counterclockwise for the grid,rotate
+invert the pattern horizontally quickly!,flip_h
+mirror the board across the horizontal axis,flip_v
+reverse this grid along the vertical axis thanks!,flip_h
+reflect this grid UD thanks.,flip_v
+quarter turn counterclockwise on the tile grid,rotate
+mirror the canvas vertically now!,flip_v
+turn the canvas 180 degrees!!,rotate
+spin the pattern 270 degrees clockwise,rotate
+turn this grid 90 degrees counterclockwise asap!,rotate
+perform a UD flip for the pattern,flip_v
+make a top-bottom reflection asap!,flip_v
+mirror the tile grid UD,flip_v
+flip the tile grid LR,flip_h
+rotate the board 270 degrees counterclockwise,rotate
+mirror the puzzle grid left↔right now!!,flip_h
+rotate the pattern 90 degrees clockwise!!,rotate
+turn this grid 270 degrees clockwise,rotate
+reflect the tile grid horizontally.,flip_h
+reflect the matrix along the horizontal axis,flip_v
+mirror the canvas horizontally,flip_h
+apply a horizontal flip on the grid,flip_h
+reflect the grid LR,flip_h
+invert the puzzle grid LR thanks!!,flip_h
+half turn on the puzzle grid,rotate
+rotate by 180 degrees on the grid,rotate
+mirror this grid across the horizontal axis thanks!,flip_v
+turn the grid 180 degrees please!!,rotate
+turn this grid 90 degrees clockwise thanks!,rotate
+mirror the canvas across the vertical axis,flip_h
+mirror the puzzle grid UD please!!,flip_v
+quarter turn clockwise thanks,rotate
+three-quarter turn clockwise asap,rotate
+rotate the tile grid 90 degrees clockwise,rotate
+rotate the grid 90 degrees clockwise,rotate
+invert the tile grid vertically,flip_v
+apply a vertical flip on the matrix,flip_v
+reflect the puzzle grid left↔right,flip_h
+quarter turn counterclockwise quickly,rotate
+reflect the grid left to right,flip_h
+reverse the grid up↕down asap!,flip_v
+reflect this grid top to bottom,flip_v
+perform an LR flip for the puzzle grid,flip_h
+make a top-bottom reflection!!,flip_v
+turn the pattern 180 degrees please!,rotate
+invert the puzzle grid top to bottom,flip_v
+spin the tile grid 90 degrees counterclockwise,rotate
+turn the canvas 270 degrees counterclockwise thanks,rotate
+flip it upside down for the board,flip_v
+reverse the grid across the vertical axis,flip_h
+rotate by a right angle on the puzzle grid,rotate
+invert the tile grid UD quickly.,flip_v
+mirror the grid left↔right,flip_h
+spin the tile grid 270 degrees clockwise now!,rotate
+rotate the puzzle grid 90 degrees counterclockwise,rotate
+flip the puzzle grid UD please,flip_v
+flip this grid left↔right please!!,flip_h
+mirror the grid up↕down,flip_v
+spin the grid 90 degrees counterclockwise,rotate
+perform a UD flip for the puzzle grid,flip_v
+invert the grid across the horizontal axis.,flip_v
+mirror the board top to bottom,flip_v
+flip the board left↔right now,flip_h
+reverse the grid across the vertical axis asap.,flip_h
+reverse the tile grid UD,flip_v
+rotate the board 270 degrees clockwise,rotate
+turn the board 90 degrees clockwise,rotate
+reflect the tile grid UD,flip_v
+rotate this grid 90 degrees counterclockwise please!,rotate
+spin the pattern 270 degrees counterclockwise,rotate
+invert this grid left↔right,flip_h
+reflect the canvas across the horizontal axis.,flip_v
+three-quarter turn counterclockwise on the tile grid,rotate
+flip the board vertically,flip_v
+apply a vertical flip on the pattern,flip_v
+mirror the tile grid vertically,flip_v
+half turn quickly!!,rotate
+perform a UD flip quickly!,flip_v
+reflect the board along the horizontal axis,flip_v
+rotate the matrix 90 degrees clockwise,rotate
+make it a left-right reflection for the tile grid,flip_h
+three-quarter turn clockwise quickly,rotate
+turn the puzzle grid 270 degrees clockwise quickly.,rotate
+rotate the tile grid 270 degrees counterclockwise,rotate
+spin the grid 180 degrees,rotate
+mirror the matrix vertically quickly!!,flip_v
+rotate by a right angle on the matrix,rotate
+rotate 180 degrees,rotate
+mirror the tile grid along the vertical axis,flip_h
+mirror the matrix LR,flip_h
+reverse the matrix across the horizontal axis please!,flip_v
+mirror the grid along the vertical axis,flip_h
+reverse the grid vertically asap.,flip_v
+invert this grid across the horizontal axis,flip_v
+perform an LR flip on the matrix,flip_h
+turn the matrix 270 degrees counterclockwise,rotate
+mirror-image it horizontally for the puzzle grid,flip_h
+reverse the matrix horizontally thanks,flip_h
+three-quarter turn counterclockwise on the pattern,rotate
+reflect the pattern horizontally,flip_h
+invert the puzzle grid along the horizontal axis thanks,flip_v
+reverse this grid left to right,flip_h
+rotate by a right angle thanks!!,rotate
+invert the board across the vertical axis,flip_h
+invert this grid top to bottom quickly.,flip_v
+flip the puzzle grid left to right asap.,flip_h
+spin the puzzle grid 90 degrees clockwise,rotate
+mirror the matrix along the horizontal axis,flip_v
+mirror the matrix left to right,flip_h
+spin the matrix 270 degrees clockwise asap!,rotate
+reflect the canvas up↕down,flip_v
+quarter turn clockwise on the puzzle grid,rotate
+reverse the puzzle grid across the vertical axis,flip_h
+quarter turn clockwise for the grid,rotate
+quarter turn counterclockwise.,rotate
+half turn for the grid,rotate
+flip this grid up↕down asap!!,flip_v
+mirror the matrix LR thanks.,flip_h
+reflect the matrix left↔right,flip_h
+reflect this grid left↔right please!!,flip_h
+do a horizontal mirror thanks!,flip_h
+turn the canvas 270 degrees counterclockwise,rotate
+apply a horizontal flip for the tile grid,flip_h
+reverse the pattern across the vertical axis,flip_h
+invert the canvas along the vertical axis,flip_h
+flip the matrix along the vertical axis asap.,flip_h
+make it a left-right reflection for the canvas,flip_h
+flip this grid vertically quickly!,flip_v
+rotate by 180 degrees now,rotate
+turn the matrix 180 degrees,rotate
+rotate the pattern 180 degrees,rotate
+three-quarter turn clockwise for the puzzle grid,rotate
+do a horizontal mirror!!,flip_h
+mirror the canvas across the vertical axis quickly!!,flip_h
+spin the board 90 degrees counterclockwise,rotate
+flip this grid left to right,flip_h
+reflect the canvas left↔right,flip_h
+reverse the pattern UD,flip_v
+mirror the puzzle grid along the vertical axis,flip_h
+reflect the tile grid across the horizontal axis,flip_v
+turn the tile grid 270 degrees counterclockwise asap,rotate
+apply a horizontal flip on the board,flip_h
+mirror the puzzle grid LR,flip_h
+three-quarter turn clockwise for the pattern,rotate
+mirror the grid vertically please!,flip_v
+flip the grid along the horizontal axis,flip_v
+flip the matrix across the horizontal axis,flip_v
+mirror the canvas across the horizontal axis,flip_v
+rotate by a right angle for the tile grid,rotate
+mirror the canvas left to right thanks!,flip_h
+mirror the tile grid LR,flip_h
+invert the matrix up↕down quickly,flip_v
+reverse the pattern vertically please!!,flip_v
+invert the matrix across the vertical axis,flip_h
+spin this grid 270 degrees counterclockwise quickly!!,rotate
+mirror the canvas LR,flip_h
+turn this grid 180 degrees!!,rotate
+reverse the pattern up↕down,flip_v
+make a top-bottom reflection for the board,flip_v
+three-quarter turn counterclockwise on the matrix,rotate
+spin the tile grid 270 degrees counterclockwise,rotate
+flip the grid left to right,flip_h
+flip the grid up↕down!!,flip_v
+flip the tile grid across the horizontal axis,flip_v
+invert the tile grid along the vertical axis,flip_h
+flip it upside down thanks!,flip_v
+mirror this grid UD!,flip_v
+turn the tile grid 270 degrees counterclockwise,rotate
+spin this grid 90 degrees clockwise,rotate
+reverse the canvas LR,flip_h
+invert the pattern left to right,flip_h
+reflect the tile grid left↔right quickly,flip_h
+mirror the board UD quickly.,flip_v
+turn the grid 270 degrees counterclockwise,rotate
+three-quarter turn clockwise on the matrix,rotate
+flip the tile grid vertically,flip_v
+flip the canvas horizontally,flip_h
+mirror the puzzle grid left↔right,flip_h
+mirror this grid left to right now.,flip_h
+reflect the matrix vertically please.,flip_v
+mirror the board along the vertical axis,flip_h
+apply a vertical flip on the tile grid,flip_v
+mirror-image it horizontally for the matrix,flip_h
+mirror the canvas along the horizontal axis quickly!,flip_v
+reverse the board left to right,flip_h
+make a top-bottom reflection for the pattern,flip_v
+mirror the pattern UD!,flip_v
+half turn on the board,rotate
+reverse this grid vertically,flip_v
+mirror the board along the horizontal axis,flip_v
+rotate this grid 90 degrees clockwise,rotate
+mirror the matrix up↕down,flip_v
+reflect the grid LR thanks,flip_h
+turn the pattern 270 degrees clockwise,rotate
+reverse the tile grid left to right please!,flip_h
+invert the tile grid left↔right!,flip_h
+reflect the tile grid LR,flip_h
+spin this grid 90 degrees counterclockwise,rotate
+rotate the matrix 90 degrees clockwise asap!!,rotate
+flip the matrix horizontally,flip_h
+mirror horizontally,flip_h
+reverse the puzzle grid horizontally!,flip_h
+flip the board vertically quickly,flip_v
+turn the board 270 degrees clockwise,rotate
+flip the board along the vertical axis,flip_h
+invert the canvas top to bottom,flip_v
+mirror the matrix left to right asap.,flip_h
+apply a vertical flip for the canvas,flip_v
+three-quarter turn clockwise thanks!,rotate
+flip the tile grid up↕down thanks,flip_v
+mirror vertically,flip_v
+reflect the board LR,flip_h
+reverse this grid along the vertical axis,flip_h
+reverse the board across the vertical axis.,flip_h
+reverse the pattern along the vertical axis please!!,flip_h
+do a horizontal mirror for the puzzle grid,flip_h
+flip the puzzle grid horizontally thanks,flip_h
+flip the pattern up↕down asap,flip_v
+mirror the puzzle grid along the horizontal axis quickly,flip_v
+mirror the board UD,flip_v
+mirror the grid left to right quickly!!,flip_h
+invert the grid vertically asap!!,flip_v
+reflect the tile grid across the vertical axis,flip_h
+quarter turn counterclockwise please!,rotate
+spin the board 90 degrees clockwise,rotate
+flip the tile grid LR now.,flip_h
+reflect the matrix up↕down asap!!,flip_v
+rotate the canvas 270 degrees counterclockwise quickly!!,rotate
+reflect the canvas up↕down quickly,flip_v
+reverse the matrix along the horizontal axis thanks,flip_v
+invert the pattern up↕down,flip_v
+reflect the pattern along the horizontal axis,flip_v
+invert the puzzle grid across the vertical axis asap!,flip_h
+invert the board left to right quickly.,flip_h
+flip the pattern left↔right quickly,flip_h
+flip the tile grid top to bottom now!!,flip_v
+turn this grid 180 degrees,rotate
+three-quarter turn counterclockwise for the matrix,rotate
+half turn now!,rotate
+invert the board left↔right,flip_h
+spin the tile grid 270 degrees counterclockwise now,rotate
+flip the canvas top to bottom,flip_v
+invert the puzzle grid vertically,flip_v
+rotate the board 90 degrees counterclockwise,rotate
+quarter turn clockwise for the canvas,rotate
+flip this grid left to right.,flip_h
+perform an LR flip on the puzzle grid,flip_h
+spin the puzzle grid 270 degrees counterclockwise,rotate
+perform a UD flip please!!,flip_v
+reverse the grid along the horizontal axis now.,flip_v
+reverse the puzzle grid along the horizontal axis asap!!,flip_v
+half turn for the board,rotate
+turn the tile grid 270 degrees clockwise please!!,rotate
+flip the tile grid left↔right thanks!,flip_h
+mirror this grid left to right,flip_h
+invert the puzzle grid left to right thanks,flip_h
+reflect this grid up↕down now,flip_v
+reverse the grid left↔right,flip_h
+invert the pattern LR,flip_h
+do a vertical mirror quickly.,flip_v
+turn the puzzle grid 270 degrees counterclockwise,rotate
+turn the board 270 degrees counterclockwise,rotate
+rotate the grid 90 degrees counterclockwise,rotate
+rotate the pattern 270 degrees clockwise,rotate
+do a vertical mirror for the matrix,flip_v
+flip the puzzle grid across the vertical axis please!!,flip_h
+flip it upside down please!!,flip_v
+perform a UD flip for this grid,flip_v
+invert the grid across the horizontal axis,flip_v
+reflect the puzzle grid across the horizontal axis,flip_v
+mirror the board left to right,flip_h
+left-right mirror,flip_h
+three-quarter turn clockwise on the grid,rotate
+mirror the tile grid across the horizontal axis.,flip_v
+reverse the canvas top to bottom,flip_v
+flip the puzzle grid along the vertical axis,flip_h
+reflect the pattern horizontally thanks,flip_h
+reflect the puzzle grid along the vertical axis quickly!!,flip_h
+reflect the board along the vertical axis,flip_h
+flip the puzzle grid along the horizontal axis,flip_v
+half turn on the canvas,rotate
+quarter turn counterclockwise for the puzzle grid,rotate
+rotate by 180 degrees for the matrix,rotate
+reflect the board LR quickly!!,flip_h
+reflect the puzzle grid top to bottom please,flip_v
+reflect the tile grid along the horizontal axis now,flip_v
+quarter turn clockwise for the matrix,rotate
+rotate by 180 degrees quickly!!,rotate
+reverse the tile grid UD quickly,flip_v
+mirror the canvas left↔right,flip_h
+mirror the tile grid across the vertical axis!,flip_h
+spin the puzzle grid 180 degrees please,rotate
+mirror-image it horizontally on the matrix,flip_h
+spin the tile grid 180 degrees thanks,rotate
+rotate the pattern 270 degrees counterclockwise thanks!,rotate
+invert the matrix LR,flip_h
+turn the pattern 270 degrees counterclockwise,rotate
+reverse the tile grid along the horizontal axis now!,flip_v
+mirror the grid across the horizontal axis quickly.,flip_v
+rotate the board 90 degrees clockwise thanks!,rotate
+rotate by 180 degrees for the pattern,rotate
+rotate the matrix 180 degrees.,rotate
+invert this grid across the horizontal axis quickly.,flip_v
+three-quarter turn counterclockwise for the puzzle grid,rotate
+flip the canvas left↔right,flip_h
+reflect the canvas across the vertical axis asap.,flip_h
+turn the pattern 90 degrees clockwise.,rotate
+perform a UD flip asap.,flip_v
+rotate the tile grid 90 degrees clockwise asap.,rotate
+three-quarter turn counterclockwise quickly.,rotate
+quarter turn clockwise on the canvas,rotate
+flip the tile grid left to right quickly!,flip_h
+turn this grid 270 degrees clockwise now.,rotate
+reflect the grid across the horizontal axis,flip_v
+flip it upside down now.,flip_v
+rotate the matrix 270 degrees clockwise quickly,rotate
+perform a UD flip on the matrix,flip_v
+rotate the grid 180 degrees thanks.,rotate
+invert the board along the horizontal axis!,flip_v
+invert the grid left↔right,flip_h
+reverse the tile grid LR,flip_h
+turn the puzzle grid 90 degrees clockwise thanks,rotate
+reflect the puzzle grid along the horizontal axis please,flip_v
+rotate by a right angle.,rotate
+flip the canvas across the vertical axis,flip_h
+flip the grid horizontally,flip_h
+flip this grid LR,flip_h
+reflect the grid up↕down,flip_v
+mirror the puzzle grid vertically,flip_v
+rotate this grid 180 degrees,rotate
+turn the grid 90 degrees clockwise now,rotate
+spin the board 270 degrees counterclockwise now!!,rotate
+apply a horizontal flip quickly,flip_h
+turn the pattern 270 degrees counterclockwise now.,rotate
+rotate this grid 180 degrees asap!,rotate
+mirror the canvas along the vertical axis,flip_h
+rotate the canvas 270 degrees clockwise quickly,rotate
+flip the puzzle grid across the horizontal axis,flip_v
+flip this grid horizontally,flip_h
+spin this grid 270 degrees clockwise,rotate
+reverse the tile grid up↕down,flip_v
+quarter turn clockwise for the pattern,rotate
+apply a horizontal flip.,flip_h
+make it a left-right reflection on the pattern,flip_h
+flip the tile grid across the vertical axis,flip_h
+reflect the pattern along the horizontal axis now!!,flip_v
+reverse the board UD,flip_v
+flip the board across the horizontal axis,flip_v
+rotate by a right angle on the canvas,rotate
+reverse the grid up↕down,flip_v
+apply a vertical flip for the grid,flip_v
+reflect the board horizontally quickly.,flip_h
+reverse the matrix LR now!,flip_h
+flip the matrix along the vertical axis,flip_h
+invert the pattern across the vertical axis thanks!!,flip_h
+mirror the canvas left to right,flip_h
+turn the grid 90 degrees counterclockwise,rotate
+reflect the tile grid along the horizontal axis,flip_v
+rotate by 180 degrees for the puzzle grid,rotate
+mirror the matrix across the vertical axis thanks!,flip_h
+flip the tile grid across the vertical axis please!,flip_h
+rotate by 180 degrees!,rotate
+reverse the puzzle grid across the horizontal axis thanks!!,flip_v
+reflect the matrix across the vertical axis,flip_h
+do a vertical mirror on the tile grid,flip_v
+invert the grid along the horizontal axis!!,flip_v
+perform a UD flip for the matrix,flip_v
+invert the pattern along the vertical axis now!,flip_h
+rotate the canvas 180 degrees,rotate
+rotate the canvas 90 degrees counterclockwise now!!,rotate
+reverse the matrix left↔right,flip_h
+do a horizontal mirror on the puzzle grid,flip_h
+spin the board 90 degrees clockwise please!!,rotate
+mirror the canvas horizontally please.,flip_h
+rotate the canvas 180 degrees asap.,rotate
+reverse the board UD thanks!,flip_v
+reflect the canvas horizontally,flip_h
+reverse the puzzle grid along the horizontal axis,flip_v
+reflect the matrix along the horizontal axis.,flip_v
+turn the board 180 degrees!,rotate
+mirror the puzzle grid top to bottom thanks!!,flip_v
+mirror the puzzle grid along the vertical axis.,flip_h
+quarter turn counterclockwise on the canvas,rotate
+reflect the matrix top to bottom asap!,flip_v
+reflect the board horizontally,flip_h
+invert the canvas across the vertical axis thanks!!,flip_h
+reverse the matrix UD quickly!!,flip_v
+rotate the tile grid 270 degrees clockwise,rotate
+reverse the tile grid vertically asap,flip_v
+turn the canvas 270 degrees clockwise,rotate
+reflect the canvas vertically please!,flip_v
+invert the canvas LR thanks.,flip_h
+mirror the matrix along the vertical axis,flip_h
+reflect the puzzle grid vertically,flip_v
+rotate by a right angle asap!,rotate
+flip the pattern along the vertical axis now!,flip_h
+quarter turn clockwise for the puzzle grid,rotate
+flip it upside down for this grid,flip_v
+three-quarter turn counterclockwise on the grid,rotate
+half turn on the tile grid,rotate
+apply a vertical flip for the puzzle grid,flip_v
+rotate by a right angle please,rotate
+flip this grid top to bottom asap!!,flip_v
+reverse the pattern top to bottom asap!!,flip_v
+rotate the matrix 270 degrees counterclockwise asap!,rotate
+half turn.,rotate
+mirror the puzzle grid across the horizontal axis,flip_v
+mirror the board left to right asap,flip_h
+reverse the board along the vertical axis,flip_h
+reverse the board along the vertical axis quickly,flip_h
+reflect the puzzle grid UD,flip_v
+half turn for the canvas,rotate
+spin the pattern 180 degrees thanks!!,rotate
+do a horizontal mirror please!!,flip_h
+turn this grid 270 degrees counterclockwise!!,rotate
+invert the board LR please.,flip_h
+rotate by 180 degrees for the board,rotate
+invert the grid along the vertical axis,flip_h
+flip the puzzle grid vertically now.,flip_v
+reflect vertically,flip_v
+perform an LR flip for the board,flip_h
+quarter turn counterclockwise for the canvas,rotate
+flip the tile grid along the vertical axis,flip_h
+invert the pattern across the vertical axis,flip_h
+reflect the matrix top to bottom,flip_v
+invert the tile grid vertically please!,flip_v
+half turn for the pattern,rotate
+turn the canvas 90 degrees clockwise,rotate
+reverse the matrix left to right,flip_h
+flip this grid UD quickly,flip_v
+flip the pattern LR,flip_h
+make a top-bottom reflection on this grid,flip_v
+invert the board UD,flip_v
+invert the grid up↕down asap!,flip_v
+flip the canvas along the horizontal axis asap.,flip_v
+three-quarter turn counterclockwise for the tile grid,rotate
+reverse the tile grid horizontally thanks!,flip_h
+reflect the canvas along the vertical axis,flip_h
+rotate the board 90 degrees counterclockwise!!,rotate
+reverse the matrix top to bottom,flip_v
+rotate this grid 270 degrees counterclockwise quickly!,rotate
+reverse the tile grid across the horizontal axis,flip_v
+spin the matrix 90 degrees counterclockwise,rotate
+turn the grid 270 degrees clockwise quickly.,rotate
+rotate the canvas 270 degrees clockwise,rotate
+spin the pattern 90 degrees counterclockwise,rotate
+reverse the canvas horizontally thanks.,flip_h
+quarter turn counterclockwise asap!,rotate
+flip the tile grid up↕down,flip_v
+spin the canvas 270 degrees counterclockwise now!,rotate
+flip the pattern across the vertical axis,flip_h
+quarter turn clockwise now!,rotate
+flip the matrix left to right thanks!,flip_h
+reverse the grid horizontally,flip_h
+mirror the tile grid along the horizontal axis asap.,flip_v
+reflect this grid vertically,flip_v
+mirror the pattern across the horizontal axis now.,flip_v
+quarter turn clockwise for this grid,rotate
+rotate the canvas 90 degrees clockwise quickly!!,rotate
+three-quarter turn clockwise please.,rotate
+mirror-image it horizontally for the canvas,flip_h
+invert the puzzle grid across the horizontal axis now!!,flip_v
+flip the board horizontally asap!,flip_h
+reverse the grid along the horizontal axis,flip_v
+invert the grid along the horizontal axis,flip_v
+mirror the board left↔right,flip_h
+quarter turn counterclockwise for the board,rotate
+rotate the board 180 degrees,rotate
+three-quarter turn counterclockwise asap!!,rotate
+mirror-image it horizontally for this grid,flip_h
+invert the grid along the vertical axis thanks,flip_h
+reverse this grid horizontally,flip_h
+flip it upside down on this grid,flip_v
+three-quarter turn clockwise on the canvas,rotate
+mirror the matrix top to bottom,flip_v
+spin the matrix 90 degrees clockwise,rotate
+invert the matrix left to right,flip_h
+spin the canvas 90 degrees counterclockwise quickly,rotate
+turn the grid 90 degrees clockwise,rotate
+rotate the puzzle grid 270 degrees clockwise,rotate
+mirror the tile grid horizontally,flip_h
+perform an LR flip please.,flip_h
+reflect the pattern vertically quickly!,flip_v
+mirror the matrix UD please!,flip_v
+rotate the grid 180 degrees,rotate
+quarter turn counterclockwise for the tile grid,rotate
+turn the puzzle grid 90 degrees clockwise,rotate
+reflect the board across the horizontal axis,flip_v
+rotate by a right angle now.,rotate
+reverse the pattern UD thanks!!,flip_v
+flip the matrix across the horizontal axis please,flip_v
+half turn on the pattern,rotate
+reverse the board along the horizontal axis,flip_v
+reflect the board along the horizontal axis thanks!!,flip_v
+reverse the grid LR asap,flip_h
+mirror the board up↕down,flip_v
+invert the puzzle grid top to bottom asap!!,flip_v
+mirror the grid along the horizontal axis now!!,flip_v
+reflect the grid horizontally now,flip_h
+mirror the tile grid left to right,flip_h
+reverse the puzzle grid along the vertical axis,flip_h
+spin the tile grid 90 degrees clockwise quickly!,rotate
+mirror the grid horizontally please!!,flip_h
+invert the tile grid left↔right,flip_h
+make a top-bottom reflection on the puzzle grid,flip_v
+perform an LR flip for the grid,flip_h
+rotate the grid 90 degrees counterclockwise!,rotate
+reflect the puzzle grid left to right quickly!,flip_h
+three-quarter turn clockwise on the puzzle grid,rotate
+quarter turn counterclockwise for this grid,rotate
+make it a left-right reflection thanks,flip_h
+rotate the tile grid 270 degrees clockwise thanks!,rotate
+invert the puzzle grid across the horizontal axis,flip_v
+invert the grid LR,flip_h
+rotate by 180 degrees on the tile grid,rotate
+flip it upside down!!,flip_v
+three-quarter turn counterclockwise thanks,rotate
+three-quarter turn clockwise for the board,rotate
+mirror the matrix up↕down now!,flip_v
+rotate the pattern 90 degrees counterclockwise,rotate
+rotate by a right angle on the tile grid,rotate
+reflect the pattern along the vertical axis thanks!,flip_h
+reverse this grid across the horizontal axis now!!,flip_v
+spin the board 180 degrees quickly!!,rotate
+invert the board along the vertical axis,flip_h
+rotate by 180 degrees on the puzzle grid,rotate
+invert the matrix vertically,flip_v
+three-quarter turn clockwise on the board,rotate
+do a vertical mirror for the board,flip_v
+spin the grid 270 degrees counterclockwise now!,rotate
+reflect the tile grid UD please.,flip_v
+flip the board LR please.,flip_h
+perform a UD flip on the board,flip_v
+half turn on the matrix,rotate
+rotate the canvas 270 degrees counterclockwise,rotate
+reflect this grid along the horizontal axis,flip_v
+mirror this grid UD,flip_v
+invert the board horizontally,flip_h
+mirror the canvas up↕down,flip_v
+spin the grid 90 degrees clockwise quickly!!,rotate
+quarter turn clockwise on the tile grid,rotate
+reverse the canvas up↕down now,flip_v
+reflect the grid horizontally,flip_h
+reverse the pattern along the vertical axis,flip_h
+perform an LR flip for the pattern,flip_h
+apply a vertical flip please!!,flip_v
+turn it 90 degrees counterclockwise,rotate
+mirror the board across the horizontal axis thanks.,flip_v
+reflect the grid along the horizontal axis thanks.,flip_v
+invert the tile grid across the horizontal axis,flip_v
+spin the tile grid 180 degrees,rotate
+spin the matrix 270 degrees clockwise,rotate
+apply a horizontal flip for this grid,flip_h
+quarter turn counterclockwise for the matrix,rotate
+turn the tile grid 90 degrees clockwise,rotate
+reverse the board top to bottom asap!,flip_v
+apply a horizontal flip on the canvas,flip_h
+three-quarter turn clockwise for the canvas,rotate
+flip this grid left↔right,flip_h
+turn the tile grid 90 degrees clockwise asap!,rotate
+turn the grid 270 degrees clockwise,rotate
+mirror the grid left to right,flip_h
+spin the puzzle grid 270 degrees counterclockwise!,rotate
+flip the pattern vertically quickly,flip_v
+three-quarter turn clockwise quickly!,rotate
+do a horizontal mirror on the tile grid,flip_h
+turn the grid 180 degrees,rotate
+mirror the tile grid up↕down,flip_v
+do a vertical mirror for the canvas,flip_v
+flip the pattern across the horizontal axis thanks.,flip_v
+reflect the canvas along the vertical axis asap!!,flip_h
+flip this grid across the vertical axis asap.,flip_h
+invert the puzzle grid UD,flip_v
+flip this grid across the horizontal axis please!!,flip_v
+mirror the pattern along the horizontal axis,flip_v
+reflect this grid across the horizontal axis,flip_v
+mirror the tile grid top to bottom,flip_v
+invert the grid LR asap.,flip_h
+spin the tile grid 90 degrees clockwise,rotate
+flip the canvas LR,flip_h
+reflect the pattern across the horizontal axis,flip_v
+make it a left-right reflection on the board,flip_h
+mirror the board vertically quickly,flip_v
+mirror the pattern LR quickly.,flip_h
+spin the canvas 90 degrees clockwise,rotate
+reflect the pattern UD quickly!!,flip_v
+three-quarter turn clockwise.,rotate
+spin the pattern 90 degrees clockwise now!,rotate
+quarter turn counterclockwise for the grid,rotate
+spin the grid 90 degrees clockwise,rotate
+spin the grid 180 degrees now.,rotate
+invert the canvas left↔right,flip_h
+turn the pattern 270 degrees clockwise please,rotate
+reverse the board across the vertical axis,flip_h
+invert the grid horizontally,flip_h
+reverse the matrix left to right please!,flip_h
+reflect the matrix LR asap,flip_h
+invert the puzzle grid vertically now!,flip_v
+reflect the board left↔right thanks,flip_h
+flip the tile grid along the horizontal axis now!!,flip_v
+rotate the pattern 270 degrees counterclockwise,rotate
+do a vertical mirror for this grid,flip_v
+three-quarter turn clockwise on this grid,rotate
+turn the tile grid 270 degrees clockwise,rotate
+top-bottom mirror,flip_v
+quarter turn clockwise on the pattern,rotate
+spin the pattern 90 degrees counterclockwise now.,rotate
+flip the puzzle grid left↔right thanks.,flip_h
+invert the tile grid along the vertical axis thanks!!,flip_h
+flip the pattern across the vertical axis!!,flip_h
+reflect the tile grid up↕down,flip_v
+flip upside down,flip_v
+rotate this grid 270 degrees clockwise please!,rotate
+reverse the canvas along the horizontal axis,flip_v
+reflect the board across the vertical axis now!!,flip_h
+do a horizontal mirror quickly!!,flip_h
+invert the puzzle grid left↔right now!!,flip_h
+rotate the board 270 degrees clockwise please!!,rotate
+three-quarter turn clockwise for the grid,rotate
+mirror this grid vertically,flip_v
+reverse the board horizontally,flip_h
+mirror the matrix top to bottom now,flip_v
+mirror the canvas UD now!,flip_v
+flip the puzzle grid along the vertical axis asap.,flip_h
+flip this grid UD,flip_v
+invert the tile grid up↕down,flip_v
+invert this grid across the vertical axis,flip_h
+reverse the pattern left to right now!,flip_h
+perform an LR flip on the board,flip_h
+invert the board across the horizontal axis,flip_v
+invert this grid LR now.,flip_h
+flip the pattern along the horizontal axis thanks!!,flip_v
+rotate the pattern 90 degrees clockwise,rotate
+rotate the pattern 180 degrees asap,rotate
+flip the pattern UD,flip_v
+mirror the puzzle grid across the horizontal axis!,flip_v
+reverse the canvas left↔right now,flip_h
+turn the board 270 degrees counterclockwise asap.,rotate
+spin the puzzle grid 90 degrees counterclockwise please!!,rotate
+perform an LR flip for the matrix,flip_h
+rotate the grid 270 degrees counterclockwise now!!,rotate
+spin this grid 180 degrees,rotate
+mirror the tile grid LR now.,flip_h
+spin the board 270 degrees clockwise thanks,rotate
+turn the pattern 90 degrees counterclockwise asap.,rotate
+UD flip,flip_v
+rotate by 180 degrees please!,rotate
+rotate by 180 degrees for the canvas,rotate
+reflect the grid along the vertical axis asap.,flip_h
+reverse the canvas up↕down,flip_v
+quarter turn clockwise thanks!!,rotate
+make it a left-right reflection please.,flip_h
+flip the canvas along the horizontal axis,flip_v
+invert the matrix across the horizontal axis thanks!!,flip_v
+turn the grid 270 degrees counterclockwise now,rotate
+turn the matrix 90 degrees counterclockwise,rotate
+reverse the board top to bottom,flip_v
+quarter turn clockwise on the board,rotate
+invert the puzzle grid up↕down asap,flip_v
+rotate by a right angle for the grid,rotate
+mirror the grid across the horizontal axis,flip_v
+invert the tile grid top to bottom!!,flip_v
+invert the canvas across the vertical axis,flip_h
+do a vertical mirror on the canvas,flip_v
+apply a vertical flip for this grid,flip_v
+invert the matrix up↕down,flip_v
+half turn quickly,rotate
+mirror the grid along the horizontal axis,flip_v
+reflect the matrix along the vertical axis,flip_h
+rotate by a right angle for the pattern,rotate
+spin the matrix 270 degrees counterclockwise thanks,rotate
+apply a vertical flip on the board,flip_v
+reflect the board up↕down quickly!!,flip_v
+invert this grid left↔right thanks,flip_h
+do a horizontal mirror for this grid,flip_h
+mirror the puzzle grid across the vertical axis please!!,flip_h
+invert the pattern vertically asap!!,flip_v
+do a horizontal mirror for the board,flip_h
+flip the canvas top to bottom quickly,flip_v
+turn the puzzle grid 180 degrees now,rotate
+reverse the pattern horizontally.,flip_h
+rotate the puzzle grid 90 degrees clockwise,rotate
+reflect the matrix horizontally please!!,flip_h
+reverse the pattern horizontally,flip_h
+invert the pattern left↔right,flip_h
+three-quarter turn counterclockwise on the canvas,rotate
+quarter turn clockwise quickly,rotate
+rotate the tile grid 180 degrees thanks!!,rotate
+rotate this grid 90 degrees clockwise please.,rotate
+mirror the pattern along the horizontal axis thanks!,flip_v
+reverse this grid LR quickly.,flip_h
+invert the tile grid along the horizontal axis,flip_v
+quarter turn counterclockwise on the board,rotate
+half turn on the grid,rotate
+rotate by a right angle for the board,rotate
+mirror the board left↔right asap,flip_h
+flip the pattern along the horizontal axis,flip_v
+reverse the tile grid horizontally,flip_h
+invert the puzzle grid across the vertical axis,flip_h
+rotate the board 180 degrees.,rotate
+three-quarter turn counterclockwise for the canvas,rotate
+quarter turn clockwise now!!,rotate
+invert the matrix LR now!,flip_h
+invert the matrix UD,flip_v
+flip the puzzle grid horizontally,flip_h
+flip the tile grid top to bottom,flip_v
+reverse the grid UD please!,flip_v
+apply a horizontal flip for the pattern,flip_h
+turn the canvas 180 degrees,rotate
+reverse the board LR,flip_h
+horizontal flip,flip_h
+rotate the puzzle grid 180 degrees,rotate
+rotate this grid 270 degrees clockwise,rotate
+quarter turn counterclockwise now.,rotate
+do a vertical mirror thanks!,flip_v
+make a top-bottom reflection for the puzzle grid,flip_v
+reverse this grid horizontally quickly!,flip_h
+flip it upside down on the pattern,flip_v
+mirror the puzzle grid left to right,flip_h
+reverse the matrix left↔right asap.,flip_h
+mirror-image it horizontally on the canvas,flip_h
+mirror the pattern horizontally thanks,flip_h
+reverse the pattern LR,flip_h
+spin the tile grid 90 degrees counterclockwise thanks!!,rotate
+spin the puzzle grid 270 degrees clockwise now!,rotate
+turn the tile grid 180 degrees now,rotate
+quarter turn counterclockwise for the pattern,rotate
+reflect the canvas top to bottom,flip_v
+mirror the puzzle grid up↕down,flip_v
+spin the grid 270 degrees clockwise,rotate
+turn it 90 degrees clockwise,rotate
+flip the matrix left↔right now,flip_h
+make it a left-right reflection for the grid,flip_h
+turn the tile grid 90 degrees counterclockwise.,rotate
+three-quarter turn counterclockwise.,rotate
+rotate by 180 degrees on the pattern,rotate
+rotate the tile grid 90 degrees counterclockwise thanks,rotate
+mirror the grid across the vertical axis please.,flip_h
+reflect the puzzle grid LR now.,flip_h
+flip the canvas horizontally thanks!,flip_h
+flip it upside down for the tile grid,flip_v
+reverse the canvas vertically now!!,flip_v
+flip the matrix LR.,flip_h
+invert this grid left to right.,flip_h
+three-quarter turn counterclockwise please,rotate
+flip the board UD quickly.,flip_v
+apply a vertical flip please.,flip_v
+mirror the matrix along the horizontal axis quickly!,flip_v
+do a vertical mirror asap!!,flip_v
+rotate the canvas 90 degrees counterclockwise,rotate
+three-quarter turn counterclockwise on the board,rotate
+reflect the puzzle grid UD thanks!!,flip_v
+apply a horizontal flip on the pattern,flip_h
+reverse the grid horizontally asap,flip_h
+spin the matrix 270 degrees counterclockwise,rotate
+reflect the matrix along the vertical axis quickly.,flip_h
+quarter turn clockwise for the board,rotate
+mirror this grid LR,flip_h
+turn this grid 90 degrees clockwise,rotate
+flip the puzzle grid LR,flip_h
+flip this grid top to bottom,flip_v
+flip the board top to bottom,flip_v
+reflect this grid up↕down,flip_v

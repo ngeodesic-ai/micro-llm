@@ -1,0 +1,48 @@
+audit:
+  mode: pure        # pure | family | guided
+  template_width: 64
+  keep_fracs:
+    default: 0.7
+  alpha_max: 1.0
+  backend: wdd
+
+T: 600
+seed: 0
+
+encoder:
+  sbert: sentence-transformers/all-MiniLM-L6-v2
+prototypes:
+  source: coef
+anchors:
+  type: default
+
+defaults:
+  template_width: 64
+  z_abs: 0.55
+  keep_frac: 0.70
+
+family_overrides:
+  swap_like:
+    z_abs: 0.55
+    keep_frac: 0.72
+  deposit_like:
+    z_abs: 0.55
+    keep_frac: 0.72
+  withdraw_like:
+    z_abs: 0.58
+    keep_frac: 0.74
+  stake_like:
+    z_abs: 0.56
+    keep_frac: 0.72
+  unstake_like:
+    z_abs: 0.58
+    keep_frac: 0.74
+  borrow_like:
+    z_abs: 0.60
+    keep_frac: 0.75
+  repay_like:
+    z_abs: 0.56
+    keep_frac: 0.72
+  claim_rewards_like:
+    z_abs: 0.54
+    keep_frac: 0.70

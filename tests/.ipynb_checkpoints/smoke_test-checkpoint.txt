@@ -14,6 +14,22 @@ unset MICROLLM_DEBUG
 micro-arc --prompt "flip the grid horizontally" --rails stage11
 micro-defi --prompt "deposit 10 ETH into aave" --rails stage11 
 
+micro-defi -p "withdraw 5 ETH" --rails stage11 \
+  --policy '{"ltv_max":0.60,"audit":{"backend":"wdd"}}' \
+  --context '{"oracle":{"age_sec":5,"max_age_sec":30},"risk":{"hf":1.15}}' \
+  --verbose
+
+
+MICRO_LM_WDD_DEBUG=1 \
+python3 -m micro_lm.cli.defi_quickstart "deposit 10 ETH into aave" \
+  --rails stage11 --verbose \
+  --policy '{"audit":{"backend":"wdd"}}'
+
+python3 -m micro_lm.cli.defi_quickstart "swap 2 ETH for USDC" \
+  --rails stage11 --verbose \
+  --policy '{"audit":{"backend":"wdd","mode":"family","K":12,"template_width":64,"z_abs":0.55,"keep_frac":0.70}}'
+
+
 python3 - <<'PY'
 from micro_lm.adapters.defi.mapper import map_prompt
 for t in ["check balance", "view my positions", "what's my health factor"]:

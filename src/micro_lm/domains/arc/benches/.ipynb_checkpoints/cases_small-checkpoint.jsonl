@@ -1,0 +1,5 @@
+{"prompt": "flip the grid horizontally", "label": "flip_h"}
+{"prompt": "flip the grid vertically", "label": "flip_v"}
+{"prompt": "rotate the grid 90 degrees clockwise", "label": "rot90"}
+{"prompt": "tile the pattern into a larger grid", "label": "tile"}
+{"prompt": "translate the object one cell to the right", "label": "translate"}

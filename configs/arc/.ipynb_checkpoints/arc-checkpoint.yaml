@@ -1,0 +1,53 @@
+# Audit backend + rollout controls
+audit:
+  backend: wdd              # or "threshold" for Tier-1
+  mode: pure       # pure | family | guided
+  template_width: 64
+  keep_fracs:
+    default: 0.7
+  alpha_max: 1.0
+  
+T: 600
+seed: 0
+
+# Encoder / prototypes (optional hints; use or ignore in your loader)
+encoder:
+  sbert: sentence-transformers/all-MiniLM-L6-v2
+prototypes:
+  source: coef              # coef | centroids
+anchors:
+  type: default             # default | zeros | learned
+
+# Global defaults for families (can be overridden per family below)
+defaults:
+  template_width: 64
+  z_abs: 0.60
+  keep_frac: 0.75
+
+# Per-family overrides by NAME (families_wdd maps names → idxs)
+family_overrides:
+  rotate:
+    z_abs: 0.65
+    keep_frac: 0.80
+    template_width: 64
+  flip:
+    z_abs: 0.60
+    keep_frac: 0.75
+  color_map:
+    z_abs: 0.55
+    keep_frac: 0.70
+  translate:
+    z_abs: 0.60
+    keep_frac: 0.75
+  crop_pad:
+    z_abs: 0.58
+    keep_frac: 0.72
+  tile:
+    z_abs: 0.62
+    keep_frac: 0.78
+  rot90:
+    z_abs: 0.65
+    keep_frac: 0.80
+  cc_mask_largest:
+    z_abs: 0.60
+    keep_frac: 0.75

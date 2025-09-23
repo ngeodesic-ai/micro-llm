@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "dims": 9,
+  "whiten": true,
+  "stats": {
+    "null_mean": 0.18124428391456604,
+    "null_std": 0.1445353637204895,
+    "z_scores_mean": 0.22123441100120544,
+    "n_null": 679424
+  },
+  "chosen": {
+    "threshold": 0.10897660205432129,
+    "total": 5308.0,
+    "fired": 2844.0,
+    "abstain": 2464.0,
+    "abstain_rate": 0.4642049736247174,
+    "accuracy_on_fired": 0.7067510548523207,
+    "overall_correct": 2010.0,
+    "overall_accuracy": 0.37867370007535794
+  },
+  "outputs": {
+    "metrics_csv": ".artifacts/wdd/wdd_metrics.csv"
+  },
+  "compare_mapper_error": "No module named 'encoders'"
+}
