@@ -1,8 +1,6 @@
 # micro-lm
 
-NGF-powered micro-LMs: lightweight, domain-specific reasoning sidecars.  
 This repo is a research testbed: first for **ARC** (visual reasoning), then for a **DeFi** PoC — both built on top of the `ngeodesic` Python package.
-
 
 ---
 
