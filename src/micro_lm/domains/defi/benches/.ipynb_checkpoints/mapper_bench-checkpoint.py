@@ -30,7 +30,6 @@ python3 src/micro_lm/domains/defi/benches/mapper_bench.py \
   --thresholds 0.5,0.55,0.6,0.65,0.7 \
   --min_overall_acc 0.75 \
   --out_dir .artifacts/defi/mapper_bench
-
 """
 from __future__ import annotations
 import argparse, json, csv, time, sys
