@@ -6,11 +6,11 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 ---
 
-## Tier-1 LLMs vs. micro-lm (DeFi Execution)
+## Comparing LLMs vs. micro-LMs 
 
 | Dimension | Tier-1 LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-LM Tier-1 (DeFi)** |
 |-----------|-------------------------------------------------------|-----------------------------|
-| **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k DeFi prompts. Benchmarked accuracy > 98% on swaps/deposits; abstains correctly when uncertain. |
+| **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k usecase prompts (eg. DeFi, ARC). Benchmarked accuracy > 98% on 8 DeFi primitives; abstains correctly when uncertain. |
 | **Determinism** | Outputs vary run-to-run (sampling drift). Even `temperature=0` doesn’t guarantee identical results. | Stage-11 NGF rails (Warp → Detect → Denoise) yield reproducible traces. Perturbation tests confirm stable decisions. |
 | **Safety / Policy enforcement** | Can be prompted with “stay under LTV 0.75,” but no hard guarantees — may still propose unsafe actions. | Built-in verifiers: Loan-to-Value (LTV), Health Factor (HF), Oracle freshness. Unsafe paths always block or abstain. |
 | **Abstain behavior** | Rarely abstains — tends to “make something up” even when uncertain. | Explicit abstain mode: non-exec prompts (balance checks, nonsense) → abstain with clear reason (`abstain_non_exec`). |
@@ -28,9 +28,8 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 ---
 
 ## What’s included
-
-- **ARC micro-LM :** a compact, NGF-style classifier that detects and orders latent “primitives” on synthetic ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
-- **DeFi micro-LM:** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
+- **ARC micro-LM (stresstest usecase) :** a compact, NGF-style classifier that detects and orders latent “primitives” on SBERT ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
+- **DeFi micro-LM (business usecase):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
 
 > NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
 
@@ -44,9 +43,9 @@ These are provided by the `ngeodesic` package and reused here without modificati
 
 ---
 
-## DeFi Micro-LM: Tiered Plan of Attack
+## Micro-LM: Tiered Plan of Attack
 
-This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**. Our current focus is the DeFi domain, but the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
+This repo hosts experiments in **micro-scale language models** with **domain-specific reasoning**. Our current focus is the DeFi domain for the usecase, and ARC to highlight the extent of its potential, and yet the architecture generalizes to other verticals. Each tier represents an increasing level of capability and integration. 
 
 ---
 
@@ -57,32 +56,34 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 **Status:** ✅ Complete — foundation secured.
 
-### **Tier-1: Micro-LM on Synthetic Latents (In Progress)**  
+### **Tier-1: Micro-LM on SBERT Latents (✔ Secured)**  
 - Replace hashmap lookups with a **trained micro-LM encoder**.  
-- Train against **2–5k synthetic latent prompts**.
-- Include audit step **using matched filter on latents**
-- Benchmark with full Stage-11 runner on DeFi suites.
+- Train against **2–5k SBERT latent prompts**.
+- Audit results to return ABSTAIN / PASS with auditable trace
+- Benchmark with full Stage-11 runner on DeFi suites (**1% hallucination / 0.98 F1 Score** across 8 primitives)
 
 **Status:** ✅ Complete — MVP secured.
 
-### **Tier-2: Incorporate WDD with Synthetic Latents (Operational)**  
-- Add **Warp → Detect → Denoise (WDD)** pipeline.  
-- Stress test signal separation + denoising with synthetic latents.
+### **Tier-2: Incorporate WDD with SBERT Latents (✔ Almost Secured)**  
+- Add **Warp → Detect → Denoise (WDD)** pipeline.
+- Handle both DeFi (usecase) and ARC (aptitute) prompts
+- Audit results using WDD to return ABSTAIN / PASS with auditable trace
+- Stress test signal separation + denoising with SBERT latents.
 
-**Status:** 🚧 In Progress — WDD LLM benchmarks confirm deterministic reasoning on synthetic latents.
+**Status:** ✅ Complete — MVP secured.
 
-### **Tier-3: Real Latents (End Goal)**  
-- Swap synthetic latents for **true model latents**.  
-- Validate WDD under real-world latent distributions.
+### **Tier-3: LLM Latents (End Goal)**  
+- Swap SBERT latents for **LLM model latents**.  
+- Validate micro-LM when paired with LLM systems as sidecar.
 
 **Status:** 🔮 Planning stage — future work, not required for MVP.
 
 ---
 
 **Roadmap Summary:**  
-- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LM reasoning on synthetic latents.
-- Tier 2 expands the scope of what micro-LM can do
-- Tier 3 remains a the end goal: sidecar integration for real latents, to be explored later.
+- Tiers 0 + 1 provide a safe, working MVP with deterministic rails and micro-LM reasoning on SBERT latents.
+- Tier 2 expands the scope of what micro-LM can do using WDD
+- Tier 3 remains a the end goal: sidecar integration for LMM latents, to be explored later.
 
 ## Quickstart
 

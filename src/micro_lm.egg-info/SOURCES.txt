@@ -17,6 +17,7 @@ src/micro_lm/cli/__main__.py
 src/micro_lm/cli/defi_audit_bench.py
 src/micro_lm/cli/defi_quickstart.py
 src/micro_lm/cli/entry.py
+src/micro_lm/cli/micro_defi.py
 src/micro_lm/compat/__init__.py
 src/micro_lm/compat/legacy_imports.py
 src/micro_lm/core/__init__.py
@@ -88,7 +89,9 @@ src/micro_lm/domains/defi/benches/run_raw_defi_benchmark.py
 src/micro_lm/domains/defi/benches/train_mapper_embed.py
 src/micro_lm/domains/defi/mapper_backends/sbert_backend.py
 src/micro_lm/domains/defi/mapper_backends/wordmap_backend.py
+src/micro_lm/interfaces/__init__.py
 src/micro_lm/interfaces/intent.py
+src/micro_lm/interfaces/prompt.py
 src/micro_lm/interfaces/report.py
 src/micro_lm/interfaces/runner.py
 src/micro_lm/interfaces/verify.py

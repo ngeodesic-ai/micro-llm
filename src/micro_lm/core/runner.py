@@ -198,8 +198,8 @@ def run_micro(
     )
     if map_fn is None:
         raise AttributeError("No mapping function found on MapperAPI (expected map_prompt/map).")
-
     res = map_fn(prompt)
+    
     if isinstance(res, tuple):
         label, score, aux = res[0], float(res[1]), (res[2] or {})
     elif isinstance(res, dict):

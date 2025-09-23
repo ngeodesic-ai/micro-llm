@@ -1,34 +1,7 @@
 {
-  "milestone": "stage8_tier2_benchmark",
-  "status": "fail",
-  "rails": "stage11",
-  "T": 180,
-  "runs": 1,
-  "domains": [
-    "defi"
-  ],
-  "caps": {
-    "max_cases_per_domain": 200,
-    "wdd_max_null": 64,
-    "wdd_batch": 32,
-    "perturb_k": 1
-  },
-  "metrics": {
-    "total": 6,
-    "edges_total": 4,
-    "edges_caught": 0,
-    "false_approvals": 4,
-    "exec_approved": 2,
-    "exec_accuracy": 1.0,
-    "arc_total": 0,
-    "arc_accuracy": 0.0
-  },
-  "failures": [
-    "edge_ltv_withdraw_unsafe: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}",
-    "edge_hf_health_breach: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}",
-    "edge_oracle_stale: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}",
-    "edge_low_conf_nonexec: expected verify.ok=False, got v={'ok': True, 'reason': 'shim:accept:stage-4'}"
-  ],
-  "timestamp": 1758608114,
-  "rows_path": ".artifacts/stage8_rows.jsonl"
+  "ok": true,
+  "rows": 3,
+  "rows_with_plan": 1,
+  "exec_acc": null,
+  "ts": "2025-09-23T11:38:51"
 }

@@ -12,7 +12,17 @@ class JoblibMapperConfig:
 class JoblibMapper(IntentMapper):
     def __init__(self, cfg: JoblibMapperConfig):
         self.cfg = cfg
-        self.model = load(cfg.model_path)
+        try:
+            self.model = load(cfg.model_path)
+        except ModuleNotFoundError as e:
+            if e.name == "encoders":
+                import importlib, sys
+                alias = importlib.import_module("micro_lm.encoders")
+                sys.modules["encoders"] = alias
+                self.model = load(cfg.model_path)
+            else:
+                raise
+        
         self.classes_: List[str] = list(getattr(self.model, "classes_", []))
 
     def _probs(self, text: str) -> List[Tuple[str, float]]:
