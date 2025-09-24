@@ -19,14 +19,14 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 ---
 
 ### **Summary**
-- **Tier-1 LLMs = generalists**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical DeFi execution.  
-- **micro-lm Tier-1 = specialist**: slim, deterministic, auditable, and *more accurate where it matters* (DeFi/Finance, Manufacturing & Robotics, Industrial Robotics, Supply Chain & Logistics, Energy & Grid Management, etc).
+- **LLM = generalist**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical execution.  
+- **micro-LM = specialist**: slim, deterministic, auditable, and **more accurate where it matters** (DeFi/Finance, Manufacturing & Robotics, Industrial Robotics, Supply Chain & Logistics, Energy & Grid Management, etc).
 
 
 ---
 
 ## What’s included
-- **ARC micro-LM (stresstest usecase) :** a compact, NGF-style classifier that detects and orders latent “primitives” on SBERT ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
+- **ARC micro-LM (stress test usecase) :** a compact, NGF-style classifier that detects and orders latent “primitives” on SBERT ARC-like traces. It demonstrates the **Adapter → Detect** path and stable metrics.
 - **DeFi micro-LM (business usecase):** same skeleton, different adapter — turn market features into latent traces and reuse the exact parser/denoiser stack.
 
 > NGF’s repeatable pipeline: **Adapter → Warp → Detect → Denoise → Execute → Verify**. Here we focus on Adapter→Detect (+optional Denoise) for a small, reliable sidecar you can pair with a larger LLM.
