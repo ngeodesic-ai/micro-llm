@@ -6,7 +6,7 @@ Micro-LMs are lightweight, domain-specialized AI sidecars that run on NGF rails,
 
 ## Comparing LLMs vs. micro-LMs 
 
-| Dimension | LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-LMs (DeFi)** |
+| Dimension | LLMs (ChatGPT, Claude, Meta, Perplexity, etc.) | **micro-LMs (ARC, DeFi)** |
 |-----------|-------------------------------------------------------|-----------------------------|
 | **Domain accuracy** | Broad coverage, but DeFi primitives are not a training focus. Accuracy drifts under phrasing changes. | Mapper trained on 1k–5k usecase prompts (eg. DeFi, ARC). Benchmarked accuracy > 98% on 8 DeFi primitives; abstains correctly when uncertain. |
 | **Determinism** | Outputs vary run-to-run (sampling drift). Even `temperature=0` doesn’t guarantee identical results. | Stage-11 NGF rails (Warp → Detect → Denoise) yield reproducible traces. Perturbation tests confirm stable decisions. |
