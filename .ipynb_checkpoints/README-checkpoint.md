@@ -20,7 +20,7 @@ This repo is a research testbed: first for **ARC** (visual reasoning), then for 
 
 ### **Summary**
 - **Tier-1 LLMs = generalists**: broad knowledge, flexible language, but *stochastic and unsafe* for mission-critical DeFi execution.  
-- **micro-lm Tier-1 = specialist**: slim, deterministic, auditable, and *more accurate where it matters* (DeFi primitives, policy enforcement, reproducibility).
+- **micro-lm Tier-1 = specialist**: slim, deterministic, auditable, and *more accurate where it matters* (DeFi/Finance, Manufacturing & Robotics, Industrial Robotics, Supply Chain & Logistics, Energy & Grid Management, etc).
 
 
 ---

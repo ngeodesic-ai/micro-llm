@@ -50,18 +50,98 @@ DEFAULT_CONTEXT = {"oracle": {"age_sec": 5, "max_age_sec": 30}}
 DEFAULT_RAILS = "stage11"
 DEFAULT_T = 180
 
+# --- canonicalization: keep this, just add transfer aliases if missing ---
 def _canon_primitive(name: str) -> str:
     t = (name or "").strip().lower()
     table = {
         "swap_assets": "swap_asset",
+        "swap": "swap_asset",
         "deposit_assets": "deposit_asset",
+        "deposit": "deposit_asset",
         "withdraw_assets": "withdraw_asset",
+        "withdraw": "withdraw_asset",
         "stake_assets": "stake_asset",
+        "stake": "stake_asset",
         "unstake_assets": "unstake_asset",
+        "unstake": "unstake_asset",
         "borrow_assets": "borrow_asset",
+        "borrow": "borrow_asset",
         "repay_assets": "repay_asset",
+        "repay": "repay_asset",
+        "transfer_assets": "transfer_asset",
+        "transfer": "transfer_asset",
+        "send": "transfer_asset",
     }
     return table.get(t, t)
+
+# --- NEW: lexical fallback that understands all 8 primitives and preserves order ---
+_PRIM_LEX = {
+    "swap_asset": [
+        r"\bswap\b", r"\bconvert\b", r"\btrade\b", r"\bexchange\b",
+        r"\broute\b .* \b(uniswap|sushi|curve|balancer)\b",
+    ],
+    "deposit_asset": [
+        r"\bdeposit\b", r"\bsupply\b", r"\badd\s+liquidity\b", r"\bprovide\s+liquidity\b",
+        r"\bput\b .* \binto\b .* \b(aave|compound|maker|yearn|lido)\b",
+    ],
+    "withdraw_asset": [
+        r"\bwithdraw\b", r"\bredeem\b", r"\bremove\s+liquidity\b", r"\bunstake\s+lp\b",
+    ],
+    "borrow_asset": [
+        r"\bborrow\b", r"\btake\s+out\s+a\s+loan\b",
+    ],
+    "repay_asset": [
+        r"\brepay\b", r"\bpay\s*back\b", r"\bclose\s+loan\b",
+    ],
+    "stake_asset": [
+        r"\bstake\b", r"\bdelegate\b", r"\bbond\b",
+    ],
+    "unstake_asset": [
+        r"\bunstake\b", r"\bundelegate\b", r"\bunbond\b",
+    ],
+    "transfer_asset": [
+        r"\btransfer\b", r"\bsend\b", r"\bmove\b .* \bto\b",
+    ],
+}
+
+import re
+
+def _lexical_match_primitive(chunk: str) -> Optional[str]:
+    p = (chunk or "").lower()
+    for prim, pats in _PRIM_LEX.items():
+        for rgx in pats:
+            if re.search(rgx, p):
+                return prim
+    return None
+
+def _lexical_sequence(prompt: str) -> List[str]:
+    """
+    Parse a natural language prompt into an ordered list of primitives.
+    Very conservative: returns [] if nothing obvious is found.
+    """
+    if not prompt:
+        return []
+    text = prompt.strip()
+    # Split along soft sequencing cues while preserving order
+    parts = re.split(r"\bthen\b|->|→|;|, and then | and then ", text, flags=re.IGNORECASE)
+    seq: List[str] = []
+    seen = set()
+    for chunk in parts:
+        prim = _lexical_match_primitive(chunk)
+        if prim:
+            canon = _canon_primitive(prim)
+            if canon not in seen:
+                seen.add(canon)
+                seq.append(canon)
+    return seq
+
+def _lexical_primitive(prompt: str) -> Optional[str]:
+    """
+    Back-compat: first primitive only.
+    """
+    seq = _lexical_sequence(prompt)
+    return seq[0] if seq else None
+
 
 def _seq_hash(seq):
     s = "|".join(seq) if seq else "∅"
@@ -116,13 +196,6 @@ def _tokens_from_output(out: dict) -> str:
         pass
     return reason.strip()
 
-def _lexical_primitive(prompt: str) -> Optional[str]:
-    p = prompt.lower()
-    if "swap" in p or "convert" in p or "trade" in p:
-        return "swap_asset"
-    if "deposit" in p or "supply" in p or "add liquidity" in p:
-        return "deposit_asset"
-    return None  # withdraw/borrow/etc → do not auto-map
 
 # --- M11-compatible verify fallback (priority: ltv > hf > oracle > abstain) ---
 def _fallback_verify_from_flags(result: Dict[str, Any]) -> Dict[str, Any]:
@@ -183,12 +256,13 @@ def run_defi(prompt: str,
 
     # 2) Normalize plan to notebook contract
     seq: List[str] = (res.get("plan") or {}).get("sequence") or []
-    if not seq:  # mapper abstained or artifact missing → conservative lexical shim (deposit/swap only)
-        guess = _lexical_primitive(prompt)
-        if guess in ("deposit_asset", "swap_asset"):
-            seq = [guess]
-            
-    # NEW: canonicalize (fixes 'swap_assets' → 'swap_asset', etc.)
+    
+    # Fallback ONLY if mapper abstained or produced nothing
+    if not seq:
+        # Try ordered lexical parse with all 8 primitives
+        seq = _lexical_sequence(prompt)
+    
+    # Canonicalize just in case (mapper/runner aliases)
     seq = [_canon_primitive(s) for s in seq if s]
 
     # --- 3) Verification: combine rails + local DeFi policy checks ---
