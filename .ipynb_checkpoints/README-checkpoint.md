@@ -1,6 +1,6 @@
 # micro-lm
 
-Micro-LMs are lightweight, domain-specialized AI sidecars that run on NGF rails, turning natural language into deterministic, auditable actions with built-in safety and abstain guarantees. We are piloting this idea first on **ARC** (Abstraction & Reasoning Corpus) testing to highlight its reasoning power, then for **DeFi** (Decentralized Finance) to highlight it applicability (one of many verticals) — both built on top of the `ngeodesic` Python package.
+Micro-LMs are lightweight, domain-specialized AIs that run on NGF rails, turning natural language into deterministic, auditable actions with built-in safety and abstain guarantees. We are piloting this idea first on **ARC** (Abstraction & Reasoning Corpus) testing to highlight its reasoning power, then for **DeFi** (Decentralized Finance) to highlight it applicability (one of many verticals) — both built on top of the `ngeodesic` Python package.
 
 ---
 
