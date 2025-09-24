@@ -1,6 +1,6 @@
 # micro-lm
 
-This repo is a research testbed: first for **ARC** (visual reasoning), then for a **DeFi** PoC — both built on top of the `ngeodesic` Python package.
+This repo is a research testbed: first for **ARC** (Abstraction & Reasoning Corpus) testing, then for a **DeFi** (Decentralized Finance) — both built on top of the `ngeodesic` Python package.
 
 ---
 
