@@ -1,109 +1,91 @@
-# tests/test_wdd_arc_harness_smoke.py
-# Tiny smoke tests for the ARC Tier-2 WDD harness scaffold.
-# These tests monkeypatch the notebook-dependent functions so we can
-# verify interface + sequencing without the real encoder/warp.
+# tests/domains/arc/test_wdd_arc_harness_smoke.py
+# Smoke tests for the refactored ARC WDD harness.
+# We monkeypatch ONLY the public audit hook (wdd_arc_audit) to avoid
+# model/artifact dependencies and to keep CI deterministic.
 
-import types
+import importlib
 import numpy as np
 import pytest
 
-import importlib
-
 mod = importlib.import_module("micro_lm.domains.arc.wdd_arc_harness")
 
+@pytest.fixture
+def grid4():
+    return np.array([[3,0,1,2],
+                     [3,2,1,0],
+                     [3,2,0,5],
+                     [6,1,4,2]], dtype=int)
 
-@pytest.fixture(autouse=True)
-def _patch_notebook_deps(monkeypatch):
-    """Provide lightweight stand-ins for the notebook-specific functions so
-    the harness can run deterministically in CI.
-    """
-    rng = np.random.default_rng(0)
+def _fake_audit(selected=("flip_h","rotate")):
+    """Return a deterministic fake audit with per-class metrics."""
+    sel = list(selected)
+    # minimal per-class metrics in the shape the harness expects
+    per_class = {
+        "flip_h": {"corr_max": 0.30, "t_star": 10, "area": 1.0, "window": (5,15), "z_abs": 1.2},
+        "flip_v": {"corr_max": 0.10, "t_star": 20, "area": 0.1, "window": (18,22), "z_abs": 0.1},
+        "rotate": {"corr_max": 0.35, "t_star": 30, "area": 2.0, "window": (28,34), "z_abs": 2.0},
+    }
+    return {
+        "prompt": "stub",
+        "scores": {"rotate": 0.6, "flip_h": 0.3, "flip_v": 0.1},
+        "candidates": ["rotate", "flip_h", "flip_v"],
+        "selected": sel,
+        "per_class": per_class,
+    }
 
-    def synth_grid(cal):
-        # 4x4 toy grid with a few colors; ignore `cal`, deterministic output
-        return np.array([[3, 0, 1, 2], [3, 2, 1, 0], [3, 2, 0, 5], [6, 1, 4, 2]], dtype=int)
-
-    def toks_from_grid(grid, layer_offset):
-        # fake token stream: T x F with mild structure
-        T, F = 64, 16
-        base = rng.normal(0, 1, size=(T, F)).astype(np.float32)
-        return base
-
-    def fit_token_warp(H_list, d=3, whiten=True):
-        # minimal warp payload
-        return {"whitener": np.eye(3, dtype=np.float32), "mu": np.zeros(3, dtype=np.float32)}
-
-    def traces_from_grid(warp, grid, layer_offset):
-        # three channels with separated peaks @ t≈10, 22, 36
-        T = 64
-        t = np.arange(T)
-        def bump(mu):
-            return np.exp(-0.5 * ((t - mu) / 3.0) ** 2)
-        ch_h = bump(10)
-        ch_v = bump(22)
-        ch_r = bump(36)
-        return [ch_h.astype(np.float32), ch_v.astype(np.float32), ch_r.astype(np.float32)]
-
-    def build_priors(warp, calibrations, L, proto_w=160):
-        return {"proto_w": 25, "sigma": 5}
-
-    def prior_pass(traces, priors, *, z, rel_floor, alpha, beta_s):
-        # Simple gate: always pass and compute order by argmax
-        names = ["flip_h", "flip_v", "rotate"]
-        peaks = []
-        info = {"keep": names.copy(), "sigma": priors.get("sigma", 5), "proto_w": priors.get("proto_w", 25)}
-        for nm, ch in zip(names, traces):
-            tpk = int(np.argmax(ch))
-            peaks.append((nm, tpk))
-        info["order"] = [n for n, _ in sorted(peaks, key=lambda x: x[1])]
-        # stash representative t_peak into each channel for harness use (not strictly required)
-        info["t_peak"] = {n: t for n, t in peaks}
-        info["which_prior"] = "arc_smoke"
-        return True, info
-
-    monkeypatch.setattr(mod, "_synthesize_grid", synth_grid, raising=True)
-    monkeypatch.setattr(mod, "_get_hidden_states_from_grid", toks_from_grid, raising=True)
-    monkeypatch.setattr(mod, "_fit_token_warp", fit_token_warp, raising=True)
-    monkeypatch.setattr(mod, "_traces_from_grid", traces_from_grid, raising=True)
-    monkeypatch.setattr(mod, "_build_priors_feature_MFpeak", build_priors, raising=True)
-    monkeypatch.setattr(mod, "_wdd_prior_pass", prior_pass, raising=True)
-
-
-def test_family_mode_orders_three_primitives():
-    grid = np.array([[3, 0, 1, 2], [3, 2, 1, 0], [3, 2, 0, 5], [6, 1, 4, 2]], dtype=int)
-    policy = {"audit": {"mode": "family"}}
+def test_family_mode_uses_selected_order(monkeypatch, grid4):
+    # selected order should become plan.sequence in family mode
+    monkeypatch.setattr(mod, "wdd_arc_audit", lambda *a, **k: _fake_audit(("rotate","flip_v")))
     out = mod.run_arc_wdd(
-        prompt="flip the grid horizontally then rotate it",
-        grid=grid,
-        policy=policy,
+        prompt="rotate then flip vertically",
+        grid=grid4,
+        policy={"audit": {"mode": "family"}},
         sequence=None,
         debug=False,
     )
-
     assert out["domain"] == "arc"
     assert out["verify"]["ok"] is True
-    seq = out["plan"]["sequence"]
-    # Expect chronological order: flip_h -> flip_v -> rotate based on synthetic peaks
-    assert seq == ["flip_h", "flip_v", "rotate"], f"bad order: {seq}"
-
-    # WDD summary should report PASS with all three kept
+    assert out["plan"]["sequence"] == ["rotate", "flip_v"]  # family mode uses keep_order
+    # summary reflects the same order and keep set
     summ = out["wdd_summary"]
     assert summ["decision"] == "PASS"
-    assert set(summ["keep"]) == {"flip_h", "flip_v", "rotate"}
+    assert summ["order"] == ["rotate", "flip_v"]
+    assert summ["keep"] == ["rotate", "flip_v"]
 
-
-def test_detector_mode_keeps_but_no_plan():
-    grid = np.array([[1, 2], [3, 4]], dtype=int)
-    policy = {"audit": {"mode": "detector"}}
+def test_detector_mode_keeps_but_no_plan(monkeypatch, grid4):
+    # In detector mode, plan.sequence must be empty but summary.keep mirrors selection
+    monkeypatch.setattr(mod, "wdd_arc_audit", lambda *a, **k: _fake_audit(("flip_h","rotate")))
     out = mod.run_arc_wdd(
-        prompt="rotate the grid 90 degrees",
-        grid=grid,
-        policy=policy,
+        prompt="flip then rotate",
+        grid=grid4,
+        policy={"audit": {"mode": "detector"}},
         sequence=None,
         debug=False,
     )
+    assert out["plan"]["sequence"] == []  # detector mode -> no plan
+    assert out["verify"]["ok"] is True
+    # but the WDD summary still reports what was kept
+    summ = out["wdd_summary"]
+    assert summ["keep"] == ["flip_h","rotate"]
+    assert summ["order"] == []  # detector mode -> no order
 
-    # In detector mode, plan.sequence should be empty even if detection keeps things
-    assert out["plan"]["sequence"] == []
-    # But summary should still have keep list
-    assert set(out["wdd_summary"]["keep"]) == {"flip_h", "flip_v", "rotate"}
+def test_results_map_shape_and_ok_flags(monkeypatch, grid4):
+    # Validate aux map structure and ok flags per primitive
+    monkeypatch.setattr(mod, "wdd_arc_audit", lambda *a, **k: _fake_audit(("flip_h","rotate")))
+    out = mod.run_arc_wdd(
+        prompt="flip then rotate",
+        grid=grid4,
+        policy={"audit": {"mode": "family"}},
+        sequence=None,
+        debug=False,
+    )
+    results = out["aux"]["stage11"]["wdd"]["arc"]["results"]
+    # keys present
+    assert set(results.keys()) == {"flip_h","flip_v","rotate"}
+    # ok flags align with selection
+    assert results["flip_h"]["ok"] is True
+    assert results["rotate"]["ok"] is True
+    assert results["flip_v"]["ok"] is False
+    # minimal metrics present
+    r = results["rotate"]["info"]
+    assert "t_peak" in r and "corr_max" in r and "area" in r and "window" in r and "z_abs" in r

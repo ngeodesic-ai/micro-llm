@@ -85,60 +85,200 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 
 ## Quickstart
 
+### Test DeFi Prompt
+
 ``` python
-from micro_lm.core.runner import run_micro
-
-# Example prompt
-prompt = "deposit 10 ETH into aave"
-
-# Minimal policy & context
-policy = {
-    "mapper": {
-        "model_path": ".artifacts/defi_mapper.joblib",
-        "confidence_threshold": 0.5,
-    }
-}
-context = {}
-
-# Run through micro-lm pipeline
-out = run_micro(
-    domain="defi",
-    prompt=prompt,
-    context=context,
-    policy=policy,
-    rails="stage11",
-    T=180,
-    backend="wordmap",   # or "sbert"
-)
-
-print(out)
+micro-defi -p "deposit 10 ETH into aave" \
+  --rails stage11 \
+  --policy '{"audit":{"backend":"wdd"},"mapper":{"confidence_threshold":-1.0}}' \
+  --verbose
 ```
 
-------------------------------------------------------------------------
-
-### ✅ Example Output
+#### ✅ Example Output
 
 ``` python
 {
-  'ok': True,
-  'label': 'deposit_asset',
-  'score': 0.71,
-  'reason': 'shim:accept:stage-4',
-  'artifacts': {
-    'mapper': {
-      'score': 0.71,
-      'reason': 'heuristic:deposit',
-      'aux': {'reason': 'heuristic:deposit'}
-    },
-    'verify': {
-      'ok': True,
-      'reason': 'shim:accept:stage-4'
-    },
-    'schema': {
-      'v': 1,
-      'keys': ['mapper', 'verify']
+  "prompt": "deposit 10 ETH into aave",
+  "domain": "defi",
+  "rails": "stage11",
+  "T": 180,
+  "top1": "deposit_asset",
+  "sequence": [
+    "deposit_asset"
+  ],
+  "plan": {
+    "sequence": [
+      "deposit_asset"
+    ]
+  },
+  "verify": {
+    "ok": true,
+    "reason": "shim:accept:stage-4",
+    "tags": [
+      "rails:stage11",
+      "wdd:on",
+      "audit:wdd"
+    ]
+  },
+  "flags": {},
+  "aux": {
+    "stage11": {
+      "wdd": {
+        "decision": "PASS",
+        "sigma": 4,
+        "proto_w": 13,
+        "which_prior": "deposit(L-5)",
+        "mf_peak": 6.953530481900707,
+        "keep": []
+      }
     }
-  }
+  },
+  "det_hash": "f1378c645f25",
+  "wdd_summary": {
+    "decision": "PASS",
+    "keep": [],
+    "sigma": 4,
+    "proto_w": 13,
+    "which_prior": "deposit(L-5)",
+    "note": "fallback: MF_peak=6.953530481900707"
+  },
+  "abstained": false
+}
+```
+------------------------------------------------------------------------
+
+### Test ARC Prompt
+
+``` python
+micro-arc -p "rotate the grid 90 degrees, then flip the grid vertically" \
+    --grid '[[1,2],[3,4]]' \
+    --rails stage11 \
+    --policy '{"audit":{"backend":"wdd"},"mapper":{"confidence_threshold":-1.0}}' \
+    --verbose
+```
+
+#### ✅ Example Output
+
+``` python
+{
+  "prompt": "rotate the grid 90 degrees, then flip the grid vertically",
+  "domain": "arc",
+  "rails": "stage11",
+  "T": 180,
+  "top1": null,
+  "sequence": [],
+  "plan": {
+    "sequence": []
+  },
+  "verify": {
+    "ok": true,
+    "reason": "shim:accept:stage-4",
+    "tags": [
+      "audit:wdd",
+      "rails:stage11",
+      "wdd:on"
+    ]
+  },
+  "flags": {
+    "wdd_family": false
+  },
+  "aux": {
+    "stage11": {
+      "wdd": {
+        "arc": {
+          "mode": "detector",
+          "results": {
+            "flip_h": {
+              "ok": false,
+              "info": {
+                "t_peak": {
+                  "flip_h": 8
+                },
+                "corr_max": 0.31952728711321754,
+                "area": 5.187295037956119e-12,
+                "window": [
+                  1,
+                  19
+                ],
+                "z_abs": -0.5486818421429215,
+                "sigma": null,
+                "proto_w": null,
+                "which_prior": "arc:flip_h"
+              },
+              "which": "flip_h",
+              "layer": null,
+              "mf_peak": 0.31952728711321754
+            },
+            "flip_v": {
+              "ok": true,
+              "info": {
+                "t_peak": {
+                  "flip_v": 64
+                },
+                "corr_max": 0.45721985028076,
+                "area": 1.0890134473208314e-11,
+                "window": [
+                  39,
+                  88
+                ],
+                "z_abs": 0.8531804989704017,
+                "sigma": null,
+                "proto_w": null,
+                "which_prior": "arc:flip_v"
+              },
+              "which": "flip_v",
+              "layer": null,
+              "mf_peak": 0.45721985028076
+            },
+            "rotate": {
+              "ok": true,
+              "info": {
+                "t_peak": {
+                  "rotate": 0
+                },
+                "corr_max": 0.28304979559563553,
+                "area": 1.7010950696184626,
+                "window": [
+                  0,
+                  8
+                ],
+                "z_abs": -2.903935438960599,
+                "sigma": null,
+                "proto_w": null,
+                "which_prior": "arc:rotate"
+              },
+              "which": "rotate",
+              "layer": null,
+              "mf_peak": 0.28304979559563553
+            }
+          }
+        }
+      }
+    }
+  },
+  "det_hash": "73c8ffe9553f",
+  "wdd_summary": {
+    "decision": "PASS",
+    "keep": [
+      "rotate",
+      "flip_v"
+    ],
+    "order": [],
+    "which_prior": {
+      "rotate": "arc:rotate",
+      "flip_v": "arc:flip_v"
+    },
+    "sigma": {
+      "rotate": null,
+      "flip_v": null
+    },
+    "proto_w": {
+      "rotate": null,
+      "flip_v": null
+    },
+    "note": "mode=detector"
+  },
+  "abstained": true
 }
 ```
 

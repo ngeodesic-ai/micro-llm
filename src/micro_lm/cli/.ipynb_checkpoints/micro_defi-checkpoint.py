@@ -2,7 +2,8 @@
 from __future__ import annotations
 import argparse, json, os, sys
 from typing import Any, Dict
-from micro_lm.cli.defi_quickstart import quickstart
+from micro_lm.interfaces.defi_prompt import run_defi
+# from micro_lm.interfaces.arc_prompt import run_arc
 
 def _parse_json(label: str, s: str | None) -> Dict[str, Any]:
     if not s:
@@ -37,7 +38,7 @@ def main() -> None:
     if args.verbose:
         os.environ.setdefault("MICRO_LM_WDD_DEBUG", "1")
 
-    out = quickstart(
+    out = run_defi(
         prompt=prompt,
         policy=pol,
         context=ctx,

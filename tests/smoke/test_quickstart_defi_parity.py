@@ -1,6 +1,6 @@
 # tests/test_quickstart_defi_parity.py
 import json
-from micro_lm.cli.defi_quickstart import quickstart
+from micro_lm.interfaces.defi_prompt import run_defi
 
 def _shape_only(d):
     assert set(d.keys()) == {"plan", "verify"}
@@ -11,19 +11,19 @@ def _shape_only(d):
     assert isinstance(d["verify"]["reason"], str)
 
 def test_deposit_maps_and_verifies_ok():
-    out = quickstart("deposit 10 ETH into aave")
+    out = run_defi("deposit 10 ETH into aave")
     _shape_only(out)
     assert out["plan"]["sequence"][:1] == ["deposit_asset"]
     assert out["verify"]["ok"] is True
 
 def test_swap_maps_and_verifies_ok():
-    out = quickstart("swap 2 ETH for USDC")
+    out = run_defi("swap 2 ETH for USDC")
     _shape_only(out)
     assert out["plan"]["sequence"][:1] == ["swap_asset"]
     assert out["verify"]["ok"] is True
 
 def test_withdraw_ltv_edge_abstains_or_blocks():
-    out = quickstart(
+    out = run_defi(
         "withdraw 5 ETH",
         policy={"ltv_max": 0.60},                          # stricter to trigger block
         context={"oracle": {"age_sec": 5, "max_age_sec": 30}, "risk": {"hf": 1.15}}

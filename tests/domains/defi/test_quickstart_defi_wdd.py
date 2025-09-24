@@ -1,5 +1,5 @@
 import os
-from micro_lm.cli.defi_quickstart import quickstart
+from micro_lm.interfaces.defi_prompt import run_defi
 
 def test_wdd_detector_activity_deposit(monkeypatch):
     """
@@ -9,7 +9,7 @@ def test_wdd_detector_activity_deposit(monkeypatch):
     # turn on harness debug (stderr) but we don't assert on it
     monkeypatch.setenv("MICRO_LM_WDD_DEBUG", "1")
 
-    out = quickstart(
+    out = run_defi(
         "deposit 10 ETH into aave",
         rails="stage11",
         use_wdd=True,
