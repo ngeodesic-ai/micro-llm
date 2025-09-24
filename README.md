@@ -284,38 +284,6 @@ micro-arc -p "rotate the grid 90 degrees, then flip the grid vertically" \
 
 ------------------------------------------------------------------------
 
-### 🔎 Output Breakdown
-
-#### Top-level fields
-
--   **`ok: True`** → Overall run succeeded, action allowed.\
--   **`label: 'deposit_asset'`** → Canonical intent chosen.\
--   **`score: 0.71`** → Mapper's confidence.\
--   **`reason: 'shim:accept:stage-4'`** → Accepted by Stage-4 rails
-    shim.
-
-### Artifacts
-
--   **`mapper`**
-    -   Raw mapper result.\
-    -   Score + heuristic reason.
--   **`verify`**
-    -   Rails/audit check result.\
-    -   `ok=True` → passed safety/policy.
--   **`schema`**
-    -   Metadata about which artifact keys exist.
-
-------------------------------------------------------------------------
-
-## 🧩 Interpretation
-
-This tells us:\
-1. Prompt looked like a **deposit**.\
-2. Mapper classified with \~71% confidence.\
-3. Audit/rails verifier confirmed no violations.\
-4. Final decision → **allow**, with `deposit_asset` as the action.
-
-
 ## Install
 
 ```bash
