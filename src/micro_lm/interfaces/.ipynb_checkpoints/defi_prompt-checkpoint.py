@@ -135,7 +135,7 @@ def _reason_from_flags(flags: dict) -> str | None:
         return "oracle_stale"
     return None
 
-def quickstart(prompt: str,
+def run_defi(prompt: str,
                policy: Dict[str, Any] | None = None,
                context: Dict[str, Any] | None = None,
                rails: str = DEFAULT_RAILS,

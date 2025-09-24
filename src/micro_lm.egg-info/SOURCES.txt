@@ -14,9 +14,11 @@ src/micro_lm/adapters/simple_context.py
 src/micro_lm/benches/sweep.py
 src/micro_lm/cli/__init__.py
 src/micro_lm/cli/__main__.py
+src/micro_lm/cli/arc_quickstart.py
 src/micro_lm/cli/defi_audit_bench.py
 src/micro_lm/cli/defi_quickstart.py
 src/micro_lm/cli/entry.py
+src/micro_lm/cli/micro_arc.py
 src/micro_lm/cli/micro_defi.py
 src/micro_lm/compat/__init__.py
 src/micro_lm/compat/legacy_imports.py
@@ -60,6 +62,7 @@ src/micro_lm/domains/arc/runner.py
 src/micro_lm/domains/arc/schema.py
 src/micro_lm/domains/arc/solver.py
 src/micro_lm/domains/arc/verify_local.py
+src/micro_lm/domains/arc/wdd_arc_harness.py
 src/micro_lm/domains/arc/benches/gen_labeled_arc.py
 src/micro_lm/domains/arc/benches/train_arc_mapper.py
 src/micro_lm/domains/arc/benches/train_arc_mapper_embed.py
@@ -90,8 +93,9 @@ src/micro_lm/domains/defi/benches/train_mapper_embed.py
 src/micro_lm/domains/defi/mapper_backends/sbert_backend.py
 src/micro_lm/domains/defi/mapper_backends/wordmap_backend.py
 src/micro_lm/interfaces/__init__.py
+src/micro_lm/interfaces/arc_prompt.py
+src/micro_lm/interfaces/defi_prompt.py
 src/micro_lm/interfaces/intent.py
-src/micro_lm/interfaces/prompt.py
 src/micro_lm/interfaces/report.py
 src/micro_lm/interfaces/runner.py
 src/micro_lm/interfaces/verify.py

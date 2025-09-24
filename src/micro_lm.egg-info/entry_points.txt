@@ -1,2 +1,3 @@
 [console_scripts]
+micro-arc = micro_lm.cli.micro_arc:main
 micro-defi = micro_lm.cli.micro_defi:main

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict, Any, List, Optional
 import json, argparse, os
 from micro_lm.core.runner import run_micro  # public in module map
-from micro_lm.interfaces.prompt import quickstart  # public in module map
+from micro_lm.interfaces.defi_prompt import run_defi  # public in module map
 from micro_lm.domains.defi.verify_local import verify_action_local  # package map shows it's exported
 import hashlib
 
@@ -22,7 +22,7 @@ def main():
 
     policy = json.loads(args.policy) if args.policy else None
     context = json.loads(args.context) if args.context else None
-    out = quickstart(
+    out = run_defi(
         args.prompt,
         policy=policy,
         context=context,

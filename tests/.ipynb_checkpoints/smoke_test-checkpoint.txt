@@ -25,6 +25,23 @@ python3 -m micro_lm.cli.defi_quickstart "deposit 10 ETH into aave" \
   --rails stage11 --verbose \
   --policy '{"audit":{"backend":"wdd"}}'
 
+python3 -m micro_lm.cli.arc_quickstart \
+  --prompt "flip the grid horizontally then rotate it" \
+  --grid '[[3,0,1,2],[3,2,1,0],[3,2,0,5],[6,1,4,2]]' \
+  --mode family \
+  --rails stage11 \
+  --verbose \
+  --policy_json '{"audit":{"backend":"wdd"}}'
+
+python3 -m micro_lm.cli.arc_quickstart \
+  --prompt "rotate the grid 90 degrees clockwise, then flip it horizontally" \
+  --grid '[[3,0,1,2],[3,2,1,0],[3,2,0,5],[6,1,4,2]]' \
+  --mode family \
+  --rails stage11 \
+  --verbose \
+  --policy_json '{"audit":{"backend":"wdd"}}'
+
+
 python3 -m micro_lm.cli.defi_quickstart "swap 2 ETH for USDC" \
   --rails stage11 --verbose \
   --policy '{"audit":{"backend":"wdd","mode":"family","K":12,"template_width":64,"z_abs":0.55,"keep_frac":0.70}}'
