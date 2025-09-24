@@ -1,3 +1,24 @@
+"""
+# ==============================================================================
+# Apache 2.0 License (ngeodesic.ai)
+# ==============================================================================
+# Copyright 2025 Ian C. Moore (Provisional Patents #63/864,726, #63/865,437, #63/871,647 and #63/872,334)
+# Email: ngeodesic@gmail.com
+# Part of Noetic Geodesic Framework (NGF)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""
+
 # src/micro_lm/core/runner.py
 from dataclasses import dataclass
 from typing import Dict
@@ -40,6 +61,7 @@ def _intent_to_primitive(intent: str) -> str:
         "claim_rewards": "claim_rewards_asset",
     }
     return table.get(t, t)
+
 
 
 def _latent_triplet_if_available(mapper, prompt: str, *, context: dict, rails: str):
@@ -263,19 +285,25 @@ def run_micro(
     }
     
     # --- Add verify block for quickstart contract ---
-    out["verify"] = {"ok": bool(verify.get("ok", False)), "reason": str(verify.get("reason", "verified"))}
-    
-    # --- Minimal plan for downstream consumers (quickstart expects plan.sequence) ---
-    out["plan"] = {"sequence": [label] if label and label != "abstain" else []}
-    
-    
+    # out["verify"] = {"ok": bool(verify.get("ok", False)), "reason": str(verify.get("reason", "verified"))}
+ 
     # --- WDD detector (only when audit backend == "wdd") ---
+
+    # Canonical top-1 primitive for downstream use
+    seq_canon = []
+    if label and label != "abstain":
+        seq_canon = [_intent_to_primitive(label)]
+    
     audit_cfg = (policy or {}).get("audit") or {}
     if str(audit_cfg.get("backend", "")).lower() == "wdd":
         try:
+
+            # --- Minimal plan for downstream consumers (quickstart expects plan.sequence) ---
+            # out["plan"] = {"sequence": [label] if label and label != "abstain" else []}
+            
             wdd = wdd_detect(
                 prompt=prompt,
-                sequence=out["plan"]["sequence"],
+                sequence=seq_canon,
                 policy=policy,
                 context=context,
                 pca_prior=audit_cfg.get("pca_prior"),
