@@ -63,19 +63,31 @@ This repo hosts experiments in **micro-scale language models** with **domain-spe
 **Status:** ✅ Complete — MVP secured.
 
 ### **Tier-2: Incorporate WDD with SBERT Latents (✔ Secured)**  
-- Add **Warp → Detect → Denoise (WDD)** pipeline.
-- Handle both DeFi (usecase) and ARC (aptitute) prompts
-- Audit results using WDD to return ABSTAIN / PASS with auditable trace
-- Stress test signal separation + denoising with SBERT latents.
+The current release implements **Warp → Detect → Denoise (WDD)** on SBERT embeddings.
+- Core Features
+    - Deterministic mapper + verifier with abstain-first behavior.
+    - Handles both DeFi prompts (financial primitives) and ARC prompts (cognitive/aptitude tasks).
+    - Auditable traces: every PASS/ABSTAIN decision includes reasons + confidence.
+    - Stress-tested on SBERT latents: validated signal separation + denoising.
+
+- Status: ✅ Complete — Tier-2 is fully open under Apache 2.0.
+- Purpose: **Community adoption**, rapid prototyping, “good enough” safety for startups and early-stage use.
 
 **Status:** ✅ Complete — WWD secured.
 
-### **Tier-3: LLM Latents (End Goal)**  
-- Swap SBERT latents for **LLM model latents**.  
-- Validate micro-LM when paired with LLM systems as sidecar.
+### **Tier-3: LLM Latents + WDD (🔮 Future / Enterprise)**  
+The end-goal is to extend WDD beyond SBERT into large language model hidden states.
+- Planned Features
+    - Swap SBERT latents for LLM internal latents.
+    - Apply WDD rails to noisy LLM embeddings → restore determinism.
+    - Package as a sidecar system: LLM provides fluency, micro-LM provides deterministic safety.
+    - Designed for enterprise use: auditability, compliance, SLAs.
+- Status: 🔮 Planning stage — not required for MVP, proprietary development path.
+- Purpose: **Enterprise-grade “gold standard”**: fuses the best of LLM + micro-LM under one roof.
 
-**Status:** 🔮 Planning stage — future work, not required for MVP.
-
+#### Licensing
+- Tier-1 / Tier-2 code in this repo is released under Apache 2.0.
+- Tier-3 integrations (LLM latents + WDD) are proprietary and not part of this release.
 ---
 
 **Roadmap Summary:**  
