@@ -82,6 +82,7 @@ The end-goal is to extend WDD beyond SBERT into large language model hidden stat
     - Apply WDD rails to noisy LLM embeddings → restore determinism.
     - Package as a sidecar system: LLM provides fluency, micro-LM provides deterministic safety.
     - Designed for enterprise use: auditability, compliance, SLAs.
+    
 - Status: 🔮 Planning stage — not required for MVP, proprietary development path.
 - Purpose: **Enterprise-grade “gold standard”**: fuses the best of LLM + micro-LM under one roof.
 
