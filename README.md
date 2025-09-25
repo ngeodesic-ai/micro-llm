@@ -71,7 +71,7 @@ The current release implements **Warp → Detect → Denoise (WDD)** on SBERT em
     - Stress-tested on SBERT latents: validated signal separation + denoising.
 
 - Status: ✅ Complete — Tier-2 is fully open under Apache 2.0.
-- Purpose: **Community adoption**, rapid prototyping, “good enough” safety for startups and early-stage use.
+- Purpose: **Community adoption**, rapid prototyping, deterministic & auditable safety (but scoped) for startups and early-stage use.
 
 **Status:** ✅ Complete — WWD secured.
 
