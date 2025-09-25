@@ -71,7 +71,7 @@ The current release implements **Warp → Detect → Denoise (WDD)** on SBERT em
     - Stress-tested on SBERT latents: validated signal separation + denoising.
 
 - Status: ✅ Complete — Tier-2 is fully open under Apache 2.0.
-- Purpose: **Community adoption**, rapid prototyping, deterministic & auditable safety (but scoped) for startups and early-stage use.
+- Purpose: **Community Edition**, rapid prototyping, deterministic & auditable safety (but scoped) for startups and early-stage use.
 
 **Status:** ✅ Complete — WWD secured.
 
@@ -84,7 +84,7 @@ The end-goal is to extend WDD beyond SBERT into large language model hidden stat
     - Designed for enterprise use: auditability, compliance, SLAs.
     
 - Status: 🔮 Planning stage — not required for MVP, proprietary development path.
-- Purpose: **Enterprise-grade “gold standard”**: fuses the best of LLM + micro-LM under one roof.
+- Purpose: **Enterprise Edition**: fuses the best of LLM + micro-LM under one roof.
 
 #### Licensing
 - Tier-1 / Tier-2 code in this repo is released under Apache 2.0.
