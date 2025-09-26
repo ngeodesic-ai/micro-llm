@@ -4,12 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "micro-lm"
-version = "0.1.0"
-requires-python = ">=3.10"
+version = "0.1.1"
 description = "Trust layer for domain-specific AI"
-license = "Apache-2.0"              
-authors = [{ name = "Ian C. Moore" }]
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"   
 license-files = ["LICENSE"] 
+authors = [
+  { name="Ian C. Moore" }
+]
+keywords = ["micro-llm", "ai", "defi", "deterministic", "ngf"]
 
 [tool.setuptools.packages.find]
 where = ["src"]   # auto-discovers micro_lm, micro_lm.core, etc.
@@ -20,6 +24,10 @@ package-dir = {"" = "src"}
 [project.scripts]
 micro-defi = "micro_lm.cli.micro_defi:main"
 micro-arc = "micro_lm.cli.micro_arc:main"
+
+[project.urls]
+"Homepage" = "https://github.com/ngeodesic-ai/micro-lm"
+"Documentation" = "https://ngeodesic.readthedocs.io/"
 
 [project.optional-dependencies]
 sbert = [
