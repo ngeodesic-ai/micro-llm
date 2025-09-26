@@ -215,4 +215,3 @@ qa|rag       → retrieve_and_answer
 ---
 
 > Keep this doc open while we integrate ARC. We’ll add ARC’s concrete policy keys (e.g., citation coverage) and examples as we wire them.
-

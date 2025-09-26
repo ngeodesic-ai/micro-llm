@@ -1,6 +1,9 @@
 Metadata-Version: 2.4
 Name: micro-lm
-Version: 0.0.0a0
+Version: 0.1.0
+Summary: Trust layer for domain-specific AI
+Author: Ian C. Moore
+License-Expression: Apache-2.0
 Requires-Python: >=3.10
 License-File: LICENSE
 Provides-Extra: sbert

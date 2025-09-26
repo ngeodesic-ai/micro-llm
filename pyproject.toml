@@ -4,8 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "micro-lm"
-version = "0.0.0a0"
+version = "0.1.0"
 requires-python = ">=3.10"
+description = "Trust layer for domain-specific AI"
+license = "Apache-2.0"              
+authors = [{ name = "Ian C. Moore" }]
+license-files = ["LICENSE"] 
 
 [tool.setuptools.packages.find]
 where = ["src"]   # auto-discovers micro_lm, micro_lm.core, etc.
